@@ -24,7 +24,8 @@ fetch('data.json')
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
 // Gestione dell'installazione PWA
-let deferredPrompt;
+let deferredPrompt; // Dichiarata una sola volta
+
 const installButton = document.createElement('button');
 installButton.textContent = 'Installa';
 

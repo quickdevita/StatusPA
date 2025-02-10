@@ -63,8 +63,8 @@
     background: rgba(255, 255, 255, 0.7) !important; /* Sfondo traslucido per visibilità */
     border-radius: 5px !important;
     padding: 5px !important;
-    display: block !important; /* Forza la visibilità */
     visibility: visible !important; /* Forza la visibilità */
+    display: block !important;  /* Forza visibilità */
   }
 
   /* Personalizzazione dei pulsanti di zoom */
@@ -99,10 +99,4 @@
   .leaflet-control-zoom {
     display: none !important;
   }
-}
-
-/* Forzatura della visibilità dei pulsanti di zoom in tutti i casi */
-.leaflet-control-zoom {
-  visibility: visible !important;
-  display: block !important; /* Forza visibilità anche in caso di problemi di rendering */
 }

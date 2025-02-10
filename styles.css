@@ -55,12 +55,37 @@
 /* Spostamento dei pulsanti di zoom in basso a sinistra */
 .leaflet-control-zoom {
   position: absolute !important;
-  bottom: 20px;
-  left: 20px;
-  z-index: 1000; /* Assicura che i pulsanti di zoom siano sopra la mappa */
-  background: rgba(255, 255, 255, 0.7); /* Aggiungiamo uno sfondo leggero per migliorare la visibilità */
-  border-radius: 5px; /* Aggiungiamo bordi arrotondati */
-  padding: 5px;
+  bottom: 20px !important;
+  left: 20px !important;
+  z-index: 1000 !important; /* Assicura che i pulsanti siano sopra la mappa */
+  background: rgba(255, 255, 255, 0.7) !important; /* Sfondo traslucido per visibilità */
+  border-radius: 5px !important;
+  padding: 5px !important;
+}
+
+/* Personalizzazione dei pulsanti di zoom */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 50% !important;
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 18px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.leaflet-control-zoom-in:focus,
+.leaflet-control-zoom-out:focus {
+  outline: none !important;
 }
 
 /* Rimuovi margini e padding su dispositivi mobili */
@@ -81,3 +106,4 @@
     left: 10px;
   }
 }
+

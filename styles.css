@@ -1,5 +1,5 @@
 /* Stile della barra di ricerca */
-.search-bar {
+.search-container {
   position: absolute;
   top: 10px;
   left: 50%;
@@ -15,7 +15,7 @@
   z-index: 9999;
 }
 
-.search-bar input {
+.search-container input {
   width: 90%;
   padding: 8px 15px;
   border: none;
@@ -24,20 +24,20 @@
   outline: none;
 }
 
-.search-bar input:focus {
+.search-container input:focus {
   box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
 }
 
-.search-bar button {
+.search-container button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 10px;
 }
 
-.search-bar button img {
-  width: 20px;
-  height: 20px;
+.search-container button span.material-icons {
+  font-size: 24px;
+  color: #333;
 }
 
 /* Mappa */

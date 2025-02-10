@@ -30,15 +30,12 @@ const installButton = document.createElement('button');
 installButton.textContent = 'Installa';
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Impediamo che il prompt venga mostrato automaticamente
   e.preventDefault();
   deferredPrompt = e;
 
-  // Mostriamo un bottone personalizzato per l'installazione
   document.body.appendChild(installButton);
 
   installButton.addEventListener('click', () => {
-    // Mostriamo il prompt di installazione
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
@@ -51,10 +48,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
   });
 });
 
-// Registrazione del Service Worker
+// Registrazione del Service Worker con percorso assoluto
 if ('serviceWorker' in navigator) {
-  // Modifica il percorso del Service Worker
-  navigator.serviceWorker.register('./service-worker.js') // Usando './' per un percorso relativo
+  navigator.serviceWorker.register('/StatusPA/service-worker.js') // Cambiato percorso
     .then(function(registration) {
       console.log('Service Worker registrato con successo:', registration);
     })

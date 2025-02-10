@@ -18,31 +18,7 @@
   
   <!-- JS di Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  
-  <!-- Script Firebase -->
-  <script type="module">
-    // Importa le funzioni necessarie dal Firebase SDK
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
-
-    // Configurazione Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyCqg08YuE7rpAkn3lrebfmJxo8ZGoOWw-g",
-      authDomain: "statuspa-48f68.firebaseapp.com",
-      projectId: "statuspa-48f68",
-      storageBucket: "statuspa-48f68.firebasestorage.app",
-      messagingSenderId: "1066110995598",
-      appId: "1:1066110995598:web:575e032fcc527f509f8ddf",
-      measurementId: "G-BJNF795Z26"
-    };
-
-    // Inizializzazione di Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app); // Ottieni Firestore
-  </script>
-
-  <!-- Script principale come modulo -->
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
   
   <!-- Gestione del prompt di installazione PWA -->
   <script>
@@ -76,6 +52,7 @@
   <!-- Registrazione del Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
+      // Modifica il percorso del Service Worker
       navigator.serviceWorker.register('./service-worker.js') // Usando './' per un percorso relativo
         .then(function(registration) {
           console.log('Service Worker registrato con successo:', registration);

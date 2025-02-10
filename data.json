@@ -49,6 +49,18 @@
     "info": "Lavori in completamento per nuova fermata Metro."
   },
   {
+    "name": "Piscina",
+    "coordinates": [
+      [38.14993785544158, 13.342458018935645],
+      [38.14925899008563, 13.342851280194765],
+      [38.149764368229285, 13.344232490467846],
+      [38.15037911453433, 13.343906371376391],
+      [38.14993785544158, 13.342458018935645]
+    ],
+    "color": "yellow",
+    "info": "Lavori di manutenzione piscina"
+  },  
+  {
     "name": "Restyling Giardino Inglese",
     "coordinates": [
       [38.352347435971808, 13.1341900598911],

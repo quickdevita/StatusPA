@@ -1,12 +1,12 @@
-/* Impostazioni di base per il corpo della pagina */
-body {
+body, html {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   font-family: Arial, sans-serif;
 }
 
-/* Impostazioni per la mappa */
 #map {
-  height: 100vh; /* La mappa occuperà tutta l'altezza dello schermo */
-  width: 100%;   /* La mappa occuperà tutta la larghezza dello schermo */
+  width: 100%;
+  height: 100vh;
 }

@@ -11,21 +11,19 @@
 
   <!-- CSS di Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-  <!-- JavaScript di Leaflet -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
   <!-- Contenitore per la mappa -->
   <div id="map"></div>
   
-  <!-- Script principale -->
-  <script src="script.js" defer></script>
+  <!-- JS di Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
   
   <!-- Registrazione del Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js') // Tolto lo "/" per compatibilità su GitHub Pages
+      navigator.serviceWorker.register('/service-worker.js')
         .then(function(registration) {
           console.log('Service Worker registrato con successo:', registration);
         })
@@ -36,5 +34,3 @@
   </script>
 </body>
 </html>
-
-

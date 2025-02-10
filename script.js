@@ -13,6 +13,10 @@ L.control.zoom({
   position: 'bottomright' // Posiziona i controlli di zoom in basso a destra
 }).addTo(map);
 
+// Aggiungi il geocoder di Leaflet
+var geocoder = L.Control.Geocoder.nominatim();
+geocoder.addTo(map);
+
 // Caricamento dei dati dal file JSON
 let data = [];
 fetch('data.json')
@@ -32,14 +36,6 @@ fetch('data.json')
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
-// Aggiungere il Geocoder per cercare le vie
-var geocoder = L.Control.Geocoder.nominatim(); // Usa il geocoder di Nominatim (OpenStreetMap)
-
-L.Control.Geocoder({
-  position: 'topleft', // Posizione del controllo nella mappa
-  geocoder: geocoder
-}).addTo(map); // Aggiungi il geocoder alla mappa
-
 // Funzione di ricerca
 document.getElementById('search-input').addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
@@ -54,18 +50,25 @@ document.getElementById('search-input').addEventListener('keydown', (event) => {
 
 // Funzione per cercare la zona sulla mappa
 function searchLocation(query) {
-  // Cerchiamo sia per il nome del lavoro che per la via (o altre informazioni pertinenti)
-  const result = data.filter(zone => 
-    zone.name.toLowerCase().includes(query) || // Ricerca nel nome del lavoro
-    (zone.street && zone.street.toLowerCase().includes(query)) // Ricerca nel nome della via (se esiste)
-  );
+  // Prima cerchiamo tramite il geocoder di Leaflet (per vie)
+  geocoder.geocode(query, function(results) {
+    if (results && results.length > 0) {
+      const result = results[0];
+      map.setView(result.center, 15); // Centra la mappa sulla via trovata
+    } else {
+      // Se non troviamo una via, cerchiamo nel file JSON
+      const result = data.filter(zone => 
+        zone.name.toLowerCase().includes(query) // Ricerca nel nome del lavoro
+      );
 
-  if (result.length > 0) {
-    const zone = result[0];  // Se troviamo un match, prendi il primo
-    map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
-  } else {
-    alert("Nessuna zona trovata per la ricerca.");
-  }
+      if (result.length > 0) {
+        const zone = result[0];  // Se troviamo un match, prendi il primo
+        map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
+      } else {
+        alert("Nessuna zona trovata per la ricerca.");
+      }
+    }
+  });
 }
 
 // Funzione per l'inserimento vocale
@@ -85,7 +88,7 @@ document.getElementById('voice-search').addEventListener('click', () => {
 });
 
 // Gestione dell'installazione PWA
-let deferredPrompt; // Dichiarata una sola volta
+let deferredPrompt;
 const installButton = document.createElement('button');
 installButton.textContent = 'Installa';
 

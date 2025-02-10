@@ -22,3 +22,41 @@ fetch('data.json')
     });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
+
+// Gestione dell'installazione PWA
+let deferredPrompt;
+const installButton = document.createElement('button');
+installButton.textContent = 'Installa';
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Impediamo che il prompt venga mostrato automaticamente
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Mostriamo un bottone personalizzato per l'installazione
+  document.body.appendChild(installButton);
+
+  installButton.addEventListener('click', () => {
+    // Mostriamo il prompt di installazione
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('L\'utente ha installato la PWA!');
+      } else {
+        console.log('L\'utente ha rifiutato di installare la PWA.');
+      }
+      deferredPrompt = null;
+    });
+  });
+});
+
+// Registrazione del Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(function(registration) {
+      console.log('Service Worker registrato con successo:', registration);
+    })
+    .catch(function(error) {
+      console.log('Errore nel registro del Service Worker:', error);
+    });
+}

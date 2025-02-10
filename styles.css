@@ -1,53 +1,53 @@
 /* Stile della barra di ricerca simile a Google Maps */
 .search-container {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  padding: 5px;
-  z-index: 1000;
+  position: absolute !important;
+  top: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90% !important;
+  max-width: 400px !important;
+  display: flex !important;
+  align-items: center !important;
+  background-color: #fff !important;
+  border-radius: 30px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important;
+  padding: 5px !important;
+  z-index: 10000 !important;
 }
 
 .search-container input {
-  flex: 1;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  outline: none;
+  flex: 1 !important;
+  padding: 10px 15px !important;
+  border: none !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  outline: none !important;
 }
 
 .search-container input:focus {
-  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
+  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5) !important;
 }
 
 .search-container button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 10px !important;
 }
 
 .search-container button span.material-icons {
-  font-size: 24px;
-  color: #333;
+  font-size: 24px !important;
+  color: #333 !important;
 }
 
 /* Mappa */
 #map {
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  height: 100vh !important;
+  width: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
 }
 
 /* Pulsanti di zoom - sempre visibili in basso a destra */
@@ -55,12 +55,13 @@
   position: absolute !important;
   bottom: 20px !important;
   right: 20px !important;
-  z-index: 1000 !important;
+  z-index: 10000 !important;
   background: rgba(255, 255, 255, 0.8) !important;
   border-radius: 8px !important;
   padding: 5px !important;
-  display: block !important;
+  display: flex !important;
   visibility: visible !important;
+  flex-direction: column !important;
 }
 
 /* Personalizzazione dei pulsanti di zoom */
@@ -69,13 +70,13 @@
   background-color: #fff !important;
   border: 1px solid #ccc !important;
   border-radius: 50% !important;
-  width: 36px !important;
-  height: 36px !important;
-  font-size: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 22px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out !important;
 }
 
 .leaflet-control-zoom-in:hover,
@@ -95,3 +96,4 @@
     display: flex !important;
   }
 }
+

@@ -1,24 +1,15 @@
 // Inizializzazione della mappa
-var map = L.map('map', {
-  zoomControl: false  // Disabilita i controlli di zoom di Leaflet
-}).setView([38.1157, 13.3615], 13); // Palermo
+var map = L.map('map').setView([38.1157, 13.3615], 13); // Palermo
 
 // Aggiunta della mappa satellitare Esri
 var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Aggiungi i controlli di zoom manualmente
-L.control.zoom({
-  position: 'bottomright' // Posiziona i controlli di zoom in basso a destra
-}).addTo(map);
-
 // Caricamento dei dati dal file JSON
-let data = [];
 fetch('data.json')
   .then(response => response.json())
-  .then(jsonData => {
-    data = jsonData;
+  .then(data => {
     data.forEach(zone => {
       var polygon = L.polygon(zone.coordinates, {
         color: zone.color,
@@ -35,24 +26,23 @@ fetch('data.json')
 // Funzione di ricerca
 document.getElementById('search-input').addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
-    const searchQuery = event.target.value.toLowerCase().trim();
-    if (searchQuery) {
-      searchLocation(searchQuery);
-    } else {
-      alert("Inserisci una zona da cercare.");
-    }
+    const searchQuery = event.target.value.toLowerCase();
+    searchLocation(searchQuery);
   }
 });
 
 // Funzione per cercare la zona sulla mappa
 function searchLocation(query) {
-  const result = data.filter(zone => zone.name.toLowerCase().includes(query));
-  if (result.length > 0) {
-    const zone = result[0];  // Se troviamo un match, prendi il primo
-    map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
-  } else {
-    alert("Nessuna zona trovata per la ricerca.");
-  }
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const result = data.filter(zone => zone.name.toLowerCase().includes(query));
+      if (result.length > 0) {
+        const zone = result[0];  // Se troviamo un match, prendi il primo
+        map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
+      }
+    })
+    .catch(error => console.error("Errore nella ricerca:", error));
 }
 
 // Funzione per l'inserimento vocale

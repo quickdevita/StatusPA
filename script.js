@@ -1,15 +1,24 @@
 // Inizializzazione della mappa
-var map = L.map('map', { zoomControl: true }).setView([38.1157, 13.3615], 13); // Palermo
+var map = L.map('map', {
+  zoomControl: true // Forza la visualizzazione dei pulsanti di zoom
+}).setView([38.1157, 13.3615], 13); // Palermo
 
 // Aggiunta della mappa satellitare Esri
 var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Aggiunta del controllo di zoom
-L.control.zoom({ position: 'topright' }).addTo(map);
+// Ripristino dei controlli di zoom
+L.control.zoom({ position: 'topleft' }).addTo(map);
 
-// Caricamento dei dati dal file JSON e aggiunta alla mappa
+// Geocoder per la ricerca delle vie
+var geocoder = L.Control.geocoder({
+  defaultMarkGeocode: false // Evita di aggiungere marker indesiderati
+}).on('markgeocode', function(e) {
+  map.setView(e.geocode.center, 15); // Centra la mappa sulla posizione trovata
+}).addTo(map);
+
+// Caricamento dei dati dal file JSON
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
@@ -26,7 +35,7 @@ fetch('data.json')
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
-// Funzione di ricerca (cercherà sia nei lavori che nelle vie con geocoding)
+// Funzione di ricerca combinata (vie + lavori JSON)
 document.getElementById('search-input').addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     const searchQuery = event.target.value.toLowerCase();
@@ -34,32 +43,26 @@ document.getElementById('search-input').addEventListener('keydown', (event) => {
   }
 });
 
-// Funzione per cercare una zona nei lavori JSON
 function searchLocation(query) {
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
-      const result = data.filter(zone => zone.name.toLowerCase().includes(query));
-      if (result.length > 0) {
-        const zone = result[0]; // Se troviamo un match, prendi il primo
-        map.setView(zone.coordinates[0], 15); // Centra la mappa sulla zona
+      const result = data.find(zone => zone.name.toLowerCase().includes(query));
+      if (result) {
+        map.setView(result.coordinates[0], 15); // Centra sulla zona trovata
       } else {
-        // Se non troviamo nei lavori, cerchiamo la via tramite geocoding
-        geocoder.query(query);
+        // Se non trova nei lavori JSON, prova il geocoder per le vie
+        geocoder.options.geocoder.geocode(query, function(results) {
+          if (results.length > 0) {
+            map.setView(results[0].center, 15);
+          } else {
+            alert("Luogo non trovato.");
+          }
+        });
       }
     })
     .catch(error => console.error("Errore nella ricerca:", error));
 }
-
-// Geocoder per cercare le vie
-var geocoder = L.Control.geocoder({
-  defaultMarkGeocode: false // Non mostra il marker automatico
-}).on('markgeocode', function (e) {
-  map.setView(e.geocode.center, 15); // Centra solo la mappa sulla via trovata
-}).addTo(map);
-
-// Rimuove il bottone di ricerca in alto a destra (Leaflet Geocoder)
-document.querySelector('.leaflet-control-geocoder')?.remove();
 
 // Funzione per l'inserimento vocale
 document.getElementById('voice-search').addEventListener('click', () => {
@@ -85,7 +88,6 @@ installButton.textContent = 'Installa';
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-
   document.body.appendChild(installButton);
 
   installButton.addEventListener('click', () => {

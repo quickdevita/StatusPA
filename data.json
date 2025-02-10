@@ -1,21 +1,35 @@
 [
-    {
-      "name": "Ristrutturazione Piazza Vittoria",
-      "info": "Lavori di ristrutturazione per migliorare la piazza e la zona circostante.",
-      "coordinates": [[38.1157, 13.3615], [38.1167, 13.3625], [38.1175, 13.3635]],
-      "color": "#ffff00"
-    },
-    {
-      "name": "Riparazione Via Roma",
-      "info": "Riparazione della pavimentazione stradale danneggiata in Via Roma.",
-      "coordinates": [[38.1160, 13.3650], [38.1165, 13.3655], [38.1170, 13.3660]],
-      "color": "#00ff00"
-    },
-    {
-      "name": "Lavori incerti al Parco Duca degli Abruzzi",
-      "info": "Lavori in corso, ma con informazioni incomplete per il momento.",
-      "coordinates": [[38.1140, 13.3600], [38.1145, 13.3605], [38.1150, 13.3610]],
-      "color": "#ff0000"
-    }
-  ]
-  
+  {
+    "name": "Lavori Stazione Anello Ferroviario",
+    "coordinates": [
+      [38.1241, 13.3566],
+      [38.1245, 13.3578],
+      [38.1235, 13.3582],
+      [38.1231, 13.3569]
+    ],
+    "color": "yellow",
+    "info": "Lavori in corso per la nuova stazione ferroviaria."
+  },
+  {
+    "name": "Parco chiuso per amianto",
+    "coordinates": [
+      [38.1210, 13.3400],
+      [38.1215, 13.3415],
+      [38.1205, 13.3420],
+      [38.1200, 13.3405]
+    ],
+    "color": "red",
+    "info": "Parco chiuso per presenza di amianto."
+  },
+  {
+    "name": "Fontana restaurata",
+    "coordinates": [
+      [38.1100, 13.3700],
+      [38.1105, 13.3712],
+      [38.1095, 13.3717],
+      [38.1090, 13.3703]
+    ],
+    "color": "green",
+    "info": "Lavori completati per restauro fontana."
+  }
+]

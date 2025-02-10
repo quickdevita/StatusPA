@@ -102,8 +102,13 @@
 
   /* Assicurati che i pulsanti di zoom siano visibili su dispositivi mobili */
   .leaflet-control-zoom {
-    bottom: 10px;
-    left: 10px;
+    bottom: 10px !important;
+    left: 10px !important;
   }
+}
+
+/* Aggiunta forzata per garantire visibilità su tutte le dimensioni */
+.leaflet-control-zoom {
+  visibility: visible !important;
 }
 

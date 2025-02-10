@@ -52,50 +52,51 @@
   left: 0;
 }
 
-/* Pulsanti di zoom sempre visibili su PC, in basso a sinistra */
-.leaflet-control-zoom {
-  position: absolute !important;
-  bottom: 20px !important;
-  left: 20px !important;
-  z-index: 1000 !important;
-  background: rgba(255, 255, 255, 0.7) !important;
-  border-radius: 5px !important;
-  padding: 5px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 5px !important;
+/* Pulsanti di zoom visibili solo su PC e tablet */
+@media only screen and (min-width: 769px) {
+  .leaflet-control-zoom {
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    z-index: 1000 !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+    border-radius: 5px !important;
+    padding: 5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+  }
+
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s, color 0.3s !important;
+  }
+
+  .leaflet-control-zoom-in:hover,
+  .leaflet-control-zoom-out:hover {
+    background-color: #007bff !important;
+    color: white !important;
+  }
+
+  .leaflet-control-zoom-in:focus,
+  .leaflet-control-zoom-out:focus {
+    outline: none !important;
+  }
 }
 
-.leaflet-control-zoom-in,
-.leaflet-control-zoom-out {
-  background-color: #fff !important;
-  border: 1px solid #ccc !important;
-  border-radius: 50% !important;
-  width: 36px !important;
-  height: 36px !important;
-  font-size: 20px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  cursor: pointer !important;
-  transition: background-color 0.3s, color 0.3s !important;
-}
-
-.leaflet-control-zoom-in:hover,
-.leaflet-control-zoom-out:hover {
-  background-color: #007bff !important;
-  color: white !important;
-}
-
-.leaflet-control-zoom-in:focus,
-.leaflet-control-zoom-out:focus {
-  outline: none !important;
-}
-
-/* Nascondere i pulsanti di zoom su dispositivi mobili se necessario */
+/* Nascondere i pulsanti di zoom su smartphone */
 @media only screen and (max-width: 768px) {
   .leaflet-control-zoom {
-    bottom: 10px !important;
-    left: 10px !important;
+    display: none !important;
   }
 }

@@ -8,7 +8,8 @@
       [38.1231, 13.3569]
     ],
     "color": "yellow",
-    "info": "Lavori in corso per la nuova stazione ferroviaria."
+    "info": "Lavori in corso per la nuova stazione ferroviaria.",
+    "street": "Via della Stazione"
   },
   {
     "name": "Parco chiuso per amianto",
@@ -19,7 +20,8 @@
       [38.1200, 13.3405]
     ],
     "color": "red",
-    "info": "Parco chiuso per presenza di amianto."
+    "info": "Parco chiuso per presenza di amianto.",
+    "street": "Via del Parco"
   },
   {
     "name": "Fontana restaurata",
@@ -30,6 +32,7 @@
       [38.1090, 13.3703]
     ],
     "color": "green",
-    "info": "Lavori completati per restauro fontana."
+    "info": "Lavori completati per restauro fontana.",
+    "street": "Piazza Fontana"
   }
 ]

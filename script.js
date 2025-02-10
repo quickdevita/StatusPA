@@ -46,7 +46,12 @@ document.getElementById('search-input').addEventListener('keydown', (event) => {
 
 // Funzione per cercare la zona sulla mappa
 function searchLocation(query) {
-  const result = data.filter(zone => zone.name.toLowerCase().includes(query));
+  // Cerchiamo sia per il nome del lavoro che per la via (o altre informazioni pertinenti)
+  const result = data.filter(zone => 
+    zone.name.toLowerCase().includes(query) || // Ricerca nel nome del lavoro
+    (zone.street && zone.street.toLowerCase().includes(query)) // Ricerca nel nome della via (se esiste)
+  );
+
   if (result.length > 0) {
     const zone = result[0];  // Se troviamo un match, prendi il primo
     map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona

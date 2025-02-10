@@ -52,7 +52,8 @@
   <!-- Registrazione del Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
+      // Modifica il percorso del Service Worker
+      navigator.serviceWorker.register('./service-worker.js') // Usando './' per un percorso relativo
         .then(function(registration) {
           console.log('Service Worker registrato con successo:', registration);
         })

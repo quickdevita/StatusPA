@@ -52,7 +52,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 // Registrazione del Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
+  // Modifica il percorso del Service Worker
+  navigator.serviceWorker.register('./service-worker.js') // Usando './' per un percorso relativo
     .then(function(registration) {
       console.log('Service Worker registrato con successo:', registration);
     })

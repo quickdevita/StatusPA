@@ -12,33 +12,25 @@
   <!-- CSS di Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   
-  <!-- CSS del Geocoder di Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-  
   <!-- Google Material Icons per il microfono -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
   <!-- Barra di ricerca -->
   <div class="search-container">
-    <input id="search-input" type="text" placeholder="Cerca una zona o una via..." aria-label="Ricerca zona o via">
+    <input id="search-input" type="text" placeholder="Cerca una zona..." aria-label="Ricerca zona">
     <button id="voice-search" aria-label="Attiva ricerca vocale">
       <span class="material-icons">mic</span>
     </button>
   </div>
-
+  
   <!-- Contenitore per la mappa -->
   <div id="map"></div>
-
+  
   <!-- JS di Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  
-  <!-- JS del Geocoder di Leaflet -->
-  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
-  <!-- Script del progetto -->
   <script src="script.js"></script>
-
+  
   <!-- Gestione del prompt di installazione PWA -->
   <script>
     let deferredPrompt;
@@ -58,9 +50,9 @@
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
-            console.log("L'utente ha installato la PWA!");
+            console.log('L\'utente ha installato la PWA!');
           } else {
-            console.log("L'utente ha rifiutato di installare la PWA.");
+            console.log('L\'utente ha rifiutato di installare la PWA.');
           }
           deferredPrompt = null;
         });

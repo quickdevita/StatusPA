@@ -32,6 +32,14 @@ fetch('data.json')
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
+// Aggiungere il Geocoder per cercare le vie
+var geocoder = L.Control.Geocoder.nominatim(); // Usa il geocoder di Nominatim (OpenStreetMap)
+
+L.Control.Geocoder({
+  position: 'topleft', // Posizione del controllo nella mappa
+  geocoder: geocoder
+}).addTo(map); // Aggiungi il geocoder alla mappa
+
 // Funzione di ricerca
 document.getElementById('search-input').addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {

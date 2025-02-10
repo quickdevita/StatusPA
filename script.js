@@ -14,9 +14,11 @@ L.control.zoom({
 }).addTo(map);
 
 // Caricamento dei dati dal file JSON
+let data = [];
 fetch('data.json')
   .then(response => response.json())
-  .then(data => {
+  .then(jsonData => {
+    data = jsonData;
     data.forEach(zone => {
       var polygon = L.polygon(zone.coordinates, {
         color: zone.color,
@@ -33,23 +35,24 @@ fetch('data.json')
 // Funzione di ricerca
 document.getElementById('search-input').addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
-    const searchQuery = event.target.value.toLowerCase();
-    searchLocation(searchQuery);
+    const searchQuery = event.target.value.toLowerCase().trim();
+    if (searchQuery) {
+      searchLocation(searchQuery);
+    } else {
+      alert("Inserisci una zona da cercare.");
+    }
   }
 });
 
 // Funzione per cercare la zona sulla mappa
 function searchLocation(query) {
-  fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-      const result = data.filter(zone => zone.name.toLowerCase().includes(query));
-      if (result.length > 0) {
-        const zone = result[0];  // Se troviamo un match, prendi il primo
-        map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
-      }
-    })
-    .catch(error => console.error("Errore nella ricerca:", error));
+  const result = data.filter(zone => zone.name.toLowerCase().includes(query));
+  if (result.length > 0) {
+    const zone = result[0];  // Se troviamo un match, prendi il primo
+    map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
+  } else {
+    alert("Nessuna zona trovata per la ricerca.");
+  }
 }
 
 // Funzione per l'inserimento vocale

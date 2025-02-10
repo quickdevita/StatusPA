@@ -49,9 +49,10 @@
 
 /* Spostamento dei pulsanti di zoom in basso a sinistra */
 .leaflet-control-zoom {
-  position: absolute;
+  position: absolute !important;
   bottom: 20px;
   left: 20px;
+  z-index: 1000; /* Assicura che i pulsanti di zoom siano sopra gli altri elementi */
 }
 
 /* Rimuovi margini e padding su dispositivi mobili */
@@ -66,4 +67,3 @@
     height: 100vh;
   }
 }
-

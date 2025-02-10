@@ -1,3 +1,21 @@
+// Inizializzazione di Firebase
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+// Configurazione Firebase
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Inizializzazione dell'app Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // Inizializzazione della mappa
 var map = L.map('map').setView([38.1157, 13.3615], 13); // Palermo
 
@@ -6,11 +24,12 @@ var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Caricamento dei dati dal file JSON
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(zone => {
+// Caricamento dei dati da Firestore
+async function loadData() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "works"));
+    querySnapshot.forEach((doc) => {
+      const zone = doc.data();
       var polygon = L.polygon(zone.coordinates, {
         color: zone.color,
         fillColor: zone.color,
@@ -20,11 +39,15 @@ fetch('data.json')
       // Popup con le informazioni del lavoro
       polygon.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
     });
-  })
-  .catch(error => console.error("Errore nel caricamento dei dati:", error));
+  } catch (error) {
+    console.error("Errore nel caricamento dei dati:", error);
+  }
+}
+
+loadData();
 
 // Gestione dell'installazione PWA
-let deferredPrompt; // Dichiarata una sola volta
+let deferredPrompt;
 
 const installButton = document.createElement('button');
 installButton.textContent = 'Installa';

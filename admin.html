@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amministrazione - StatusPA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Gestione Lavori Pubblici</h1>
+  
+  <!-- Form per aggiungere un nuovo lavoro -->
+  <h2>Aggiungi Nuovo Lavoro</h2>
+  <form id="add-work-form">
+    <label for="work-name">Nome del lavoro:</label>
+    <input type="text" id="work-name" required><br>
+
+    <label for="work-info">Descrizione del lavoro:</label>
+    <textarea id="work-info" required></textarea><br>
+
+    <label for="work-coordinates">Coordinate (es. [[lat, lon]]):</label>
+    <input type="text" id="work-coordinates" required><br>
+
+    <label for="work-color">Colore:</label>
+    <select id="work-color">
+      <option value="#ffff00">Giallo (Lavori in corso)</option>
+      <option value="#00ff00">Verde (Lavori finiti)</option>
+      <option value="#ff0000">Rosso (Lavori incerti)</option>
+    </select><br>
+
+    <button type="submit">Aggiungi Lavoro</button>
+  </form>
+  
+  <h2>Lista dei Lavori</h2>
+  <ul id="works-list"></ul>
+
+  <script src="admin.js"></script>
+</body>
+</html>

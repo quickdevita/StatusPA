@@ -1,11 +1,11 @@
 /* Stile della barra di ricerca simile a Google Maps */
 .search-container {
   position: absolute !important;
-  top: 10px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 90% !important;
-  max-width: 400px !important;
+  top: 10px !important; /* Posiziona la barra nella parte superiore */
+  left: 50% !important; /* Posiziona al centro orizzontale */
+  transform: translateX(-50%); /* Sposta indietro di metà larghezza per centrare */
+  width: 90% !important; /* Larghezza al 90% del viewport */
+  max-width: 400px !important; /* Larghezza massima */
   display: flex !important;
   align-items: center !important;
   background-color: #fff !important;
@@ -96,4 +96,3 @@
     display: flex !important;
   }
 }
-

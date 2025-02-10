@@ -43,4 +43,27 @@
 /* Mappa */
 #map {
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
+
+/* Spostamento dei pulsanti di zoom in basso a sinistra */
+.leaflet-control-zoom {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Rimuovi margini e padding su dispositivi mobili */
+@media only screen and (max-width: 768px) {
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+  #map {
+    width: 100%;
+    height: 100vh;
+  }
+}
+

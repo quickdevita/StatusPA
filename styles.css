@@ -1,25 +1,25 @@
-/* Stile della barra di ricerca */
+/* Stile della barra di ricerca simile a Google Maps */
 .search-container {
   position: absolute;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 400px;
   display: flex;
   align-items: center;
   background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   padding: 5px;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 .search-container input {
-  width: 90%;
-  padding: 8px 15px;
+  flex: 1;
+  padding: 10px 15px;
   border: none;
-  border-radius: 15px;
+  border-radius: 30px;
   font-size: 16px;
   outline: none;
 }
@@ -43,60 +43,55 @@
 /* Mappa */
 #map {
   height: 100vh;
-  margin: 0;
-  padding: 0;
   width: 100%;
-  display: block; /* Rimuove il comportamento inline-block che può creare spazi */
-  position: absolute; /* Assicura che la mappa occupi sempre lo schermo */
+  position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden; /* Impedisce qualsiasi overflow visibile */
+  overflow: hidden;
 }
 
-/* Pulsanti di zoom - visibili solo su desktop, in basso a destra */
-@media only screen and (min-width: 769px) {
-  .leaflet-control-zoom {
-    position: absolute !important;
-    bottom: 20px !important;
-    right: 20px !important;  /* Posiziona i pulsanti di zoom in basso a destra */
-    z-index: 1000 !important; /* Assicura che i pulsanti siano sopra la mappa */
-    background: rgba(255, 255, 255, 0.7) !important; /* Sfondo traslucido per visibilità */
-    border-radius: 5px !important;
-    padding: 5px !important;
-    visibility: visible !important; /* Forza la visibilità */
-    display: block !important;  /* Forza visibilità */
-  }
-
-  /* Personalizzazione dei pulsanti di zoom */
-  .leaflet-control-zoom-in,
-  .leaflet-control-zoom-out {
-    background-color: #fff !important;
-    border: 1px solid #ccc !important;
-    border-radius: 50% !important;
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 18px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .leaflet-control-zoom-in:hover,
-  .leaflet-control-zoom-out:hover {
-    background-color: #007bff !important;
-    color: white !important;
-  }
-
-  .leaflet-control-zoom-in:focus,
-  .leaflet-control-zoom-out:focus {
-    outline: none !important;
-  }
+/* Pulsanti di zoom - sempre visibili in basso a destra */
+.leaflet-control-zoom {
+  position: absolute !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 8px !important;
+  padding: 5px !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
-/* Nascondere i pulsanti di zoom su dispositivi mobili */
+/* Personalizzazione dei pulsanti di zoom */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 20px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.leaflet-control-zoom-in:focus,
+.leaflet-control-zoom-out:focus {
+  outline: none !important;
+}
+
+/* Assicurarsi che i pulsanti di zoom siano visibili anche su mobile */
 @media only screen and (max-width: 768px) {
-  /* Nascondi i pulsanti di zoom */
   .leaflet-control-zoom {
-    display: none !important;
+    display: flex !important;
   }
 }

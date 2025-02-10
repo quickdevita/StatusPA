@@ -6,6 +6,22 @@ var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
+// Integrazione del geocoder di Leaflet
+var geocoder = L.Control.geocoder({
+  defaultMarkGeocode: false
+})
+  .on('markgeocode', function (e) {
+    var bbox = e.geocode.bbox;
+    var poly = L.polygon([
+      bbox.getSouthEast(),
+      bbox.getNorthEast(),
+      bbox.getNorthWest(),
+      bbox.getSouthWest()
+    ]).addTo(map);
+    map.fitBounds(poly.getBounds());
+  })
+  .addTo(map);
+
 // Caricamento dei dati dal file JSON
 fetch('data.json')
   .then(response => response.json())
@@ -31,15 +47,26 @@ document.getElementById('search-input').addEventListener('keydown', (event) => {
   }
 });
 
-// Funzione per cercare la zona sulla mappa
+// Funzione per cercare lavori e vie
 function searchLocation(query) {
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
       const result = data.filter(zone => zone.name.toLowerCase().includes(query));
       if (result.length > 0) {
-        const zone = result[0];  // Se troviamo un match, prendi il primo
+        const zone = result[0];  // Se troviamo un match nei lavori, prendi il primo
         map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
+      } else {
+        // Se non trova nei lavori, usa il geocoder per trovare la via
+        geocoder.options.geocoder.geocode(query, function (results) {
+          if (results.length > 0) {
+            var result = results[0];
+            map.setView(result.center, 15);
+            L.marker(result.center).addTo(map).bindPopup(result.name).openPopup();
+          } else {
+            alert("Nessun risultato trovato.");
+          }
+        });
       }
     })
     .catch(error => console.error("Errore nella ricerca:", error));
@@ -62,7 +89,7 @@ document.getElementById('voice-search').addEventListener('click', () => {
 });
 
 // Gestione dell'installazione PWA
-let deferredPrompt; // Dichiarata una sola volta
+let deferredPrompt;
 const installButton = document.createElement('button');
 installButton.textContent = 'Installa';
 
@@ -76,9 +103,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('L\'utente ha installato la PWA!');
+        console.log("L'utente ha installato la PWA!");
       } else {
-        console.log('L\'utente ha rifiutato di installare la PWA.');
+        console.log("L'utente ha rifiutato di installare la PWA.");
       }
       deferredPrompt = null;
     });
@@ -88,10 +115,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
 // Registrazione del Service Worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./service-worker.js')
-    .then(function(registration) {
+    .then(function (registration) {
       console.log('Service Worker registrato con successo:', registration);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log('Errore nel registro del Service Worker:', error);
     });
 }

@@ -31,16 +31,5 @@
     ],
     "color": "green",
     "info": "Lavori completati per restauro fontana."
-  },
-  {
-    "name": "Politeama",
-    "coordinates": [
-      [37.1100, 13.3700],
-      [38.1205, 15.3712],
-      [38.1095, 13.3717],
-      [38.1090, 13.3703]
-    ],
-    "color": "red",
-    "info": "Lavori completati per restauro fontana."
   }
 ]

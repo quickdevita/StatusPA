@@ -99,4 +99,54 @@
   .leaflet-control-zoom {
     display: none !important;
   }
+
+/* Stile del menu modale (stile Google Maps) */
+.modal-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 10000;
+}
+
+.modal {
+  width: 100%;
+  background: white;
+  border-radius: 20px 20px 0 0;
+  padding: 15px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.modal-header {
+  text-align: center;
+  padding: 10px;
+}
+
+.modal-handle {
+  width: 40px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.modal-content {
+  padding: 10px;
+}
+
+/* Quando il modale è attivo */
+.modal-container.active {
+  display: flex;
+}
+
+.modal.active {
+  transform: translateY(0);
+}
 }

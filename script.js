@@ -21,10 +21,50 @@ fetch('data.json')
         fillOpacity: 0.5
       }).addTo(map);
 
-      polygon.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
+      // Evento click per aprire il menu modale
+      polygon.on('click', () => {
+        openModal(zone.name, zone.info);
+      });
     });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
+
+// Funzione per aprire il menu modale
+function openModal(title, info) {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-info').textContent = info;
+  
+  const modalContainer = document.getElementById('modal-container');
+  const modal = document.getElementById('modal');
+
+  modalContainer.classList.add('active');
+  setTimeout(() => modal.classList.add('active'), 10);
+
+  // Chiudi il menu trascinando verso il basso
+  let startY;
+  modal.addEventListener('touchstart', (e) => startY = e.touches[0].clientY);
+  modal.addEventListener('touchmove', (e) => {
+    let moveY = e.touches[0].clientY;
+    if (moveY - startY > 50) {
+      closeModal();
+    }
+  });
+
+  // Chiudi il menu cliccando fuori
+  modalContainer.addEventListener('click', (e) => {
+    if (e.target === modalContainer) closeModal();
+  });
+}
+
+// Funzione per chiudere il menu modale
+function closeModal() {
+  const modalContainer = document.getElementById('modal-container');
+  const modal = document.getElementById('modal');
+
+  modal.classList.remove('active');
+  setTimeout(() => modalContainer.classList.remove('active'), 300);
+}
+
 
 // Funzione di ricerca
 document.getElementById('search-input').addEventListener('keydown', (event) => {

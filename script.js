@@ -23,22 +23,56 @@ fetch('data.json')
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
+// Funzione di ricerca
+document.getElementById('search-input').addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    const searchQuery = event.target.value.toLowerCase();
+    searchLocation(searchQuery);
+  }
+});
+
+// Funzione per cercare la zona sulla mappa
+function searchLocation(query) {
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      const result = data.filter(zone => zone.name.toLowerCase().includes(query));
+      if (result.length > 0) {
+        const zone = result[0];  // Se troviamo un match, prendi il primo
+        map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
+      }
+    })
+    .catch(error => console.error("Errore nella ricerca:", error));
+}
+
+// Funzione per l'inserimento vocale
+document.getElementById('voice-search').addEventListener('click', () => {
+  if ('webkitSpeechRecognition' in window) {
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'it-IT';
+    recognition.onresult = (event) => {
+      const spokenText = event.results[0][0].transcript;
+      document.getElementById('search-input').value = spokenText;
+      searchLocation(spokenText.toLowerCase());
+    };
+    recognition.start();
+  } else {
+    alert("Riconoscimento vocale non supportato.");
+  }
+});
+
 // Gestione dell'installazione PWA
 let deferredPrompt; // Dichiarata una sola volta
-
 const installButton = document.createElement('button');
 installButton.textContent = 'Installa';
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Impediamo che il prompt venga mostrato automaticamente
   e.preventDefault();
   deferredPrompt = e;
 
-  // Mostriamo un bottone personalizzato per l'installazione
   document.body.appendChild(installButton);
 
   installButton.addEventListener('click', () => {
-    // Mostriamo il prompt di installazione
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
@@ -53,8 +87,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 // Registrazione del Service Worker
 if ('serviceWorker' in navigator) {
-  // Modifica il percorso del Service Worker
-  navigator.serviceWorker.register('./service-worker.js') // Usando './' per un percorso relativo
+  navigator.serviceWorker.register('./service-worker.js')
     .then(function(registration) {
       console.log('Service Worker registrato con successo:', registration);
     })

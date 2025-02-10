@@ -1,12 +1,46 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
+/* Stile della barra di ricerca */
+.search-bar {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  z-index: 9999;
 }
 
+.search-bar input {
+  width: 90%;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.search-bar button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mappa */
 #map {
-  width: 100%;
   height: 100vh;
 }

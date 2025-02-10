@@ -11,8 +11,19 @@
 
   <!-- CSS di Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <!-- Google Material Icons per il microfono -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
+  <!-- Barra di ricerca -->
+  <div class="search-container">
+    <input id="search-input" type="text" placeholder="Cerca una zona..." aria-label="Ricerca zona">
+    <button id="voice-search" aria-label="Attiva ricerca vocale">
+      <span class="material-icons">mic</span>
+    </button>
+  </div>
+  
   <!-- Contenitore per la mappa -->
   <div id="map"></div>
   

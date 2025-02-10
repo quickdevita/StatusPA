@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
+<!DOCTYPE html>
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,19 +19,36 @@
   
   <!-- Google Material Icons per il microfono -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <style>
+    /* Stile per la barra di ricerca */
+    .leaflet-control-geocoder {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: 300px;
+    }
+    .leaflet-control-geocoder input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+    /* Forza i pulsanti di zoom a rimanere visibili */
+    .leaflet-control-zoom {
+      display: block !important;
+    }
+  </style>
 </head>
 <body>
-  <!-- Barra di ricerca -->
-  <div class="search-container">
-    <input id="search-input" type="text" placeholder="Cerca una zona o una via..." aria-label="Ricerca zona o via">
-    <button id="voice-search" aria-label="Attiva ricerca vocale">
-      <span class="material-icons">mic</span>
-    </button>
-  </div>
 
   <!-- Contenitore per la mappa -->
   <div id="map"></div>
-
+  
   <!-- JS di Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   
@@ -38,48 +57,6 @@
 
   <!-- Script del progetto -->
   <script src="script.js"></script>
-
-  <!-- Gestione del prompt di installazione PWA -->
-  <script>
-    let deferredPrompt;
-    const installButton = document.createElement('button');
-    installButton.textContent = 'Installa';
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Impediamo che il prompt venga mostrato automaticamente
-      e.preventDefault();
-      deferredPrompt = e;
-
-      // Mostriamo un bottone personalizzato per l'installazione
-      document.body.appendChild(installButton);
-
-      installButton.addEventListener('click', () => {
-        // Mostriamo il prompt di installazione
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log("L'utente ha installato la PWA!");
-          } else {
-            console.log("L'utente ha rifiutato di installare la PWA.");
-          }
-          deferredPrompt = null;
-        });
-      });
-    });
-  </script>
-
-  <!-- Registrazione del Service Worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      // Modifica il percorso del Service Worker
-      navigator.serviceWorker.register('./service-worker.js') // Usando './' per un percorso relativo
-        .then(function(registration) {
-          console.log('Service Worker registrato con successo:', registration);
-        })
-        .catch(function(error) {
-          console.log('Errore nel registro del Service Worker:', error);
-        });
-    }
-  </script>
+  
 </body>
 </html>

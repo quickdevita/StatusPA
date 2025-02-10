@@ -1,6 +1,6 @@
-// Inizializzazione della mappa
+// Inizializzazione della mappa con controlli di zoom attivi
 var map = L.map('map', {
-  zoomControl: true // Forza la visualizzazione dei pulsanti di zoom
+  zoomControl: true // Assicura che i pulsanti di zoom siano visibili
 }).setView([38.1157, 13.3615], 13); // Palermo
 
 // Aggiunta della mappa satellitare Esri
@@ -8,11 +8,11 @@ var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Ripristino dei controlli di zoom
+// Ripristino dei controlli di zoom in alto a sinistra
 L.control.zoom({ position: 'topleft' }).addTo(map);
 
-// Geocoder per la ricerca delle vie
-var geocoder = L.Control.geocoder({
+// Creazione del geocoder di Leaflet, posizionato al centro in alto
+var geocoderControl = L.Control.geocoder({
   defaultMarkGeocode: false // Evita di aggiungere marker indesiderati
 }).on('markgeocode', function(e) {
   map.setView(e.geocode.center, 15); // Centra la mappa sulla posizione trovata
@@ -34,51 +34,6 @@ fetch('data.json')
     });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
-
-// Funzione di ricerca combinata (vie + lavori JSON)
-document.getElementById('search-input').addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    const searchQuery = event.target.value.toLowerCase();
-    searchLocation(searchQuery);
-  }
-});
-
-function searchLocation(query) {
-  fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-      const result = data.find(zone => zone.name.toLowerCase().includes(query));
-      if (result) {
-        map.setView(result.coordinates[0], 15); // Centra sulla zona trovata
-      } else {
-        // Se non trova nei lavori JSON, prova il geocoder per le vie
-        geocoder.options.geocoder.geocode(query, function(results) {
-          if (results.length > 0) {
-            map.setView(results[0].center, 15);
-          } else {
-            alert("Luogo non trovato.");
-          }
-        });
-      }
-    })
-    .catch(error => console.error("Errore nella ricerca:", error));
-}
-
-// Funzione per l'inserimento vocale
-document.getElementById('voice-search').addEventListener('click', () => {
-  if ('webkitSpeechRecognition' in window) {
-    const recognition = new webkitSpeechRecognition();
-    recognition.lang = 'it-IT';
-    recognition.onresult = (event) => {
-      const spokenText = event.results[0][0].transcript;
-      document.getElementById('search-input').value = spokenText;
-      searchLocation(spokenText.toLowerCase());
-    };
-    recognition.start();
-  } else {
-    alert("Riconoscimento vocale non supportato.");
-  }
-});
 
 // Gestione dell'installazione PWA
 let deferredPrompt;

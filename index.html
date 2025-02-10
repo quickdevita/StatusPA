@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-<!DOCTYPE html>
-<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,31 +19,40 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <style>
-    /* Stile per la barra di ricerca */
+    /* Stile della barra di ricerca simile a Google Maps */
     .leaflet-control-geocoder {
-      position: absolute;
-      top: 10px;
+      position: absolute !important;
       left: 50%;
+      top: 10px;
       transform: translateX(-50%);
-      z-index: 1000;
       width: 300px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
     }
-    .leaflet-control-geocoder input {
-      width: 100%;
+
+    .leaflet-control-geocoder-form input {
+      width: calc(100% - 40px);
+      height: 40px;
+      border: none;
+      outline: none;
       padding: 10px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
+      border-radius: 30px;
     }
-    /* Forza i pulsanti di zoom a rimanere visibili */
+
+    .leaflet-control-geocoder-icon {
+      display: none; /* Nasconde il vecchio bottone della ricerca */
+    }
+
+    /* Pulsanti di zoom sempre visibili */
     .leaflet-control-zoom {
       display: block !important;
     }
   </style>
 </head>
 <body>
-
+  
   <!-- Contenitore per la mappa -->
   <div id="map"></div>
   
@@ -58,5 +65,43 @@
   <!-- Script del progetto -->
   <script src="script.js"></script>
   
+  <!-- Gestione del prompt di installazione PWA -->
+  <script>
+    let deferredPrompt;
+    const installButton = document.createElement('button');
+    installButton.textContent = 'Installa';
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+
+      document.body.appendChild(installButton);
+
+      installButton.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log("L'utente ha installato la PWA!");
+          } else {
+            console.log("L'utente ha rifiutato di installare la PWA.");
+          }
+          deferredPrompt = null;
+        });
+      });
+    });
+  </script>
+
+  <!-- Registrazione del Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function(registration) {
+          console.log('Service Worker registrato con successo:', registration);
+        })
+        .catch(function(error) {
+          console.log('Errore nel registro del Service Worker:', error);
+        });
+    }
+  </script>
 </body>
 </html>

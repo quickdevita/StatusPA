@@ -46,11 +46,11 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  display: block;
-  position: absolute;
+  display: block; /* Rimuove il comportamento inline-block che può creare spazi */
+  position: absolute; /* Assicura che la mappa occupi sempre lo schermo */
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow: hidden; /* Impedisce qualsiasi overflow visibile */
 }
 
 /* Pulsanti di zoom - visibili solo su desktop, in basso a destra */
@@ -60,29 +60,31 @@
     bottom: 20px !important;
     right: 20px !important;  /* Posiziona i pulsanti di zoom in basso a destra */
     z-index: 1000 !important; /* Assicura che i pulsanti siano sopra la mappa */
-    background: none !important; /* Rimuove lo sfondo */
-    border: none !important; /* Rimuove il bordo */
-    border-radius: 50% !important; /* Rende i pulsanti circolari */
-    width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    box-shadow: none !important; /* Rimuove eventuali ombre */
+    background: rgba(255, 255, 255, 0.7) !important; /* Sfondo traslucido per visibilità */
+    border-radius: 5px !important;
+    padding: 5px !important;
+    visibility: visible !important; /* Forza la visibilità */
+    display: block !important;  /* Forza visibilità */
   }
 
   /* Personalizzazione dei pulsanti di zoom */
   .leaflet-control-zoom-in,
   .leaflet-control-zoom-out {
-    background-color: transparent !important;
-    font-size: 24px !important;
-    color: #333 !important;  /* Colore semplice per i pulsanti */
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 18px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .leaflet-control-zoom-in:hover,
   .leaflet-control-zoom-out:hover {
-    background-color: #007bff !important; /* Colore di hover */
-    color: white !important;  /* Colore del testo sui pulsanti al passaggio del mouse */
+    background-color: #007bff !important;
+    color: white !important;
   }
 
   .leaflet-control-zoom-in:focus,
@@ -93,6 +95,7 @@
 
 /* Nascondere i pulsanti di zoom su dispositivi mobili */
 @media only screen and (max-width: 768px) {
+  /* Nascondi i pulsanti di zoom */
   .leaflet-control-zoom {
     display: none !important;
   }

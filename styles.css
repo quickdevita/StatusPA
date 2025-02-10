@@ -64,6 +64,7 @@
     border-radius: 5px !important;
     padding: 5px !important;
     visibility: visible !important; /* Forza la visibilità */
+    display: block !important;  /* Forza visibilità */
   }
 
   /* Personalizzazione dei pulsanti di zoom */
@@ -96,12 +97,6 @@
 @media only screen and (max-width: 768px) {
   /* Nascondi i pulsanti di zoom */
   .leaflet-control-zoom {
-    visibility: hidden !important;  /* Li nascondiamo su mobile */
+    display: none !important;
   }
-}
-
-/* Forzatura della visibilità dei pulsanti di zoom in tutti i casi */
-.leaflet-control-zoom {
-  visibility: visible !important;
-  display: block !important; /* Forza visibilità anche in caso di problemi di rendering */
 }

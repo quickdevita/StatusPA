@@ -45,13 +45,22 @@
   height: 100vh;
   margin: 0;
   padding: 0;
+  width: 100%;
+  display: block; /* Rimuove il comportamento inline-block che può creare spazi */
+  position: absolute; /* Assicura che la mappa occupi sempre lo schermo */
+  top: 0;
+  left: 0;
 }
 
 /* Spostamento dei pulsanti di zoom in basso a sinistra */
 .leaflet-control-zoom {
-  position: absolute;
+  position: absolute !important;
   bottom: 20px;
   left: 20px;
+  z-index: 1000; /* Assicura che i pulsanti di zoom siano sopra la mappa */
+  background: rgba(255, 255, 255, 0.7); /* Aggiungiamo uno sfondo leggero per migliorare la visibilità */
+  border-radius: 5px; /* Aggiungiamo bordi arrotondati */
+  padding: 5px;
 }
 
 /* Rimuovi margini e padding su dispositivi mobili */
@@ -64,5 +73,11 @@
   #map {
     width: 100%;
     height: 100vh;
+  }
+
+  /* Assicurati che i pulsanti di zoom siano visibili su dispositivi mobili */
+  .leaflet-control-zoom {
+    bottom: 10px;
+    left: 10px;
   }
 }

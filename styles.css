@@ -53,7 +53,7 @@
   overflow: hidden; /* Impedisce qualsiasi overflow visibile */
 }
 
-/* Posizionamento dei pulsanti di zoom in basso a destra su desktop */
+/* Pulsanti di zoom - visibili solo su desktop, in basso a destra */
 @media only screen and (min-width: 769px) {
   .leaflet-control-zoom {
     position: absolute !important;
@@ -64,6 +64,7 @@
     border-radius: 5px !important;
     padding: 5px !important;
     display: block !important; /* Forza la visibilità */
+    visibility: visible !important; /* Forza la visibilità */
   }
 
   /* Personalizzazione dei pulsanti di zoom */
@@ -104,3 +105,4 @@
 .leaflet-control-zoom {
   visibility: visible !important;
 }
+

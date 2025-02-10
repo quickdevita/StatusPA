@@ -17,7 +17,6 @@ fetch('data.json')
         fillOpacity: 0.5
       }).addTo(map);
 
-      // Popup con le informazioni del lavoro
       polygon.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
     });
   })
@@ -38,8 +37,7 @@ function searchLocation(query) {
     .then(data => {
       const result = data.filter(zone => zone.name.toLowerCase().includes(query));
       if (result.length > 0) {
-        const zone = result[0];  // Se troviamo un match, prendi il primo
-        map.setView(zone.coordinates[0], 15);  // Centra la mappa sulla zona
+        map.setView(result[0].coordinates[0], 15);
       }
     })
     .catch(error => console.error("Errore nella ricerca:", error));
@@ -61,37 +59,9 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
 });
 
-// Gestione dell'installazione PWA
-let deferredPrompt; // Dichiarata una sola volta
-const installButton = document.createElement('button');
-installButton.textContent = 'Installa';
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-
-  document.body.appendChild(installButton);
-
-  installButton.addEventListener('click', () => {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('L\'utente ha installato la PWA!');
-      } else {
-        console.log('L\'utente ha rifiutato di installare la PWA.');
-      }
-      deferredPrompt = null;
-    });
-  });
-});
-
 // Registrazione del Service Worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./service-worker.js')
-    .then(function(registration) {
-      console.log('Service Worker registrato con successo:', registration);
-    })
-    .catch(function(error) {
-      console.log('Errore nel registro del Service Worker:', error);
-    });
+    .then(reg => console.log('Service Worker registrato:', reg))
+    .catch(err => console.log('Errore Service Worker:', err));
 }

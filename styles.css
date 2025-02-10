@@ -46,6 +46,10 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  display: block; /* Rimuove il comportamento inline-block che può creare spazi */
+  position: absolute; /* Assicura che la mappa occupi sempre lo schermo */
+  top: 0;
+  left: 0;
 }
 
 /* Spostamento dei pulsanti di zoom in basso a sinistra */

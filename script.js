@@ -50,7 +50,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 // Registrazione del Service Worker con percorso assoluto
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/StatusPA/service-worker.js') // Cambiato percorso
+  navigator.serviceWorker.register('/service-worker.js') // Cambiato percorso
     .then(function(registration) {
       console.log('Service Worker registrato con successo:', registration);
     })

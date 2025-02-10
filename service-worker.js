@@ -1,38 +1,38 @@
-const CACHE_NAME = 'statuspa-cache-v3';
+const CACHE_NAME = 'statuspa-cache-v4';
 const urlsToCache = [
-  './', // Root per GitHub Pages
-  './index.html',
-  './styles.css',
-  './script.js',
-  './icons/icon-192x192.png',
-  './icons/icon-512x512.png',
-  './manifest.json'
+  '/',
+  '/index.html',
+  '/styles.css',
+  '/script.js',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png',
+  '/manifest.json'
 ];
 
-// Installazione del Service Worker
+// Installazione del Service Worker e caching dei file
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
         return cache.addAll(urlsToCache)
-          .catch((error) => {
-            console.error('Errore nella cache dei file:', error);
-          });
+          .catch((error) => console.error('Errore nel caching:', error));
       })
   );
 });
 
 // Intercettazione delle richieste di rete
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.endsWith('/favicon.ico')) {
-    // Evita l'errore 404 della favicon
+  if (event.request.url.includes('favicon.ico')) {
     event.respondWith(new Response(null, { status: 204 }));
     return;
   }
 
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => response || fetch(event.request))
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    }).catch(() => {
+      return new Response('Errore di rete', { status: 408 });
+    })
   );
 });
 

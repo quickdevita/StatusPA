@@ -52,15 +52,17 @@
   left: 0;
 }
 
-/* Spostamento dei pulsanti di zoom in basso a sinistra */
-.leaflet-control-zoom {
-  position: absolute !important;
-  bottom: 20px !important;
-  left: 20px !important;
-  z-index: 1000 !important; /* Assicura che i pulsanti siano sopra la mappa */
-  background: rgba(255, 255, 255, 0.7) !important; /* Sfondo traslucido per visibilità */
-  border-radius: 5px !important;
-  padding: 5px !important;
+/* Posizionamento dei pulsanti di zoom in basso a destra su desktop */
+@media only screen and (min-width: 769px) {
+  .leaflet-control-zoom {
+    position: absolute !important;
+    bottom: 20px !important;
+    right: 20px !important;  /* Posiziona i pulsanti di zoom in basso a destra */
+    z-index: 1000 !important; /* Assicura che i pulsanti siano sopra la mappa */
+    background: rgba(255, 255, 255, 0.7) !important; /* Sfondo traslucido per visibilità */
+    border-radius: 5px !important;
+    padding: 5px !important;
+  }
 }
 
 /* Personalizzazione dei pulsanti di zoom */
@@ -100,15 +102,13 @@
     height: 100vh;
   }
 
-  /* Assicurati che i pulsanti di zoom siano visibili su dispositivi mobili */
+  /* Nascondi i pulsanti di zoom su dispositivi mobili */
   .leaflet-control-zoom {
-    bottom: 10px !important;
-    left: 10px !important;
+    display: none !important;
   }
 }
 
-/* Aggiunta forzata per garantire visibilità su tutte le dimensioni */
+/* Aggiunta forzata per garantire visibilità su tutte le dimensioni (sopra 769px) */
 .leaflet-control-zoom {
   visibility: visible !important;
 }
-

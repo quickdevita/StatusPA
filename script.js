@@ -1,10 +1,14 @@
-// Inizializzazione della mappa
-var map = L.map('map').setView([38.1157, 13.3615], 13); // Palermo
+// Inizializzazione della mappa con controllo dello zoom attivato
+var map = L.map('map', { zoomControl: true }).setView([38.1157, 13.3615], 13); // Palermo
 
 // Aggiunta della mappa satellitare Esri
 var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
+
+// Assicura che i pulsanti di zoom siano visibili e posizionati correttamente
+map.zoomControl.remove(); 
+L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
 // Caricamento dei dati dal file JSON
 fetch('data.json')

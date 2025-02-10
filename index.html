@@ -6,6 +6,9 @@
   <title>StatusPA</title>
   <link rel="stylesheet" href="styles.css">
   
+  <!-- Link al Manifest -->
+  <link rel="manifest" href="manifest.json">
+
   <!-- CSS di Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
@@ -14,5 +17,19 @@
   <div id="map"></div>
   
   <script src="script.js"></script>
+  
+  <!-- Registrazione del Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+          console.log('Service Worker registrato con successo:', registration);
+        })
+        .catch(function(error) {
+          console.log('Errore nel registro del Service Worker:', error);
+        });
+    }
+  </script>
 </body>
 </html>
+

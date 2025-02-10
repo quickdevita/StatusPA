@@ -38,6 +38,20 @@ async function loadData() {
 
       // Popup con le informazioni del lavoro
       polygon.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
+
+      // Aggiungere funzionalità per modificare o eliminare un lavoro
+      polygon.on('popupopen', () => {
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Modifica';
+        editButton.onclick = () => editWork(doc.id);  // Modifica il lavoro
+        polygon.getPopup().setContent(`<b>${zone.name}</b><br>${zone.info}<br><button>Rimuovi</button>`).addTo(map);
+        
+        // Pulsante di rimozione
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Rimuovi';
+        removeButton.onclick = () => removeWork(doc.id);
+        polygon.getPopup().setContent(`<b>${zone.name}</b><br>${zone.info}<br><button>Modifica</button><button>Rimuovi</button>`).addTo(map);
+      });
     });
   } catch (error) {
     console.error("Errore nel caricamento dei dati:", error);
@@ -45,6 +59,34 @@ async function loadData() {
 }
 
 loadData();
+
+// Funzione per modificare un lavoro
+async function editWork(workId) {
+  try {
+    const docRef = doc(db, "works", workId);
+    // Logica per aggiornare i dati del lavoro. Esempio:
+    // Attendere un input dell'utente e poi aggiornare Firestore
+    await updateDoc(docRef, {
+      name: "Nuovo Nome del Lavoro",
+      info: "Nuove informazioni",
+      coordinates: [[38.1157, 13.3615], [38.1167, 13.3625]]  // Aggiornare con le nuove coordinate
+    });
+    alert('Lavoro aggiornato con successo');
+  } catch (error) {
+    console.error("Errore nell'aggiornamento del lavoro:", error);
+  }
+}
+
+// Funzione per rimuovere un lavoro
+async function removeWork(workId) {
+  try {
+    await deleteDoc(doc(db, "works", workId));
+    alert('Lavoro rimosso con successo');
+    loadData();  // Ricarica i dati per aggiornare la mappa
+  } catch (error) {
+    console.error("Errore nella rimozione del lavoro:", error);
+  }
+}
 
 // Gestione dell'installazione PWA
 let deferredPrompt;

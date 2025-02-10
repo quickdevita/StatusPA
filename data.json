@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Ristrutturazione Piazza Vittoria",
+      "info": "Lavori di ristrutturazione per migliorare la piazza e la zona circostante.",
+      "coordinates": [[38.1157, 13.3615], [38.1167, 13.3625], [38.1175, 13.3635]],
+      "color": "#ffff00"
+    },
+    {
+      "name": "Riparazione Via Roma",
+      "info": "Riparazione della pavimentazione stradale danneggiata in Via Roma.",
+      "coordinates": [[38.1160, 13.3650], [38.1165, 13.3655], [38.1170, 13.3660]],
+      "color": "#00ff00"
+    },
+    {
+      "name": "Lavori incerti al Parco Duca degli Abruzzi",
+      "info": "Lavori in corso, ma con informazioni incomplete per il momento.",
+      "coordinates": [[38.1140, 13.3600], [38.1145, 13.3605], [38.1150, 13.3610]],
+      "color": "#ff0000"
+    }
+  ]
+  

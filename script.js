@@ -1,6 +1,8 @@
 // Inizializzazione della mappa con vista su Palermo
 var map = L.map('map', {
-  zoomControl: false // Disabilita il controllo predefinito
+  zoomControl: false, // Disabilita il controllo predefinito
+  minZoom: 12,        // Impedisce di zoomare troppo fuori
+  maxZoom: 18         // Impedisce di zoomare troppo dentro
 }).setView([38.1157, 13.3615], 13);
 
 // Aggiunta della mappa satellitare Esri
@@ -108,4 +110,16 @@ document.getElementById('voice-search').addEventListener('click', () => {
   } else {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
+});
+
+// Limiti della mappa alla provincia di Palermo (coordinata sud-ovest e nord-est)
+var bounds = [
+  [37.5, 12.5], // Coordinate sud-ovest
+  [38.5, 14.5]  // Coordinate nord-est
+];
+
+// Limita la mappa alla provincia di Palermo
+map.setMaxBounds(bounds);
+map.on('drag', function() {
+  map.panInsideBounds(bounds, { animate: true });
 });

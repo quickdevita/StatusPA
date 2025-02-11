@@ -115,9 +115,9 @@ body {
     bottom: 20px !important;
     left: 20px !important;
     z-index: 1000 !important;
-    background: rgba(255, 255, 255, 0.7) !important;
-    border-radius: 5px !important;
-    padding: 5px !important;
+    background: transparent !important; /* Trasparente per assomigliare a OpenStreetMap */
+    border-radius: 50% !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 5px !important;
@@ -131,7 +131,7 @@ body {
     border-radius: 50% !important;
     width: 36px !important;
     height: 36px !important;
-    font-size: 20px !important;
+    font-size: 18px !important; /* Più piccolo per assomigliare di più */
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;

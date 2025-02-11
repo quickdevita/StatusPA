@@ -123,63 +123,34 @@ map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });
 });
 
-// ===========================
-// 🔹 GESTIONE DRAG DEL MODALE 🔹
-// ===========================
+// =========================
+// 🔹 GESTIONE MENU UTENTE 🔹
+// =========================
 
-let modal = document.getElementById('modal');
-let modalContainer = document.getElementById('modal-container');
-let isDragging = false;
-let startPos = { x: 0, y: 0 };
+// Seleziona gli elementi del menu utente
+const userIcon = document.getElementById('user-icon');
+const userMenuContainer = document.getElementById('user-menu-container');
+const userMenu = document.getElementById('user-menu');
+const closeUserMenuBtn = document.getElementById('close-user-menu');
 
-// Iniziamo a trascinare il modale (PC)
-modal.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  startPos.x = e.clientX - modal.offsetLeft;
-  startPos.y = e.clientY - modal.offsetTop;
+// Apri il menu quando si clicca sull'icona utente
+userIcon.addEventListener('click', () => {
+  userMenuContainer.classList.add('open');
 });
 
-// Iniziamo a trascinare il modale (smartphone)
-modal.addEventListener('touchstart', (e) => {
-  isDragging = true;
-  startPos.x = e.touches[0].clientX - modal.offsetLeft;
-  startPos.y = e.touches[0].clientY - modal.offsetTop;
+// Chiudi il menu quando si clicca il pulsante di chiusura
+closeUserMenuBtn.addEventListener('click', () => {
+  closeUserMenu();
 });
 
-// Muoviamo il modale durante il drag (PC)
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    let x = e.clientX - startPos.x;
-    let y = e.clientY - startPos.y;
-
-    // Limiti: Evita che il modale vada troppo in alto
-    if (y < 0) y = 0; // Impedisce di spostarlo oltre il bordo superiore
-
-    modal.style.left = `${x}px`;
-    modal.style.top = `${y}px`;
+// Chiudi il menu quando si clicca fuori dal menu
+userMenuContainer.addEventListener('click', (event) => {
+  if (event.target === userMenuContainer) {
+    closeUserMenu();
   }
 });
 
-// Muoviamo il modale durante il drag (smartphone)
-document.addEventListener('touchmove', (e) => {
-  if (isDragging) {
-    let x = e.touches[0].clientX - startPos.x;
-    let y = e.touches[0].clientY - startPos.y;
-
-    // Limiti: Evita che il modale vada troppo in alto
-    if (y < 0) y = 0; // Impedisce di spostarlo oltre il bordo superiore
-
-    modal.style.left = `${x}px`;
-    modal.style.top = `${y}px`;
-  }
-});
-
-// Rilasciamo il modale (PC)
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-});
-
-// Rilasciamo il modale (smartphone)
-document.addEventListener('touchend', () => {
-  isDragging = false;
-});
+// Funzione per chiudere il menu utente
+function closeUserMenu() {
+  userMenuContainer.classList.remove('open');
+}

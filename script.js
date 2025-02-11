@@ -111,11 +111,11 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
 });
 
-// Limiti della mappa alla città di Palermo (coordinata sud-ovest e nord-est)
-// Ho esteso i limiti a lasciare più spazio a destra e sinistra
+// Limiti della mappa estesi su tutti i lati (coordinata sud-ovest e nord-est)
+// Ho esteso i limiti ancora di più, sia in orizzontale che verticale
 var bounds = [
-  [38.060, 13.230], // Coordinate sud-ovest della città (più a sinistra)
-  [38.175, 13.560]  // Coordinate nord-est della città (più a destra)
+  [38.030, 13.170], // Coordinate sud-ovest della città (ancora più a sinistra)
+  [38.200, 13.630]  // Coordinate nord-est della città (ancora più a destra)
 ];
 
 // Limita la mappa alla città di Palermo

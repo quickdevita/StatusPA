@@ -62,7 +62,77 @@ body {
   display: block;
 }
 
-/* Stile del menu modale */
+/* Icona utente */
+#user-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+#user-icon img {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+}
+
+/* Menu utente */
+.user-menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  z-index: 10000;
+}
+
+.user-menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-menu-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+#close-user-menu {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Quando il menu utente è attivo */
+.user-menu-container.open {
+  transform: translateX(0);
+}
+
+/* Stile del menu modale per i dettagli sui lavori */
 .modal-container {
   position: fixed;
   bottom: 0;
@@ -115,7 +185,7 @@ body {
     bottom: 20px !important;
     left: 20px !important;
     z-index: 1000 !important;
-    background: transparent !important; /* Sfondo trasparente per sembrare più pulito */
+    background: transparent !important;
     border-radius: 5px !important;
     padding: 0 !important;
     display: flex !important;
@@ -129,8 +199,8 @@ body {
     background-color: #fff !important;
     border: 1px solid #ccc !important;
     width: 36px !important;
-    height: 36px !important; /* Altezza ridotta a metà rispetto a prima */
-    font-size: 18px !important; /* Ridotto per un aspetto più sobrio */
+    height: 36px !important;
+    font-size: 18px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;

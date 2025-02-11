@@ -10,6 +10,35 @@ var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
 map.zoomControl.remove(); 
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
+// Riferimenti al menu modale
+const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modal-content');
+const closeModal = document.getElementById('close-modal');
+
+// Funzione per aprire il menu modale
+function openModal(zone) {
+  modalContent.innerHTML = `<h2>${zone.name}</h2><p>${zone.info}</p>`;
+  modal.classList.add('open');
+}
+
+// Chiudere il menu modale con il pulsante
+closeModal.addEventListener('click', () => {
+  modal.classList.remove('open');
+});
+
+// Chiudere il menu modale trascinandolo verso il basso
+let startY;
+modal.addEventListener('touchstart', (e) => {
+  startY = e.touches[0].clientY;
+});
+
+modal.addEventListener('touchmove', (e) => {
+  let moveY = e.touches[0].clientY;
+  if (moveY - startY > 50) {
+    modal.classList.remove('open');
+  }
+});
+
 // Caricamento dei dati dal file JSON
 fetch('data.json')
   .then(response => response.json())
@@ -21,7 +50,8 @@ fetch('data.json')
         fillOpacity: 0.5
       }).addTo(map);
 
-      polygon.bindPopup(`<b>${zone.name}</b><br>${zone.info}`);
+      // Aprire il menu modale quando si clicca su un'area
+      polygon.on('click', () => openModal(zone));
     });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
@@ -42,6 +72,7 @@ function searchLocation(query) {
       const result = data.filter(zone => zone.name.toLowerCase().includes(query));
       if (result.length > 0) {
         map.setView(result[0].coordinates[0], 15);
+        openModal(result[0]); // Apri il menu modale quando trovi una zona
       }
     })
     .catch(error => console.error("Errore nella ricerca:", error));

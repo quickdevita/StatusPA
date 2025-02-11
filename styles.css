@@ -99,6 +99,7 @@
   .leaflet-control-zoom {
     display: none !important;
   }
+}
 
 /* Stile del menu modale (stile Google Maps) */
 .modal-container {
@@ -142,12 +143,10 @@
 }
 
 /* Quando il modale è attivo */
-.modal-container.active {
+.modal-container.open {
   display: flex;
 }
 
-.modal.active {
+.modal.open {
   transform: translateY(0);
-}
-
 }

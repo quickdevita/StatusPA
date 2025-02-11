@@ -1,12 +1,14 @@
-const CACHE_NAME = 'statuspa-cache-v4';
+// Versione del service worker
+const SW_VERSION = 'betav1';
+const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/manifest.json'
+  '/StatusPA/',
+  '/StatusPA/index.html',
+  '/StatusPA/styles.css',
+  '/StatusPA/script.js',
+  '/StatusPA/icons/icon-192x192.png',
+  '/StatusPA/icons/icon-512x512.png',
+  '/StatusPA/manifest.json'
 ];
 
 // Installazione del Service Worker e caching dei file

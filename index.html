@@ -41,6 +41,8 @@
       </div>
       <div class="user-menu-content">
         <p>Qui verranno aggiunte funzionalità come la creazione del profilo.</p>
+        <!-- Aggiunta della versione nel menu utente -->
+        <p id="user-version"></p> <!-- Qui verrà mostrata la versione -->
       </div>
     </div>
   </div>
@@ -91,6 +93,9 @@
         .then(reg => console.log('Service Worker registrato:', reg))
         .catch(err => console.log('Errore Service Worker:', err));
     }
+
+    // Aggiunta della versione nel menu utente
+    document.getElementById('user-version').textContent = 'Versione 1.0.0'; // Sostituisci con la tua versione effettiva
   </script>
 </body>
 </html>

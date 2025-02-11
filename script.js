@@ -133,9 +133,18 @@ const userMenuContainer = document.getElementById('user-menu-container');
 const userMenu = document.getElementById('user-menu');
 const closeUserMenuBtn = document.getElementById('close-user-menu');
 
+// Versione dell'app
+const APP_VERSION = 'betav1'; // Versione aggiornata della PWA
+
 // Apri il menu quando si clicca sull'icona utente
 userIcon.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
+
+  // Aggiungi la versione all'interno del menu utente
+  const versionElement = document.getElementById('user-version');
+  if (versionElement) {
+    versionElement.textContent = `Versione: ${APP_VERSION}`;
+  }
 });
 
 // Chiudi il menu quando si clicca il pulsante di chiusura

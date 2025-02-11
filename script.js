@@ -2,9 +2,7 @@
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
   minZoom: 12,        // Impedisce di zoomare troppo fuori
-  gestureHandling: true, // Abilita la gestione dei gesti
-  touchZoom: true,   // Permette lo zoom tramite tocchi su dispositivi mobili
-  scrollWheelZoom: true // Permette lo zoom tramite rotellina
+  gestureHandling: true // Abilita il supporto per i gesti di spostamento e zoom su mobile
 }).setView([38.1157, 13.3615], 13);
 
 // Aggiunta della mappa satellitare Esri

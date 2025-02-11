@@ -29,17 +29,15 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 5px;
   z-index: 9999;
-  height: 50px; /* Aggiungi altezza esplicita */
 }
 
 .search-container input {
-  width: 85%; /* Ridotto per fare spazio all'icona */
+  width: 90%;
   padding: 8px 15px;
   border: none;
   border-radius: 15px;
   font-size: 16px;
   outline: none;
-  height: 100%; /* Imposta l'altezza per farlo uguale alla barra */
 }
 
 .search-container button {
@@ -47,7 +45,6 @@ body {
   border: none;
   cursor: pointer;
   padding: 10px;
-  height: 100%; /* Altrimenti l'icona sarà disallineata */
 }
 
 .search-container button span.material-icons {
@@ -68,10 +65,10 @@ body {
 /* Icona utente */
 #user-icon {
   position: absolute;
-  top: 10px; /* Allineata con la barra di ricerca */
-  right: 10px; /* Posizionata a destra della barra */
-  width: 45px; /* Diminuita per allinearsi meglio */
-  height: 45px; /* Diminuita per allinearsi meglio */
+  bottom: 10px; /* Posizionato in basso */
+  right: 10px; /* Posizionato a destra */
+  width: 55px; /* Aumentato a 55px su PC */
+  height: 55px; /* Aumentato a 55px su PC */
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -232,20 +229,20 @@ body {
   /* Barra di ricerca centrata su smartphone */
   .search-container {
     top: 10px; /* Posizionata in alto */
-    left: 10px !important; /* Posizionata al lato sinistro */
-    transform: translateX(0); /* Rimuovi il centramento */
-    width: calc(100% - 70px); /* Ridotta per fare spazio all'icona */
+    left: 50% !important; /* Centrata orizzontalmente */
+    transform: translateX(-50%); /* Centrata orizzontalmente */
+    width: 80%; /* Adatta la larghezza */
     display: flex; /* Assicurarsi che la barra sia flex */
     align-items: center; /* Centrare verticalmente */
   }
 
-  /* Posizionare l'icona utente a destra della barra di ricerca */
+  /* Posizionare l'icona utente in basso a destra */
   #user-icon {
     position: absolute;
-    top: 10px; /* Allineata con la barra di ricerca */
-    right: 10px; /* Posizionata a destra della barra */
-    width: 45px; /* Stessa altezza della barra di ricerca */
-    height: 45px; /* Stessa altezza della barra di ricerca */
+    bottom: 10px; /* Posizionato in basso */
+    right: 10px; /* Posizionato a destra */
+    width: 55px; /* Dimensione dell'icona */
+    height: 55px; /* Dimensione dell'icona */
     z-index: 10001; /* Assicurarsi che l'icona sia sopra la mappa */
   }
 }

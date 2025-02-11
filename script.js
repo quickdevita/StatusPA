@@ -16,6 +16,9 @@ if (window.innerWidth > 768) {
   }).addTo(map);
 }
 
+// Inizializzare la gestione dei gesti, inclusi zoom, pan e rotazione
+L.gestureHandling().addTo(map);
+
 // Variabili globali
 let zonesData = []; // Array per memorizzare i dati delle zone
 
@@ -122,14 +125,3 @@ map.setMaxBounds(bounds);
 map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });
 });
-
-// ** Gestione della rotazione **
-L.DomEvent.on(map._container, 'mousedown', function(event) {
-  if (event.button === 2) { // Rileva tasto destro del mouse
-    // Gestione rotazione della mappa
-    console.log("Rotazione attivata con il tasto destro");
-  }
-});
-
-// Inizializzare la libreria di rotazione per gestire la rotazione su dispositivi mobili
-L.rotate(map);

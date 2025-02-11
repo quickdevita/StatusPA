@@ -129,7 +129,7 @@ body {
     background-color: #fff !important;
     border: 1px solid #ccc !important;
     width: 36px !important;
-    height: 72px !important; /* Aumenta l'altezza per unire i due pulsanti */
+    height: 36px !important; /* Altezza ridotta a metà rispetto a prima */
     font-size: 18px !important; /* Ridotto per un aspetto più sobrio */
     display: flex !important;
     justify-content: center !important;

@@ -111,14 +111,13 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
 });
 
-// Limiti della mappa estesi su tutti i lati (coordinata sud-ovest e nord-est)
-// Ho esteso i limiti ancora di più, sia in orizzontale che verticale
+// Limiti della mappa estesi per includere anche Terrasini
 var bounds = [
-  [38.030, 13.170], // Coordinate sud-ovest della città (ancora più a sinistra)
-  [38.200, 13.630]  // Coordinate nord-est della città (ancora più a destra)
+  [37.900, 12.900], // Coordinata sud-ovest (Terrasini, più a ovest)
+  [38.300, 13.800]  // Coordinata nord-est (più a est, includendo tutta la provincia)
 ];
 
-// Limita la mappa alla città di Palermo
+// Limita la mappa alla provincia di Palermo, inclusi Terrasini
 map.setMaxBounds(bounds);
 map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });

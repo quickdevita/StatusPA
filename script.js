@@ -2,7 +2,6 @@
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
   minZoom: 12,        // Impedisce di zoomare troppo fuori
-  maxZoom: 18         // Impedisce di zoomare troppo dentro
 }).setView([38.1157, 13.3615], 13);
 
 // Aggiunta della mappa satellitare Esri

@@ -234,6 +234,7 @@ body {
     width: calc(100% - 70px); /* Ridotta per fare spazio all'icona */
     display: flex; /* Assicurarsi che la barra sia flex */
     align-items: center; /* Centrare verticalmente */
+    height: 55px; /* Stessa altezza dell'icona */
   }
 
   /* Posizionare l'icona utente a destra della barra di ricerca */

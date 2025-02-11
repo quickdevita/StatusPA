@@ -229,8 +229,8 @@ body {
   /* Barra di ricerca centrata su smartphone */
   .search-container {
     top: 10px; /* Posizionata in alto */
-    left: 50% !important; /* Centrata orizzontalmente */
-    transform: translateX(-50%); /* Centrata orizzontalmente */
+    left: 10px !important; /* Posizionata al lato sinistro */
+    transform: translateX(0); /* Rimuovi il centramento */
     width: calc(100% - 70px); /* Ridotta per fare spazio all'icona */
     display: flex; /* Assicurarsi che la barra sia flex */
     align-items: center; /* Centrare verticalmente */

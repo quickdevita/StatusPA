@@ -18,7 +18,8 @@ body {
 .search-container {
   position: absolute;
   top: 10px;
-  left: 0; /* Posizionata tutta a sinistra */
+  left: 50%; /* Centrata orizzontalmente */
+  transform: translateX(-50%); /* Compensa la metà della larghezza per centrarla */
   width: calc(100% - 50px); /* Ridotta per fare spazio all'icona utente */
   display: flex;
   align-items: center;

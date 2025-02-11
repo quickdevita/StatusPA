@@ -65,7 +65,7 @@ body {
 /* Icona utente */
 #user-icon {
   position: absolute;
-  bottom: 10px; /* Posizionato in basso */
+  top: 10px; /* Posizionato in alto */
   right: 10px; /* Posizionato a destra */
   width: 55px; /* Aumentato a 55px su PC */
   height: 55px; /* Aumentato a 55px su PC */

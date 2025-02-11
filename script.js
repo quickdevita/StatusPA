@@ -154,3 +154,39 @@ userMenuContainer.addEventListener('click', (event) => {
 function closeUserMenu() {
   userMenuContainer.classList.remove('open');
 }
+
+// ===========================
+// 🔹 GESTIONE DRAG DEL MODALE 🔹
+// ===========================
+
+let modal = document.getElementById('modal');
+let modalContainer = document.getElementById('modal-container');
+let isDragging = false;
+let startPos = { x: 0, y: 0 };
+
+// Iniziamo a trascinare il modale
+modal.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startPos.x = e.clientX - modal.offsetLeft;
+  startPos.y = e.clientY - modal.offsetTop;
+});
+
+// Muoviamo il modale durante il drag
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    let x = e.clientX - startPos.x;
+    let y = e.clientY - startPos.y;
+
+    // Limiti: Evita che il modale vada troppo in alto
+    if (y < 0) y = 0; // Impedisce di spostarlo oltre il bordo superiore
+
+    modal.style.left = `${x}px`;
+    modal.style.top = `${y}px`;
+  }
+});
+
+// Rilasciamo il modale
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+

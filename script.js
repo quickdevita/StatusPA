@@ -73,17 +73,24 @@ function closeModal() {
   document.getElementById('modal').classList.remove('open');
 }
 
-// Ricerca in tempo reale
-document.getElementById('search-input').addEventListener('input', function () {
-  let searchText = this.value.toLowerCase();
+// Funzione per cercare e centrare la mappa su una zona
+function searchZone() {
+  let searchText = document.getElementById('search-input').value.toLowerCase();
   let foundZone = zonesData.find(zone => zone.name.toLowerCase().includes(searchText));
 
   if (foundZone) {
     map.fitBounds(foundZone.coordinates);
   }
+}
+
+// Attiva la ricerca solo quando l'utente preme INVIO
+document.getElementById('search-input').addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    searchZone();
+  }
 });
 
-// Ricerca vocale
+// Ricerca vocale con attivazione della funzione alla fine del riconoscimento
 document.getElementById('voice-search').addEventListener('click', () => {
   if ('webkitSpeechRecognition' in window) {
     let recognition = new webkitSpeechRecognition();
@@ -93,10 +100,8 @@ document.getElementById('voice-search').addEventListener('click', () => {
       let speechResult = event.results[0][0].transcript;
       document.getElementById('search-input').value = speechResult;
       
-      let foundZone = zonesData.find(zone => zone.name.toLowerCase().includes(speechResult.toLowerCase()));
-      if (foundZone) {
-        map.fitBounds(foundZone.coordinates);
-      }
+      // Avvia la ricerca dopo il riconoscimento vocale
+      searchZone();
     };
 
     recognition.start();

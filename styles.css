@@ -65,10 +65,10 @@ body {
 /* Icona utente */
 #user-icon {
   position: absolute;
-  bottom: 10px; /* Posizionato in basso */
+  bottom: 10px; /* Posizionato in basso su smartphone */
   right: 10px; /* Posizionato a destra */
-  width: 55px; /* Aumentato a 55px su PC */
-  height: 55px; /* Aumentato a 55px su PC */
+  width: 55px; /* Dimensione dell'icona */
+  height: 55px; /* Dimensione dell'icona */
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -218,6 +218,15 @@ body {
   .leaflet-control-zoom-out:focus {
     outline: none !important;
   }
+
+  /* Posizionare l'icona utente in alto a destra solo su PC */
+  #user-icon {
+    position: absolute;
+    top: 10px; /* Posizionato in alto su PC */
+    right: 10px; /* Posizionato a destra */
+    width: 55px; /* Dimensione dell'icona */
+    height: 55px; /* Dimensione dell'icona */
+  }
 }
 
 /* Nascondere i pulsanti di zoom su smartphone */
@@ -236,13 +245,12 @@ body {
     align-items: center; /* Centrare verticalmente */
   }
 
-  /* Posizionare l'icona utente in basso a destra */
+  /* Posizionare l'icona utente in basso a destra su smartphone */
   #user-icon {
     position: absolute;
     bottom: 10px; /* Posizionato in basso */
     right: 10px; /* Posizionato a destra */
     width: 55px; /* Dimensione dell'icona */
     height: 55px; /* Dimensione dell'icona */
-    z-index: 10001; /* Assicurarsi che l'icona sia sopra la mappa */
   }
 }

@@ -65,8 +65,8 @@ body {
 /* Icona utente */
 #user-icon {
   position: absolute;
-  bottom: 10px; /* Posizionato in basso */
-  right: 10px; /* Posizionato a destra */
+  top: 10px; /* Posizionato in alto su PC */
+  right: 10px; /* Posizionato a destra su PC */
   width: 55px; /* Aumentato a 55px su PC */
   height: 55px; /* Aumentato a 55px su PC */
   background-color: white;
@@ -231,18 +231,18 @@ body {
     top: 10px; /* Posizionata in alto */
     left: 50% !important; /* Centrata orizzontalmente */
     transform: translateX(-50%); /* Centrata orizzontalmente */
-    width: 80%; /* Adatta la larghezza */
+    width: calc(100% - 70px); /* Ridotta per fare spazio all'icona */
     display: flex; /* Assicurarsi che la barra sia flex */
     align-items: center; /* Centrare verticalmente */
   }
 
-  /* Posizionare l'icona utente in basso a destra */
+  /* Posizionare l'icona utente a destra della barra di ricerca */
   #user-icon {
     position: absolute;
-    bottom: 10px; /* Posizionato in basso */
-    right: 10px; /* Posizionato a destra */
-    width: 55px; /* Dimensione dell'icona */
-    height: 55px; /* Dimensione dell'icona */
+    top: 10px; /* Allineata con la barra di ricerca */
+    right: 10px; /* Posizionata a destra della barra */
+    width: 55px; /* Stessa altezza della barra di ricerca */
+    height: 55px; /* Stessa altezza della barra di ricerca */
     z-index: 10001; /* Assicurarsi che l'icona sia sopra la mappa */
   }
 }

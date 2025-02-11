@@ -18,8 +18,10 @@ body {
 .search-container {
   position: absolute;
   top: 10px;
-  left: 0; /* Posizionata tutta a sinistra */
-  width: calc(100% - 50px); /* Ridotta per fare spazio all'icona utente */
+  left: 50%;
+  transform: translateX(-50%); /* Centrato su PC */
+  width: 80%;
+  max-width: 500px;
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -64,9 +66,9 @@ body {
 #user-icon {
   position: absolute;
   top: 10px;
-  left: calc(100% - 50px); /* Posizionata alla destra della barra */
-  width: 40px; /* Rimpicciolita */
-  height: 40px; /* Rimpicciolita */
+  right: 10px;
+  width: 55px; /* Aumentato a 55px su PC */
+  height: 55px; /* Aumentato a 55px su PC */
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -74,7 +76,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 10001;
+  z-index: 10000;
 }
 
 #user-icon img {
@@ -224,16 +226,16 @@ body {
     display: none !important;
   }
 
-  /* Posizionare correttamente la barra di ricerca su smartphone */
+  /* Spostare la barra di ricerca su smartphone tutta a sinistra */
   .search-container {
-    left: 0 !important; /* Posizionata tutta a sinistra */
+    left: 0 !important; /* Tutta a sinistra */
     width: calc(100% - 50px); /* Ridotta per fare spazio all'icona */
   }
 
-  /* Posizionare l'icona utente subito alla destra della barra di ricerca */
+  /* Posizionare l'icona utente a destra della barra di ricerca e rimpicciolirla */
   #user-icon {
     top: 10px !important;
-    left: calc(100% - 50px); /* Alla destra della barra */
+    left: calc(100% - 50px); /* Posizionata alla destra della barra */
     width: 40px; /* Rimpicciolita */
     height: 40px; /* Rimpicciolita */
     z-index: 10001; /* Assicurarsi che l'icona sia sopra la barra */

@@ -1,10 +1,19 @@
 // Inizializzazione della mappa con vista su Palermo
-var map = L.map('map').setView([38.1157, 13.3615], 13);
+var map = L.map('map', {
+  zoomControl: false // Disabilita il controllo predefinito
+}).setView([38.1157, 13.3615], 13);
 
 // Aggiunta della mappa satellitare Esri
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
+
+// Aggiunta manuale dei controlli di zoom SOLO su PC
+if (window.innerWidth > 768) {
+  L.control.zoom({
+    position: 'bottomleft' // Posiziona in basso a sinistra
+  }).addTo(map);
+}
 
 // Variabili globali
 let zonesData = []; // Array per memorizzare i dati delle zone

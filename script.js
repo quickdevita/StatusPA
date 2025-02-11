@@ -9,15 +9,12 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Aggiunta dei controlli di zoom solo su PC
+// Aggiunta manuale dei controlli di zoom SOLO su PC
 if (window.innerWidth > 768) {
   L.control.zoom({
     position: 'bottomleft' // Posiziona in basso a sinistra
   }).addTo(map);
 }
-
-// Inizializzare la gestione dei gesti, inclusi zoom, pan e rotazione
-L.gestureHandling().addTo(map);
 
 // Variabili globali
 let zonesData = []; // Array per memorizzare i dati delle zone

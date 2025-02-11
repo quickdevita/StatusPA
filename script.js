@@ -1,8 +1,8 @@
-/// Inizializzazione della mappa con vista su Palermo
+// Inizializzazione della mappa con vista su Palermo
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
   minZoom: 12,        // Impedisce di zoomare troppo fuori
-  gestureHandling: true // Abilita la gestione del gesto (rotazione con due dita, tasto destro del mouse)
+  gestureHandling: true, // Abilita la gestione dei gesti
 }).setView([38.1157, 13.3615], 13);
 
 // Aggiunta della mappa satellitare Esri

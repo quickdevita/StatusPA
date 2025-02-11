@@ -2,7 +2,6 @@
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
   minZoom: 12,        // Impedisce di zoomare troppo fuori
-  gestureHandling: true, // Abilita il supporto per i gesti di spostamento e zoom su mobile
 }).setView([38.1157, 13.3615], 13);
 
 // Aggiunta della mappa satellitare Esri
@@ -10,7 +9,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-// Aggiunta manuale dei controlli di zoom SOLO su PC
+// Aggiunta dei controlli di zoom solo su PC
 if (window.innerWidth > 768) {
   L.control.zoom({
     position: 'bottomleft' // Posiziona in basso a sinistra
@@ -124,20 +123,13 @@ map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });
 });
 
-// Funzione per abilitare la rotazione della mappa (PC e mobile)
-function enableRotation() {
-  map.on('rotate', function() {
-    console.log("Mappa ruotata");
-  });
+// ** Gestione della rotazione **
+L.DomEvent.on(map._container, 'mousedown', function(event) {
+  if (event.button === 2) { // Rileva tasto destro del mouse
+    // Gestione rotazione della mappa
+    console.log("Rotazione attivata con il tasto destro");
+  }
+});
 
-  // Eventi su PC per attivare la rotazione (tasto destro + mouse)
-  map.on('mousedown', function(e) {
-    if (e.originalEvent.button === 2) {
-      // Attiva la rotazione (potresti usare la logica per la rotazione manuale)
-      console.log("Rotazione attivata con il tasto destro");
-    }
-  });
-}
-
-// Attivare la rotazione
-enableRotation();
+// Inizializzare la libreria di rotazione per gestire la rotazione su dispositivi mobili
+L.rotate(map);

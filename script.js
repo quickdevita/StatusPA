@@ -129,12 +129,18 @@ map.on('drag', function() {
 
 // Seleziona gli elementi del menu utente
 const userIcon = document.getElementById('user-icon');
-const userMenu = document.getElementById('user-menu');
 const userMenuContainer = document.getElementById('user-menu-container');
+const userMenu = document.getElementById('user-menu');
+const closeUserMenuBtn = document.getElementById('close-user-menu');
 
 // Apri il menu quando si clicca sull'icona utente
 userIcon.addEventListener('click', () => {
-  userMenu.classList.add('open');
+  userMenuContainer.classList.add('open');
+});
+
+// Chiudi il menu quando si clicca il pulsante di chiusura
+closeUserMenuBtn.addEventListener('click', () => {
+  closeUserMenu();
 });
 
 // Chiudi il menu quando si clicca fuori dal menu
@@ -146,5 +152,5 @@ userMenuContainer.addEventListener('click', (event) => {
 
 // Funzione per chiudere il menu utente
 function closeUserMenu() {
-  userMenu.classList.remove('open');
+  userMenuContainer.classList.remove('open');
 }

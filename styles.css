@@ -24,10 +24,6 @@
   outline: none;
 }
 
-.search-container input:focus {
-  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
-}
-
 .search-container button {
   background: none;
   border: none;
@@ -43,65 +39,10 @@
 /* Mappa */
 #map {
   height: 100vh;
-  margin: 0;
-  padding: 0;
   width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
-/* Pulsanti di zoom visibili solo su PC e tablet */
-@media only screen and (min-width: 769px) {
-  .leaflet-control-zoom {
-    position: absolute !important;
-    bottom: 20px !important;
-    left: 20px !important;
-    z-index: 1000 !important;
-    background: rgba(255, 255, 255, 0.7) !important;
-    border-radius: 5px !important;
-    padding: 5px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 5px !important;
-  }
-
-  .leaflet-control-zoom-in,
-  .leaflet-control-zoom-out {
-    background-color: #fff !important;
-    border: 1px solid #ccc !important;
-    border-radius: 50% !important;
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 20px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s, color 0.3s !important;
-  }
-
-  .leaflet-control-zoom-in:hover,
-  .leaflet-control-zoom-out:hover {
-    background-color: #007bff !important;
-    color: white !important;
-  }
-
-  .leaflet-control-zoom-in:focus,
-  .leaflet-control-zoom-out:focus {
-    outline: none !important;
-  }
-}
-
-/* Nascondere i pulsanti di zoom su smartphone */
-@media only screen and (max-width: 768px) {
-  .leaflet-control-zoom {
-    display: none !important;
-  }
-}
-
-/* Stile del menu modale (stile Google Maps) */
+/* Stile del menu modale */
 .modal-container {
   position: fixed;
   bottom: 0;
@@ -138,10 +79,6 @@
   margin: 0 auto;
 }
 
-.modal-content {
-  padding: 10px;
-}
-
 /* Quando il modale è attivo */
 .modal-container.open {
   display: flex;
@@ -150,3 +87,4 @@
 .modal.open {
   transform: translateY(0);
 }
+

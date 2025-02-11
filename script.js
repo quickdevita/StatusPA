@@ -122,3 +122,29 @@ map.setMaxBounds(bounds);
 map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });
 });
+
+// =========================
+// 🔹 GESTIONE MENU UTENTE 🔹
+// =========================
+
+// Seleziona gli elementi del menu utente
+const userIcon = document.getElementById('user-icon');
+const userMenu = document.getElementById('user-menu');
+const userMenuContainer = document.getElementById('user-menu-container');
+
+// Apri il menu quando si clicca sull'icona utente
+userIcon.addEventListener('click', () => {
+  userMenu.classList.add('open');
+});
+
+// Chiudi il menu quando si clicca fuori dal menu
+userMenuContainer.addEventListener('click', (event) => {
+  if (event.target === userMenuContainer) {
+    closeUserMenu();
+  }
+});
+
+// Funzione per chiudere il menu utente
+function closeUserMenu() {
+  userMenu.classList.remove('open');
+}

@@ -133,6 +133,65 @@ const userMenuContainer = document.getElementById('user-menu-container');
 const userMenu = document.getElementById('user-menu');
 const closeUserMenuBtn = document.getElementById('close-user-menu');
 
+// Inizializzazione della gestione del profilo
+let userProfile = JSON.parse(localStorage.getItem('userProfile')) || null;
+const createProfileSection = document.getElementById('create-profile');
+const manageProfileSection = document.getElementById('manage-profile');
+const usernameInput = document.getElementById('username-input');
+const passwordInput = document.getElementById('password-input');
+const confirmPasswordInput = document.getElementById('confirm-password-input');
+const errorMessage = document.getElementById('error-message');
+const registerButton = document.getElementById('register-button');
+const profileUsername = document.getElementById('profile-username');
+const deleteProfileButton = document.getElementById('delete-profile-button');
+
+// Mostra la sezione giusta (Crea o Gestisci Profilo)
+function updateProfileSection() {
+  if (userProfile) {
+    profileUsername.textContent = userProfile.username;
+    manageProfileSection.style.display = 'block';
+    createProfileSection.style.display = 'none';
+  } else {
+    manageProfileSection.style.display = 'none';
+    createProfileSection.style.display = 'block';
+  }
+}
+
+// Funzione per registrare il profilo
+registerButton.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
+
+  if (username.length === 0 || password.length < 4) {
+    errorMessage.textContent = 'Username o password non validi';
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    errorMessage.textContent = 'Le password non corrispondono';
+    return;
+  }
+
+  // Salva il profilo nell'oggetto userProfile e nel localStorage
+  userProfile = { username: username, password: password };
+  localStorage.setItem('userProfile', JSON.stringify(userProfile));
+
+  updateProfileSection();
+});
+
+// Funzione per eliminare il profilo
+deleteProfileButton.addEventListener('click', () => {
+  if (confirm('Sei sicuro di voler eliminare il tuo profilo?')) {
+    localStorage.removeItem('userProfile');
+    userProfile = null;
+    updateProfileSection();
+  }
+});
+
+// Inizializza la sezione del profilo
+updateProfileSection();
+
 // Apri il menu quando si clicca sull'icona utente
 userIcon.addEventListener('click', () => {
   userMenuContainer.classList.add('open');

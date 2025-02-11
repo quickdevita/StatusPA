@@ -1,4 +1,4 @@
-/// Inizializzazione della mappa con vista su Palermo
+// Inizializzazione della mappa con vista su Palermo
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
   minZoom: 12,        // Impedisce di zoomare troppo fuori
@@ -112,9 +112,10 @@ document.getElementById('voice-search').addEventListener('click', () => {
 });
 
 // Limiti della mappa alla città di Palermo (coordinata sud-ovest e nord-est)
+// Ho esteso i limiti a lasciare più spazio a destra e sinistra
 var bounds = [
-  [38.075, 13.246], // Coordinate sud-ovest della città
-  [38.203, 13.554]  // Coordinate nord-est della città
+  [38.060, 13.230], // Coordinate sud-ovest della città (più a sinistra)
+  [38.175, 13.560]  // Coordinate nord-est della città (più a destra)
 ];
 
 // Limita la mappa alla città di Palermo

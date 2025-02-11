@@ -154,3 +154,66 @@ userMenuContainer.addEventListener('click', (event) => {
 function closeUserMenu() {
   userMenuContainer.classList.remove('open');
 }
+
+// =========================
+// 🔹 GESTIONE DEL PROFILO UTENTE 🔹
+// =========================
+
+// Variabili per la gestione del profilo
+const profileSection = document.getElementById('profile-section');
+const profileForm = document.getElementById('profile-form');
+const profileButton = document.getElementById('profile-button');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+
+// Funzione per gestire la registrazione o il login
+profileButton.addEventListener('click', () => {
+  const username = usernameInput.value;
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
+
+  if (username && password && confirmPassword) {
+    if (password === confirmPassword) {
+      if (password.length >= 4) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        alert('Profilo creato con successo!');
+        profileSection.style.display = 'none';
+      } else {
+        alert('La password deve essere lunga almeno 4 caratteri');
+      }
+    } else {
+      alert('Le password non corrispondono');
+    }
+  } else {
+    alert('Compila tutti i campi');
+  }
+});
+
+// Funzione per visualizzare o nascondere il profilo
+function manageProfile() {
+  const storedUsername = localStorage.getItem('username');
+  const storedPassword = localStorage.getItem('password');
+
+  if (storedUsername && storedPassword) {
+    // Se il profilo è già registrato
+    document.getElementById('profile-username').innerText = storedUsername;
+    document.getElementById('profile-password').innerText = '****'; // Non mostrare la password
+    profileSection.style.display = 'none'; // Nascondi il modulo di registrazione
+  } else {
+    // Se il profilo non è registrato
+    profileSection.style.display = 'block'; // Mostra il modulo di registrazione
+  }
+}
+
+// Funzione per cancellare il profilo
+document.getElementById('delete-profile').addEventListener('click', () => {
+  localStorage.removeItem('username');
+  localStorage.removeItem('password');
+  alert('Profilo cancellato');
+  manageProfile();
+});
+
+// Inizializzazione della gestione del profilo
+manageProfile();

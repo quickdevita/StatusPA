@@ -1,4 +1,4 @@
-// Inizializzazione della mappa con vista su Palermo
+/// Inizializzazione della mappa con vista su Palermo
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
   minZoom: 12,        // Impedisce di zoomare troppo fuori
@@ -111,13 +111,13 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
 });
 
-// Limiti della mappa alla provincia di Palermo (coordinata sud-ovest e nord-est)
+// Limiti della mappa alla città di Palermo (coordinata sud-ovest e nord-est)
 var bounds = [
-  [37.5, 12.5], // Coordinate sud-ovest
-  [38.5, 14.5]  // Coordinate nord-est
+  [38.075, 13.246], // Coordinate sud-ovest della città
+  [38.203, 13.554]  // Coordinate nord-est della città
 ];
 
-// Limita la mappa alla provincia di Palermo
+// Limita la mappa alla città di Palermo
 map.setMaxBounds(bounds);
 map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });

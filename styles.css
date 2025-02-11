@@ -65,8 +65,8 @@ body {
 /* Icona utente */
 #user-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  bottom: 10px; /* Posizionato in basso */
+  right: 10px; /* Posizionato a destra */
   width: 55px; /* Aumentato a 55px su PC */
   height: 55px; /* Aumentato a 55px su PC */
   background-color: white;
@@ -226,21 +226,23 @@ body {
     display: none !important;
   }
 
-  /* Spostare la barra di ricerca su smartphone tutta a sinistra */
+  /* Barra di ricerca centrata su smartphone */
   .search-container {
     top: 10px; /* Posizionata in alto */
-    left: 0 !important; /* Posizionata tutta a sinistra */
-    width: calc(100% - 55px); /* Ridotta per fare spazio all'icona */
+    left: 50% !important; /* Centrata orizzontalmente */
+    transform: translateX(-50%); /* Centrata orizzontalmente */
+    width: 80%; /* Adatta la larghezza */
     display: flex; /* Assicurarsi che la barra sia flex */
     align-items: center; /* Centrare verticalmente */
   }
 
-  /* Posizionare l'icona utente a destra della barra di ricerca */
+  /* Posizionare l'icona utente in basso a destra */
   #user-icon {
-    top: 10px !important;
-    left: calc(100% - 55px); /* Alla destra della barra */
-    width: 55px; /* Stessa altezza della barra di ricerca */
-    height: 55px; /* Stessa altezza della barra di ricerca */
-    z-index: 10001; /* Assicurarsi che l'icona sia sopra la barra */
+    position: absolute;
+    bottom: 10px; /* Posizionato in basso */
+    right: 10px; /* Posizionato a destra */
+    width: 55px; /* Dimensione dell'icona */
+    height: 55px; /* Dimensione dell'icona */
+    z-index: 10001; /* Assicurarsi che l'icona sia sopra la mappa */
   }
 }

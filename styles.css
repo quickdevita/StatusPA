@@ -18,8 +18,8 @@ body {
 .search-container {
   position: absolute;
   top: 10px;
-  left: 0; /* Spostato a sinistra */
-  transform: translateX(0); /* Annullato il precedente "trasformare" */
+  left: 50%;
+  transform: translateX(-50%); /* Centrato su PC */
   width: 80%;
   max-width: 500px;
   display: flex;
@@ -229,13 +229,15 @@ body {
   /* Spostare la barra di ricerca su smartphone tutta a sinistra */
   .search-container {
     left: 0 !important; /* Tutta a sinistra */
-    width: calc(100% - 65px); /* Ridotta per fare spazio all'icona */
+    width: calc(100% - 50px); /* Ridotta per fare spazio all'icona */
   }
 
-  /* Posizionare l'icona utente a destra della barra di ricerca */
+  /* Posizionare l'icona utente a destra della barra di ricerca e rimpicciolirla */
   #user-icon {
     top: 10px !important;
-    left: calc(100% - 65px); /* Posizionata alla destra della barra */
+    left: calc(100% - 50px); /* Posizionata alla destra della barra */
+    width: 40px; /* Rimpicciolita */
+    height: 40px; /* Rimpicciolita */
     z-index: 10001; /* Assicurarsi che l'icona sia sopra la barra */
   }
 }

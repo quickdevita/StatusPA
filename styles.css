@@ -29,15 +29,17 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 5px;
   z-index: 9999;
+  height: 50px; /* Aggiungi altezza esplicita */
 }
 
 .search-container input {
-  width: 90%;
+  width: 85%; /* Ridotto per fare spazio all'icona */
   padding: 8px 15px;
   border: none;
   border-radius: 15px;
   font-size: 16px;
   outline: none;
+  height: 100%; /* Imposta l'altezza per farlo uguale alla barra */
 }
 
 .search-container button {
@@ -45,6 +47,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 10px;
+  height: 100%; /* Altrimenti l'icona sarà disallineata */
 }
 
 .search-container button span.material-icons {
@@ -65,10 +68,10 @@ body {
 /* Icona utente */
 #user-icon {
   position: absolute;
-  top: 10px; /* Posizionato in alto su PC */
-  right: 10px; /* Posizionato a destra su PC */
-  width: 55px; /* Aumentato a 55px su PC */
-  height: 55px; /* Aumentato a 55px su PC */
+  top: 10px; /* Allineata con la barra di ricerca */
+  right: 10px; /* Posizionata a destra della barra */
+  width: 45px; /* Diminuita per allinearsi meglio */
+  height: 45px; /* Diminuita per allinearsi meglio */
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -234,7 +237,6 @@ body {
     width: calc(100% - 70px); /* Ridotta per fare spazio all'icona */
     display: flex; /* Assicurarsi che la barra sia flex */
     align-items: center; /* Centrare verticalmente */
-    height: 55px; /* Stessa altezza dell'icona */
   }
 
   /* Posizionare l'icona utente a destra della barra di ricerca */
@@ -242,8 +244,8 @@ body {
     position: absolute;
     top: 10px; /* Allineata con la barra di ricerca */
     right: 10px; /* Posizionata a destra della barra */
-    width: 55px; /* Stessa altezza della barra di ricerca */
-    height: 55px; /* Stessa altezza della barra di ricerca */
+    width: 45px; /* Stessa altezza della barra di ricerca */
+    height: 45px; /* Stessa altezza della barra di ricerca */
     z-index: 10001; /* Assicurarsi che l'icona sia sopra la mappa */
   }
 }

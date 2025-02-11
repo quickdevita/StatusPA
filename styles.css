@@ -68,7 +68,7 @@ body {
   top: 10px; /* Posizionato in alto */
   right: 10px; /* Posizionato a destra */
   width: 55px; /* Aumentato a 55px su PC */
-  height: 55px; /* Aumentato a 55px su PC */
+  height: 50px; /* Altezza uguale a quella della barra di ricerca */
   background-color: white;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);

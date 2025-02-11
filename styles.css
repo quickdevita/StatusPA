@@ -1,3 +1,12 @@
+/* Rimuove margini e padding indesiderati */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 /* Stile della barra di ricerca */
 .search-container {
   position: absolute;
@@ -38,8 +47,12 @@
 
 /* Mappa */
 #map {
-  height: 100vh;
+  position: fixed; /* Risolve il problema dei bordi bianchi */
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Stile del menu modale */
@@ -87,4 +100,3 @@
 .modal.open {
   transform: translateY(0);
 }
-

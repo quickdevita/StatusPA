@@ -44,7 +44,7 @@
     "info": "Lavori fermi da anni."
   },
   {
-    "name": "Nuova Interfaccia Porto-Citt�",
+    "name": "Nuova Interfaccia Porto-Citta'",
     "coordinates": [
       [38.12678108572373, 13.36286375703311],
       [38.12706040294531, 13.36369185954575],
@@ -224,7 +224,7 @@
   "info": "Manutenzioe, adeguamento e potenziamento strutturale della piscina esterna, degli spogliatoi e delle strade d'accesso."
 },
 {
-  "name": "Parco ex Ninni Cassarà",
+  "name": "Parco ex Ninni Cassara'",
   "coordinates": [
     [38.09628608664298, 13.34321348525538],
     [38.09788835133099, 13.34088462903543],
@@ -305,7 +305,7 @@
   "info": "Chiuso per alta presenza di amianto"
 },
 {
-  "name": "Nuova fermata Metropolitana Porto",
+  "name": "Nuova fermata Porto",
   "coordinates": [
     [38.12983514788943, 13.36142225110538],
     [38.12991556264426, 13.3616023653261],
@@ -480,7 +480,7 @@
   "info": "dopo"
 },
 {
-  "name": "Nuova fermata Metro Viale Lazio",
+  "name": "Nuova fermata Viale Lazio",
   "coordinates": [
     [38.14123884091877, 13.33513122233849],
     [38.14136430483504, 13.33549366537611],

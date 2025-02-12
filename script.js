@@ -86,7 +86,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");
 
   if (!exclamationButton) {
@@ -106,37 +106,31 @@ document.addEventListener("DOMContentLoaded", function () {
           <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
           <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
-      </ul>
-      <div class="popup-arrow"></div> <!-- Punta della nuvola -->
-  `;
+      </ul>`;
 
-  // Aggiungiamo il pop-up al documento
+  // Aggiungiamo il pop-up sopra il pulsante
   document.body.appendChild(popup);
 
-  // Funzione per aggiornare la posizione del pop-up
+  // Funzione per aggiornare la posizione
   function aggiornaPosizionePopup() {
       var rect = exclamationButton.getBoundingClientRect();
       var isMobile = window.innerWidth <= 768; // Schermi piccoli
 
-      if (isMobile) {
-          // Mostra il pop-up alla sinistra del pulsante su smartphone
-          popup.style.top = `${rect.top + rect.height / 2 - popup.offsetHeight / 2}px`;
-          popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // A sinistra del pulsante
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
 
-          popup.classList.add("popup-left");
+      if (isMobile) {
+          popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
+          popup.classList.add("popup-up");
           popup.classList.remove("popup-down");
       } else {
-          // Mostra il pop-up sotto il pulsante su PC
-          popup.style.top = `${rect.bottom + 10}px`;
-          popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
-
+          popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
           popup.classList.add("popup-down");
-          popup.classList.remove("popup-left");
+          popup.classList.remove("popup-up");
       }
   }
 
   // Mostra/nasconde il pop-up e aggiorna posizione
-  exclamationButton.addEventListener("click", function (event) {
+  exclamationButton.addEventListener("click", function(event) {
       event.stopPropagation(); // Evita la chiusura immediata
 
       if (popup.style.display === "block") {
@@ -151,21 +145,22 @@ document.addEventListener("DOMContentLoaded", function () {
       exclamationButton.style.visibility = "visible";
   });
 
-  // Chiude il pop-up cliccando fuori (anche su smartphone)
-  document.addEventListener("click", function (event) {
+  // Chiude il pop-up cliccando fuori, ma NON nasconde il pulsante
+  document.addEventListener("click", function(event) {
       if (!popup.contains(event.target) && event.target !== exclamationButton) {
           popup.style.display = "none";
       }
   });
 
-  // Evita la chiusura se si clicca sul pop-up
-  popup.addEventListener("click", function (event) {
+  // Evita la chiusura immediata se si clicca sul pop-up
+  popup.addEventListener("click", function(event) {
       event.stopPropagation();
   });
 
   // Aggiorna posizione quando cambia la finestra
   window.addEventListener("resize", aggiornaPosizionePopup);
 });
+
 
 // =========================
 // 🔹 GESTIONE DELLA RICERCA 🔹

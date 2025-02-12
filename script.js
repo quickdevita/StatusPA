@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
   }
 
-  // Crea il pop-up
+  // Creazione del pop-up
   var popup = document.createElement("div");
   popup.id = "popup";
   popup.innerHTML = `
@@ -105,13 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
           <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
       </ul>`;
+  document.body.appendChild(popup);
 
-  document.body.appendChild(popup); // Aggiungiamo il pop-up al body
-
-  // Funzione per aggiornare la posizione del pop-up
+  // Funzione per posizionare il pop-up
   function aggiornaPosizionePopup() {
       var rect = exclamationButton.getBoundingClientRect();
-      var isMobile = window.innerWidth <= 768; // Controllo per smartphone
+      var isMobile = window.innerWidth <= 768;
 
       if (isMobile) {
           popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
@@ -123,12 +122,16 @@ document.addEventListener("DOMContentLoaded", function () {
           popup.classList.remove("popup-up");
       }
 
-      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centra il pop-up
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`;
   }
 
   // Mostra o nasconde il pop-up
   function togglePopup(event) {
-      event.stopPropagation(); // Evita la chiusura immediata su mobile
+      event.stopPropagation();
+
+      // Evita che il pulsante scompaia
+      exclamationButton.style.display = "block";
+      exclamationButton.style.visibility = "visible";
 
       if (popup.style.display === "block") {
           popup.style.display = "none";
@@ -138,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   }
 
-  // Chiude il pop-up se clicchi fuori, ma IGNORA i tocchi sul pulsante o sul pop-up
+  // Chiude il pop-up se clicchi fuori, ma non nasconde il pulsante
   function chiudiPopup(event) {
       if (!popup.contains(event.target) && event.target !== exclamationButton) {
           popup.style.display = "none";
@@ -157,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Aggiorna posizione quando cambia la finestra
   window.addEventListener("resize", aggiornaPosizionePopup);
 });
+
 
 // =========================
 // 🔹 GESTIONE DELLA RICERCA 🔹

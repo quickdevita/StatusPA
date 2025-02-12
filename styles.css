@@ -168,36 +168,36 @@ body {
 
 #popup {
     position: absolute;
-    background: white;
+    background-color: white;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
     z-index: 1000;
 }
 
-/* Punta della nuvola */
-.popup-arrow {
+/* Punta del pop-up SU PC (freccia verso l'alto) */
+.popup-down::after {
+    content: '';
     position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-}
-
-/* Punta sopra (PC, pop-up sotto il pulsante) */
-.popup-down .popup-arrow {
-    top: -10px;
+    bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    border-bottom: 10px solid white;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
 }
 
-/* Punta a destra (smartphone, pop-up a sinistra del pulsante) */
-.popup-left .popup-arrow {
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 10px solid white;
+/* Punta del pop-up SU MOBILE (freccia verso il basso) */
+.popup-up::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
 }
 
 

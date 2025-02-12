@@ -86,7 +86,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var exclamationButton = document.getElementById("exclamation-mark");
 
   if (!exclamationButton) {
@@ -97,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // Crea il pop-up
   var popup = document.createElement("div");
   popup.id = "popup";
+  popup.style.position = "absolute";
+  popup.style.display = "none"; // Nascondi di default
   popup.innerHTML = `
       <p><strong>Colore Zone:</strong></p>
       <ul>
@@ -104,37 +106,61 @@ document.addEventListener("DOMContentLoaded", function() {
           <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
           <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
-      </ul>`;
+      </ul>
+      <div class="popup-arrow"></div> <!-- Punta della nuvola -->
+  `;
 
-  // Aggiungiamo il pop-up sopra il pulsante
-  document.body.appendChild(popup); // Cambiato: ora il pop-up non è dentro il bottone
+  // Aggiungiamo il pop-up al documento
+  document.body.appendChild(popup);
 
-  // Funzione per aggiornare la posizione
+  // Funzione per aggiornare la posizione del pop-up
   function aggiornaPosizionePopup() {
       var rect = exclamationButton.getBoundingClientRect();
       var isMobile = window.innerWidth <= 768; // Schermi piccoli
 
       if (isMobile) {
-          popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
-          popup.classList.add("popup-up");
+          // Mostra il pop-up alla sinistra del pulsante su smartphone
+          popup.style.top = `${rect.top + rect.height / 2 - popup.offsetHeight / 2}px`;
+          popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // A sinistra del pulsante
+
+          popup.classList.add("popup-left");
           popup.classList.remove("popup-down");
       } else {
-          popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
-          popup.classList.add("popup-down");
-          popup.classList.remove("popup-up");
-      }
+          // Mostra il pop-up sotto il pulsante su PC
+          popup.style.top = `${rect.bottom + 10}px`;
+          popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
 
-      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
+          popup.classList.add("popup-down");
+          popup.classList.remove("popup-left");
+      }
   }
 
   // Mostra/nasconde il pop-up e aggiorna posizione
-  exclamationButton.addEventListener("click", function() {
+  exclamationButton.addEventListener("click", function (event) {
+      event.stopPropagation(); // Evita la chiusura immediata
+
       if (popup.style.display === "block") {
           popup.style.display = "none";
       } else {
           popup.style.display = "block";
           aggiornaPosizionePopup();
       }
+
+      // Assicura che il pulsante non scompaia su mobile
+      exclamationButton.style.display = "block";
+      exclamationButton.style.visibility = "visible";
+  });
+
+  // Chiude il pop-up cliccando fuori (anche su smartphone)
+  document.addEventListener("click", function (event) {
+      if (!popup.contains(event.target) && event.target !== exclamationButton) {
+          popup.style.display = "none";
+      }
+  });
+
+  // Evita la chiusura se si clicca sul pop-up
+  popup.addEventListener("click", function (event) {
+      event.stopPropagation();
   });
 
   // Aggiorna posizione quando cambia la finestra

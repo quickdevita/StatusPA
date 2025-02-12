@@ -86,7 +86,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-// Crea il pop-up
+// Crea il contenuto del pop-up
 var popupContent = `
   <p><strong>Colore Zone:</strong></p>
   <ul>
@@ -94,15 +94,20 @@ var popupContent = `
     <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
     <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
     <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
-  </ul>
-`;
+  </ul>`;
 
-// Funzione per aprire il pop-up
-document.getElementById('exclamation-mark').addEventListener('click', function() {
-  L.popup()
-    .setLatLng(map.getCenter()) // Posiziona il pop-up sopra il centro della mappa
-    .setContent(popupContent)
-    .openOn(map);
+// Aggiungi il pop-up al documento
+var popup = document.createElement('div');
+popup.id = 'popup';
+popup.innerHTML = popupContent;
+
+// Aggiungi il pop-up sopra il pulsante
+var questionButton = document.getElementById('question-button');
+questionButton.appendChild(popup);
+
+// Mostra il pop-up al clic sul pulsante
+questionButton.addEventListener('click', function() {
+  popup.style.display = (popup.style.display === 'block' ? 'none' : 'block'); // Mostra o nascondi il pop-up
 });
 
 // ==========================

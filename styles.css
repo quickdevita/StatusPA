@@ -166,6 +166,29 @@ body {
   }
 }
 
+#popup {
+  position: absolute;
+  top: -10px; /* Posiziona il pop-up sopra il pulsante */
+  left: 50%; /* Centra il pop-up rispetto al pulsante */
+  transform: translateX(-50%); /* Centra esattamente */
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none; /* Nascondi inizialmente il pop-up */
+}
+
+#popup::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Posiziona la punta sotto il pop-up */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #f1f1f1 transparent transparent transparent;
+}
+
 
 /* 🟡 MODALE - DESIGN SIMILE A GOOGLE MAPS */
 .modal-container {

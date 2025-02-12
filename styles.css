@@ -136,7 +136,7 @@ body {
 .exclamation-mark {
   position: fixed;
   font-size: 18px; /* Ridotto per farlo più piccolo */
-  color: #fff; /* Colore del punto esclamativo */
+  color: #000; /* Colore del punto esclamativo */
   background-color: #FFD700; /* Giallo come un segnale stradale */
   border: 2px solid #FF8C00; /* Bordo arancione per un effetto evidenziato */
   border-radius: 50%; /* Forma rotonda */

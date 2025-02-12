@@ -152,15 +152,15 @@ body {
 @media (max-width: 768px) {
   /* Su dispositivi mobili, posizioniamo sopra l'icona utente (in basso a destra) */
   #exclamation-mark {
-    bottom: 50px; /* In basso */
-    right: 10px; /* A destra */
+    bottom: 80px; /* In basso */
+    right: 15px; /* A destra */
   }
 }
 
 @media (min-width: 769px) {
   /* Su desktop, posizioniamo a sinistra dell'icona utente */
   #exclamation-mark {
-    top: 10px; /* In basso per allinearsi all'icona */
+    top: 18px; /* In alto per allinearsi all'icona */
     right: 80px; /* A sinistra rispetto all'icona utente */
   }
 }

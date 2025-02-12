@@ -97,6 +97,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Creiamo il pop-up
   var popup = document.createElement("div");
   popup.id = "popup";
+  popup.style.position = "absolute";
+  popup.style.display = "none"; // Nascondi di default
+  popup.style.background = "white";
+  popup.style.padding = "10px";
+  popup.style.borderRadius = "8px";
+  popup.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
+  popup.style.zIndex = "2000";
   popup.innerHTML = `
       <p><strong>Colore Zone:</strong></p>
       <ul>
@@ -116,12 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (isMobile) {
           popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
-          popup.classList.add("popup-up");
-          popup.classList.remove("popup-down");
       } else {
           popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
-          popup.classList.add("popup-down");
-          popup.classList.remove("popup-up");
       }
   }
 
@@ -141,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   }
 
-  // Chiudi il pop-up quando si clicca fuori, ma NON nasconde il pulsante
+  // Chiude il pop-up quando si clicca fuori, ma NON nasconde il pulsante
   function chiudiPopup(event) {
       if (!popup.contains(event.target) && event.target !== exclamationButton) {
           popup.style.display = "none";

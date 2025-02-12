@@ -30,7 +30,7 @@ fetch('data.json')
         color: zone.color,
         fillColor: zone.color,
         fillOpacity: 0.4,
-        weight: 1.2
+        weight: 1
       }).addTo(map);
 
       polygon.on('click', () => openModal(zone.name, zone.info));

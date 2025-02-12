@@ -152,7 +152,7 @@ body {
 @media (max-width: 768px) {
   /* Su dispositivi mobili, posizioniamo sopra l'icona utente (in basso a destra) */
   #exclamation-mark {
-    bottom: 80px; /* In basso */
+    bottom: 65px; /* In basso */
     right: 15px; /* A destra */
   }
 }

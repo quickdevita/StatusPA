@@ -97,13 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Crea il pop-up
   var popup = document.createElement("div");
   popup.id = "popup";
-  popup.style.position = "absolute";
-  popup.style.display = "none"; // Nascondi di default
-  popup.style.background = "white";
-  popup.style.padding = "10px";
-  popup.style.borderRadius = "8px";
-  popup.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
-  popup.style.zIndex = "2000";
   popup.innerHTML = `
       <p><strong>Colore Zone:</strong></p>
       <ul>
@@ -113,62 +106,40 @@ document.addEventListener("DOMContentLoaded", function() {
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
       </ul>`;
 
-  document.body.appendChild(popup); // Aggiunge il pop-up al documento
+  // Aggiungiamo il pop-up sopra il pulsante
+  document.body.appendChild(popup); // Cambiato: ora il pop-up non è dentro il bottone
 
   // Funzione per aggiornare la posizione
   function aggiornaPosizionePopup() {
       var rect = exclamationButton.getBoundingClientRect();
       var isMobile = window.innerWidth <= 768; // Schermi piccoli
 
-      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
-
       if (isMobile) {
           popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
+          popup.classList.add("popup-up");
+          popup.classList.remove("popup-down");
       } else {
           popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
+          popup.classList.add("popup-down");
+          popup.classList.remove("popup-up");
       }
+
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
   }
 
-  // Mostra/nasconde il pop-up senza far scomparire il pulsante su mobile
-  function togglePopup(event) {
-      event.stopPropagation();
-
+  // Mostra/nasconde il pop-up e aggiorna posizione
+  exclamationButton.addEventListener("click", function() {
       if (popup.style.display === "block") {
           popup.style.display = "none";
       } else {
           popup.style.display = "block";
           aggiornaPosizionePopup();
       }
-
-      // Previene la scomparsa del pulsante su mobile
-      setTimeout(() => {
-          exclamationButton.style.display = "block";
-          exclamationButton.style.visibility = "visible";
-      }, 50);
-  }
-
-  // Chiude il pop-up se si clicca fuori, ma NON nasconde il pulsante
-  function chiudiPopup(event) {
-      if (!popup.contains(event.target) && event.target !== exclamationButton) {
-          popup.style.display = "none";
-      }
-  }
-
-  // Aggiunge l'evento di click al pulsante
-  exclamationButton.addEventListener("click", togglePopup);
-  
-  // Chiude il pop-up cliccando fuori
-  document.addEventListener("click", chiudiPopup);
-
-  // Evita la chiusura immediata se si clicca sul pop-up
-  popup.addEventListener("click", function(event) {
-      event.stopPropagation();
   });
 
   // Aggiorna posizione quando cambia la finestra
   window.addEventListener("resize", aggiornaPosizionePopup);
 });
-
 
 // =========================
 // 🔹 GESTIONE DELLA RICERCA 🔹

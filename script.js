@@ -102,11 +102,11 @@ popup.id = 'popup';
 popup.innerHTML = popupContent;
 
 // Aggiungi il pop-up sopra il pulsante
-var questionButton = document.getElementById('question-button');
-questionButton.appendChild(popup);
+var exclamation-mark = document.getElementById('exclamation-mark');
+exclamation-mark.appendChild(popup);
 
 // Mostra il pop-up al clic sul pulsante
-questionButton.addEventListener('click', function() {
+exclamation-mark.addEventListener('click', function() {
   popup.style.display = (popup.style.display === 'block' ? 'none' : 'block'); // Mostra o nascondi il pop-up
 });
 

@@ -1,4 +1,4 @@
-/* Rimuove qualsiasi margine e padding dal body e html */
+/* Rimuove margini e padding per una visualizzazione a schermo intero */
 html, body {
   margin: 0;
   padding: 0;
@@ -8,18 +8,28 @@ html, body {
   touch-action: manipulation; /* Migliora la gestione del touch su smartphone */
 }
 
-/* Assicura che il contenuto occupi tutto lo schermo senza margini */
+/* Assicura che il contenuto occupi tutto lo schermo */
 body {
   display: flex;
   flex-direction: column;
 }
 
-/* Stile della barra di ricerca */
+/* 🌍 Mappa */
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+/* 🎤 Barra di ricerca */
 .search-container {
   position: absolute;
   top: 10px;
   left: 50%;
-  transform: translateX(-50%); /* Centrato su PC */
+  transform: translateX(-50%);
   width: 80%;
   max-width: 500px;
   display: flex;
@@ -32,7 +42,7 @@ body {
 }
 
 .search-container input {
-  width: 90%;
+  flex-grow: 1;
   padding: 8px 15px;
   border: none;
   border-radius: 15px;
@@ -52,87 +62,7 @@ body {
   color: #333;
 }
 
-/* Mappa */
-#map {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: block;
-}
-
-/* Icona utente */
-#user-icon {
-  position: absolute;
-  bottom: 10px; /* Posizionato in basso su smartphone */
-  right: 10px; /* Posizionato a destra */
-  width: 55px; /* Dimensione dell'icona */
-  height: 55px; /* Dimensione dell'icona */
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10000;
-}
-
-#user-icon img {
-  width: 70%;
-  height: 70%;
-  border-radius: 50%;
-}
-
-/* Menu utente */
-.user-menu-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  background: white;
-  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
-  transform: translateX(100%);
-  transition: transform 0.3s ease-out;
-  z-index: 10000;
-}
-
-.user-menu {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.user-menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  background-color: #f1f1f1;
-  border-bottom: 1px solid #ddd;
-}
-
-.user-menu-header h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
-#close-user-menu {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Quando il menu utente è attivo */
-.user-menu-container.open {
-  transform: translateX(0);
-}
-
-/* Modal migliorato */
+/* 🟡 MODALE - DESIGN SIMILE A GOOGLE MAPS */
 .modal-container {
   position: fixed;
   bottom: 0;
@@ -159,7 +89,7 @@ body {
   overflow-y: auto;
 }
 
-/* Maniglia per il trascinamento */
+/* Maniglia per trascinare il modale */
 .modal-handle {
   width: 40px;
   height: 5px;
@@ -169,7 +99,110 @@ body {
   cursor: grab;
 }
 
-/* Quando il modale è aperto */
+/* Intestazione del modale */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Pulsanti in alto a destra */
+.modal-header .modal-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.favorite-btn {
+  color: gray;
+}
+
+.favorite-btn.active {
+  color: red;
+}
+
+/* 📷 Galleria immagini scorrevole */
+.modal-images {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.modal-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  scroll-snap-align: start;
+}
+
+/* 📑 Sezioni cliccabili */
+.modal-sections {
+  margin-top: 10px;
+}
+
+.modal-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-button {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.tab-button.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: #007bff;
+  transform: translateX(-50%);
+}
+
+/* Contenuti delle sezioni */
+.modal-content {
+  padding: 10px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* 🔄 Animazioni fluide */
 .modal-container.open {
   display: flex;
 }
@@ -178,96 +211,20 @@ body {
   transform: translateY(0);
 }
 
-/* Sfondo semi-trasparente quando il modale è espanso */
-.modal-container.expanded {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-/* Animazioni fluide */
-.modal-container,
-.modal {
-  transition: all 0.3s ease-in-out;
-}
-
 /* Blocco dello scroll quando il modale è aperto */
 body.modal-open {
   overflow: hidden;
 }
 
-
-/* Pulsanti di zoom uniti e rettangolari */
-@media only screen and (min-width: 769px) { /* Solo su PC */
-  .leaflet-control-zoom {
-    position: absolute !important;
-    bottom: 20px !important;
-    left: 20px !important;
-    z-index: 1000 !important;
-    background: transparent !important;
-    border-radius: 5px !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
-  }
-
-  /* Unire i pulsanti di zoom in un solo bottone rettangolare */
-  .leaflet-control-zoom-in,
-  .leaflet-control-zoom-out {
-    background-color: #fff !important;
-    border: 1px solid #ccc !important;
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 18px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s, color 0.3s !important;
-  }
-
-  .leaflet-control-zoom-in:hover,
-  .leaflet-control-zoom-out:hover {
-    background-color: #007bff !important;
-    color: white !important;
-  }
-
-  .leaflet-control-zoom-in:focus,
-  .leaflet-control-zoom-out:focus {
-    outline: none !important;
-  }
-
-  /* Posizionare l'icona utente in alto a destra solo su PC */
-  #user-icon {
-    position: absolute;
-    top: 10px; /* Posizionato in alto su PC */
-    right: 10px; /* Posizionato a destra */
-    width: 57px; /* Aumentato del 10% (da 55px a 60px) */
-    height: 57px; /* Aumentato del 10% (da 55px a 60px) */
-  }
-}
-
-/* Nascondere i pulsanti di zoom su smartphone */
+/* 📱 ADATTAMENTI RESPONSIVE */
 @media only screen and (max-width: 768px) {
-  .leaflet-control-zoom {
-    display: none !important;
-  }
-
-  /* Barra di ricerca centrata su smartphone */
   .search-container {
-    top: 10px; /* Posizionata in alto */
-    left: 50% !important; /* Centrata orizzontalmente */
-    transform: translateX(-50%); /* Centrata orizzontalmente */
-    width: 80%; /* Adatta la larghezza */
-    display: flex; /* Assicurarsi che la barra sia flex */
-    align-items: center; /* Centrare verticalmente */
+    top: 10px;
+    width: 90%;
   }
 
-  /* Posizionare l'icona utente in basso a destra su smartphone */
-  #user-icon {
-    position: absolute;
-    bottom: 10px; /* Posizionato in basso */
-    right: 10px; /* Posizionato a destra */
-    width: 55px; /* Dimensione dell'icona */
-    height: 55px; /* Dimensione dell'icona */
+  .modal-images img {
+    width: 80px;
+    height: 80px;
   }
 }

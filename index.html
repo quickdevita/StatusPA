@@ -46,35 +46,63 @@
     </div>
   </div>
 
-  <!-- Nuovo Menu Modale per i dettagli dei lavori pubblici -->
-  <div id="modal-container" class="modal-container">
-    <div id="modal" class="modal">
-      <div class="modal-handle"></div> <!-- Maniglia per trascinamento -->
-      <div class="modal-header">
-        <h2 id="modal-title">Titolo Lavoro</h2>
-        <button id="close-modal">&times;</button>
-      </div>
+  <!-- Menu Modale per i dettagli dei lavori pubblici -->
+<div id="modal-container" class="modal-container">
+  <div id="modal" class="modal">
+    <div class="modal-handle"></div> <!-- Maniglia per trascinamento -->
 
-      <!-- Sezione immagini -->
-      <div id="modal-images" class="modal-images"></div>
-
-      <!-- Sezioni principali (Panoramica, Commenti, ecc.) -->
-      <div class="modal-sections">
-        <nav class="modal-tabs">
-          <button class="tab-button active" data-tab="info">Informazioni</button>
-          <button class="tab-button" data-tab="comments">Commenti</button>
-        </nav>
-        <div class="modal-content">
-          <div id="info" class="tab-content active">
-            <p id="modal-info">Dettagli sul lavoro pubblico...</p>
-          </div>
-          <div id="comments" class="tab-content">
-            <p>Qui verranno aggiunti i commenti.</p>
-          </div>
-        </div>
+    <!-- Intestazione Modale -->
+    <div class="modal-header">
+      <h2 id="modal-title">Titolo Lavoro</h2>
+      <div class="modal-buttons">
+        <button id="favorite-button" class="circle-button">
+          <span class="material-icons">star_border</span>
+        </button>
+        <button id="close-modal" class="circle-button">
+          <span class="material-icons">close</span>
+        </button>
       </div>
     </div>
+
+    <!-- Descrizione breve -->
+    <p id="modal-info">Descrizione breve del lavoro...</p>
+
+    <!-- Sezione immagini -->
+    <div id="modal-images" class="modal-images"></div>
+
+    <!-- Sezioni principali -->
+    <nav class="modal-tabs">
+      <button class="tab-button active" data-tab="info">Info dettagliate</button>
+      <button class="tab-button" data-tab="comments">Commenti</button>
+      <button class="tab-button" data-tab="photos">Foto</button>
+      <button class="tab-button" data-tab="articles">Articoli correlati</button>
+    </nav>
+
+    <!-- Contenuto dinamico -->
+    <div class="modal-content">
+      <div id="info" class="tab-content active">
+        <p id="modal-details">Dettagli completi del lavoro...</p>
+      </div>
+      <div id="comments" class="tab-content">
+        <p>Qui verranno aggiunti i commenti.</p>
+      </div>
+      <div id="photos" class="tab-content">
+        <p>Qui verranno mostrate altre foto.</p>
+      </div>
+      <div id="articles" class="tab-content">
+        <p>Qui verranno mostrati articoli correlati.</p>
+      </div>
+    </div>
+
+    <!-- Dettagli aggiuntivi -->
+    <div class="modal-extra">
+      <p><strong>Indirizzo:</strong> <span id="modal-address"></span></p>
+      <p><strong>Inizio lavori:</strong> <span id="modal-start-date"></span></p>
+      <p><strong>Fine lavori:</strong> <span id="modal-end-date"></span></p>
+    </div>
   </div>
+</div>
+
 
   <!-- JS di Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

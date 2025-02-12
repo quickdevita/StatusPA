@@ -135,7 +135,7 @@ body {
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;
-  font-size: 30px; /* icona punto interrogativo */
+  font-size: 27px; /* icona punto interrogativo */
   color: #000; /* Colore del punto esclamativo nero */
   background-color: #FFD700; /* Giallo come un segnale stradale */
   border: 2px solid #FF8C00; /* Bordo arancione per un effetto evidenziato */

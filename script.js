@@ -106,13 +106,12 @@ document.addEventListener("DOMContentLoaded", function() {
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
       </ul>`;
 
-  // Aggiungiamo il pop-up sopra il pulsante
-  document.body.appendChild(popup); // Cambiato: ora il pop-up non è dentro il bottone
+  document.body.appendChild(popup); // Aggiungiamo il pop-up al body
 
-  // Funzione per aggiornare la posizione
+  // Funzione per aggiornare la posizione del pop-up
   function aggiornaPosizionePopup() {
       var rect = exclamationButton.getBoundingClientRect();
-      var isMobile = window.innerWidth <= 768; // Schermi piccoli
+      var isMobile = window.innerWidth <= 768; // Controllo per smartphone
 
       if (isMobile) {
           popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
@@ -124,22 +123,33 @@ document.addEventListener("DOMContentLoaded", function() {
           popup.classList.remove("popup-up");
       }
 
-      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centra il pop-up
   }
 
-  // Mostra/nasconde il pop-up e aggiorna posizione
-  exclamationButton.addEventListener("click", function() {
+  // Mostra o nasconde il pop-up
+  function togglePopup(event) {
+      event.stopPropagation(); // Evita la chiusura immediata su mobile
       if (popup.style.display === "block") {
           popup.style.display = "none";
       } else {
           popup.style.display = "block";
           aggiornaPosizionePopup();
       }
-  });
+  }
 
-  // Aggiorna posizione quando cambia la finestra
+  // Chiude il pop-up se clicchi fuori
+  function chiudiPopup(event) {
+      if (!popup.contains(event.target) && event.target !== exclamationButton) {
+          popup.style.display = "none";
+      }
+  }
+
+  // Aggiungiamo gli eventi
+  exclamationButton.addEventListener("click", togglePopup);
+  document.addEventListener("click", chiudiPopup);
   window.addEventListener("resize", aggiornaPosizionePopup);
 });
+
 
 // ==========================
 // 🔹 GESTIONE DEL MENU UTENTE 🔹

@@ -1,38 +1,5 @@
 [
   {
-    "name": "Lavori Stazione Anello Ferroviario",
-    "coordinates": [
-      [38.1241, 13.3566],
-      [38.1245, 13.3578],
-      [38.1235, 13.3582],
-      [38.1231, 13.3569]
-    ],
-    "color": "yellow",
-    "info": "Lavori in corso per la nuova stazione ferroviaria."
-  },
-  {
-    "name": "Parco ex Ninni Cassarà",
-    "coordinates": [
-      [38.1210, 13.3400],
-      [38.1215, 13.3415],
-      [38.1205, 13.3420],
-      [38.1200, 13.3405]
-    ],
-    "color": "red",
-    "info": "Parco chiuso per provata presenza di amianto."
-  },
-  {
-    "name": "Fontana restaurata",
-    "coordinates": [
-      [38.1100, 13.3700],
-      [38.1105, 13.3712],
-      [38.1095, 13.3717],
-      [38.1090, 13.3703]
-    ],
-    "color": "green",
-    "info": "Lavori completati per restauro fontana."
-  },
-  {
     "name": "Nuova fermata Metropolitana Politeama",
     "coordinates": [
       [38.12333006979995, 13.35422336610128],
@@ -46,7 +13,7 @@
       [38.12333006979995, 13.35422336610128]
     ],
     "color": "yellow",
-    "info": "Lavori in completamento per nuova fermata Metropolitana."
+    "info": "Lavori quasi completi per nuova fermata Metropolitana."
   },
   {
     "name": "Piscina Comunale al coperto",
@@ -58,7 +25,7 @@
       [38.14993785544158, 13.342458018935645]
     ],
     "color": "yellow",
-    "info": "Lavori di ammodernamento partiti per piscina al coperto."
+    "info": "Recupero strutturale e impiantistico, e adeguamento alla normativa CONI della piscina comunale coperta."
   },  
   {
     "name": "Collettore fognario Foro Italico",
@@ -74,7 +41,7 @@
       [38.11947009256534, 13.371997961649896]
     ],
     "color": "red",
-    "info": "Lavori fermi per collegamento collettore fognario e riqualificazione"
+    "info": "Lavori fermi da anni."
   },
   {
     "name": "Nuova Interfaccia Porto-Città",
@@ -91,10 +58,10 @@
       [38.12678108572373, 13.36286375703311]
     ],
     "color": "yellow",
-    "info": "Lavori di riqualificazione e ammodernamento in completamento"
+    "info": "Lavori di riqualificazione e ammodernamento in corso."
   },
 {
-  "name": "Nuovo centro per biotecnologie e ricerca biomedica RIMED",
+  "name": "Centro RIMED",
   "coordinates": [
     [38.14725683016675, 13.16354474176474],
     [38.14727679772047, 13.16375724964891],
@@ -120,7 +87,7 @@
     [38.14725683016675, 13.16354474176474]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Nuova costruzione per un centro di biotecnologie e ricerca biomedica."
 },
 {
   "name": "Palasport Fondo Patti",
@@ -133,10 +100,10 @@
     [38.19181918726451, 13.31619927153902]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Riqualificazione e ammodernamento"
 },
 {
-  "name": "Stadio da Baseball \"Diamante\"",
+  "name": "Stadio da Baseball Diamante",
   "coordinates": [
     [38.19205522482954, 13.31537372920122],
     [38.19132943762155, 13.31369499911289],
@@ -153,7 +120,7 @@
     [38.19205522482954, 13.31537372920122]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Riqualificazione, ammodernamento e rifunzionalizzazione."
 },
 {
   "name": "Parco dello Sperone",
@@ -178,7 +145,7 @@
     [38.10202594222982, 13.39713574677402]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Riqualificazione e ammodernamento."
 },
 {
   "name": "Porto della Bandita",
@@ -208,7 +175,7 @@
     [38.0989307858087, 13.41642886856984]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Riqualificazione e ammodernamento."
 },
 {
   "name": "Ponte Corleone",
@@ -220,7 +187,7 @@
     [38.09064689128137, 13.34374618933095]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Potenziamento da 6 a 8 corsie."
 },
 {
   "name": "Nuova Stazione De Gasperi",
@@ -236,7 +203,7 @@
     [38.14930669364772, 13.3274267949677]
   ],
   "color": "green",
-  "info": "dopo"
+  "info": "Nuova stazione ferroviaria, con annesso campo da basket e zone ciclabili/pedonali."
 },
 {
   "name": "Piscina Olimpica Comunale all'aperto",
@@ -254,6 +221,6 @@
     [38.14973604416368, 13.34427248956212]
   ],
   "color": "yellow",
-  "info": "dopo"
+  "info": "Manutenzioe, adeguamento e potenziamento strutturale della piscina esterna, degli spogliatoi e delle strade d'accesso."
 }
 ]

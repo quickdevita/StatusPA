@@ -12,7 +12,7 @@
   <!-- CSS di Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   
-  <!-- Google Material Icons per il microfono -->
+  <!-- Google Material Icons per icone -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
@@ -41,50 +41,44 @@
       </div>
       <div class="user-menu-content">
         <p>Qui verranno aggiunte funzionalità come la creazione del profilo.</p>
-        <!-- Aggiunta della versione nel menu utente -->
         <p id="user-version"></p> <!-- Qui verrà mostrata la versione -->
       </div>
     </div>
   </div>
 
-  <!-- Menu modale per i dettagli sui lavori -->
+  <!-- Nuovo Menu Modale per i dettagli dei lavori pubblici -->
   <div id="modal-container" class="modal-container">
     <div id="modal" class="modal">
+      <div class="modal-handle"></div> <!-- Maniglia per trascinamento -->
       <div class="modal-header">
-        <div class="modal-handle"></div>
+        <h2 id="modal-title">Titolo Lavoro</h2>
+        <button id="close-modal">&times;</button>
       </div>
-      <div class="modal-content">
-        <h2 id="modal-title"></h2>
-        <p id="modal-info"></p>
+
+      <!-- Sezione immagini -->
+      <div id="modal-images" class="modal-images"></div>
+
+      <!-- Sezioni principali (Panoramica, Commenti, ecc.) -->
+      <div class="modal-sections">
+        <nav class="modal-tabs">
+          <button class="tab-button active" data-tab="info">Informazioni</button>
+          <button class="tab-button" data-tab="comments">Commenti</button>
+        </nav>
+        <div class="modal-content">
+          <div id="info" class="tab-content active">
+            <p id="modal-info">Dettagli sul lavoro pubblico...</p>
+          </div>
+          <div id="comments" class="tab-content">
+            <p>Qui verranno aggiunti i commenti.</p>
+          </div>
+        </div>
       </div>
-      <button id="close-modal">Chiudi</button>
     </div>
   </div>
 
   <!-- JS di Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
-  
-  <!-- Gestione del prompt di installazione PWA -->
-  <script>
-    let deferredPrompt;
-    const installButton = document.createElement('button');
-    installButton.textContent = 'Installa';
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.body.appendChild(installButton);
-
-      installButton.addEventListener('click', () => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          console.log(choiceResult.outcome === 'accepted' ? 'PWA installata!' : 'PWA non installata.');
-          deferredPrompt = null;
-        });
-      });
-    });
-  </script>
 
   <!-- Registrazione del Service Worker -->
   <script>
@@ -94,8 +88,7 @@
         .catch(err => console.log('Errore Service Worker:', err));
     }
 
-    // Aggiunta della versione nel menu utente
-    document.getElementById('user-version').textContent = 'Versione 1.0.0'; // Sostituisci con la tua versione effettiva
+    document.getElementById('user-version').textContent = 'Versione 1.0.0';
   </script>
 </body>
 </html>

@@ -132,7 +132,7 @@ body {
   transform: translateX(0);
 }
 
-/* Stile del menu modale per i dettagli sui lavori */
+/* Modal migliorato */
 .modal-container {
   position: fixed;
   bottom: 0;
@@ -144,6 +144,7 @@ body {
   justify-content: center;
   align-items: flex-end;
   z-index: 10000;
+  transition: background 0.3s ease-out;
 }
 
 .modal {
@@ -154,22 +155,21 @@ body {
   box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(100%);
   transition: transform 0.3s ease-out;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-.modal-header {
-  text-align: center;
-  padding: 10px;
-}
-
+/* Maniglia per il trascinamento */
 .modal-handle {
   width: 40px;
   height: 5px;
   background: #ccc;
   border-radius: 5px;
-  margin: 0 auto;
+  margin: 10px auto;
+  cursor: grab;
 }
 
-/* Quando il modale è attivo */
+/* Quando il modale è aperto */
 .modal-container.open {
   display: flex;
 }
@@ -177,6 +177,23 @@ body {
 .modal.open {
   transform: translateY(0);
 }
+
+/* Sfondo semi-trasparente quando il modale è espanso */
+.modal-container.expanded {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Animazioni fluide */
+.modal-container,
+.modal {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Blocco dello scroll quando il modale è aperto */
+body.modal-open {
+  overflow: hidden;
+}
+
 
 /* Pulsanti di zoom uniti e rettangolari */
 @media only screen and (min-width: 769px) { /* Solo su PC */

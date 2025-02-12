@@ -37,6 +37,10 @@ fetch('data.json')
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
+// ========================
+// 🔹 GESTIONE DEL MODALE 🔹
+// ========================
+
 // Funzione per aprire il modale
 function openModal(title, info) {
   document.getElementById('modal-title').innerText = title;
@@ -45,10 +49,14 @@ function openModal(title, info) {
   document.getElementById('modal').classList.add('open');
 }
 
-// Chiudere il modale
-document.getElementById('close-modal').addEventListener('click', () => {
-  closeModal();
-});
+// Funzione per chiudere il modale
+function closeModal() {
+  document.getElementById('modal-container').classList.remove('open');
+  document.getElementById('modal').classList.remove('open');
+}
+
+// Chiudere il modale con il pulsante di chiusura
+document.getElementById('close-modal').addEventListener('click', closeModal);
 
 // Chiudere cliccando fuori dal modale
 document.getElementById('modal-container').addEventListener('click', (event) => {
@@ -62,6 +70,7 @@ let startY;
 document.getElementById('modal').addEventListener('touchstart', (e) => {
   startY = e.touches[0].clientY;
 });
+
 document.getElementById('modal').addEventListener('touchmove', (e) => {
   let moveY = e.touches[0].clientY;
   if (moveY - startY > 50) { // Se trascini verso il basso
@@ -69,10 +78,9 @@ document.getElementById('modal').addEventListener('touchmove', (e) => {
   }
 });
 
-function closeModal() {
-  document.getElementById('modal-container').classList.remove('open');
-  document.getElementById('modal').classList.remove('open');
-}
+// ==========================
+// 🔹 GESTIONE DELLA RICERCA 🔹
+// ==========================
 
 // Funzione per cercare e centrare la mappa su una zona
 function searchZone() {
@@ -111,13 +119,17 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
 });
 
+// ==========================
+// 🔹 LIMITI DELLA MAPPA 🔹
+// ==========================
+
 // Limiti della mappa estesi per includere anche Terrasini, ma limitati a sud
 var bounds = [
   [37.950, 12.900], // Coordinata sud-ovest (un po' sopra Terrasini)
   [38.300, 13.800]  // Coordinata nord-est (più a est, includendo tutta la provincia)
 ];
 
-// Limita la mappa alla provincia di Palermo, includendo Terrasini ma limitato a sud
+// Limita la mappa alla provincia di Palermo
 map.setMaxBounds(bounds);
 map.on('drag', function() {
   map.panInsideBounds(bounds, { animate: true });
@@ -148,9 +160,7 @@ userIcon.addEventListener('click', () => {
 });
 
 // Chiudi il menu quando si clicca il pulsante di chiusura
-closeUserMenuBtn.addEventListener('click', () => {
-  closeUserMenu();
-});
+closeUserMenuBtn.addEventListener('click', closeUserMenu);
 
 // Chiudi il menu quando si clicca fuori dal menu
 userMenuContainer.addEventListener('click', (event) => {

@@ -29,8 +29,8 @@ fetch('data.json')
       var polygon = L.polygon(zone.coordinates, {
         color: zone.color,
         fillColor: zone.color,
-        fillOpacity: 0.3,
-        weight: 1
+        fillOpacity: 0.4,
+        weight: 1.2
       }).addTo(map);
 
       polygon.on('click', () => openModal(zone.name, zone.info));

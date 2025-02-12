@@ -107,16 +107,38 @@ document.addEventListener("DOMContentLoaded", function() {
       </ul>`;
 
   // Aggiungiamo il pop-up sopra il pulsante
-  exclamationButton.appendChild(popup);
+  document.body.appendChild(popup); // Cambiato: ora il pop-up non è dentro il bottone
 
-  // Aggiungiamo il comportamento per mostrare/nascondere il pop-up
+  // Funzione per aggiornare la posizione
+  function aggiornaPosizionePopup() {
+      var rect = exclamationButton.getBoundingClientRect();
+      var isMobile = window.innerWidth <= 768; // Schermi piccoli
+
+      if (isMobile) {
+          popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
+          popup.classList.add("popup-up");
+          popup.classList.remove("popup-down");
+      } else {
+          popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
+          popup.classList.add("popup-down");
+          popup.classList.remove("popup-up");
+      }
+
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
+  }
+
+  // Mostra/nasconde il pop-up e aggiorna posizione
   exclamationButton.addEventListener("click", function() {
       if (popup.style.display === "block") {
           popup.style.display = "none";
       } else {
           popup.style.display = "block";
+          aggiornaPosizionePopup();
       }
   });
+
+  // Aggiorna posizione quando cambia la finestra
+  window.addEventListener("resize", aggiornaPosizionePopup);
 });
 
 // ==========================

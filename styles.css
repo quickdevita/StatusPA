@@ -167,26 +167,37 @@ body {
 }
 
 #popup {
-  position: absolute;
-  top: -10px; /* Posiziona il pop-up sopra il pulsante */
-  left: 50%; /* Centra il pop-up rispetto al pulsante */
-  transform: translateX(-50%); /* Centra esattamente */
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: none; /* Nascondi inizialmente il pop-up */
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
 }
 
-#popup::after {
-  content: '';
-  position: absolute;
-  top: 100%; /* Posiziona la punta sotto il pop-up */
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 10px;
-  border-style: solid;
-  border-color: #f1f1f1 transparent transparent transparent;
+/* Punta del pop-up SU PC (freccia verso l'alto) */
+.popup-down::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+/* Punta del pop-up SU MOBILE (freccia verso il basso) */
+.popup-up::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
 }
 
 

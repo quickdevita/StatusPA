@@ -146,14 +146,15 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-weight: bold; /* Aumenta lo spessore del punto esclamativo */
   z-index: 1000; /* Lo mantiene sopra altri elementi */
 }
 
 @media (max-width: 768px) {
   /* Su dispositivi mobili, posizioniamo sopra l'icona utente (in basso a destra) */
   #exclamation-mark {
-    bottom: 65px; /* In basso */
-    right: 15px; /* A destra */
+    bottom: 68px; /* In basso */
+    right: 16px; /* A destra */
   }
 }
 

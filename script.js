@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
   }
 
-  // Creazione del pop-up
+  // Creiamo il pop-up
   var popup = document.createElement("div");
   popup.id = "popup";
   popup.innerHTML = `
@@ -112,6 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var rect = exclamationButton.getBoundingClientRect();
       var isMobile = window.innerWidth <= 768;
 
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`;
+
       if (isMobile) {
           popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
           popup.classList.add("popup-up");
@@ -121,11 +123,9 @@ document.addEventListener("DOMContentLoaded", function () {
           popup.classList.add("popup-down");
           popup.classList.remove("popup-up");
       }
-
-      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`;
   }
 
-  // Mostra o nasconde il pop-up
+  // Mostra o nasconde il pop-up (corretto per mobile)
   function togglePopup(event) {
       event.stopPropagation();
 
@@ -141,15 +141,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   }
 
-  // Chiude il pop-up se clicchi fuori, ma non nasconde il pulsante
+  // Chiudi il pop-up quando si clicca fuori, ma NON nasconde il pulsante
   function chiudiPopup(event) {
       if (!popup.contains(event.target) && event.target !== exclamationButton) {
           popup.style.display = "none";
       }
   }
 
-  // Aggiungiamo gli eventi
-  exclamationButton.addEventListener("click", togglePopup);
+  // Aggiunge gli eventi
+  exclamationButton.addEventListener("click", function (event) {
+      togglePopup(event);
+
+      // Su mobile impediamo che il pulsante "scompaia"
+      setTimeout(() => {
+          exclamationButton.style.display = "block";
+          exclamationButton.style.visibility = "visible";
+      }, 50);
+  });
+
   document.addEventListener("click", chiudiPopup);
 
   // Evita la chiusura immediata su mobile quando si tocca il pop-up

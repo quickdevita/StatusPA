@@ -86,28 +86,37 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-// Crea il contenuto del pop-up
-var popupContent = `
-  <p><strong>Colore Zone:</strong></p>
-  <ul>
-    <li><span style="color: #FFFF00;">Giallo:</span> Lavori in corso</li>
-    <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
-    <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
-    <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
-  </ul>`;
+document.addEventListener("DOMContentLoaded", function() {
+  var exclamationButton = document.getElementById("exclamation-mark");
 
-// Aggiungi il pop-up al documento
-var popup = document.createElement('div');
-popup.id = 'popup';
-popup.innerHTML = popupContent;
+  if (!exclamationButton) {
+      console.error("Errore: Il pulsante con id 'exclamation-mark' non esiste!");
+      return;
+  }
 
-// Aggiungi il pop-up sopra il pulsante
-var exclamation-mark = document.getElementById('exclamation-mark');
-exclamation-mark.appendChild(popup);
+  // Crea il pop-up
+  var popup = document.createElement("div");
+  popup.id = "popup";
+  popup.innerHTML = `
+      <p><strong>Colore Zone:</strong></p>
+      <ul>
+          <li><span style="color: #FFFF00;">Giallo:</span> Lavori in corso</li>
+          <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
+          <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
+          <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
+      </ul>`;
 
-// Mostra il pop-up al clic sul pulsante
-exclamation-mark.addEventListener('click', function() {
-  popup.style.display = (popup.style.display === 'block' ? 'none' : 'block'); // Mostra o nascondi il pop-up
+  // Aggiungiamo il pop-up sopra il pulsante
+  exclamationButton.appendChild(popup);
+
+  // Aggiungiamo il comportamento per mostrare/nascondere il pop-up
+  exclamationButton.addEventListener("click", function() {
+      if (popup.style.display === "block") {
+          popup.style.display = "none";
+      } else {
+          popup.style.display = "block";
+      }
+  });
 });
 
 // ==========================

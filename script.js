@@ -86,7 +86,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var exclamationButton = document.getElementById("exclamation-mark");
 
   if (!exclamationButton) {
@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Mostra o nasconde il pop-up
   function togglePopup(event) {
       event.stopPropagation(); // Evita la chiusura immediata su mobile
+
       if (popup.style.display === "block") {
           popup.style.display = "none";
       } else {
@@ -137,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-  // Chiude il pop-up se clicchi fuori
+  // Chiude il pop-up se clicchi fuori, ma IGNORA i tocchi sul pulsante o sul pop-up
   function chiudiPopup(event) {
       if (!popup.contains(event.target) && event.target !== exclamationButton) {
           popup.style.display = "none";
@@ -147,54 +148,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // Aggiungiamo gli eventi
   exclamationButton.addEventListener("click", togglePopup);
   document.addEventListener("click", chiudiPopup);
+
+  // Evita la chiusura immediata su mobile quando si tocca il pop-up
+  popup.addEventListener("click", function (event) {
+      event.stopPropagation();
+  });
+
+  // Aggiorna posizione quando cambia la finestra
   window.addEventListener("resize", aggiornaPosizionePopup);
-});
-
-
-// ==========================
-// 🔹 GESTIONE DEL MENU UTENTE 🔹
-// ==========================
-
-const userIcon = document.getElementById('user-icon');
-const userMenuContainer = document.getElementById('user-menu-container');
-const closeUserMenuBtn = document.getElementById('close-user-menu');
-const APP_VERSION = 'betav1'; // Versione aggiornata della PWA
-
-// Apri il menu quando si clicca sull'icona utente
-userIcon.addEventListener('click', () => {
-  userMenuContainer.classList.add('open');
-  // Aggiungi la versione all'interno del menu utente
-  const versionElement = document.getElementById('user-version');
-  if (versionElement) {
-    versionElement.textContent = `Versione: ${APP_VERSION}`;
-  }
-});
-
-// Chiudi il menu quando si clicca il pulsante di chiusura
-closeUserMenuBtn.addEventListener('click', () => {
-  userMenuContainer.classList.remove('open');
-});
-
-// Chiudi il menu quando si clicca fuori dal menu
-userMenuContainer.addEventListener('click', (event) => {
-  if (event.target === userMenuContainer) {
-    userMenuContainer.classList.remove('open');
-  }
-});
-
-// ==========================
-// 🔹 LIMITI DELLA MAPPA 🔹
-// ==========================
-
-var bounds = [
-  [37.950, 12.900], // Coordinata sud-ovest (un po' sopra Terrasini)
-  [38.300, 13.800]  // Coordinata nord-est (più a est, includendo tutta la provincia)
-];
-
-// Limita la mappa alla provincia di Palermo
-map.setMaxBounds(bounds);
-map.on('drag', function() {
-  map.panInsideBounds(bounds, { animate: true });
 });
 
 // =========================

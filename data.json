@@ -44,7 +44,7 @@
     "info": "Lavori fermi da anni."
   },
   {
-    "name": "Nuova Interfaccia Porto-Citta'",
+    "name": "Nuova Interfaccia Porto-Città",
     "coordinates": [
       [38.12678108572373, 13.36286375703311],
       [38.12706040294531, 13.36369185954575],
@@ -103,7 +103,7 @@
   "info": "Riqualificazione e ammodernamento"
 },
 {
-  "name": "Stadio da Baseball Diamante",
+  "name": "Stadio da Baseball \"Diamante\"",
   "coordinates": [
     [38.19205522482954, 13.31537372920122],
     [38.19132943762155, 13.31369499911289],
@@ -221,10 +221,10 @@
     [38.14973604416368, 13.34427248956212]
   ],
   "color": "yellow",
-  "info": "Manutenzioe, adeguamento e potenziamento strutturale della piscina esterna, degli spogliatoi e delle strade d'accesso."
+  "info": "Manutenzione, adeguamento e potenziamento strutturale della piscina esterna, degli spogliatoi e delle strade d'accesso."
 },
 {
-  "name": "Parco ex Ninni Cassara'",
+  "name": "Parco ex Ninni Cassarà",
   "coordinates": [
     [38.09628608664298, 13.34321348525538],
     [38.09788835133099, 13.34088462903543],
@@ -282,7 +282,7 @@
     [38.09567952147029, 13.34202157301453],
     [38.09628608664298, 13.34321348525538]
   ],
-  "color": "red",
+  "color": "grey",
   "info": "Riqualificazione e valorizzazione del parco pubblico."
 },
 {

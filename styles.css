@@ -132,6 +132,36 @@ body {
   transform: translateX(0);
 }
 
+/* Stile per il punto interrogativo */
+.question-mark {
+  position: fixed;
+  font-size: 24px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 1000; /* Lo mantiene sopra altri elementi */
+}
+
+@media (max-width: 768px) {
+  /* Su dispositivi mobili, posizioniamo sopra l'icona utente */
+  #question-mark {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Su desktop, posizioniamo in basso a destra */
+  #question-mark {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+
 /* 🟡 MODALE - DESIGN SIMILE A GOOGLE MAPS */
 .modal-container {
   position: fixed;

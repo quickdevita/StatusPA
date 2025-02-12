@@ -86,6 +86,25 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
+// Crea il pop-up
+var popupContent = `
+  <p><strong>Colore Zone:</strong></p>
+  <ul>
+    <li><span style="color: #FFFF00;">Giallo:</span> Lavori in corso</li>
+    <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
+    <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
+    <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
+  </ul>
+`;
+
+// Funzione per aprire il pop-up
+document.getElementById('question-mark').addEventListener('click', function() {
+  L.popup()
+    .setLatLng(map.getCenter()) // Posiziona il pop-up sopra il centro della mappa
+    .setContent(popupContent)
+    .openOn(map);
+});
+
 // ==========================
 // 🔹 GESTIONE DEL MENU UTENTE 🔹
 // ==========================

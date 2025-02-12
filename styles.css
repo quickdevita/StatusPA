@@ -132,35 +132,38 @@ body {
   transform: translateX(0);
 }
 
-/* Stile per il punto interrogativo */
-.question-mark {
+
+/* Stile per il punto esclamativo */
+.exclamation-mark {
   position: fixed;
-  font-size: 24px;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  padding: 5px;
+  font-size: 30px;
+  color: #fff; /* Colore del punto esclamativo */
+  background-color: #FFD700; /* Giallo come un segnale stradale */
+  border: 2px solid #FF8C00; /* Bordo arancione per un effetto evidenziato */
+  border-radius: 50%; /* Forma rotonda */
+  padding: 10px;
   cursor: pointer;
   z-index: 1000; /* Lo mantiene sopra altri elementi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
   /* Su dispositivi mobili, posizioniamo sopra l'icona utente */
-  #question-mark {
+  #exclamation-mark {
     top: 10px;
-    right: 10px;
+    right: 10px; /* Sopra l'icona utente */
   }
 }
 
 @media (min-width: 769px) {
-  /* Su desktop, posizioniamo in basso a destra */
-  #question-mark {
-    bottom: 10px;
+  /* Su desktop, posizioniamo sopra i bottoni dello zoom */
+  #exclamation-mark {
+    top: 70px; /* Distanza sopra i bottoni dello zoom */
     right: 10px;
   }
 }
-
 
 /* 🟡 MODALE - DESIGN SIMILE A GOOGLE MAPS */
 .modal-container {

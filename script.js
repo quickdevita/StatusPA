@@ -98,7 +98,7 @@ var popupContent = `
 `;
 
 // Funzione per aprire il pop-up
-document.getElementById('question-mark').addEventListener('click', function() {
+document.getElementById('exclamation-mark').addEventListener('click', function() {
   L.popup()
     .setLatLng(map.getCenter()) // Posiziona il pop-up sopra il centro della mappa
     .setContent(popupContent)

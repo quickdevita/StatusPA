@@ -86,7 +86,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");
 
   if (!exclamationButton) {
@@ -94,16 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
   }
 
-  // Creiamo il pop-up
+  // Crea il pop-up
   var popup = document.createElement("div");
   popup.id = "popup";
-  popup.style.position = "absolute";
-  popup.style.display = "none"; // Nascondi di default
-  popup.style.background = "white";
-  popup.style.padding = "10px";
-  popup.style.borderRadius = "8px";
-  popup.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
-  popup.style.zIndex = "2000";
   popup.innerHTML = `
       <p><strong>Colore Zone:</strong></p>
       <ul>
@@ -112,61 +105,36 @@ document.addEventListener("DOMContentLoaded", function () {
           <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
       </ul>`;
-  document.body.appendChild(popup);
 
-  // Funzione per posizionare il pop-up
+  // Aggiungiamo il pop-up sopra il pulsante
+  document.body.appendChild(popup); // Cambiato: ora il pop-up non è dentro il bottone
+
+  // Funzione per aggiornare la posizione
   function aggiornaPosizionePopup() {
       var rect = exclamationButton.getBoundingClientRect();
-      var isMobile = window.innerWidth <= 768;
-
-      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`;
+      var isMobile = window.innerWidth <= 768; // Schermi piccoli
 
       if (isMobile) {
           popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
+          popup.classList.add("popup-up");
+          popup.classList.remove("popup-down");
       } else {
           popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
+          popup.classList.add("popup-down");
+          popup.classList.remove("popup-up");
       }
+
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
   }
 
-  // Mostra o nasconde il pop-up (corretto per mobile)
-  function togglePopup(event) {
-      event.stopPropagation();
-
-      // Evita che il pulsante scompaia
-      exclamationButton.style.display = "block";
-      exclamationButton.style.visibility = "visible";
-
+  // Mostra/nasconde il pop-up e aggiorna posizione
+  exclamationButton.addEventListener("click", function() {
       if (popup.style.display === "block") {
           popup.style.display = "none";
       } else {
           popup.style.display = "block";
           aggiornaPosizionePopup();
       }
-  }
-
-  // Chiude il pop-up quando si clicca fuori, ma NON nasconde il pulsante
-  function chiudiPopup(event) {
-      if (!popup.contains(event.target) && event.target !== exclamationButton) {
-          popup.style.display = "none";
-      }
-  }
-
-  // Aggiunge gli eventi
-  exclamationButton.addEventListener("click", function (event) {
-      togglePopup(event);
-
-      // Su mobile impediamo che il pulsante "scompaia"
-      setTimeout(() => {
-          exclamationButton.style.display = "block";
-          exclamationButton.style.visibility = "visible";
-      }, 50);
-  });
-
-  document.addEventListener("click", chiudiPopup);
-
-  // Evita la chiusura immediata su mobile quando si tocca il pop-up
-  popup.addEventListener("click", function (event) {
-      event.stopPropagation();
   });
 
   // Aggiorna posizione quando cambia la finestra

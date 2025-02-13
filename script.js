@@ -110,22 +110,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.body.appendChild(popup);
 
-  // Funzione per aggiornare la posizione
-  function aggiornaPosizionePopup() {
-      var rect = exclamationButton.getBoundingClientRect();
-      var isMobile = window.innerWidth <= 768; // Schermi piccoli
+  // Funzione per aggiornare la posizione del popup
+function aggiornaPosizionePopup() {
+  var rect = exclamationButton.getBoundingClientRect();
+  var isMobile = window.innerWidth <= 768; // Controllo se è uno smartphone
 
-      if (isMobile) {
-          popup.classList.add("popup-left"); // Posiziona il pop-up a sinistra del punto esclamativo
-          popup.classList.remove("popup-down"); // Rimuove la classe per la punta sopra
-          popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // Posiziona il pop-up a sinistra
-          popup.style.top = `${rect.top + rect.height / 2 - popup.offsetHeight / 2}px`; // Posiziona verticalmente
-      } else {
-          popup.style.top = `${rect.bottom + 10}px`; // Posiziona il pop-up sotto il punto esclamativo
-          popup.classList.add("popup-down");
-          popup.classList.remove("popup-left");
-      }
+  if (isMobile) {
+      // Su smartphone: popup alla SINISTRA del punto esclamativo, centrato orizzontalmente
+      popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // Sposta il pop-up a sinistra
+      popup.style.top = `${rect.top + (rect.height / 2) - (popup.offsetHeight / 2)}px`; // Centra verticalmente
+      popup.classList.add("popup-left"); 
+      popup.classList.remove("popup-down");
+  } else {
+      // Su PC: popup SOTTO il punto esclamativo, centrato orizzontalmente
+      popup.style.left = `${rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`; // Centra orizzontalmente
+      popup.style.top = `${rect.bottom + 10}px`; // Posiziona sotto il pulsante
+      popup.classList.add("popup-down");
+      popup.classList.remove("popup-left");
   }
+}
 
   // Mostra/nasconde il pop-up e aggiorna posizione
   exclamationButton.addEventListener("click", function(event) {

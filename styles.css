@@ -180,25 +180,34 @@ body {
 .popup-down::after {
     content: '';
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 100%; /* Punta sopra la nuvola */
+    left: 50%; /* Centrata rispetto alla nuvola */
+    transform: translateX(-50%); /* Centra la punta orizzontalmente */
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;
 }
 
-/* Punta del pop-up SU MOBILE (freccia verso il basso) */
-.popup-up::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 10px;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
+/* Punta del pop-up SU MOBILE (freccia verso il basso, ma a destra) */
+@media (max-width: 768px) {
+    .popup-up::after {
+        content: '';
+        position: absolute;
+        top: 50%; /* Punta centrata verticalmente */
+        right: 100%; /* Punta a destra della nuvola */
+        transform: translateY(-50%); /* Centra verticalmente la punta */
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent white transparent transparent; /* Punta alla destra */
+    }
+
+    /* Pop-up a sinistra del punto esclamativo su mobile */
+    #popup.popup-left {
+        left: -100%; /* Posiziona il pop-up a sinistra del punto esclamativo */
+        top: 50%; /* Centrato verticalmente rispetto al punto esclamativo */
+    }
 }
+
 
 /* 🟡 MODALE - DESIGN SIMILE A GOOGLE MAPS */
 .modal-container {

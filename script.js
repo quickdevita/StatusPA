@@ -86,7 +86,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");
 
   if (!exclamationButton) {
@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
       </ul>`;
 
-  // Aggiungiamo il pop-up sopra il pulsante
   document.body.appendChild(popup);
 
   // Funzione per aggiornare la posizione
@@ -117,22 +116,19 @@ document.addEventListener("DOMContentLoaded", function () {
       var isMobile = window.innerWidth <= 768; // Schermi piccoli
 
       if (isMobile) {
-          // Il pop-up esce a sinistra del punto esclamativo
-          popup.style.left = `${rect.left - popup.offsetWidth - 10}px`;
-          popup.style.top = `${rect.top}px`;
-          popup.classList.add("popup-left");
-          popup.classList.remove("popup-down", "popup-up");
+          popup.classList.add("popup-left"); // Posiziona il pop-up a sinistra del punto esclamativo
+          popup.classList.remove("popup-down"); // Rimuove la classe per la punta sopra
+          popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // Posiziona il pop-up a sinistra
+          popup.style.top = `${rect.top + rect.height / 2 - popup.offsetHeight / 2}px`; // Posiziona verticalmente
       } else {
-          // Il pop-up esce sotto il punto esclamativo su PC
-          popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`;
-          popup.style.top = `${rect.bottom + 10}px`;
+          popup.style.top = `${rect.bottom + 10}px`; // Posiziona il pop-up sotto il punto esclamativo
           popup.classList.add("popup-down");
-          popup.classList.remove("popup-up", "popup-left");
+          popup.classList.remove("popup-left");
       }
   }
 
   // Mostra/nasconde il pop-up e aggiorna posizione
-  exclamationButton.addEventListener("click", function (event) {
+  exclamationButton.addEventListener("click", function(event) {
       event.stopPropagation(); // Evita la chiusura immediata
 
       if (popup.style.display === "block") {
@@ -148,21 +144,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Chiude il pop-up cliccando fuori, ma NON nasconde il pulsante
-  document.addEventListener("click", function (event) {
+  document.addEventListener("click", function(event) {
       if (!popup.contains(event.target) && event.target !== exclamationButton) {
           popup.style.display = "none";
       }
   });
 
   // Evita la chiusura immediata se si clicca sul pop-up
-  popup.addEventListener("click", function (event) {
+  popup.addEventListener("click", function(event) {
       event.stopPropagation();
   });
 
   // Aggiorna posizione quando cambia la finestra
   window.addEventListener("resize", aggiornaPosizionePopup);
 });
-
 
 
 // ==========================

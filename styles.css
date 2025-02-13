@@ -181,7 +181,7 @@ body {
     content: '';
     position: absolute;
     bottom: 100%; /* Punta sopra la nuvola */
-    left: 55%; /* Centrata rispetto alla nuvola */
+    left: 52%; /* Centrata rispetto alla nuvola */
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;
@@ -192,9 +192,9 @@ body {
     .popup-left::after {
         content: '';
         position: absolute;
-        top: 80%; /* Punta sotto il pop-up */
-        left: 99%; /* Punta a destra rispetto al pop-up */
-        border-width: 10px;
+        top: 82%; /* Punta sotto il pop-up */
+        left: 100%; /* Punta a destra rispetto al pop-up */
+        border-width: 15px;
         border-style: solid;
         border-color: transparent transparent transparent white; /* Punta alla destra (invertita) */
     }

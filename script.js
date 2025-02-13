@@ -116,19 +116,20 @@ function aggiornaPosizionePopup() {
   var isMobile = window.innerWidth <= 768; // Controllo se è uno smartphone
 
   if (isMobile) {
-      // Su smartphone: popup alla SINISTRA del punto esclamativo, centrato orizzontalmente
-      popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // Sposta il pop-up a sinistra
-      popup.style.top = `${rect.top + (rect.height / 2) - (popup.offsetHeight / 2)}px`; // Centra verticalmente
-      popup.classList.add("popup-left"); 
+      // Su smartphone: popup alla SINISTRA del punto esclamativo, leggermente più in alto
+      popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // Sposta a sinistra
+      popup.style.top = `${rect.top - 10}px`; // Sposta più in alto
+      popup.classList.add("popup-left");
       popup.classList.remove("popup-down");
   } else {
       // Su PC: popup SOTTO il punto esclamativo, centrato orizzontalmente
       popup.style.left = `${rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`; // Centra orizzontalmente
-      popup.style.top = `${rect.bottom + 10}px`; // Posiziona sotto il pulsante
+      popup.style.top = `${rect.bottom + 10}px`; // Posiziona sotto
       popup.classList.add("popup-down");
       popup.classList.remove("popup-left");
   }
 }
+
 
   // Mostra/nasconde il pop-up e aggiorna posizione
 exclamationButton.addEventListener("click", function(event) {

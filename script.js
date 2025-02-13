@@ -124,7 +124,7 @@ function aggiornaPosizionePopup() {
   } else {
       // Su PC: popup SOTTO il punto esclamativo, centrato orizzontalmente
       popup.style.left = `${rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`; // Centra orizzontalmente
-      popup.style.top = `${rect.bottom + 10}px`; // Posiziona sotto
+      popup.style.top = `${rect.bottom + 12}px`; // Posiziona sotto
       popup.classList.add("popup-down");
       popup.classList.remove("popup-left");
   }

@@ -181,7 +181,7 @@ body {
     content: '';
     position: absolute;
     bottom: 100%; /* Punta sopra la nuvola */
-    left: 50%; /* Centrata rispetto alla nuvola */
+    left: 55%; /* Centrata rispetto alla nuvola */
     transform: translateX(-45%); /* Centra la punta orizzontalmente */
     border-width: 10px;
     border-style: solid;

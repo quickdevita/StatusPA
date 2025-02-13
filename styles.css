@@ -154,6 +154,7 @@ body {
   /* Su dispositivi mobili, posizioniamo sopra l'icona utente (in basso a destra) */
   #exclamation-mark {
     position: fixed;
+    display: inline-block !important;
     bottom: 69px !important; /* In basso */
     right: 16px !important; /* A destra */
     z-index: 9999;
@@ -164,6 +165,7 @@ body {
   /* Su desktop, posizioniamo a sinistra dell'icona utente */
   #exclamation-mark {
     position: fixed;
+    display: inline-block !important;
     top: 18px !important; /* In alto per allinearsi all'icona */
     right: 80px !important; /* A sinistra rispetto all'icona utente */
     z-index: 9999;

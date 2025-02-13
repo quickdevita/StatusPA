@@ -144,6 +144,11 @@ exclamationButton.addEventListener("click", function(event) {
       setTimeout(aggiornaPosizionePopup, 10);
   }
 
+  // Evita il cambio di posizione del punto esclamativo
+  exclamationButton.style.display = "block";   // Si assicura che il punto esclamativo sia visibile
+  exclamationButton.style.visibility = "visible";  // Garantisce che il punto esclamativo non venga nascosto
+});
+
   // Assicura che il pulsante non scompaia su mobile
   exclamationButton.style.display = "block";
   exclamationButton.style.visibility = "visible";
@@ -163,7 +168,6 @@ exclamationButton.addEventListener("click", function(event) {
 
   // Aggiorna posizione quando cambia la finestra
   window.addEventListener("resize", aggiornaPosizionePopup);
-});
 
 
 // ==========================

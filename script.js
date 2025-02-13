@@ -173,7 +173,7 @@ exclamationButton.addEventListener("click", function(event) {
 const userIcon = document.getElementById('user-icon');
 const userMenuContainer = document.getElementById('user-menu-container');
 const closeUserMenuBtn = document.getElementById('close-user-menu');
-const APP_VERSION = 'betav1.1'; // Versione aggiornata della PWA
+const APP_VERSION = 'betav1.2'; // Versione aggiornata della PWA
 
 // Apri il menu quando si clicca sull'icona utente
 userIcon.addEventListener('click', () => {

@@ -15,7 +15,17 @@
       "src": "/StatusPA/icons/iconv1-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/StatusPA/icons/iconv1-1920x1080.png",
+      "sizes": "1920x1080",
+      "type": "image/png"
+    },
+    {
+      "src": "/StatusPA/icons/iconv1-1080x1920.png",
+      "sizes": "1080x1920",
+      "type": "image/png"
     }
   ],
-  "version": "betav1.1"
+  "version": "betav1.2"
 }

@@ -190,7 +190,7 @@ body {
 
 /* Punta del pop-up SU MOBILE (freccia verso il basso, ma a destra) */
 @media (max-width: 768px) {
-    .popup-up::after {
+    .popup-left::after {
         content: '';
         position: absolute;
         top: 50%; /* Punta centrata verticalmente */

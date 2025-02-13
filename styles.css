@@ -417,7 +417,7 @@ body.modal-open {
 /* ICONA Per i dispositivi in orientamento orizzontale */
 @media (orientation: landscape) {
   body {
-    background: url('/StatusPA/icons/icon-1920x1080.png') no-repeat center center fixed;
+    background: url('/StatusPA/icons/iconv1-1920x1080.png') no-repeat center center fixed;
     background-size: cover;
   }
 }
@@ -425,7 +425,7 @@ body.modal-open {
 /* icona Per i dispositivi in orientamento verticale */
 @media (orientation: portrait) {
   body {
-    background: url('/StatusPA/icons/icon-1080x1920.png') no-repeat center center fixed;
+    background: url('/StatusPA/icons/iconv1-1080x1920.png') no-repeat center center fixed;
     background-size: cover;
   }
 }

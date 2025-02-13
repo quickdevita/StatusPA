@@ -194,7 +194,7 @@ body {
         content: '';
         position: absolute;
         top: 88%; /* Punta sotto il pop-up */
-        left: -10px; /* Punta a sinistra rispetto al pop-up */
+        right: -10px; /* Punta a destra rispetto al pop-up */
         border-width: 10px;
         border-style: solid;
         border-color: transparent transparent transparent white; /* Punta alla destra (invertita) */

@@ -131,20 +131,22 @@ function aggiornaPosizionePopup() {
 }
 
   // Mostra/nasconde il pop-up e aggiorna posizione
-  exclamationButton.addEventListener("click", function(event) {
-      event.stopPropagation(); // Evita la chiusura immediata
+exclamationButton.addEventListener("click", function(event) {
+  event.stopPropagation(); // Evita la chiusura immediata
 
-      if (popup.style.display === "block") {
-          popup.style.display = "none";
-      } else {
-          popup.style.display = "block";
-          aggiornaPosizionePopup();
-      }
+  if (popup.style.display === "block") {
+      popup.style.display = "none";
+  } else {
+      popup.style.display = "block";
+      
+      // Usa setTimeout per posizionare il pop-up dopo che è stato mostrato
+      setTimeout(aggiornaPosizionePopup, 10);
+  }
 
-      // Assicura che il pulsante non scompaia su mobile
-      exclamationButton.style.display = "block";
-      exclamationButton.style.visibility = "visible";
-  });
+  // Assicura che il pulsante non scompaia su mobile
+  exclamationButton.style.display = "block";
+  exclamationButton.style.visibility = "visible";
+});
 
   // Chiude il pop-up cliccando fuori, ma NON nasconde il pulsante
   document.addEventListener("click", function(event) {

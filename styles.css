@@ -414,6 +414,23 @@ body.modal-open {
     outline: none !important;
   }
 
+/* ICONA Per i dispositivi in orientamento orizzontale */
+@media (orientation: landscape) {
+  body {
+    background: url('/StatusPA/icons/icon-1920x1080.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+/* icona Per i dispositivi in orientamento verticale */
+@media (orientation: portrait) {
+  body {
+    background: url('/StatusPA/icons/icon-1080x1920.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+
   /* Posizionare l'icona utente in alto a destra solo su PC */
   #user-icon {
     position: absolute;

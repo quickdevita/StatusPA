@@ -194,7 +194,7 @@ body {
         content: '';
         position: absolute;
         top: 100%; /* Punta sotto */
-        left: -10px; /* Punta a destra della nuvola */
+        right: -10px; /* Punta a destra della nuvola */
         transform: translateY(-50%); /* solleva la freccia */
         border-width: 10px;
         border-style: solid;

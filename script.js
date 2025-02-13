@@ -117,7 +117,7 @@ function aggiornaPosizionePopup() {
 
   if (isMobile) {
       // Su smartphone: popup alla SINISTRA del punto esclamativo, leggermente più in alto
-      popup.style.left = `${rect.left - popup.offsetWidth - 10}px`; // Sposta a sinistra
+      popup.style.left = `${rect.left - popup.offsetWidth - 15}px`; // Sposta a sinistra
       popup.style.top = `${rect.top - 120}px`; // Sposta più in alto
       popup.classList.add("popup-left");
       popup.classList.remove("popup-down");

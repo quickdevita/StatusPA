@@ -86,24 +86,81 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
-// Crea il pop-up
-var popupContent = `
-  <p><strong>Colore Zone:</strong></p>
-  <ul>
-    <li><span style="color: #FFFF00;">Giallo:</span> Lavori in corso</li>
-    <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
-    <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
-    <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
-  </ul>
-`;
+document.addEventListener("DOMContentLoaded", function() {
+  var exclamationButton = document.getElementById("exclamation-mark");
 
-// Funzione per aprire il pop-up
-document.getElementById('exclamation-mark').addEventListener('click', function() {
-  L.popup()
-    .setLatLng(map.getCenter()) // Posiziona il pop-up sopra il centro della mappa
-    .setContent(popupContent)
-    .openOn(map);
+  if (!exclamationButton) {
+      console.error("Errore: Il pulsante con id 'exclamation-mark' non esiste!");
+      return;
+  }
+
+  // Crea il pop-up
+  var popup = document.createElement("div");
+  popup.id = "popup";
+  popup.style.position = "absolute";
+  popup.style.display = "none"; // Nascondi di default
+  popup.innerHTML = `
+      <p><strong>Colore Zone:</strong></p>
+      <ul>
+          <li><span style="color: #FFFF00;">Giallo:</span> Lavori in corso</li>
+          <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
+          <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
+          <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
+      </ul>`;
+
+  // Aggiungiamo il pop-up sopra il pulsante
+  document.body.appendChild(popup);
+
+  // Funzione per aggiornare la posizione
+  function aggiornaPosizionePopup() {
+      var rect = exclamationButton.getBoundingClientRect();
+      var isMobile = window.innerWidth <= 768; // Schermi piccoli
+
+      popup.style.left = `${rect.left + rect.width / 2 - popup.offsetWidth / 2}px`; // Centrare
+
+      if (isMobile) {
+          popup.style.top = `${rect.top - popup.offsetHeight - 10}px`; // Sopra il bottone
+          popup.classList.add("popup-up");
+          popup.classList.remove("popup-down");
+      } else {
+          popup.style.top = `${rect.bottom + 10}px`; // Sotto il bottone
+          popup.classList.add("popup-down");
+          popup.classList.remove("popup-up");
+      }
+  }
+
+  // Mostra/nasconde il pop-up e aggiorna posizione
+  exclamationButton.addEventListener("click", function(event) {
+      event.stopPropagation(); // Evita la chiusura immediata
+
+      if (popup.style.display === "block") {
+          popup.style.display = "none";
+      } else {
+          popup.style.display = "block";
+          aggiornaPosizionePopup();
+      }
+
+      // Assicura che il pulsante non scompaia su mobile
+      exclamationButton.style.display = "block";
+      exclamationButton.style.visibility = "visible";
+  });
+
+  // Chiude il pop-up cliccando fuori, ma NON nasconde il pulsante
+  document.addEventListener("click", function(event) {
+      if (!popup.contains(event.target) && event.target !== exclamationButton) {
+          popup.style.display = "none";
+      }
+  });
+
+  // Evita la chiusura immediata se si clicca sul pop-up
+  popup.addEventListener("click", function(event) {
+      event.stopPropagation();
+  });
+
+  // Aggiorna posizione quando cambia la finestra
+  window.addEventListener("resize", aggiornaPosizionePopup);
 });
+
 
 // ==========================
 // 🔹 GESTIONE DEL MENU UTENTE 🔹

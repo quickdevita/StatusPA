@@ -200,12 +200,6 @@ body {
         border-style: solid;
         border-color: transparent white transparent transparent; /* Punta alla destra */
     }
-
-    /* Pop-up a sinistra del punto esclamativo su mobile */
-    #popup.popup-left {
-        left: -100%; /* Posiziona il pop-up a sinistra del punto esclamativo */
-        top: 50%; /* Centrato verticalmente rispetto al punto esclamativo */
-    }
 }
 
 

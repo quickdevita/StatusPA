@@ -252,3 +252,8 @@ document.getElementById('voice-search').addEventListener('click', () => {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
 });
+
+setInterval(() => {
+  console.log("Posizione punto esclamativo:", document.getElementById("exclamation-mark").getBoundingClientRect().left);
+}, 1000);
+

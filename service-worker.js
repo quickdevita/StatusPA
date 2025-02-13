@@ -1,5 +1,5 @@
 // Versione del service worker
-const SW_VERSION = '0.0.1';
+const SW_VERSION = '0.0.2';
 const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
 const urlsToCache = [
   '/StatusPA/',

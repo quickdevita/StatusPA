@@ -145,7 +145,6 @@ exclamationButton.addEventListener("click", function(event) {
   }
 
   // Assicura che il pulsante non scompaia su mobile
-  exclamationButton.style.display = "block";
   exclamationButton.style.visibility = "visible";
 });
 

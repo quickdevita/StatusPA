@@ -193,9 +193,9 @@ body {
     .popup-left::after {
         content: '';
         position: absolute;
-        top: 50%; /* Punta sotto */
-        left: -10px; /* Punta a destra della nuvola */
-        transform: translateY(-50%); /* Centra verticalmente la punta */
+        top: 100%; /* Punta sotto */
+        right: 10px; /* Punta a destra della nuvola */
+        transform: translateY(-10px); /* solleva la freccia */
         border-width: 10px;
         border-style: solid;
         border-color: transparent white transparent transparent; /* Punta alla destra */

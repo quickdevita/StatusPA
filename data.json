@@ -1,7 +1,7 @@
 [
   {
     "id": "lavoro_001",
-    "title": "Nuova fermata Metropolitana Politeama",
+    "name": "Nuova fermata Metropolitana Politeama",
     "coordinates": [
       [38.12333006979995, 13.35422336610128],
       [38.12312606483465, 13.354465154163137],
@@ -14,7 +14,8 @@
       [38.12333006979995, 13.35422336610128]
     ],
     "color": "yellow",
-    "description": "Lavori quasi completi per nuova fermata Metropolitana.",
+    "info": "Nuova fermata metro",
+    "description": "Lavori quasi completi per nuova fermata Metropolitana ecc...",
     "address": "Piazza Castelnuovo, Palermo",
     "startDate": "2023-06-01",
     "endDate": "2025-12-31",
@@ -34,6 +35,7 @@
       }
     ]
   },
+
   {
     "name": "Piscina Comunale al coperto",
     "coordinates": [

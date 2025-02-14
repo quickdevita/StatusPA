@@ -33,13 +33,14 @@ fetch('data.json')
         weight: 1
       }).addTo(map);
 
-      polygon.on('click', () => openModal(zone.name, 
-        zone.info, 
-        zone.description, 
-        zone.images,
-        zone.address,
-        zone.startDate,
-        zone.endDate));
+      polygon.on('click', () => openModal(
+        zone.name, 
+        zone.info || "Informazioni non disponibili", 
+        Array.isArray(zone.images) ? zone.images : [], // Verifica che sia un array
+        zone.address || "Indirizzo non disponibile",
+        zone.startDate || "Data di inizio non disponibile",
+        zone.endDate || "Data di fine non disponibile"
+      ));
     });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
@@ -52,14 +53,14 @@ fetch('data.json')
 function openModal(title, description, images, address, startDate, endDate) {
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-info").textContent = description;
-  document.getElementById("modal-address").textContent = address || "Non disponibile";
-  document.getElementById("modal-start-date").textContent = startDate || "Non disponibile";
-  document.getElementById("modal-end-date").textContent = endDate || "Non disponibile";
+  document.getElementById("modal-address").textContent = address;
+  document.getElementById("modal-start-date").textContent = startDate;
+  document.getElementById("modal-end-date").textContent = endDate;
 
   const modalImagesContainer = document.getElementById("modal-images");
   modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
 
-  if (images && images.length > 0) {
+  if (images.length > 0) {
     images.forEach((imgSrc) => {
       const img = document.createElement("img");
       img.src = imgSrc;

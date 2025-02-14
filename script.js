@@ -54,7 +54,7 @@ fetch('data.json')
 function openModal(title, description, images, address, startDate, endDate, info) {
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-info").textContent = info; // Mostra info
-  document.getElementById("modal-description").textContent = description; // Mostra la descrizione
+  document.getElementById("modal-details").textContent = description; // Mostra la descrizione
   document.getElementById("modal-address").textContent = address;
   document.getElementById("modal-start-date").textContent = startDate;
   document.getElementById("modal-end-date").textContent = endDate;

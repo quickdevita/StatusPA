@@ -95,18 +95,31 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Crea il pop-up
-  var popup = document.createElement("div");
-  popup.id = "popup";
-  popup.style.position = "absolute";
-  popup.style.display = "none"; // Nascondi di default
-  popup.innerHTML = `
-      <p><strong>Colore Zone:</strong></p>
-      <ul>
-          <li><span style="color: #FFFF00;">Giallo:</span> Lavori in corso</li>
-          <li><span style="color: #90EE90;">Verde chiaro:</span> Lavori completati</li>
-          <li><span style="color: #FF0000;">Rosso:</span> Lavori fermi</li>
-          <li><span style="color: #FFA500;">Arancione:</span> Lavori in progetto</li>
-      </ul>`;
+var popup = document.createElement("div");
+popup.id = "popup";
+popup.style.position = "absolute";
+popup.style.display = "none"; // Nascondi di default
+popup.innerHTML = `
+    <p><strong>Legenda colori lavori:</strong></p>
+    <ul style="list-style: none; padding: 0;">
+        <li style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="width: 15px; height: 15px; background-color: #FFFF00; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
+            Lavori in corso
+        </li>
+        <li style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="width: 15px; height: 15px; background-color: #90EE90; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
+            Lavori completati
+        </li>
+        <li style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="width: 15px; height: 15px; background-color: #FF0000; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
+            Lavori fermi
+        </li>
+        <li style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="width: 15px; height: 15px; background-color: #FFA500; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
+            Lavori in progetto
+        </li>
+    </ul>`;
+
 
   document.body.appendChild(popup);
 

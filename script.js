@@ -35,11 +35,12 @@ fetch('data.json')
 
       polygon.on('click', () => openModal(
         zone.name, 
-        zone.info || "Informazioni non disponibili", 
+        zone.description || "Descrizione non disponibile", 
         Array.isArray(zone.images) ? zone.images : [], // Verifica che sia un array
         zone.address || "Indirizzo non disponibile",
         zone.startDate || "Data di inizio non disponibile",
-        zone.endDate || "Data di fine non disponibile"
+        zone.endDate || "Data di fine non disponibile",
+        zone.info || "Informazioni non disponibili" // Aggiunto campo info
       ));
     });
   })
@@ -50,9 +51,10 @@ fetch('data.json')
 // ========================
 
 // Funzione per aprire il modale
-function openModal(title, description, images, address, startDate, endDate) {
+function openModal(title, description, images, address, startDate, endDate, info) {
   document.getElementById("modal-title").textContent = title;
-  document.getElementById("modal-info").textContent = description;
+  document.getElementById("modal-info").textContent = info; // Mostra info
+  document.getElementById("modal-description").textContent = description; // Mostra la descrizione
   document.getElementById("modal-address").textContent = address;
   document.getElementById("modal-start-date").textContent = startDate;
   document.getElementById("modal-end-date").textContent = endDate;

@@ -33,7 +33,13 @@ fetch('data.json')
         weight: 1
       }).addTo(map);
 
-      polygon.on('click', () => openModal(zone.name, zone.info));
+      polygon.on('click', () => openModal(zone.name, 
+        zone.info, 
+        zone.description, 
+        zone.images,
+        zone.address,
+        zone.startDate,
+        zone.endDate));
     });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));

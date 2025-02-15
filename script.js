@@ -196,8 +196,9 @@ const closeUserMenuBtn = document.getElementById('close-user-menu');
 const profileText = document.getElementById('profile-text');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const saveProfileBtn = document.getElementById('save-profile');
-const profileSection = document.getElementById('profile-section');
+const logOutProfileBtn = document.getElementById('log-out-profile');
 const createProfileSection = document.getElementById('create-profile-section');
+const manageProfileSection = document.getElementById('manage-profile-section');
 const userVersion = document.getElementById('user-version');
 
 const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
@@ -207,12 +208,12 @@ function checkProfile() {
   const profile = localStorage.getItem('user-profile');
   if (profile) {
     profileText.textContent = 'Il mio profilo';
-    deleteProfileBtn.style.display = 'block';  // Mostra il bottone per cancellare il profilo
     createProfileSection.style.display = 'none';  // Nascondi la sezione per la creazione del profilo
+    manageProfileSection.style.display = 'block';  // Mostra la sezione per la gestione del profilo
   } else {
     profileText.textContent = 'Crea profilo';
-    deleteProfileBtn.style.display = 'none';  // Nascondi il bottone per cancellare il profilo
     createProfileSection.style.display = 'block';  // Mostra la sezione per la creazione del profilo
+    manageProfileSection.style.display = 'none';  // Nascondi la sezione per la gestione del profilo
   }
 }
 
@@ -257,6 +258,16 @@ deleteProfileBtn.addEventListener('click', () => {
     localStorage.removeItem('user-profile');  // Rimuove il profilo dalla cache
     checkProfile();  // Ricarica il menu per riflettere la cancellazione
     alert('Profilo e dati cancellati!');
+  }
+});
+
+// Gestisce il logout del profilo
+logOutProfileBtn.addEventListener('click', () => {
+  const confirmation = confirm('Sei sicuro di voler uscire? I tuoi dati saranno persi.');
+  if (confirmation) {
+    localStorage.removeItem('user-profile');  // Rimuove il profilo dalla cache
+    checkProfile();  // Ricarica il menu
+    alert('Sei uscito dal tuo profilo!');
   }
 });
 

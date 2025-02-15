@@ -233,6 +233,7 @@ body {
 
 .exit-profile:hover {
   background-color: #1976D2;
+}
 
 /* Versione dell'app */
 #user-version {
@@ -244,7 +245,6 @@ body {
   border-top: 1px solid #ddd;
 }
 
-}
 
 
 

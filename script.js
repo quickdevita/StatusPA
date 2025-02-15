@@ -206,43 +206,55 @@ const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
 
 // Funzione per gestire la cache
 async function getProfileFromCache() {
-  const cache = await caches.open('user-profile-cache');
-  const response = await cache.match('user-profile');
-  if (response) {
-    return response.json();
+  try {
+    const cache = await caches.open('user-profile-cache');
+    const response = await cache.match('user-profile');
+    if (response) {
+      return response.json();
+    }
+  } catch (error) {
+    console.error('Errore nel recupero del profilo dalla cache:', error);
   }
   return null; // Se non esiste il profilo
 }
 
 // Funzione per salvare il profilo nella cache
 async function saveProfileToCache(profileData) {
-  const cache = await caches.open('user-profile-cache');
-  const profileResponse = new Response(JSON.stringify(profileData), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-  await cache.put('user-profile', profileResponse);
+  try {
+    const cache = await caches.open('user-profile-cache');
+    const profileResponse = new Response(JSON.stringify(profileData), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    await cache.put('user-profile', profileResponse);
+  } catch (error) {
+    console.error('Errore nel salvataggio del profilo nella cache:', error);
+  }
 }
 
 // Funzione per rimuovere il profilo dalla cache
 async function removeProfileFromCache() {
-  const cache = await caches.open('user-profile-cache');
-  await cache.delete('user-profile');
+  try {
+    const cache = await caches.open('user-profile-cache');
+    await cache.delete('user-profile');
+  } catch (error) {
+    console.error('Errore nella rimozione del profilo dalla cache:', error);
+  }
 }
 
 // Verifica se il profilo esiste nella cache
 async function checkProfile() {
   const profile = await getProfileFromCache();
+  const manageProfileBtn = document.getElementById('manage-profile');
+
   if (profile) {
     document.querySelector('#profile-img').src = profile.image || 'default-avatar.jpg'; // Imposta l'immagine dell'utente
     document.querySelector('#profile-name').textContent = profile.name || 'Nome utente'; // Imposta il nome utente
     // Nascondi la sezione di creazione del profilo se esiste già
     createProfileSection.style.display = 'none';
     // Mostra il pulsante "Gestisci profilo"
-    const manageProfileBtn = document.getElementById('manage-profile');
     manageProfileBtn.style.display = 'block';
   } else {
     createProfileSection.style.display = 'block';  // Mostra la sezione per la creazione del profilo
-    const manageProfileBtn = document.getElementById('manage-profile');
     manageProfileBtn.style.display = 'none';  // Nascondi il pulsante "Gestisci profilo"
   }
 }
@@ -284,22 +296,24 @@ saveProfileBtn.addEventListener('click', async () => {
 // Gestisce la cancellazione del profilo
 const manageProfileBtn = document.getElementById('manage-profile');
 manageProfileBtn.addEventListener('click', async () => {
-  const profile = await getProfileFromCache();
-
-  // Mostra le opzioni di gestione del profilo
+  // Mostra le opzioni di gestione del profilo (se non esiste un contenitore, non fare nulla)
   const optionsContainer = document.getElementById('profile-options');
-  optionsContainer.style.display = 'block';
+  if (optionsContainer) {
+    optionsContainer.style.display = 'block';
+  }
 
   // Gestisci "Esci ed elimina profilo"
   const exitProfileBtn = document.getElementById('exit-profile');
-  exitProfileBtn.addEventListener('click', async () => {
-    const confirmation = confirm('Sei sicuro di voler uscire? Il tuo profilo e tutti i dati verranno cancellati.');
-    if (confirmation) {
-      await removeProfileFromCache();  // Rimuove il profilo dalla cache
-      checkProfile();  // Ricarica il menu per riflettere la cancellazione
-      alert('Profilo e dati cancellati!');
-    }
-  });
+  if (exitProfileBtn) {
+    exitProfileBtn.addEventListener('click', async () => {
+      const confirmation = confirm('Sei sicuro di voler uscire? Il tuo profilo e tutti i dati verranno cancellati.');
+      if (confirmation) {
+        await removeProfileFromCache();  // Rimuove il profilo dalla cache
+        checkProfile();  // Ricarica il menu per riflettere la cancellazione
+        alert('Profilo e dati cancellati!');
+      }
+    });
+  }
 });
 
 

@@ -190,110 +190,74 @@ exclamationButton.addEventListener("click", function(event) {
 // ==========================
 // 🔹 GESTIONE DEL MENU UTENTE 🔹
 // ==========================
-
 const userIcon = document.getElementById('user-icon');
 const userMenuContainer = document.getElementById('user-menu-container');
 const closeUserMenuBtn = document.getElementById('close-user-menu');
-const profileSection = document.getElementById('profile-section');
 const profileText = document.getElementById('profile-text');
-const createProfileSection = document.getElementById('create-profile-section');
+const deleteProfileBtn = document.getElementById('delete-profile');
 const saveProfileBtn = document.getElementById('save-profile');
-const userNameInput = document.getElementById('user-name');
-const deleteProfileBtn = document.getElementById('delete-profile');  // Bottone per cancellare il profilo
+const profileSection = document.getElementById('profile-section');
+const createProfileSection = document.getElementById('create-profile-section');
+const userVersion = document.getElementById('user-version');
+
 const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
 
-// Funzione per caricare il profilo utente
-function loadUserProfile() {
-  caches.open('statuspa-cache').then(cache => {
-    cache.match('profiloUtente').then(response => {
-      if (response) {
-        response.json().then(profilo => {
-          // Se il profilo esiste, aggiorniamo il testo nel menu
-          profileText.textContent = `Il mio profilo: ${profilo.nome}`;
-          deleteProfileBtn.style.display = 'inline-block';  // Mostra il pulsante per cancellare il profilo
-        });
-      } else {
-        // Se il profilo non esiste, mostra "Crea profilo"
-        profileText.textContent = "Crea profilo";
-        deleteProfileBtn.style.display = 'none';  // Nasconde il pulsante per cancellare
-      }
-    });
-  });
-}
-
-// Funzione per creare il profilo
-function createUserProfile() {
-  const nomeUtente = userNameInput.value;
-  if (nomeUtente) {
-    let profilo = {
-      nome: nomeUtente,
-      preferiti: [],
-      fotoScaricate: []
-    };
-
-    // Salva il profilo nella cache
-    caches.open('statuspa-cache').then(cache => {
-      cache.put('profiloUtente', new Response(JSON.stringify(profilo)));
-      profileText.textContent = `Il mio profilo: ${nomeUtente}`;
-      createProfileSection.style.display = 'none';
-      deleteProfileBtn.style.display = 'inline-block';  // Mostra il pulsante per cancellare il profilo
-    });
+// Verifica se il profilo esiste nella cache
+function checkProfile() {
+  const profile = localStorage.getItem('user-profile');
+  if (profile) {
+    profileText.textContent = 'Il mio profilo';
+    deleteProfileBtn.style.display = 'block';  // Mostra il bottone per cancellare il profilo
+    createProfileSection.style.display = 'none';  // Nascondi la sezione per la creazione del profilo
   } else {
-    alert('Inserisci un nome valido!');
+    profileText.textContent = 'Crea profilo';
+    deleteProfileBtn.style.display = 'none';  // Nascondi il bottone per cancellare il profilo
+    createProfileSection.style.display = 'block';  // Mostra la sezione per la creazione del profilo
   }
 }
 
-// Funzione per cancellare il profilo
-function deleteUserProfile() {
-  if (confirm('Sei sicuro di voler cancellare il tuo profilo e tutti i dati associati? Questa operazione è irreversibile.')) {
-    caches.open('statuspa-cache').then(cache => {
-      // Rimuove il profilo e tutti i dati associati dalla cache
-      cache.delete('profiloUtente').then(() => {
-        profileText.textContent = "Crea profilo";
-        deleteProfileBtn.style.display = 'none';  // Nasconde il pulsante per cancellare
-        alert('Il tuo profilo è stato cancellato con successo.');
-      });
-    });
-  }
-}
-
-// Apri il menu quando si clicca sull'icona utente
+// Apre il menu quando si clicca sull'icona utente
 userIcon.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
-  // Aggiungi la versione all'interno del menu utente
-  const versionElement = document.getElementById('user-version');
-  if (versionElement) {
-    versionElement.textContent = `Versione: ${APP_VERSION}`;
+  // Mostra la versione dell'app
+  if (userVersion) {
+    userVersion.textContent = `Versione: ${APP_VERSION}`;
   }
-
-  // Carica il profilo utente
-  loadUserProfile();
+  // Verifica lo stato del profilo e aggiorna il menu
+  checkProfile();
 });
 
-// Gestisci il clic sulla sezione profilo
-profileSection.addEventListener('click', () => {
-  if (profileText.textContent.startsWith('Il mio profilo')) {
-    alert("Visualizza il tuo profilo!");
-  } else {
-    createProfileSection.style.display = 'block';
-  }
-});
-
-// Gestisci il clic sul pulsante per salvare il profilo
-saveProfileBtn.addEventListener('click', createUserProfile);
-
-// Gestisci il clic sul pulsante per cancellare il profilo
-deleteProfileBtn.addEventListener('click', deleteUserProfile);
-
-// Chiudi il menu quando si clicca il pulsante di chiusura
+// Chiude il menu quando si clicca il pulsante di chiusura
 closeUserMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.remove('open');
 });
 
-// Chiudi il menu quando si clicca fuori dal menu
+// Chiude il menu quando si clicca fuori dal menu
 userMenuContainer.addEventListener('click', (event) => {
   if (event.target === userMenuContainer) {
     userMenuContainer.classList.remove('open');
+  }
+});
+
+// Gestisce il salvataggio del profilo (creazione)
+saveProfileBtn.addEventListener('click', () => {
+  const profileData = {
+    name: 'Nome Utente',  // Modifica con i dati reali che raccoglierai dal form
+    email: 'user@example.com'  // Modifica con i dati reali che raccoglierai dal form
+  };
+
+  localStorage.setItem('user-profile', JSON.stringify(profileData));  // Salva il profilo
+  checkProfile();  // Ricarica il menu con il nuovo profilo
+  alert('Profilo creato con successo!');
+});
+
+// Gestisce la cancellazione del profilo
+deleteProfileBtn.addEventListener('click', () => {
+  const confirmation = confirm('Sei sicuro di voler cancellare il tuo profilo e tutti i tuoi dati?');
+  if (confirmation) {
+    localStorage.removeItem('user-profile');  // Rimuove il profilo dalla cache
+    checkProfile();  // Ricarica il menu per riflettere la cancellazione
+    alert('Profilo e dati cancellati!');
   }
 });
 

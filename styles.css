@@ -132,6 +132,58 @@ body {
   transform: translateX(0);
 }
 
+#profile-section {
+  margin-top: 20px;
+}
+
+#create-profile-section {
+  display: none;
+  margin-top: 20px;
+}
+
+#profile-section, #create-profile-section {
+  padding: 10px;
+}
+
+#profile-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#delete-profile {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#delete-profile:hover {
+  background-color: #e60000;
+}
+
+#save-profile {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#save-profile:hover {
+  background-color: #45a049;
+}
+
+/* Stile per la versione dell'app */
+#user-version {
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+}
+
+
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;

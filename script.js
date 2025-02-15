@@ -206,6 +206,7 @@ const changeUsernameBtn = document.getElementById('change-username'); // Bottone
 const changeUsernameSection = document.getElementById('change-username-section'); // Sezione per cambiare nome utente
 const newUsernameInput = document.getElementById('new-username'); // Input per il nuovo nome utente
 const saveUsernameBtn = document.getElementById('save-username'); // Bottone per salvare il nuovo nome utente
+const manageProfileBtn = document.getElementById('manage-profile'); // Bottone per gestire il profilo
 
 const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
 
@@ -255,7 +256,7 @@ async function checkProfile() {
     document.querySelector('#profile-img').src = profile.image || 'img/default-icon.jpg'; // Imposta l'immagine dell'utente
     profileNameDisplay.textContent = profile.name || 'Nome utente'; // Aggiorna il nome sopra il profilo
     // Abilita l'input per l'immagine e nasconde la sezione di creazione del profilo
-    profileImgInput.disabled = false;
+    profileImgInput.disabled = true; // Disabilita il caricamento dell'immagine nella sezione di creazione del profilo
     createProfileSection.style.display = 'none';
     // Mostra il pulsante "Gestisci profilo"
     manageProfileBtn.style.display = 'block';
@@ -339,6 +340,34 @@ saveUsernameBtn.addEventListener('click', async () => {
   } else {
     alert('Per favore, inserisci un nuovo nome utente.');
   }
+});
+
+// Gestisce il caricamento dell'immagine nel "Gestisci profilo"
+const changeAvatarBtn = document.getElementById('change-avatar'); // Bottone per cambiare l'immagine
+const profileImgInputManage = document.getElementById('profile-img-manage'); // Input immagine nel gestisci profilo
+
+changeAvatarBtn.addEventListener('click', () => {
+  profileImgInputManage.click(); // Clicca sull'input immagine per caricare la foto
+});
+
+// Quando l'utente seleziona un'immagine dal file picker
+profileImgInputManage.addEventListener('change', async () => {
+  const profileImage = profileImgInputManage.files[0]; // Ottieni l'immagine
+  if (profileImage) {
+    const profile = await getProfileFromCache();
+    if (profile) {
+      profile.image = URL.createObjectURL(profileImage); // Aggiorna l'immagine nel profilo
+      await saveProfileToCache(profile);  // Salva il profilo con l'immagine aggiornata
+      document.querySelector('#profile-img').src = profile.image; // Mostra l'immagine aggiornata nel menu
+      alert('Immagine aggiornata con successo!');
+    }
+  }
+});
+
+// Gestisce il click sul pulsante "Gestisci profilo"
+manageProfileBtn.addEventListener('click', () => {
+  profileSection.style.display = 'block'; // Mostra la sezione "Gestisci profilo"
+  userMenuContainer.classList.remove('open'); // Chiude il menu utente
 });
 
 

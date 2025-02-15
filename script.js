@@ -202,6 +202,10 @@ const userVersion = document.getElementById('user-version');
 const profileNameInput = document.getElementById('profile-name'); // input per il nome utente
 const profileImgInput = document.getElementById('profile-img'); // input per l'immagine utente
 const profileNameDisplay = document.getElementById('profile-name-display'); // Nome utente da visualizzare sopra il profilo
+const changeUsernameBtn = document.getElementById('change-username'); // Bottone per cambiare il nome utente
+const changeUsernameSection = document.getElementById('change-username-section'); // Sezione per cambiare nome utente
+const newUsernameInput = document.getElementById('new-username'); // Input per il nuovo nome utente
+const saveUsernameBtn = document.getElementById('save-username'); // Bottone per salvare il nuovo nome utente
 
 const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
 
@@ -249,7 +253,6 @@ async function checkProfile() {
 
   if (profile) {
     document.querySelector('#profile-img').src = profile.image || 'img/default-icon.jpg'; // Imposta l'immagine dell'utente
-    document.querySelector('#profile-name').textContent = profile.name || 'Nome utente'; // Imposta il nome utente
     profileNameDisplay.textContent = profile.name || 'Nome utente'; // Aggiorna il nome sopra il profilo
     // Abilita l'input per l'immagine e nasconde la sezione di creazione del profilo
     profileImgInput.disabled = false;
@@ -300,25 +303,41 @@ saveProfileBtn.addEventListener('click', async () => {
 });
 
 // Gestisce la cancellazione del profilo
-const manageProfileBtn = document.getElementById('manage-profile');
-manageProfileBtn.addEventListener('click', async () => {
-  // Mostra le opzioni di gestione del profilo (se non esiste un contenitore, non fare nulla)
-  const optionsContainer = document.getElementById('profile-options');
-  if (optionsContainer) {
-    optionsContainer.style.display = 'block';
+deleteProfileBtn.addEventListener('click', async () => {
+  const confirmation = confirm('Sei sicuro di voler cancellare il tuo profilo?');
+  if (confirmation) {
+    await removeProfileFromCache();  // Rimuove il profilo dalla cache
+    checkProfile();  // Ricarica il menu per riflettere la cancellazione
+    alert('Profilo cancellato con successo!');
   }
+});
 
-  // Gestisci "Esci ed elimina profilo"
-  const exitProfileBtn = document.getElementById('exit-profile');
-  if (exitProfileBtn) {
-    exitProfileBtn.addEventListener('click', async () => {
-      const confirmation = confirm('Sei sicuro di voler uscire? Il tuo profilo e tutti i dati verranno cancellati.');
-      if (confirmation) {
-        await removeProfileFromCache();  // Rimuove il profilo dalla cache
-        checkProfile();  // Ricarica il menu per riflettere la cancellazione
-        alert('Profilo e dati cancellati!');
-      }
-    });
+// Gestisce il cambio nome utente
+changeUsernameBtn.addEventListener('click', () => {
+  changeUsernameSection.style.display = 'block'; // Mostra la sezione per il cambio nome
+  newUsernameInput.value = ''; // Resetta l'input del nuovo nome
+  changeUsernameBtn.style.display = 'none'; // Nascondi il pulsante "Cambia nome utente"
+});
+
+// Salva il nuovo nome utente
+saveUsernameBtn.addEventListener('click', async () => {
+  const newUsername = newUsernameInput.value.trim();
+  if (newUsername) {
+    const profile = await getProfileFromCache();
+    if (profile) {
+      profile.name = newUsername;  // Aggiorna il nome nel profilo
+      await saveProfileToCache(profile);  // Salva il profilo aggiornato nella cache
+      profileNameDisplay.textContent = newUsername;  // Aggiorna l'interfaccia con il nuovo nome
+      alert('Nome utente aggiornato con successo!');
+    } else {
+      alert('Non hai ancora creato un profilo.');
+    }
+
+    // Nasconde la sezione di cambio nome e riattiva il pulsante "Cambia nome utente"
+    changeUsernameSection.style.display = 'none';
+    changeUsernameBtn.style.display = 'block';
+  } else {
+    alert('Per favore, inserisci un nuovo nome utente.');
   }
 });
 

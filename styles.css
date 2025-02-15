@@ -110,19 +110,8 @@ body {
 
 .user-menu-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
   padding: 15px 20px;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-}
-
-.user-menu-header h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
 }
 
 #close-user-menu {
@@ -133,32 +122,7 @@ body {
   cursor: pointer;
 }
 
-/* Contenuto del menu */
-.user-menu-content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-#profile-section, #create-profile-section {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-#profile-text {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-}
-
-#user-version {
-  font-size: 14px;
-  color: #888;
-  margin-top: 10px;
-}
-
-/* Sezione del profilo utente */
+/* Sezione profilo utente */
 .profile-info {
   display: flex;
   align-items: center;
@@ -180,26 +144,13 @@ body {
 }
 
 .profile-info .profile-details span {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
 }
 
-#delete-profile {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-#delete-profile:hover {
-  background-color: #d32f2f;
-}
-
-#save-profile {
+/* Pulsante */
+#save-profile, #exit-profile {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -210,32 +161,14 @@ body {
   transition: background-color 0.3s;
 }
 
-#save-profile:hover {
+#exit-profile {
+  background-color: #f44336;
+}
+
+#save-profile:hover, #exit-profile:hover {
   background-color: #388e3c;
 }
 
-/* Quando il menu utente è attivo */
-.user-menu-container.open {
-  transform: translateX(0);
-}
-
-/* Bottone "Esci" */
-.exit-profile {
-  background-color: #2196F3;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.exit-profile:hover {
-  background-color: #1976D2;
-}
-
-/* Versione dell'app */
 #user-version {
   font-size: 12px;
   color: #888;

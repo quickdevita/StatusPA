@@ -36,27 +36,33 @@
     <img src="img/user-icon.png" alt="Utente">
   </div>
 
- <!-- Menu modale utente -->
+<!-- Menu modale utente -->
 <div id="user-menu-container" class="user-menu-container">
   <div id="user-menu" class="user-menu">
     <div class="user-menu-header">
-      <h3 id="profile-heading">Il mio profilo</h3>
+      <h3>Il mio profilo</h3>
       <button id="close-user-menu">&times;</button>
     </div>
     <div class="user-menu-content">
-      <!-- Sezione per la visualizzazione e creazione del profilo -->
       <div id="profile-section">
-        <p id="profile-text">Crea profilo</p>  <!-- Mostra "Crea profilo" o "Il mio profilo" -->
-        <button id="delete-profile" style="display:none;">Cancella profilo</button> <!-- Bottone per cancellare il profilo -->
+        <div class="profile-info">
+          <img id="profile-img" src="default-profile.jpg" alt="Immagine Profilo">
+          <div class="profile-details">
+            <span id="profile-name">Nome Utente</span>
+            <span id="profile-email">user@example.com</span>
+          </div>
+        </div>
+        <button id="delete-profile">Cancella profilo</button>
       </div>
-      <div id="create-profile-section" style="display:none;">
-        <input type="text" id="user-name" placeholder="Inserisci il tuo nome">
-        <button id="save-profile">Salva profilo</button>
+      <div id="create-profile-section" style="display: none;">
+        <button id="save-profile">Crea profilo</button>
       </div>
+      <button class="exit-profile" id="exit-profile">Esci dal profilo</button>
       <p id="user-version"></p> <!-- Qui verrà mostrata la versione -->
     </div>
   </div>
 </div>
+
 
 
 <!-- Punto esclamativo -->

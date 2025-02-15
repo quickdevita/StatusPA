@@ -194,7 +194,68 @@ exclamationButton.addEventListener("click", function(event) {
 const userIcon = document.getElementById('user-icon');
 const userMenuContainer = document.getElementById('user-menu-container');
 const closeUserMenuBtn = document.getElementById('close-user-menu');
+const profileSection = document.getElementById('profile-section');
+const profileText = document.getElementById('profile-text');
+const createProfileSection = document.getElementById('create-profile-section');
+const saveProfileBtn = document.getElementById('save-profile');
+const userNameInput = document.getElementById('user-name');
+const deleteProfileBtn = document.getElementById('delete-profile');  // Bottone per cancellare il profilo
 const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
+
+// Funzione per caricare il profilo utente
+function loadUserProfile() {
+  caches.open('statuspa-cache').then(cache => {
+    cache.match('profiloUtente').then(response => {
+      if (response) {
+        response.json().then(profilo => {
+          // Se il profilo esiste, aggiorniamo il testo nel menu
+          profileText.textContent = `Il mio profilo: ${profilo.nome}`;
+          deleteProfileBtn.style.display = 'inline-block';  // Mostra il pulsante per cancellare il profilo
+        });
+      } else {
+        // Se il profilo non esiste, mostra "Crea profilo"
+        profileText.textContent = "Crea profilo";
+        deleteProfileBtn.style.display = 'none';  // Nasconde il pulsante per cancellare
+      }
+    });
+  });
+}
+
+// Funzione per creare il profilo
+function createUserProfile() {
+  const nomeUtente = userNameInput.value;
+  if (nomeUtente) {
+    let profilo = {
+      nome: nomeUtente,
+      preferiti: [],
+      fotoScaricate: []
+    };
+
+    // Salva il profilo nella cache
+    caches.open('statuspa-cache').then(cache => {
+      cache.put('profiloUtente', new Response(JSON.stringify(profilo)));
+      profileText.textContent = `Il mio profilo: ${nomeUtente}`;
+      createProfileSection.style.display = 'none';
+      deleteProfileBtn.style.display = 'inline-block';  // Mostra il pulsante per cancellare il profilo
+    });
+  } else {
+    alert('Inserisci un nome valido!');
+  }
+}
+
+// Funzione per cancellare il profilo
+function deleteUserProfile() {
+  if (confirm('Sei sicuro di voler cancellare il tuo profilo e tutti i dati associati? Questa operazione è irreversibile.')) {
+    caches.open('statuspa-cache').then(cache => {
+      // Rimuove il profilo e tutti i dati associati dalla cache
+      cache.delete('profiloUtente').then(() => {
+        profileText.textContent = "Crea profilo";
+        deleteProfileBtn.style.display = 'none';  // Nasconde il pulsante per cancellare
+        alert('Il tuo profilo è stato cancellato con successo.');
+      });
+    });
+  }
+}
 
 // Apri il menu quando si clicca sull'icona utente
 userIcon.addEventListener('click', () => {
@@ -204,7 +265,25 @@ userIcon.addEventListener('click', () => {
   if (versionElement) {
     versionElement.textContent = `Versione: ${APP_VERSION}`;
   }
+
+  // Carica il profilo utente
+  loadUserProfile();
 });
+
+// Gestisci il clic sulla sezione profilo
+profileSection.addEventListener('click', () => {
+  if (profileText.textContent.startsWith('Il mio profilo')) {
+    alert("Visualizza il tuo profilo!");
+  } else {
+    createProfileSection.style.display = 'block';
+  }
+});
+
+// Gestisci il clic sul pulsante per salvare il profilo
+saveProfileBtn.addEventListener('click', createUserProfile);
+
+// Gestisci il clic sul pulsante per cancellare il profilo
+deleteProfileBtn.addEventListener('click', deleteUserProfile);
 
 // Chiudi il menu quando si clicca il pulsante di chiusura
 closeUserMenuBtn.addEventListener('click', () => {
@@ -217,6 +296,7 @@ userMenuContainer.addEventListener('click', (event) => {
     userMenuContainer.classList.remove('open');
   }
 });
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

@@ -283,8 +283,8 @@ saveProfileBtn.addEventListener('click', async () => {
 
 // Gestisce la cancellazione del profilo
 const manageProfileBtn = document.getElementById('manage-profile');
-manageProfileBtn.addEventListener('click', () => {
-  const profile = getProfileFromCache();
+manageProfileBtn.addEventListener('click', async () => {
+  const profile = await getProfileFromCache();
 
   // Mostra le opzioni di gestione del profilo
   const optionsContainer = document.getElementById('profile-options');

@@ -201,6 +201,7 @@ const createProfileSection = document.getElementById('create-profile-section');
 const userVersion = document.getElementById('user-version');
 const profileNameInput = document.getElementById('profile-name'); // input per il nome utente
 const profileImgInput = document.getElementById('profile-img'); // input per l'immagine utente
+const profileNameDisplay = document.getElementById('profile-name-display'); // Nome utente da visualizzare sopra il profilo
 
 const APP_VERSION = 'betav1.3'; // Versione aggiornata della PWA
 
@@ -247,15 +248,20 @@ async function checkProfile() {
   const manageProfileBtn = document.getElementById('manage-profile');
 
   if (profile) {
-    document.querySelector('#profile-img').src = profile.image || 'default-avatar.jpg'; // Imposta l'immagine dell'utente
+    document.querySelector('#profile-img').src = profile.image || 'img/default-icon.jpg'; // Imposta l'immagine dell'utente
     document.querySelector('#profile-name').textContent = profile.name || 'Nome utente'; // Imposta il nome utente
-    // Nascondi la sezione di creazione del profilo se esiste già
+    profileNameDisplay.textContent = profile.name || 'Nome utente'; // Aggiorna il nome sopra il profilo
+    // Abilita l'input per l'immagine e nasconde la sezione di creazione del profilo
+    profileImgInput.disabled = false;
     createProfileSection.style.display = 'none';
     // Mostra il pulsante "Gestisci profilo"
     manageProfileBtn.style.display = 'block';
   } else {
     createProfileSection.style.display = 'block';  // Mostra la sezione per la creazione del profilo
     manageProfileBtn.style.display = 'none';  // Nascondi il pulsante "Gestisci profilo"
+    profileImgInput.disabled = true; // Disabilita l'input per l'immagine finché non è stato creato un profilo
+    document.querySelector('#profile-img').src = 'img/default-icon.jpg'; // Imposta l'immagine predefinita
+    profileNameDisplay.textContent = 'Il mio profilo'; // Testo predefinito
   }
 }
 

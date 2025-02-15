@@ -37,46 +37,48 @@
   </div>
 
   <!-- Menu modale utente -->
-  <div id="user-menu-container" class="user-menu-container">
-    <div id="user-menu" class="user-menu">
-      <div class="user-menu-header">
-        <button id="close-user-menu">&times;</button>
-      </div>
-      <div class="user-menu-content">
-        <p id="profile-text">Crea profilo</p>
+<div id="user-menu-container" class="user-menu-container">
+  <div id="user-menu" class="user-menu">
+    <div class="user-menu-header">
+      <button id="close-user-menu">&times;</button>
+    </div>
+    <div class="user-menu-content">
+      <p id="profile-text">Crea profilo</p>
 
-        <section id="profile-section">
-          <!-- Sezione per creare il profilo -->
-          <div id="create-profile-section" style="display:block;">
-            <input type="text" id="profile-name" placeholder="Inserisci nome utente" />
-            <input type="file" id="profile-img" accept="image/*" />
-            <button id="save-profile">Crea profilo</button>
-          </div>
+      <section id="profile-section">
+        <!-- Sezione per creare il profilo -->
+        <div id="create-profile-section" style="display:block;">
+          <input type="text" id="profile-name" placeholder="Inserisci nome utente" />
+          <input type="file" id="profile-img" accept="image/*" disabled /> <!-- Disabilitato finché non si crea il profilo -->
+          <button id="save-profile">Crea profilo</button>
+        </div>
 
-          <!-- Sezione per gestire il profilo esistente -->
-          <div id="manage-profile-section" style="display:none;">
-            <div class="profile-info">
-              <img id="user-avatar" src="img/default-avatar.jpg" alt="Immagine utente" />
-              <div class="profile-details">
-                <span id="profile-name-display">Nome utente</span>
-              </div>
+        <!-- Sezione per gestire il profilo esistente -->
+        <div id="manage-profile-section" style="display:none;">
+          <div class="profile-info">
+            <!-- L'immagine predefinita è quella in img/default-avatar.jpg -->
+            <img id="user-avatar" src="img/default-icon.jpg" alt="Immagine utente" />
+            <div class="profile-details">
+              <span id="profile-name-display">Nome utente</span>
             </div>
-
-            <button id="change-username">Cambia nome utente</button>
-            <button id="change-avatar">Cambia immagine utente</button>
-            <button id="delete-profile">Cancella profilo</button>
-            <button id="log-out-profile">Esci</button>
           </div>
-        </section>
 
-        <!-- Aggiungi il bottone per gestire il profilo -->
-        <button id="manage-profile" style="display:none;">Gestisci profilo</button>
+          <!-- Opzioni per gestire il profilo -->
+          <button id="change-username">Cambia nome utente</button>
+          <button id="change-avatar">Cambia immagine utente</button>
+          <button id="delete-profile">Cancella profilo</button>
+          <button id="log-out-profile">Esci</button>
+        </div>
+      </section>
 
-        <!-- Mostra la versione dell'app -->
-        <p id="user-version"></p>
-      </div>
+      <!-- Aggiungi il bottone per gestire il profilo -->
+      <button id="manage-profile" style="display:none;">Gestisci profilo</button>
+
+      <!-- Mostra la versione dell'app -->
+      <p id="user-version"></p>
     </div>
   </div>
+</div>
 
   <!-- Punto esclamativo -->
   <div id="exclamation-mark" class="exclamation-mark">

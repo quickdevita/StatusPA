@@ -15,8 +15,8 @@
   <!-- Google Material Icons per icone -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-<link rel="apple-touch-startup-image" href="/StatusPA/icons/iconv1-1920x1080.png" media="(orientation: landscape)">
-<link rel="apple-touch-startup-image" href="/StatusPA/icons/iconv1-1080x1920.png" media="(orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/StatusPA/icons/iconv1-1920x1080.png" media="(orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/StatusPA/icons/iconv1-1080x1920.png" media="(orientation: portrait)">
 
 </head>
 <body>
@@ -36,114 +36,109 @@
     <img src="img/user-icon.png" alt="Utente">
   </div>
 
-<!-- Menu modale utente -->
-<div id="user-menu-container" class="user-menu-container">
-  <div id="user-menu" class="user-menu">
-    <div class="user-menu-header">
-      <!-- Rimosso il titolo "Il mio profilo", lasciato solo il pulsante per chiudere -->
-      <button id="close-user-menu">&times;</button>
-    </div>
-    <div class="user-menu-content">
-      <!-- Testo che cambia dinamicamente tra "Crea profilo" e "Gestisci profilo" -->
-      <p id="profile-text">Crea profilo</p>
-      
-      <section id="profile-section">
-        <!-- Sezione per creare il profilo -->
-        <div id="create-profile-section" style="display:block;">
-          <input type="text" id="profile-name" placeholder="Inserisci nome utente" />
-          <input type="file" id="profile-img" accept="image/*" />
-          <button id="save-profile">Crea profilo</button> <!-- Bottone per creare il profilo -->
-        </div>
+  <!-- Menu modale utente -->
+  <div id="user-menu-container" class="user-menu-container">
+    <div id="user-menu" class="user-menu">
+      <div class="user-menu-header">
+        <button id="close-user-menu">&times;</button>
+      </div>
+      <div class="user-menu-content">
+        <p id="profile-text">Crea profilo</p>
 
-        <!-- Sezione per gestire il profilo esistente -->
-        <div id="manage-profile-section" style="display:none;">
-          <div class="profile-info">
-            <!-- Immagine utente (di default sarà un avatar vuoto, ma può essere cambiata) -->
-            <img id="user-avatar" src="img/default-avatar.jpg" alt="Immagine utente" />
-            <div class="profile-details">
-              <!-- Nome utente -->
-              <span id="profile-name-display">Nome utente</span>
-            </div>
+        <section id="profile-section">
+          <!-- Sezione per creare il profilo -->
+          <div id="create-profile-section" style="display:block;">
+            <input type="text" id="profile-name" placeholder="Inserisci nome utente" />
+            <input type="file" id="profile-img" accept="image/*" />
+            <button id="save-profile">Crea profilo</button>
           </div>
-          
-          <button id="change-username">Cambia nome utente</button>
-          <button id="change-avatar">Cambia immagine utente</button>
-          <button id="delete-profile">Cancella profilo</button> <!-- Bottone per cancellare il profilo -->
-          <button id="log-out-profile">Esci</button> <!-- Bottone per uscire dal profilo -->
-        </div>
-      </section>
 
-      <!-- Mostra la versione dell'app -->
-      <p id="user-version"></p>
+          <!-- Sezione per gestire il profilo esistente -->
+          <div id="manage-profile-section" style="display:none;">
+            <div class="profile-info">
+              <img id="user-avatar" src="img/default-avatar.jpg" alt="Immagine utente" />
+              <div class="profile-details">
+                <span id="profile-name-display">Nome utente</span>
+              </div>
+            </div>
+
+            <button id="change-username">Cambia nome utente</button>
+            <button id="change-avatar">Cambia immagine utente</button>
+            <button id="delete-profile">Cancella profilo</button>
+            <button id="log-out-profile">Esci</button>
+          </div>
+        </section>
+
+        <!-- Aggiungi il bottone per gestire il profilo -->
+        <button id="manage-profile" style="display:none;">Gestisci profilo</button>
+
+        <!-- Mostra la versione dell'app -->
+        <p id="user-version"></p>
+      </div>
     </div>
   </div>
-</div>
 
-
-
-
-<!-- Punto esclamativo -->
-<div id="exclamation-mark" class="exclamation-mark">
-  &#33; <!-- Punto esclamativo -->
-</div>
+  <!-- Punto esclamativo -->
+  <div id="exclamation-mark" class="exclamation-mark">
+    &#33; <!-- Punto esclamativo -->
+  </div>
 
   <!-- Menu Modale per i dettagli dei lavori pubblici -->
-<div id="modal-container" class="modal-container">
-  <div id="modal" class="modal">
-    <div class="modal-handle"></div> <!-- Maniglia per trascinamento -->
+  <div id="modal-container" class="modal-container">
+    <div id="modal" class="modal">
+      <div class="modal-handle"></div> <!-- Maniglia per trascinamento -->
 
-    <!-- Intestazione Modale -->
-    <div class="modal-header">
-      <h2 id="modal-title">Titolo Lavoro</h2>
-      <div class="modal-buttons">
-        <button id="favorite-button" class="circle-button">
-          <span class="material-icons">star_border</span>
-        </button>
-        <button id="close-modal" class="circle-button">
-          <span class="material-icons">close</span>
-        </button>
+      <!-- Intestazione Modale -->
+      <div class="modal-header">
+        <h2 id="modal-title">Titolo Lavoro</h2>
+        <div class="modal-buttons">
+          <button id="favorite-button" class="circle-button">
+            <span class="material-icons">star_border</span>
+          </button>
+          <button id="close-modal" class="circle-button">
+            <span class="material-icons">close</span>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <!-- Descrizione breve -->
-    <p id="modal-info">Descrizione breve del lavoro...</p>
+      <!-- Descrizione breve -->
+      <p id="modal-info">Descrizione breve del lavoro...</p>
 
-    <!-- Sezione immagini -->
-    <div id="modal-images" class="modal-images"></div>
+      <!-- Sezione immagini -->
+      <div id="modal-images" class="modal-images"></div>
 
-    <!-- Sezioni principali -->
-    <nav class="modal-tabs">
-      <button class="tab-button active" data-tab="info">Info dettagliate</button>
-      <button class="tab-button" data-tab="comments">Commenti</button>
-      <button class="tab-button" data-tab="photos">Foto</button>
-      <button class="tab-button" data-tab="articles">Articoli correlati</button>
-    </nav>
+      <!-- Sezioni principali -->
+      <nav class="modal-tabs">
+        <button class="tab-button active" data-tab="info">Info dettagliate</button>
+        <button class="tab-button" data-tab="comments">Commenti</button>
+        <button class="tab-button" data-tab="photos">Foto</button>
+        <button class="tab-button" data-tab="articles">Articoli correlati</button>
+      </nav>
 
-    <!-- Contenuto dinamico -->
-    <div class="modal-content">
-      <div id="info" class="tab-content active">
-        <p id="modal-details">Dettagli completi del lavoro...</p>
+      <!-- Contenuto dinamico -->
+      <div class="modal-content">
+        <div id="info" class="tab-content active">
+          <p id="modal-details">Dettagli completi del lavoro...</p>
+        </div>
+        <div id="comments" class="tab-content">
+          <p>Qui verranno aggiunti i commenti.</p>
+        </div>
+        <div id="photos" class="tab-content">
+          <p>Qui verranno mostrate altre foto.</p>
+        </div>
+        <div id="articles" class="tab-content">
+          <p>Qui verranno mostrati articoli correlati.</p>
+        </div>
       </div>
-      <div id="comments" class="tab-content">
-        <p>Qui verranno aggiunti i commenti.</p>
-      </div>
-      <div id="photos" class="tab-content">
-        <p>Qui verranno mostrate altre foto.</p>
-      </div>
-      <div id="articles" class="tab-content">
-        <p>Qui verranno mostrati articoli correlati.</p>
-      </div>
-    </div>
 
-    <!-- Dettagli aggiuntivi -->
-    <div class="modal-extra">
-      <p><strong>Indirizzo:</strong> <span id="modal-address"></span></p>
-      <p><strong>Inizio lavori:</strong> <span id="modal-start-date"></span></p>
-      <p><strong>Fine lavori:</strong> <span id="modal-end-date"></span></p>
+      <!-- Dettagli aggiuntivi -->
+      <div class="modal-extra">
+        <p><strong>Indirizzo:</strong> <span id="modal-address"></span></p>
+        <p><strong>Inizio lavori:</strong> <span id="modal-start-date"></span></p>
+        <p><strong>Fine lavori:</strong> <span id="modal-end-date"></span></p>
+      </div>
     </div>
   </div>
-</div>
-
 
   <!-- JS di Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

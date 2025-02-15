@@ -243,7 +243,6 @@ userMenuContainer.addEventListener('click', (event) => {
 saveProfileBtn.addEventListener('click', () => {
   const profileData = {
     name: 'Nome Utente',  // Modifica con i dati reali che raccoglierai dal form
-    email: 'user@example.com'  // Modifica con i dati reali che raccoglierai dal form
   };
 
   localStorage.setItem('user-profile', JSON.stringify(profileData));  // Salva il profilo

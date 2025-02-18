@@ -485,5 +485,27 @@ document.getElementById('voice-search').addEventListener('click', () => {
   } else {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
+
+  // Aggiungere l'evento per aprire l'immagine a schermo intero
+document.getElementById("modal-images").addEventListener("click", function(e) {
+  if (e.target && e.target.nodeName === "IMG") {
+    const imgSrc = e.target.src; // Ottieni il link dell'immagine
+    openFullscreen(imgSrc); // Chiama la funzione per aprire l'immagine
+  }
+});
+
+// Funzione per aprire l'immagine a schermo intero
+function openFullscreen(imgSrc) {
+  const fullscreenModal = document.getElementById("fullscreen-modal");
+  const fullscreenImg = document.getElementById("fullscreen-img");
+  fullscreenImg.src = imgSrc; // Imposta l'immagine nel visualizzatore
+  fullscreenModal.style.display = "flex"; // Mostra il modal a schermo intero
+}
+
+// Chiudere il visualizzatore a schermo intero
+document.getElementById("close-fullscreen").addEventListener("click", function() {
+  document.getElementById("fullscreen-modal").style.display = "none";
+});
+
 });
 

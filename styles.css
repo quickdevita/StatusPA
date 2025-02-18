@@ -205,7 +205,7 @@ button:hover {
   justify-content: center;
   cursor: pointer;
   font-weight: bold; /* Aumenta lo spessore del punto esclamativo */
-  z-index: 9999; /* Lo mantiene sopra altri elementi */
+  z-index: 11000; /* Lo mantiene sopra altri elementi */
 }
 
 @media (max-width: 768px) {

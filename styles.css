@@ -124,7 +124,7 @@ body {
   color: #333;
   cursor: pointer;
   position: relative;  /* Aggiungi questa linea */
-  left: -5px;          /* Sposta il pulsante 5px a sinistra */
+  left: -10px;          /* Sposta il pulsante 10px a sinistra */
 }
 
 /* Sezione profilo */

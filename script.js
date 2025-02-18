@@ -52,6 +52,7 @@ fetch('data.json')
 
 // Funzione per aprire il modale
 function openModal(title, description, images, address, startDate, endDate, info) {
+  // Popola i dettagli nel modale
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-info").textContent = info; // Mostra info
   document.getElementById("modal-details").textContent = description; // Mostra la descrizione
@@ -62,17 +63,20 @@ function openModal(title, description, images, address, startDate, endDate, info
   const modalImagesContainer = document.getElementById("modal-images");
   modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
 
+  // Aggiungi immagini al contenitore, se presenti
   if (images.length > 0) {
     images.forEach((imgSrc) => {
       const img = document.createElement("img");
       img.src = imgSrc;
       img.alt = "Immagine del lavoro";
+      img.style.maxWidth = "100%"; // Assicura che le immagini si adattino bene al contenitore
       modalImagesContainer.appendChild(img);
     });
   } else {
     modalImagesContainer.innerHTML = "<p>Nessuna immagine disponibile</p>";
   }
 
+  // Aggiungi la classe per aprire il modale
   document.getElementById("modal-container").classList.add("open");
   document.getElementById("modal").classList.add("open");
   document.body.classList.add("modal-open");
@@ -85,15 +89,45 @@ function closeModalFunc() {
   document.body.classList.remove("modal-open");
 }
 
-// Chiudere il modale con il pulsante di chiusura
+// Gestire il click sul pulsante di chiusura
 document.getElementById("close-modal").addEventListener("click", closeModalFunc);
 
-// Chiudere cliccando fuori dal modale
+// Chiudere il modale se si clicca fuori dal contenitore del modale
 document.getElementById("modal-container").addEventListener("click", function (event) {
   if (event.target === document.getElementById("modal-container")) {
     closeModalFunc();
   }
 });
+
+// Gestire l'apertura del modale per ciascun lavoro
+// Supponiamo che i dati siano contenuti in un array di oggetti 'workData' nel tuo 'data.json'
+const workData = [
+  // Esempio di un oggetto di lavoro
+  {
+    id: 1,
+    title: "Lavoro Pubblico 1",
+    description: "Descrizione dettagliata del lavoro pubblico 1",
+    images: ["https://esempio.com/img1.jpg", "https://esempio.com/img2.jpg"],
+    address: "Indirizzo Lavoro 1",
+    startDate: "01-01-2025",
+    endDate: "31-12-2025",
+    info: "Altre informazioni sul lavoro 1"
+  },
+  // Aggiungi altri lavori qui
+];
+
+// Aggiungi l'evento di apertura per ogni elemento della lista dei lavori
+document.querySelectorAll(".work-item").forEach((item) => {
+  item.addEventListener("click", function () {
+    const workId = item.dataset.id; // Assicurati che ogni elemento abbia un 'data-id'
+    const work = workData.find((work) => work.id === parseInt(workId));
+    
+    if (work) {
+      openModal(work.title, work.description, work.images, work.address, work.startDate, work.endDate, work.info);
+    }
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");

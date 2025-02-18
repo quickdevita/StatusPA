@@ -96,7 +96,7 @@ body {
 @media (max-width: 767px) {
   .map-toggle {
     position: fixed;
-    bottom: 124px; /* Posiziona sopra il punto interrogativo su mobile */
+    bottom: 135px; /* Posiziona sopra il punto interrogativo su mobile */
     right: 16px;
   }
 }
@@ -270,7 +270,7 @@ button:hover {
   /* Su dispositivi mobili, posizioniamo sopra l'icona utente (in basso a destra) */
   #exclamation-mark {
     position: fixed;
-    bottom: 69px !important; /* In basso */
+    bottom: 80px !important; /* In basso */
     right: 16px !important; /* A destra */
     z-index: 9999;
   }

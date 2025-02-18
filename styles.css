@@ -62,6 +62,45 @@ body {
   display: block;
 }
 
+/* Stile base per il pulsante cambio mappa */
+.map-toggle {
+  position: fixed;
+  bottom: 20px; /* Per la versione mobile */
+  left: 20px;   /* Per la versione mobile */
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px; /* Grandezza del pulsante */
+  height: 40px; /* Grandezza del pulsante */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Icona cambio mappa */
+.map-icon {
+  font-size: 20px; /* Adatta la dimensione dell'icona */
+}
+
+/* Versione desktop */
+@media (min-width: 768px) {
+  .map-toggle {
+    top: 20px;
+    left: 60px; /* Posizione a sinistra del punto interrogativo */
+    bottom: auto; /* Per desktop non serve la posizione 'bottom' */
+  }
+}
+
+/* Versione mobile */
+@media (max-width: 767px) {
+  .map-toggle {
+    top: 80px; /* Posiziona sopra il punto interrogativo su mobile */
+    left: 50%;
+    transform: translateX(-50%); /* Centrato orizzontalmente */
+  }
+}
+
 /* Icona utente */
 #user-icon {
   position: absolute;

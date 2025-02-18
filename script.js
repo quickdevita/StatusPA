@@ -46,6 +46,12 @@ fetch('data.json')
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
+  document.getElementById('mapToggleButton').addEventListener('click', function() {
+    // Codice per cambiare la mappa
+    // Ad esempio, alterna tra Esri e altre mappe (OSM, Google Maps, Mapbox, ecc.)
+  });
+  
+
 // ========================
 // 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹
 // ========================

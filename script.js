@@ -486,35 +486,5 @@ document.getElementById('voice-search').addEventListener('click', () => {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
  
-  function viewImage(imageUrl) {
-    // Mostra l'immagine a schermo intero in una modale o in un altro modo
-    const modal = document.createElement('div');
-    modal.style.position = 'fixed';
-    modal.style.top = 0;
-    modal.style.left = 0;
-    modal.style.width = '100%';
-    modal.style.height = '100%';
-    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    modal.style.display = 'flex';
-    modal.style.justifyContent = 'center';
-    modal.style.alignItems = 'center';
-    modal.style.zIndex = 1000;
-    
-    const img = document.createElement('img');
-    img.src = imageUrl;
-    img.style.maxWidth = '90%';
-    img.style.maxHeight = '90%';
-    img.style.objectFit = 'contain';
-    
-    modal.appendChild(img);
-    
-    modal.onclick = function() {
-      document.body.removeChild(modal);
-    };
-    
-    document.body.appendChild(modal);
-  }
-  
-
 });
 

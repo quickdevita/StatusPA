@@ -557,28 +557,5 @@ body.modal-open {
   }
 
 
-.image-container {
-  position: relative;
-  display: inline-block;
-}
-
-.eye-icon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 24px;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 50%;
-  padding: 5px;
-}
-
-.image-thumbnail {
-  max-width: 100%;
-  height: auto;
-}
-
-
 }
 

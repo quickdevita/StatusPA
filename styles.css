@@ -322,7 +322,7 @@ button:hover {
 
 /* Modale */
 .modal {
-  height: 400px; /* Altezza iniziale */
+  height: 300px; /* Altezza iniziale */
   overflow: hidden;
 }
 

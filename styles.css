@@ -120,7 +120,7 @@ body {
 #close-user-menu {
   background: none;
   border: none;
-  font-size: 28px;
+  font-size: 30px;
   color: #333;
   cursor: pointer;
  margin-left: -10px; /* Sposta leggermente il tasto a sinistra */

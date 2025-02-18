@@ -76,23 +76,6 @@ function openModal(title, description, images, address, startDate, endDate, info
   document.getElementById("modal-container").classList.add("open");
   document.getElementById("modal").classList.add("open");
   document.body.classList.add("modal-open");
-
-  console.log("Apertura modale con i seguenti dati:", {
-    title, description, images, address, startDate, endDate, info
-  });
-
-  images.forEach((imgSrc) => {
-    const img = document.createElement("img");
-    img.src = imgSrc;
-    img.alt = "Immagine del lavoro";
-    img.onerror = () => {
-      console.error("Errore nel caricamento dell'immagine:", imgSrc);
-    };
-    modalImagesContainer.appendChild(img);
-  });
-  
-openModal("Titolo Lavoro", "Descrizione", images, "Indirizzo", "01-01-2023", "01-02-2023", "Info dettagli");
-
 }
 
 // Funzione per chiudere il modale

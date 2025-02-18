@@ -123,8 +123,6 @@ body {
   font-size: 28px;
   color: #333;
   cursor: pointer;
-  position: relative;  /* Aggiungi questa linea */
-  left: -10px;          /* Sposta il pulsante 10px a sinistra */
 }
 
 /* Sezione profilo */

@@ -293,7 +293,7 @@ button:hover {
   display: none;
   justify-content: center;
   align-items: flex-end;
-  z-index: 9000;
+  z-index: 12001;
   transition: background 0.3s ease-out;
 }
 

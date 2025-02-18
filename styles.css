@@ -305,6 +305,7 @@ button:hover {
   transition: transform 0.3s ease-out;
   max-height: 80vh;
   overflow-y: auto;
+  z-index: 9000;
 }
 
 /* Maniglia per trascinare il modale */

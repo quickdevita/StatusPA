@@ -485,17 +485,18 @@ document.getElementById('voice-search').addEventListener('click', () => {
   } else {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
-//Per visualizzazione a schermo intero immagini
-  document.addEventListener("DOMContentLoaded", function () {
-    // Seleziona tutte le immagini della pagina
-    const images = document.querySelectorAll("img");
-  
-    // Applica Luminous a ogni immagine
-    images.forEach(img => {
-      new Luminous(img);
-    });
+ // Aspettiamo che il DOM sia caricato prima di eseguire lo script
+document.addEventListener("DOMContentLoaded", function () {
+  // Seleziona tutte le immagini della pagina
+  const images = document.querySelectorAll("img");
+
+  // Applica Luminous a ogni immagine
+  images.forEach(img => {
+    new Luminous(img);
   });
-  
+
+  console.log("Luminous attivato su", images.length, "immagini.");
+});
 
 });
 

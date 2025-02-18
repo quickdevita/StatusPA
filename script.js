@@ -486,28 +486,50 @@ document.getElementById('voice-search').addEventListener('click', () => {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const fullscreenModal = document.getElementById("fullscreen-modal");
-    const fullscreenImg = document.getElementById("fullscreen-img");
-    const closeFullscreen = document.getElementById("close-fullscreen");
+  // Creazione dinamica del modal per fullscreen (se non già presente)
+if (!document.getElementById("fullscreen-modal")) {
+  const modalHTML = `
+    <div id="fullscreen-modal" class="fullscreen-modal" style="display: none;">
+      <span id="close-fullscreen" class="close-fullscreen">&times;</span>
+      <img id="fullscreen-img" class="fullscreen-img" src="" alt="Immagine a schermo intero">
+    </div>
+  `;
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+}
 
-    document.body.addEventListener("click", function (event) {
-        if (event.target.tagName === "IMG") { 
-            fullscreenImg.src = event.target.src; // Imposta l'immagine a schermo intero
-            fullscreenModal.style.display = "flex"; // Mostra il modal
-        }
-    });
+// Seleziona il modal e gli elementi necessari
+const fullscreenModal = document.getElementById("fullscreen-modal");
+const fullscreenImg = document.getElementById("fullscreen-img");
+const closeFullscreen = document.getElementById("close-fullscreen");
 
-    closeFullscreen.addEventListener("click", function () {
-        fullscreenModal.style.display = "none"; // Nasconde il modal quando si clicca la "X"
-    });
+// Funzione per aprire l'immagine a schermo intero
+function openFullscreen(imgSrc) {
+  if (imgSrc) {
+    fullscreenImg.src = imgSrc;
+    fullscreenModal.style.display = "flex";
+  }
+}
 
-    // Chiudi il visualizzatore cliccando fuori dall'immagine
-    fullscreenModal.addEventListener("click", function (event) {
-        if (event.target === fullscreenModal) {
-            fullscreenModal.style.display = "none";
-        }
-    });
+// Evento per aprire il fullscreen su **qualsiasi** immagine del sito
+document.addEventListener("click", function(event) {
+  if (event.target.tagName === "IMG") {
+    openFullscreen(event.target.src);
+  }
+});
+
+// Funzione per chiudere il visualizzatore
+function closeFullscreenModal() {
+  fullscreenModal.style.display = "none";
+}
+
+// Chiudere il visualizzatore cliccando sulla "X"
+closeFullscreen.addEventListener("click", closeFullscreenModal);
+
+// Chiudere anche cliccando fuori dall'immagine
+fullscreenModal.addEventListener("click", function(event) {
+  if (event.target !== fullscreenImg) {
+    closeFullscreenModal();
+  }
 });
 
 

@@ -100,7 +100,6 @@ body {
   border-radius: 8px 0 0 8px;
 }
 
-/* Quando il menu è aperto */
 .user-menu-container.open {
   transform: translateX(0);
 }
@@ -127,7 +126,6 @@ body {
   cursor: pointer;
 }
 
-/* Sezione profilo utente */
 .profile-info {
   display: flex;
   align-items: center;
@@ -154,13 +152,11 @@ body {
   color: #333;
 }
 
-/* Nasconde la sezione di creazione del profilo dopo la registrazione */
 #create-profile-section.hidden {
   display: none;
 }
 
-/* Pulsante */
-#save-profile, #exit-profile {
+#save-profile, #delete-profile {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -171,22 +167,14 @@ body {
   transition: background-color 0.3s;
 }
 
-#exit-profile {
+#delete-profile {
   background-color: #f44336;
 }
 
-#save-profile:hover, #exit-profile:hover {
+#save-profile:hover, #delete-profile:hover {
   background-color: #388e3c;
 }
 
-#user-version {
-  font-size: 12px;
-  color: #888;
-  text-align: center;
-  margin-top: 30px;
-  padding: 10px 0;
-  border-top: 1px solid #ddd;
-}
 
 
 /* Stile per il punto esclamativo */

@@ -190,122 +190,108 @@ exclamationButton.addEventListener("click", function(event) {
 // ==========================
 // 🔹 GESTIONE DEL MENU UTENTE 🔹
 // ==========================
-const userIcon = document.getElementById('user-icon');
-const userMenuContainer = document.getElementById('user-menu-container');
-const closeUserMenuBtn = document.getElementById('close-user-menu');
-const deleteProfileBtn = document.getElementById('delete-profile');
-const saveProfileBtn = document.getElementById('save-profile');
-const profileSection = document.getElementById('profile-section');
-const createProfileSection = document.getElementById('create-profile-section');
-const userVersion = document.getElementById('user-version');
-const profileNameInput = document.getElementById('profile-name');
-const profileImgInput = document.getElementById('profile-img');
-const profileNameDisplay = document.getElementById('profile-name-display');
-const manageProfileBtn = document.getElementById('manage-profile');
+document.addEventListener("DOMContentLoaded", async function () {
+  const userIcon = document.getElementById("user-icon");
+  const userMenuContainer = document.getElementById("user-menu-container");
+  const closeUserMenuBtn = document.getElementById("close-user-menu");
+  const saveProfileBtn = document.getElementById("save-profile");
+  const deleteProfileBtn = document.getElementById("delete-profile");
+  const profileImg = document.getElementById("profile-img");
+  const profileNameDisplay = document.getElementById("profile-name-display");
+  const profileNameInput = document.getElementById("profile-name");
+  const createProfileSection = document.getElementById("create-profile-section");
+  const manageProfileBtn = document.getElementById("manage-profile");
+  const manageProfileSection = document.getElementById("manage-profile-section");
 
-const APP_VERSION = 'betav1.3';
+  const CACHE_NAME = "user-profile-cache";
 
-// Funzione per gestire la cache
-async function getProfileFromCache() {
-  try {
-    const cache = await caches.open('user-profile-cache');
-    const response = await cache.match('user-profile');
-    if (response) {
-      return response.json();
-    }
-  } catch (error) {
-    console.error('Errore nel recupero del profilo dalla cache:', error);
+  // Recupera il profilo dalla cache
+  async function getProfileFromCache() {
+      const cache = await caches.open(CACHE_NAME);
+      const response = await cache.match("user-profile");
+      if (response) {
+          return response.json();
+      }
+      return null;
   }
-  return null;
-}
 
-// Funzione per salvare il profilo nella cache
-async function saveProfileToCache(profileData) {
-  try {
-    const cache = await caches.open('user-profile-cache');
-    const profileResponse = new Response(JSON.stringify(profileData), {
-      headers: { 'Content-Type': 'application/json' },
-    });
-    await cache.put('user-profile', profileResponse);
-  } catch (error) {
-    console.error('Errore nel salvataggio del profilo nella cache:', error);
+  // Salva il profilo nella cache
+  async function saveProfileToCache(profileData) {
+      const cache = await caches.open(CACHE_NAME);
+      const profileResponse = new Response(JSON.stringify(profileData), {
+          headers: { "Content-Type": "application/json" },
+      });
+      await cache.put("user-profile", profileResponse);
   }
-}
 
-// Funzione per rimuovere il profilo dalla cache
-async function removeProfileFromCache() {
-  try {
-    const cache = await caches.open('user-profile-cache');
-    await cache.delete('user-profile');
-  } catch (error) {
-    console.error('Errore nella rimozione del profilo dalla cache:', error);
+  // Rimuove il profilo dalla cache
+  async function removeProfileFromCache() {
+      const cache = await caches.open(CACHE_NAME);
+      await cache.delete("user-profile");
   }
-}
 
-// Verifica se il profilo esiste nella cache
-async function checkProfile() {
-  const profile = await getProfileFromCache();
+  // Aggiorna l'interfaccia del menu utente
+  async function checkProfile() {
+      const profile = await getProfileFromCache();
 
-  if (profile) {
-    document.querySelector('#profile-img').src = profile.image || 'img/default-icon.jpg';
-    profileNameDisplay.textContent = profile.name || 'Nome utente';
-    profileImgInput.disabled = false;
-    createProfileSection.classList.add('hidden'); // Nasconde la sezione di creazione profilo
-    manageProfileBtn.style.display = 'block'; // Mostra "Gestisci profilo"
-  } else {
-    createProfileSection.classList.remove('hidden'); // Mostra la sezione di creazione profilo
-    manageProfileBtn.style.display = 'none'; // Nasconde "Gestisci profilo"
-    profileImgInput.disabled = true;
-    document.querySelector('#profile-img').src = 'img/default-icon.jpg';
-    profileNameDisplay.textContent = '';
+      if (profile) {
+          profileImg.src = profile.image || "img/default-icon.jpg";
+          profileNameDisplay.textContent = profile.name;
+          createProfileSection.style.display = "none"; // Nasconde la creazione profilo
+          manageProfileBtn.style.display = "block"; // Mostra "Gestisci profilo"
+      } else {
+          profileImg.src = "img/default-icon.jpg";
+          profileNameDisplay.textContent = "Nome utente";
+          createProfileSection.style.display = "block"; // Mostra la creazione profilo
+          manageProfileBtn.style.display = "none"; // Nasconde "Gestisci profilo"
+      }
   }
-}
 
-// Apre il menu quando si clicca sull'icona utente
-userIcon.addEventListener('click', () => {
-  userMenuContainer.classList.add('open');
-  if (userVersion) {
-    userVersion.textContent = `Versione: ${APP_VERSION}`;
-  }
+  // Apre il menu utente
+  userIcon.addEventListener("click", () => {
+      userMenuContainer.classList.add("open");
+      checkProfile();
+  });
+
+  // Chiude il menu utente
+  closeUserMenuBtn.addEventListener("click", () => {
+      userMenuContainer.classList.remove("open");
+  });
+
+  // Salva il profilo
+  saveProfileBtn.addEventListener("click", async () => {
+      const profileName = profileNameInput.value.trim();
+
+      if (profileName.length >= 4) {
+          const profileData = {
+              name: profileName,
+              image: "img/default-icon.jpg",
+          };
+          await saveProfileToCache(profileData);
+          checkProfile();
+          alert("Profilo creato con successo!");
+      } else {
+          alert("Il nome utente deve avere almeno 4 caratteri.");
+      }
+  });
+
+  // Gestisce il pulsante "Gestisci profilo"
+  manageProfileBtn.addEventListener("click", () => {
+      manageProfileSection.style.display = "block";
+  });
+
+  // Cancella il profilo
+  deleteProfileBtn.addEventListener("click", async () => {
+      const confirmation = confirm("Sei sicuro di voler eliminare il profilo?");
+      if (confirmation) {
+          await removeProfileFromCache();
+          checkProfile();
+          alert("Profilo cancellato!");
+      }
+  });
+
+  // Controlla il profilo al caricamento della pagina
   checkProfile();
-});
-
-// Chiude il menu quando si clicca il pulsante di chiusura
-closeUserMenuBtn.addEventListener('click', () => {
-  userMenuContainer.classList.remove('open');
-});
-
-// Gestisce la creazione del profilo
-saveProfileBtn.addEventListener('click', async () => {
-  const profileName = profileNameInput.value.trim();
-
-  if (profileName.length >= 4) {
-    const profileData = {
-      name: profileName,
-      image: 'img/default-icon.jpg',
-    };
-    await saveProfileToCache(profileData);
-    checkProfile();
-    alert('Profilo creato con successo!');
-  } else {
-    alert('Il nome utente deve avere almeno 4 caratteri.');
-  }
-});
-
-// Gestisce l'apertura della sezione "Gestisci profilo"
-manageProfileBtn.addEventListener('click', () => {
-  document.getElementById('manage-profile-section').style.display = 'block';
-  createProfileSection.classList.add('hidden');
-});
-
-// Gestisce la cancellazione del profilo
-deleteProfileBtn.addEventListener('click', async () => {
-  const confirmation = confirm('Sei sicuro di voler eliminare il profilo?');
-  if (confirmation) {
-    await removeProfileFromCache();
-    checkProfile();
-    alert('Profilo cancellato!');
-  }
 });
 
 

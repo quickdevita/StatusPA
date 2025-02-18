@@ -398,7 +398,3 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
 });
 
-setInterval(() => {
-  console.log("Posizione punto esclamativo:", document.getElementById("exclamation-mark").getBoundingClientRect().left);
-}, 1000);
-

@@ -282,7 +282,7 @@ button:hover {
 
 /* 🟡 MODALE - DESIGN SIMILE A GOOGLE MAPS */
 .modal-container {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;

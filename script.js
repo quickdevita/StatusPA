@@ -321,11 +321,16 @@ saveUsernameBtn.addEventListener('click', async () => {
   checkProfile();
 });
 
-// Eliminare profilo
+// Eliminare profilo (Esci)
 deleteProfileBtn.addEventListener('click', async () => {
   if (confirm('Sei sicuro di voler eliminare il profilo?')) {
     await removeProfileFromCache();
     checkProfile();
+
+    // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
+    manageProfileSection.style.display = 'none';
+    userMenuContainer.classList.remove('open'); // Rimuove la sezione del menu
+    createProfileBtn.style.display = 'block';  // Mostra il pulsante per creare il profilo
   }
 });
 

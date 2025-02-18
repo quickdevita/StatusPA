@@ -208,6 +208,7 @@ const changeUsernameBtn = document.getElementById('change-username');
 const newUsernameInput = document.getElementById('new-username');
 const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
+const backToMainMenuBtn = document.getElementById('back-to-main-menu'); // Pulsante per tornare al menu principale
 
 const APP_VERSION = 'betav1.3';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
@@ -300,6 +301,7 @@ changeUsernameBtn.addEventListener('click', () => {
   saveUsernameBtn.style.display = 'block';
 });
 
+// Salva nome utente
 saveUsernameBtn.addEventListener('click', async () => {
   const newName = newUsernameInput.value.trim();
   if (newName.length < 4) {
@@ -310,6 +312,12 @@ saveUsernameBtn.addEventListener('click', async () => {
   const profile = await getProfileFromCache();
   profile.name = newName;
   await saveProfileToCache(profile);
+
+  // Nascondi la barra e il pulsante dopo aver salvato
+  newUsernameInput.style.display = 'none';
+  saveUsernameBtn.style.display = 'none';
+
+  // Aggiorna il nome visualizzato nel menu utente
   checkProfile();
 });
 
@@ -322,15 +330,11 @@ deleteProfileBtn.addEventListener('click', async () => {
 });
 
 // Aggiungi il pulsante per tornare al menu principale
-const backToMainMenuBtn = document.getElementById('back-to-main-menu');
-
 backToMainMenuBtn.addEventListener('click', () => {
   // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
   manageProfileSection.style.display = 'none';
-  // Puoi decidere di ri-aprire il menu utente principale qui, se necessario
-  userMenuContainer.classList.add('open');
+  userMenuContainer.classList.add('open'); // Ri-apri il menu utente principale
 });
-
 
 
 // ==========================

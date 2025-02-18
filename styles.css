@@ -316,7 +316,14 @@ button:hover {
   background: #ccc;
   border-radius: 5px;
   margin: 10px auto;
-  cursor: grab;
+  cursor: grab;  /* Cursore per indicare che si può trascinare */
+}
+
+/* Modale con altezza minima e massima */
+#modal {
+  min-height: 200px;
+  max-height: 80vh;  /* Impedisce che il modale diventi troppo alto */
+  overflow-y: auto;  /* Permette lo scroll se l'altezza è troppo ridotta */
 }
 
 /* Intestazione del modale */

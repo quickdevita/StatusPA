@@ -47,7 +47,7 @@ fetch('data.json')
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
 // ========================
-// 🔹 GESTIONE DEL MODALE 🔹
+// 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹
 // ========================
 
 // Funzione per aprire il modale
@@ -94,6 +94,46 @@ document.getElementById("modal-container").addEventListener("click", function (e
     closeModalFunc();
   }
 });
+
+// ========================
+// 🔹 RIDIMENSIONAMENTO MODALE 🔹
+// ========================
+
+// Selezioniamo la maniglia e il modale
+const modal = document.getElementById('modal');
+const modalHandle = document.querySelector('.modal-handle');
+
+// Variabili per il mouse
+let isResizing = false;
+let lastDownY = 0;
+
+// Funzione che inizia il ridimensionamento
+modalHandle.addEventListener('mousedown', (e) => {
+  isResizing = true;
+  lastDownY = e.clientY;
+  document.body.style.cursor = 'ns-resize';  // Cambia il cursore per mostrare che è possibile ridimensionare
+});
+
+// Funzione che esegue il ridimensionamento durante il drag
+document.addEventListener('mousemove', (e) => {
+  if (!isResizing) return;
+
+  const offsetY = e.clientY - lastDownY;
+  const newHeight = modal.offsetHeight + offsetY;
+
+  // Impostiamo l'altezza del modale, evitando di andare oltre le dimensioni massime
+  if (newHeight > 200 && newHeight < window.innerHeight * 0.8) {
+    modal.style.height = newHeight + 'px';
+    lastDownY = e.clientY; // Aggiorniamo la posizione del mouse
+  }
+});
+
+// Funzione che ferma il ridimensionamento quando l'utente rilascia il mouse
+document.addEventListener('mouseup', () => {
+  isResizing = false;
+  document.body.style.cursor = 'auto';  // Torna al cursore normale
+});
+
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");

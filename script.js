@@ -50,8 +50,8 @@ fetch('data.json')
 // 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹
 // ========================
 
-// Funzione per aprire il modale
-function openModal(title, description, images, address, startDate, endDate, info) {
+// Funzione per aprire o aggiornare il modale con un nuovo lavoro
+function openOrUpdateModal(title, description, images, address, startDate, endDate, info) {
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-info").textContent = info; // Mostra info
   document.getElementById("modal-details").textContent = description; // Mostra la descrizione
@@ -73,9 +73,12 @@ function openModal(title, description, images, address, startDate, endDate, info
     modalImagesContainer.innerHTML = "<p>Nessuna immagine disponibile</p>";
   }
 
-  document.getElementById("modal-container").classList.add("open");
-  document.getElementById("modal").classList.add("open");
-  document.body.classList.add("modal-open");
+  // Se il modale non è già aperto, aprilo
+  if (!document.getElementById("modal-container").classList.contains("open")) {
+    document.getElementById("modal-container").classList.add("open");
+    document.getElementById("modal").classList.add("open");
+    document.body.classList.add("modal-open");
+  }
 }
 
 // Funzione per chiudere il modale
@@ -87,13 +90,6 @@ function closeModalFunc() {
 
 // Chiudere il modale con il pulsante di chiusura
 document.getElementById("close-modal").addEventListener("click", closeModalFunc);
-
-// Chiudere cliccando fuori dal modale
-document.getElementById("modal-container").addEventListener("click", function (event) {
-  if (event.target === document.getElementById("modal-container")) {
-    closeModalFunc();
-  }
-});
 
 // ========================
 // 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹

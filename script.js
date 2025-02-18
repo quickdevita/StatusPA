@@ -118,7 +118,7 @@ modalHandle.addEventListener("mousedown", (e) => {
 // Funzione per il trascinamento
 document.addEventListener("mousemove", (e) => {
   if (isDragging) {
-    const offset = e.clientY - startY;
+    const offset = startY - e.clientY; // Invertiamo l'offset
     const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
@@ -153,7 +153,7 @@ modalHandle.addEventListener("touchstart", (e) => {
 
 document.addEventListener("touchmove", (e) => {
   if (isDragging) {
-    const offset = e.touches[0].clientY - startY;
+    const offset = startY - e.touches[0].clientY; // Invertiamo l'offset anche per il touch
     const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
@@ -176,7 +176,6 @@ document.addEventListener("touchend", () => {
     }
   }
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function() {

@@ -96,7 +96,7 @@ body {
 @media (max-width: 767px) {
   .map-toggle {
     position: fixed;
-    bottom: 89px; /* Posiziona sopra il punto interrogativo su mobile */
+    bottom: 99px; /* Posiziona sopra il punto interrogativo su mobile */
     right: 16px;
   }
 }

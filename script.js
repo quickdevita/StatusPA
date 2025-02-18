@@ -235,13 +235,14 @@ async function checkProfile() {
   const profile = await getProfileFromCache();
   
   if (profile) {
-    userAvatar.src = profile.image || 'img/default-icon.jpg';
+    userAvatar.src = profile.image || 'img/default-avatar.jpg';
     profileNameDisplay.textContent = profile.name || 'Nome utente';
+    profileNameDisplay.style.display = 'block'; // Mostra il nome utente solo se c'è un profilo
     createProfileBtn.style.display = 'none';
     manageProfileBtn.style.display = 'block';
   } else {
-    userAvatar.src = 'img/default-icon.jpg';
-    profileNameDisplay.textContent = 'Nome utente';
+    userAvatar.src = 'img/default-avatar.jpg';
+    profileNameDisplay.style.display = 'none'; // Nasconde "Nome utente" se non c'è un profilo
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
   }
@@ -269,8 +270,9 @@ saveProfileBtn.addEventListener('click', async () => {
     return;
   }
 
-  const profileData = { name, image: 'img/default-icon.jpg' };
+  const profileData = { name, image: 'img/default-avatar.jpg' };
   await saveProfileToCache(profileData);
+  createProfileSection.style.display = 'none'; // Nasconde il form dopo la registrazione
   checkProfile();
 });
 

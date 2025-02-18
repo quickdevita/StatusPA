@@ -124,7 +124,7 @@ body {
   color: #333;
   cursor: pointer;
   position: absolute;
-  left: -15px; /* Sposta leggermente il tasto a sinistra */
+  right: -7px; /* Sposta leggermente il tasto a sinistra */
 }
 
 /* Sezione profilo */

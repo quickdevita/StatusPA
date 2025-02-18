@@ -486,7 +486,7 @@ document.getElementById('voice-search').addEventListener('click', () => {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
 
-  // Creazione dinamica del modal per fullscreen (se non già presente)
+// Controlla se il modal per il fullscreen esiste già, altrimenti lo crea
 if (!document.getElementById("fullscreen-modal")) {
   const modalHTML = `
     <div id="fullscreen-modal" class="fullscreen-modal" style="display: none;">
@@ -497,7 +497,7 @@ if (!document.getElementById("fullscreen-modal")) {
   document.body.insertAdjacentHTML("beforeend", modalHTML);
 }
 
-// Seleziona il modal e gli elementi necessari
+// Seleziona gli elementi del modal
 const fullscreenModal = document.getElementById("fullscreen-modal");
 const fullscreenImg = document.getElementById("fullscreen-img");
 const closeFullscreen = document.getElementById("close-fullscreen");
@@ -510,9 +510,9 @@ function openFullscreen(imgSrc) {
   }
 }
 
-// Evento per aprire il fullscreen su **qualsiasi** immagine del sito
+// Evento per aprire il fullscreen SOLO se si clicca su un'immagine
 document.addEventListener("click", function(event) {
-  if (event.target.tagName === "IMG") {
+  if (event.target.tagName === "IMG" && event.target.id !== "fullscreen-img") {
     openFullscreen(event.target.src);
   }
 });
@@ -520,6 +520,7 @@ document.addEventListener("click", function(event) {
 // Funzione per chiudere il visualizzatore
 function closeFullscreenModal() {
   fullscreenModal.style.display = "none";
+  fullscreenImg.src = ""; // Reset dell'immagine per evitare problemi
 }
 
 // Chiudere il visualizzatore cliccando sulla "X"
@@ -527,10 +528,13 @@ closeFullscreen.addEventListener("click", closeFullscreenModal);
 
 // Chiudere anche cliccando fuori dall'immagine
 fullscreenModal.addEventListener("click", function(event) {
-  if (event.target !== fullscreenImg) {
+  if (event.target !== fullscreenImg && event.target !== closeFullscreen) {
     closeFullscreenModal();
   }
 });
+
+// Assicura che il modal sia nascosto all'avvio
+fullscreenModal.style.display = "none";
 
 
 });

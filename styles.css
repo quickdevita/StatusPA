@@ -300,7 +300,7 @@ button:hover {
     content: '';
     position: absolute;
     bottom: 100%; /* Punta sopra la nuvola */
-    left: 50%; /* Decentrata rispetto alla nuvola */
+    left: 45%; /* Decentrata rispetto alla nuvola */
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;
@@ -311,7 +311,7 @@ button:hover {
     .popup-left::after {
         content: '';
         position: absolute;
-        top: 79%; /* Punta sotto il pop-up */
+        top: 83%; /* Punta sotto il pop-up */
         left: 100%; /* Punta a destra rispetto al pop-up */
         border-width: 11px;
         border-style: solid;

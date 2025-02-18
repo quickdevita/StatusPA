@@ -115,7 +115,7 @@ function closeModalFunc() {
   document.body.classList.remove("modal-open");
 }
 
-// Aggiungi il listener per il pulsante di chiusura
+// Associa l'evento di click al pulsante di chiusura
 document.getElementById("close-modal").addEventListener("click", closeModalFunc);
 
 }

@@ -86,7 +86,7 @@ body {
 @media (min-width: 768px) {
   .map-toggle {
     position: fixed;
-    top: 20px;
+    top: 18px;
     right: 135px; /* Posizione a sinistra del punto interrogativo */
     bottom: auto; /* Per desktop non serve la posizione 'bottom' */
   }
@@ -96,7 +96,7 @@ body {
 @media (max-width: 767px) {
   .map-toggle {
     position: fixed;
-    bottom: 99px; /* Posiziona sopra il punto interrogativo su mobile */
+    bottom: 124px; /* Posiziona sopra il punto interrogativo su mobile */
     right: 16px;
   }
 }

@@ -188,6 +188,23 @@ button:hover {
   padding: 10px 0;
 }
 
+/* Stile per il pulsante "Torna al menu principale" */
+.back-to-main-menu {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.back-to-main-menu:hover {
+  background-color: #388e3c;
+}
+
+
 
 
 /* Stile per il punto esclamativo */

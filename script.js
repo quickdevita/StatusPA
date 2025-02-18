@@ -321,6 +321,17 @@ deleteProfileBtn.addEventListener('click', async () => {
   }
 });
 
+// Aggiungi il pulsante per tornare al menu principale
+const backToMainMenuBtn = document.getElementById('back-to-main-menu');
+
+backToMainMenuBtn.addEventListener('click', () => {
+  // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
+  manageProfileSection.style.display = 'none';
+  // Puoi decidere di ri-aprire il menu utente principale qui, se necessario
+  userMenuContainer.classList.add('open');
+});
+
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

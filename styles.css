@@ -291,7 +291,7 @@ button:hover {
   display: none;
   justify-content: center;
   align-items: flex-end;
-  z-index: 10000;
+  z-index: 12000;
   transition: background 0.3s ease-out;
 }
 

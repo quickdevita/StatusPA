@@ -52,7 +52,9 @@ fetch('data.json')
 
 // Funzione per aprire il modale
 function openModal(title, description, images, address, startDate, endDate, info) {
-  // Popola i dettagli nel modale
+  // Log per il debug
+  console.log("Apertura modale con i seguenti dati:", title, description, images, address, startDate, endDate, info);
+
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-info").textContent = info; // Mostra info
   document.getElementById("modal-details").textContent = description; // Mostra la descrizione
@@ -63,39 +65,12 @@ function openModal(title, description, images, address, startDate, endDate, info
   const modalImagesContainer = document.getElementById("modal-images");
   modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
 
-  // Aggiungi immagini al contenitore, se presenti
   if (images.length > 0) {
     images.forEach((imgSrc) => {
       const img = document.createElement("img");
       img.src = imgSrc;
       img.alt = "Immagine del lavoro";
       img.style.maxWidth = "100%"; // Assicura che le immagini si adattino bene al contenitore
-      modalImagesContainer.appendChild(img);
-    });
-  } else {
-    modalImagesContainer.innerHTML = "<p>Nessuna immagine disponibile</p>";
-  }
-
-  // Funzione per aprire il modale
-function openModal(title, description, images, address, startDate, endDate, info) {
-  // Aggiungi console.log per diagnosticare
-  console.log("Apertura modale con i seguenti dati:", title, description, images, address, startDate, endDate, info);
-
-  document.getElementById("modal-title").textContent = title;
-  document.getElementById("modal-info").textContent = info;
-  document.getElementById("modal-details").textContent = description;
-  document.getElementById("modal-address").textContent = address;
-  document.getElementById("modal-start-date").textContent = startDate;
-  document.getElementById("modal-end-date").textContent = endDate;
-
-  const modalImagesContainer = document.getElementById("modal-images");
-  modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
-
-  if (images.length > 0) {
-    images.forEach((imgSrc) => {
-      const img = document.createElement("img");
-      img.src = imgSrc;
-      img.alt = "Immagine del lavoro";
       modalImagesContainer.appendChild(img);
     });
   } else {
@@ -115,11 +90,6 @@ function closeModalFunc() {
   document.body.classList.remove("modal-open");
 }
 
-// Associa l'evento di click al pulsante di chiusura
-document.getElementById("close-modal").addEventListener("click", closeModalFunc);
-
-}
-
 // Gestire il click sul pulsante di chiusura
 document.getElementById("close-modal").addEventListener("click", closeModalFunc);
 
@@ -128,127 +98,6 @@ document.getElementById("modal-container").addEventListener("click", function (e
   if (event.target === document.getElementById("modal-container")) {
     closeModalFunc();
   }
-});
-
-// Gestire l'apertura del modale per ciascun lavoro
-// Supponiamo che i dati siano contenuti in un array di oggetti 'workData' nel tuo 'data.json'
-const workData = [
-  // Esempio di un oggetto di lavoro
-  {
-    id: 1,
-    title: "Lavoro Pubblico 1",
-    description: "Descrizione dettagliata del lavoro pubblico 1",
-    images: ["https://esempio.com/img1.jpg", "https://esempio.com/img2.jpg"],
-    address: "Indirizzo Lavoro 1",
-    startDate: "01-01-2025",
-    endDate: "31-12-2025",
-    info: "Altre informazioni sul lavoro 1"
-  },
-  // Aggiungi altri lavori qui
-];
-
-// Aggiungi l'evento di apertura per ogni elemento della lista dei lavori
-document.querySelectorAll(".work-item").forEach((item) => {
-  item.addEventListener("click", function () {
-    const workId = item.dataset.id; // Assicurati che ogni elemento abbia un 'data-id'
-    const work = workData.find((work) => work.id === parseInt(workId));
-    
-    if (work) {
-      openModal(work.title, work.description, work.images, work.address, work.startDate, work.endDate, work.info);
-    }
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  var exclamationButton = document.getElementById("exclamation-mark");
-
-  if (!exclamationButton) {
-      console.error("Errore: Il pulsante con id 'exclamation-mark' non esiste!");
-      return;
-  }
-
-  // Crea il pop-up
-var popup = document.createElement("div");
-popup.id = "popup";
-popup.style.position = "absolute";
-popup.style.display = "none"; // Nascondi di default
-popup.innerHTML = `
-    <p><strong>Legenda colori lavori:</strong></p>
-    <ul style="list-style: none; padding: 0;">
-        <li style="display: flex; align-items: center; margin-bottom: 5px;">
-            <span style="width: 15px; height: 15px; background-color: #FFFF00; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
-            Lavori in corso
-        </li>
-        <li style="display: flex; align-items: center; margin-bottom: 5px;">
-            <span style="width: 15px; height: 15px; background-color: #90EE90; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
-            Lavori completati
-        </li>
-        <li style="display: flex; align-items: center; margin-bottom: 5px;">
-            <span style="width: 15px; height: 15px; background-color: #FF0000; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
-            Lavori fermi
-        </li>
-        <li style="display: flex; align-items: center; margin-bottom: 5px;">
-            <span style="width: 15px; height: 15px; background-color: #FFA500; border: 1px solid black; border-radius: 50%; display: inline-block; margin-right: 10px;"></span> 
-            Lavori in progetto
-        </li>
-    </ul>`;
-
-
-  document.body.appendChild(popup);
-
-  // Funzione per aggiornare la posizione del popup
-function aggiornaPosizionePopup() {
-  var rect = exclamationButton.getBoundingClientRect();
-  var isMobile = window.innerWidth <= 768; // Controllo se è uno smartphone
-
-  if (isMobile) {
-      // Su smartphone: popup alla SINISTRA del punto esclamativo, leggermente più in alto
-      popup.style.left = `${rect.left - popup.offsetWidth - 20}px`; // Sposta a sinistra
-      popup.style.top = `${rect.top - 150}px`; // Sposta più in alto
-      popup.classList.add("popup-left");
-      popup.classList.remove("popup-down");
-  } else {
-      // Su PC: popup SOTTO il punto esclamativo, centrato orizzontalmente
-      popup.style.left = `${rect.left + (rect.width / 2) - (popup.offsetWidth / 2)}px`; // Centra orizzontalmente
-      popup.style.top = `${rect.bottom + 12}px`; // Posiziona sotto
-      popup.classList.add("popup-down");
-      popup.classList.remove("popup-left");
-  }
-}
-
-
-  // Mostra/nasconde il pop-up e aggiorna posizione
-exclamationButton.addEventListener("click", function(event) {
-  event.stopPropagation(); // Evita la chiusura immediata
-
-  if (popup.style.display === "block") {
-      popup.style.display = "none";
-  } else {
-      popup.style.display = "block";
-      
-      // Usa setTimeout per posizionare il pop-up dopo che è stato mostrato
-      setTimeout(aggiornaPosizionePopup, 10);
-  }
-
-  // Assicura che il pulsante non scompaia su mobile
-  exclamationButton.style.visibility = "visible";
-});
-
-  // Chiude il pop-up cliccando fuori, ma NON nasconde il pulsante
-  document.addEventListener("click", function(event) {
-      if (!popup.contains(event.target) && event.target !== exclamationButton) {
-          popup.style.display = "none";
-      }
-  });
-
-  // Evita la chiusura immediata se si clicca sul pop-up
-  popup.addEventListener("click", function(event) {
-      event.stopPropagation();
-  });
-
-  // Aggiorna posizione quando cambia la finestra
-  window.addEventListener("resize", aggiornaPosizionePopup);
 });
 
 
@@ -358,7 +207,8 @@ profileImgInput.addEventListener('change', async (event) => {
     await saveProfileToCache(profile);
     checkProfile();
   }
-});
+}); // <-- Aggiunta la parentesi mancante qui
+
 
 // Cambiare nome utente
 changeUsernameBtn.addEventListener('click', () => {
@@ -373,97 +223,24 @@ saveUsernameBtn.addEventListener('click', async () => {
     alert('Il nome utente deve avere almeno 4 caratteri.');
     return;
   }
-
   const profile = await getProfileFromCache();
   profile.name = newName;
   await saveProfileToCache(profile);
-
-  // Nascondi la barra e il pulsante dopo aver salvato
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
-
-  // Aggiorna il nome visualizzato nel menu utente
   checkProfile();
 });
 
-// Eliminare profilo (Esci)
+// Elimina profilo
 deleteProfileBtn.addEventListener('click', async () => {
-  if (confirm('Sei sicuro di voler eliminare il profilo?')) {
+  const confirmDelete = confirm('Sei sicuro di voler eliminare il profilo?');
+  if (confirmDelete) {
     await removeProfileFromCache();
     checkProfile();
-
-    // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
-    manageProfileSection.style.display = 'none';
-    userMenuContainer.classList.remove('open'); // Rimuove la sezione del menu
-    createProfileBtn.style.display = 'block';  // Mostra il pulsante per creare il profilo
   }
 });
 
-// Aggiungi il pulsante per tornare al menu principale
+// Torna al menu principale
 backToMainMenuBtn.addEventListener('click', () => {
-  // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
   manageProfileSection.style.display = 'none';
-  userMenuContainer.classList.add('open'); // Ri-apri il menu utente principale
 });
-
-
-// ==========================
-// 🔹 LIMITI DELLA MAPPA 🔹
-// ==========================
-
-var bounds = [
-  [37.950, 12.900], // Coordinata sud-ovest (un po' sopra Terrasini)
-  [38.300, 13.800]  // Coordinata nord-est (più a est, includendo tutta la provincia)
-];
-
-// Limita la mappa alla provincia di Palermo
-map.setMaxBounds(bounds);
-map.on('drag', function() {
-  map.panInsideBounds(bounds, { animate: true });
-});
-
-// =========================
-// 🔹 GESTIONE DELLA RICERCA 🔹
-// ==========================
-
-// Funzione per cercare e centrare la mappa su una zona
-function searchZone() {
-  let searchText = document.getElementById('search-input').value.toLowerCase();
-  let foundZone = zonesData.find(zone => zone.name.toLowerCase().includes(searchText));
-
-  if (foundZone) {
-    map.fitBounds(foundZone.coordinates);
-  }
-}
-
-// Attiva la ricerca solo quando l'utente preme INVIO
-document.getElementById('search-input').addEventListener('keypress', function (event) {
-  if (event.key === 'Enter') {
-    searchZone();
-  }
-});
-
-// Ricerca vocale con attivazione della funzione alla fine del riconoscimento
-document.getElementById('voice-search').addEventListener('click', () => {
-  if ('webkitSpeechRecognition' in window) {
-    let recognition = new webkitSpeechRecognition();
-    recognition.lang = 'it-IT';
-
-    recognition.onresult = (event) => {
-      let speechResult = event.results[0][0].transcript;
-      document.getElementById('search-input').value = speechResult;
-      
-      // Avvia la ricerca dopo il riconoscimento vocale
-      searchZone();
-    };
-
-    recognition.start();
-  } else {
-    alert("Il tuo browser non supporta la ricerca vocale.");
-  }
-});
-
-setInterval(() => {
-  console.log("Posizione punto esclamativo:", document.getElementById("exclamation-mark").getBoundingClientRect().left);
-}, 1000);
-

@@ -123,7 +123,8 @@ body {
   font-size: 30px;
   color: #333;
   cursor: pointer;
- margin-left: -15px; /* Sposta leggermente il tasto a sinistra */
+  position: absolute;
+  margin-left: -15px; /* Sposta leggermente il tasto a sinistra */
 }
 
 /* Sezione profilo */

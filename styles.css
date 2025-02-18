@@ -100,7 +100,6 @@ body {
   border-radius: 8px 0 0 8px;
 }
 
-/* Quando il menu è aperto */
 .user-menu-container.open {
   transform: translateX(0);
 }
@@ -116,7 +115,6 @@ body {
 .user-menu-header {
   display: flex;
   justify-content: flex-end;
-  padding: 15px 20px;
 }
 
 #close-user-menu {
@@ -127,35 +125,39 @@ body {
   cursor: pointer;
 }
 
-/* Sezione profilo utente */
-.profile-info {
+/* Sezione profilo */
+.user-profile-section {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  padding: 10px 0;
 }
 
-.profile-info img {
+.user-profile-section img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.profile-info .profile-details {
+.profile-info {
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
-.profile-info .profile-details span {
+#profile-name-display {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
   color: #333;
 }
 
-/* Pulsante */
-#save-profile, #exit-profile {
+hr {
+  margin: 15px 0;
+  border: 0.5px solid #ddd;
+}
+
+/* Pulsanti */
+button {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -163,15 +165,18 @@ body {
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
-  transition: background-color 0.3s;
 }
 
-#exit-profile {
+button:hover {
+  background-color: #388e3c;
+}
+
+#delete-profile {
   background-color: #f44336;
 }
 
-#save-profile:hover, #exit-profile:hover {
-  background-color: #388e3c;
+#delete-profile:hover {
+  background-color: #d32f2f;
 }
 
 #user-version {
@@ -179,9 +184,10 @@ body {
   color: #888;
   text-align: center;
   margin-top: 30px;
-  padding: 10px 0;
   border-top: 1px solid #ddd;
+  padding: 10px 0;
 }
+
 
 
 

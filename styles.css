@@ -319,11 +319,12 @@ button:hover {
   cursor: ns-resize;  /* Cambia il cursore per indicare che si può ridimensionare verticalmente */
 }
 
-/* Modale con altezza minima e massima */
+/* Modale con altezza minima e massima e transizione */
 #modal {
   min-height: 100px;  /* Altezza minima per il modale (ad esempio 100px) */
   max-height: 80vh;   /* Impedisce che il modale diventi troppo alto */
   overflow-y: auto;   /* Permette lo scroll se l'altezza è troppo ridotta */
+  transition: height 0.3s ease;  /* Transizione morbida per l'altezza */
 }
 
 

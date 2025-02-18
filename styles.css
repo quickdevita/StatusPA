@@ -311,7 +311,7 @@ button:hover {
     .popup-left::after {
         content: '';
         position: absolute;
-        top: 83%; /* Punta sotto il pop-up */
+        top: 87%; /* Punta sotto il pop-up */
         left: 100%; /* Punta a destra rispetto al pop-up */
         border-width: 11px;
         border-style: solid;

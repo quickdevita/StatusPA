@@ -99,49 +99,84 @@ document.getElementById("modal-container").addEventListener("click", function (e
 // 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
 // ========================
 
-// Selezioniamo la maniglia e il modale
-const modal = document.getElementById('modal');
-const modalHandle = document.querySelector('.modal-handle');
+// Variabili globali per il trascinamento
+let isDragging = false;
+let startY = 0;
+let startHeight = 0;
 
-// Variabili per il mouse
-let isResizing = false;
-let lastDownY = 0;
+const modal = document.getElementById("modal");
+const modalHandle = document.querySelector(".modal-handle");
 
-// Altezza minima e massima
-const minHeight = 100;  // Altezza minima in px
-const maxHeight = window.innerHeight * 0.8;  // Altezza massima (80% della finestra)
-
-// Funzione che inizia il ridimensionamento
-modalHandle.addEventListener('mousedown', (e) => {
-  isResizing = true;
-  lastDownY = e.clientY;
-  document.body.style.cursor = 'ns-resize';  // Cambia il cursore per indicare che si può ridimensionare
+// Funzione per iniziare il trascinamento
+modalHandle.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startY = e.clientY;
+  startHeight = modal.offsetHeight;
+  modalHandle.style.cursor = "grabbing";
 });
 
-// Funzione che esegue il ridimensionamento durante il drag
-document.addEventListener('mousemove', (e) => {
-  if (!isResizing) return;
+// Funzione per il trascinamento
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    const offset = e.clientY - startY;
+    const newHeight = startHeight + offset;
 
-  const offsetY = e.clientY - lastDownY;
-  let newHeight = modal.offsetHeight + offsetY;
-
-  // Impostiamo l'altezza del modale, evitando di andare oltre i limiti
-  if (newHeight >= minHeight && newHeight <= maxHeight) {
-    modal.style.height = newHeight + 'px';
-    lastDownY = e.clientY; // Aggiorniamo la posizione del mouse
-  }
-
-  // Se l'altezza è inferiore alla minima, chiudiamo il modale
-  if (newHeight <= minHeight) {
-    closeModalFunc();
+    // Imposta un'altezza minima e massima per il modale
+    if (newHeight > 50 && newHeight < 600) {
+      modal.style.height = newHeight + "px";
+    }
   }
 });
 
-// Funzione che ferma il ridimensionamento quando l'utente rilascia il mouse
-document.addEventListener('mouseup', () => {
-  isResizing = false;
-  document.body.style.cursor = 'auto';  // Torna al cursore normale
+// Funzione per fermare il trascinamento
+document.addEventListener("mouseup", () => {
+  if (isDragging) {
+    isDragging = false;
+    modalHandle.style.cursor = "grab";
+
+    // Se l'altezza è sotto un certo limite, minimizza il menu
+    if (modal.offsetHeight < 100) {
+      modal.classList.add("minimized");
+    } else {
+      modal.classList.remove("minimized");
+    }
+  }
 });
+
+// Gestione touch per dispositivi mobili
+modalHandle.addEventListener("touchstart", (e) => {
+  isDragging = true;
+  startY = e.touches[0].clientY;
+  startHeight = modal.offsetHeight;
+  modalHandle.style.cursor = "grabbing";
+});
+
+document.addEventListener("touchmove", (e) => {
+  if (isDragging) {
+    const offset = e.touches[0].clientY - startY;
+    const newHeight = startHeight + offset;
+
+    // Imposta un'altezza minima e massima per il modale
+    if (newHeight > 50 && newHeight < 600) {
+      modal.style.height = newHeight + "px";
+    }
+  }
+});
+
+document.addEventListener("touchend", () => {
+  if (isDragging) {
+    isDragging = false;
+    modalHandle.style.cursor = "grab";
+
+    // Se l'altezza è sotto un certo limite, minimizza il menu
+    if (modal.offsetHeight < 100) {
+      modal.classList.add("minimized");
+    } else {
+      modal.classList.remove("minimized");
+    }
+  }
+});
+
 
 
 document.addEventListener("DOMContentLoaded", function() {

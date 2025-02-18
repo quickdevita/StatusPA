@@ -96,7 +96,7 @@ document.getElementById("modal-container").addEventListener("click", function (e
 });
 
 // ========================
-// 🔹 RIDIMENSIONAMENTO MODALE 🔹
+// 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
 // ========================
 
 // Selezioniamo la maniglia e il modale
@@ -107,11 +107,15 @@ const modalHandle = document.querySelector('.modal-handle');
 let isResizing = false;
 let lastDownY = 0;
 
+// Altezza minima e massima
+const minHeight = 100;  // Altezza minima in px
+const maxHeight = window.innerHeight * 0.8;  // Altezza massima (80% della finestra)
+
 // Funzione che inizia il ridimensionamento
 modalHandle.addEventListener('mousedown', (e) => {
   isResizing = true;
   lastDownY = e.clientY;
-  document.body.style.cursor = 'ns-resize';  // Cambia il cursore per mostrare che è possibile ridimensionare
+  document.body.style.cursor = 'ns-resize';  // Cambia il cursore per indicare che si può ridimensionare
 });
 
 // Funzione che esegue il ridimensionamento durante il drag
@@ -119,12 +123,17 @@ document.addEventListener('mousemove', (e) => {
   if (!isResizing) return;
 
   const offsetY = e.clientY - lastDownY;
-  const newHeight = modal.offsetHeight + offsetY;
+  let newHeight = modal.offsetHeight + offsetY;
 
-  // Impostiamo l'altezza del modale, evitando di andare oltre le dimensioni massime
-  if (newHeight > 200 && newHeight < window.innerHeight * 0.8) {
+  // Impostiamo l'altezza del modale, evitando di andare oltre i limiti
+  if (newHeight >= minHeight && newHeight <= maxHeight) {
     modal.style.height = newHeight + 'px';
     lastDownY = e.clientY; // Aggiorniamo la posizione del mouse
+  }
+
+  // Se l'altezza è inferiore alla minima, chiudiamo il modale
+  if (newHeight <= minHeight) {
+    closeModalFunc();
   }
 });
 

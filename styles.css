@@ -316,15 +316,16 @@ button:hover {
   background: #ccc;
   border-radius: 5px;
   margin: 10px auto;
-  cursor: grab;  /* Cursore per indicare che si può trascinare */
+  cursor: ns-resize;  /* Cambia il cursore per indicare che si può ridimensionare verticalmente */
 }
 
 /* Modale con altezza minima e massima */
 #modal {
-  min-height: 200px;
-  max-height: 80vh;  /* Impedisce che il modale diventi troppo alto */
-  overflow-y: auto;  /* Permette lo scroll se l'altezza è troppo ridotta */
+  min-height: 100px;  /* Altezza minima per il modale (ad esempio 100px) */
+  max-height: 80vh;   /* Impedisce che il modale diventi troppo alto */
+  overflow-y: auto;   /* Permette lo scroll se l'altezza è troppo ridotta */
 }
+
 
 /* Intestazione del modale */
 .modal-header {

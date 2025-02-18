@@ -87,7 +87,7 @@ body {
   .map-toggle {
     position: fixed;
     top: 20px;
-    right: 127px; /* Posizione a sinistra del punto interrogativo */
+    right: 130px; /* Posizione a sinistra del punto interrogativo */
     bottom: auto; /* Per desktop non serve la posizione 'bottom' */
   }
 }

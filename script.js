@@ -485,57 +485,17 @@ document.getElementById('voice-search').addEventListener('click', () => {
   } else {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
-
-// Controlla se il modal per il fullscreen esiste già, altrimenti lo crea
-if (!document.getElementById("fullscreen-modal")) {
-  const modalHTML = `
-    <div id="fullscreen-modal" class="fullscreen-modal" style="display: none;">
-      <span id="close-fullscreen" class="close-fullscreen">&times;</span>
-      <img id="fullscreen-img" class="fullscreen-img" src="" alt="Immagine a schermo intero">
-    </div>
-  `;
-  document.body.insertAdjacentHTML("beforeend", modalHTML);
-}
-
-// Seleziona gli elementi del modal
-const fullscreenModal = document.getElementById("fullscreen-modal");
-const fullscreenImg = document.getElementById("fullscreen-img");
-const closeFullscreen = document.getElementById("close-fullscreen");
-
-// Funzione per aprire l'immagine a schermo intero
-function openFullscreen(imgSrc) {
-  if (imgSrc) {
-    fullscreenImg.src = imgSrc;
-    fullscreenModal.style.display = "flex";
-  }
-}
-
-// Evento per aprire il fullscreen SOLO se si clicca su un'immagine
-document.addEventListener("click", function(event) {
-  if (event.target.tagName === "IMG" && event.target.id !== "fullscreen-img") {
-    openFullscreen(event.target.src);
-  }
-});
-
-// Funzione per chiudere il visualizzatore
-function closeFullscreenModal() {
-  fullscreenModal.style.display = "none";
-  fullscreenImg.src = ""; // Reset dell'immagine per evitare problemi
-}
-
-// Chiudere il visualizzatore cliccando sulla "X"
-closeFullscreen.addEventListener("click", closeFullscreenModal);
-
-// Chiudere anche cliccando fuori dall'immagine
-fullscreenModal.addEventListener("click", function(event) {
-  if (event.target !== fullscreenImg && event.target !== closeFullscreen) {
-    closeFullscreenModal();
-  }
-});
-
-// Assicura che il modal sia nascosto all'avvio
-fullscreenModal.style.display = "none";
-
+//Per visualizzazione a schermo intero immagini
+  document.addEventListener("DOMContentLoaded", function () {
+    // Seleziona tutte le immagini della pagina
+    const images = document.querySelectorAll("img");
+  
+    // Applica Luminous a ogni immagine
+    images.forEach(img => {
+      new Luminous(img);
+    });
+  });
+  
 
 });
 

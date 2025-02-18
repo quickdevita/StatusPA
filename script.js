@@ -53,8 +53,8 @@ fetch('data.json')
 // Funzione per aprire il modale
 function openModal(title, description, images, address, startDate, endDate, info) {
   document.getElementById("modal-title").textContent = title;
-  document.getElementById("modal-info").textContent = info;
-  document.getElementById("modal-details").textContent = description;
+  document.getElementById("modal-info").textContent = info; // Mostra info
+  document.getElementById("modal-details").textContent = description; // Mostra la descrizione
   document.getElementById("modal-address").textContent = address;
   document.getElementById("modal-start-date").textContent = startDate;
   document.getElementById("modal-end-date").textContent = endDate;
@@ -62,20 +62,11 @@ function openModal(title, description, images, address, startDate, endDate, info
   const modalImagesContainer = document.getElementById("modal-images");
   modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
 
-  // Galleria di immagini scorrevole
   if (images.length > 0) {
-    modalImagesContainer.style.display = 'flex';
-    modalImagesContainer.style.overflowX = 'auto';
-    modalImagesContainer.style.scrollSnapType = 'x mandatory'; // Snap delle immagini
-
     images.forEach((imgSrc) => {
       const img = document.createElement("img");
       img.src = imgSrc;
       img.alt = "Immagine del lavoro";
-      img.style.width = '200px';
-      img.style.marginRight = '10px';
-      img.style.objectFit = 'cover';
-      img.style.height = '120px';
       modalImagesContainer.appendChild(img);
     });
   } else {

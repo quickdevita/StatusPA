@@ -66,6 +66,7 @@ body {
 .map-toggle {
   position: fixed;
   background-color: #fff;
+  border: 2px solid #FF8C00; /* Bordo arancione per un effetto evidenziato */
   border-radius: 50%;
   width: 40px; /* Grandezza del pulsante */
   height: 40px; /* Grandezza del pulsante */

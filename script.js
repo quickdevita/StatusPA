@@ -98,7 +98,6 @@ document.getElementById("modal-container").addEventListener("click", function (e
 // ========================
 // 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
 // ========================
-
 // Variabili globali per il trascinamento
 let isDragging = false;
 let startY = 0;
@@ -174,6 +173,14 @@ document.addEventListener("touchend", () => {
     } else {
       modal.classList.remove("minimized");
     }
+  }
+});
+
+// Aggiunto il controllo per prevenire il movimento non desiderato dopo il rilascio del mouse
+document.addEventListener("mouseleave", () => {
+  if (isDragging) {
+    isDragging = false;
+    modalHandle.style.cursor = "grab";
   }
 });
 

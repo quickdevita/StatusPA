@@ -91,7 +91,6 @@ function openModal(title, description, images, address, startDate, endDate, info
     modalImagesContainer.appendChild(img);
   });
   
-  const images = ["https://via.placeholder.com/150"];  // Usa un URL di test
 openModal("Titolo Lavoro", "Descrizione", images, "Indirizzo", "01-01-2023", "01-02-2023", "Info dettagli");
 
 }

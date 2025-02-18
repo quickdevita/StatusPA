@@ -49,10 +49,15 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
+            return caches.delete(cacheName); // Elimina cache vecchie
           }
         })
       );
     })
   );
+});
+
+// Forzare il ricaricamento quando il nuovo service worker è attivo
+self.addEventListener('controllerchange', () => {
+  window.location.reload(); // Ricarica l'app quando il service worker viene aggiornato
 });

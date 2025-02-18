@@ -1,5 +1,5 @@
 // Versione del service worker
-const SW_VERSION = '0.0.6';
+const SW_VERSION = '0.0.71';
 const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
 const urlsToCache = [
   '/StatusPA/',
@@ -10,7 +10,7 @@ const urlsToCache = [
   '/StatusPA/icons/iconv1-512x512.png',
   '/StatusPA/icons/iconv1-1080x1920.png',
   '/StatusPA/icons/iconv1-1920x1080.png',
-  '/StatusPA/favicon-v1-.ico',
+  '/StatusPA/favicon.ico',
   '/StatusPA/manifest.json'
 ];
 
@@ -27,7 +27,7 @@ self.addEventListener('install', (event) => {
 
 // Intercettazione delle richieste di rete
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('favicon-v1-.ico')) {
+  if (event.request.url.includes('favicon.ico')) {
     event.respondWith(new Response(null, { status: 204 }));
     return;
   }

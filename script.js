@@ -486,39 +486,28 @@ document.getElementById('voice-search').addEventListener('click', () => {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
 
-// Seleziona il modal e gli elementi necessari
-const fullscreenModal = document.getElementById("fullscreen-modal");
-const fullscreenImg = document.getElementById("fullscreen-img");
-const closeFullscreen = document.getElementById("close-fullscreen");
+  document.addEventListener("DOMContentLoaded", function () {
+    const fullscreenModal = document.getElementById("fullscreen-modal");
+    const fullscreenImg = document.getElementById("fullscreen-img");
+    const closeFullscreen = document.getElementById("close-fullscreen");
 
-// Funzione per aprire l'immagine a schermo intero
-function openFullscreen(imgSrc) {
-  if (imgSrc) { // Controlliamo che ci sia un'immagine valida
-    fullscreenImg.src = imgSrc;
-    fullscreenModal.style.display = "flex"; // Mostra il modal
-  }
-}
+    document.body.addEventListener("click", function (event) {
+        if (event.target.tagName === "IMG") { 
+            fullscreenImg.src = event.target.src; // Imposta l'immagine a schermo intero
+            fullscreenModal.style.display = "flex"; // Mostra il modal
+        }
+    });
 
-// Aggiungere il listener per le immagini nel modal
-document.getElementById("modal-images").addEventListener("click", function(event) {
-  if (event.target.tagName === "IMG") {
-    openFullscreen(event.target.src);
-  }
-});
+    closeFullscreen.addEventListener("click", function () {
+        fullscreenModal.style.display = "none"; // Nasconde il modal quando si clicca la "X"
+    });
 
-// Funzione per chiudere il visualizzatore
-function closeFullscreenModal() {
-  fullscreenModal.style.display = "none";
-}
-
-// Chiudere il visualizzatore a schermo intero cliccando sulla "X"
-closeFullscreen.addEventListener("click", closeFullscreenModal);
-
-// Chiudere anche cliccando fuori dall'immagine
-fullscreenModal.addEventListener("click", function(event) {
-  if (event.target !== fullscreenImg) {
-    closeFullscreenModal();
-  }
+    // Chiudi il visualizzatore cliccando fuori dall'immagine
+    fullscreenModal.addEventListener("click", function (event) {
+        if (event.target === fullscreenModal) {
+            fullscreenModal.style.display = "none";
+        }
+    });
 });
 
 

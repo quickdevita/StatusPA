@@ -296,6 +296,7 @@ button:hover {
 }
 
 .modal {
+  position: relative;
   width: 100%;
   background: white;
   border-radius: 20px 20px 0 0;
@@ -305,7 +306,6 @@ button:hover {
   transition: transform 0.3s ease-out;
   max-height: 80vh;
   overflow-y: auto;
-  z-index: 9000;
 }
 
 /* Maniglia per trascinare il modale */

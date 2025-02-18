@@ -190,108 +190,133 @@ exclamationButton.addEventListener("click", function(event) {
 // ==========================
 // 🔹 GESTIONE DEL MENU UTENTE 🔹
 // ==========================
-document.addEventListener("DOMContentLoaded", async function () {
-  const userIcon = document.getElementById("user-icon");
-  const userMenuContainer = document.getElementById("user-menu-container");
-  const closeUserMenuBtn = document.getElementById("close-user-menu");
-  const saveProfileBtn = document.getElementById("save-profile");
-  const deleteProfileBtn = document.getElementById("delete-profile");
-  const profileImg = document.getElementById("profile-img");
-  const profileNameDisplay = document.getElementById("profile-name-display");
-  const profileNameInput = document.getElementById("profile-name");
-  const createProfileSection = document.getElementById("create-profile-section");
-  const manageProfileBtn = document.getElementById("manage-profile");
-  const manageProfileSection = document.getElementById("manage-profile-section");
+const userMenuContainer = document.getElementById('user-menu-container');
+const closeUserMenuBtn = document.getElementById('close-user-menu');
+const userAvatar = document.getElementById('user-avatar');
+const profileNameDisplay = document.getElementById('profile-name-display');
+const createProfileBtn = document.getElementById('create-profile');
+const manageProfileBtn = document.getElementById('manage-profile');
 
-  const CACHE_NAME = "user-profile-cache";
+const createProfileSection = document.getElementById('create-profile-section');
+const profileNameInput = document.getElementById('profile-name');
+const saveProfileBtn = document.getElementById('save-profile');
 
-  // Recupera il profilo dalla cache
-  async function getProfileFromCache() {
-      const cache = await caches.open(CACHE_NAME);
-      const response = await cache.match("user-profile");
-      if (response) {
-          return response.json();
-      }
-      return null;
+const manageProfileSection = document.getElementById('manage-profile-section');
+const changeAvatarBtn = document.getElementById('change-avatar');
+const profileImgInput = document.getElementById('profile-img-input');
+const changeUsernameBtn = document.getElementById('change-username');
+const newUsernameInput = document.getElementById('new-username');
+const saveUsernameBtn = document.getElementById('save-username');
+const deleteProfileBtn = document.getElementById('delete-profile');
+
+const APP_VERSION = 'betav1.3';
+document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
+
+async function getProfileFromCache() {
+  const cache = await caches.open('user-profile-cache');
+  const response = await cache.match('user-profile');
+  return response ? response.json() : null;
+}
+
+async function saveProfileToCache(profileData) {
+  const cache = await caches.open('user-profile-cache');
+  const response = new Response(JSON.stringify(profileData), {
+    headers: { 'Content-Type': 'application/json' },
+  });
+  await cache.put('user-profile', response);
+}
+
+async function removeProfileFromCache() {
+  const cache = await caches.open('user-profile-cache');
+  await cache.delete('user-profile');
+}
+
+async function checkProfile() {
+  const profile = await getProfileFromCache();
+  
+  if (profile) {
+    userAvatar.src = profile.image || 'img/default-icon.jpg';
+    profileNameDisplay.textContent = profile.name || 'Nome utente';
+    createProfileBtn.style.display = 'none';
+    manageProfileBtn.style.display = 'block';
+  } else {
+    userAvatar.src = 'img/default-icon.jpg';
+    profileNameDisplay.textContent = 'Nome utente';
+    createProfileBtn.style.display = 'block';
+    manageProfileBtn.style.display = 'none';
   }
+}
 
-  // Salva il profilo nella cache
-  async function saveProfileToCache(profileData) {
-      const cache = await caches.open(CACHE_NAME);
-      const profileResponse = new Response(JSON.stringify(profileData), {
-          headers: { "Content-Type": "application/json" },
-      });
-      await cache.put("user-profile", profileResponse);
-  }
-
-  // Rimuove il profilo dalla cache
-  async function removeProfileFromCache() {
-      const cache = await caches.open(CACHE_NAME);
-      await cache.delete("user-profile");
-  }
-
-  // Aggiorna l'interfaccia del menu utente
-  async function checkProfile() {
-      const profile = await getProfileFromCache();
-
-      if (profile) {
-          profileImg.src = profile.image || "img/default-icon.jpg";
-          profileNameDisplay.textContent = profile.name;
-          createProfileSection.style.display = "none"; // Nasconde la creazione profilo
-          manageProfileBtn.style.display = "block"; // Mostra "Gestisci profilo"
-      } else {
-          profileImg.src = "img/default-icon.jpg";
-          profileNameDisplay.textContent = "Nome utente";
-          createProfileSection.style.display = "block"; // Mostra la creazione profilo
-          manageProfileBtn.style.display = "none"; // Nasconde "Gestisci profilo"
-      }
-  }
-
-  // Apre il menu utente
-  userIcon.addEventListener("click", () => {
-      userMenuContainer.classList.add("open");
-      checkProfile();
-  });
-
-  // Chiude il menu utente
-  closeUserMenuBtn.addEventListener("click", () => {
-      userMenuContainer.classList.remove("open");
-  });
-
-  // Salva il profilo
-  saveProfileBtn.addEventListener("click", async () => {
-      const profileName = profileNameInput.value.trim();
-
-      if (profileName.length >= 4) {
-          const profileData = {
-              name: profileName,
-              image: "img/default-icon.jpg",
-          };
-          await saveProfileToCache(profileData);
-          checkProfile();
-          alert("Profilo creato con successo!");
-      } else {
-          alert("Il nome utente deve avere almeno 4 caratteri.");
-      }
-  });
-
-  // Gestisce il pulsante "Gestisci profilo"
-  manageProfileBtn.addEventListener("click", () => {
-      manageProfileSection.style.display = "block";
-  });
-
-  // Cancella il profilo
-  deleteProfileBtn.addEventListener("click", async () => {
-      const confirmation = confirm("Sei sicuro di voler eliminare il profilo?");
-      if (confirmation) {
-          await removeProfileFromCache();
-          checkProfile();
-          alert("Profilo cancellato!");
-      }
-  });
-
-  // Controlla il profilo al caricamento della pagina
+// Aprire e chiudere il menu
+document.getElementById('user-icon').addEventListener('click', () => {
+  userMenuContainer.classList.add('open');
   checkProfile();
+});
+
+closeUserMenuBtn.addEventListener('click', () => {
+  userMenuContainer.classList.remove('open');
+});
+
+// Creazione profilo
+createProfileBtn.addEventListener('click', () => {
+  createProfileSection.style.display = 'block';
+});
+
+saveProfileBtn.addEventListener('click', async () => {
+  const name = profileNameInput.value.trim();
+  if (name.length < 4) {
+    alert('Il nome utente deve avere almeno 4 caratteri.');
+    return;
+  }
+
+  const profileData = { name, image: 'img/default-icon.jpg' };
+  await saveProfileToCache(profileData);
+  checkProfile();
+});
+
+// Gestione profilo
+manageProfileBtn.addEventListener('click', () => {
+  manageProfileSection.style.display = 'block';
+});
+
+// Cambiare immagine
+changeAvatarBtn.addEventListener('click', () => profileImgInput.click());
+
+profileImgInput.addEventListener('change', async (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const profile = await getProfileFromCache();
+    profile.image = URL.createObjectURL(file);
+    await saveProfileToCache(profile);
+    checkProfile();
+  }
+});
+
+// Cambiare nome utente
+changeUsernameBtn.addEventListener('click', () => {
+  newUsernameInput.style.display = 'block';
+  saveUsernameBtn.style.display = 'block';
+});
+
+saveUsernameBtn.addEventListener('click', async () => {
+  const newName = newUsernameInput.value.trim();
+  if (newName.length < 4) {
+    alert('Il nome utente deve avere almeno 4 caratteri.');
+    return;
+  }
+
+  const profile = await getProfileFromCache();
+  profile.name = newName;
+  await saveProfileToCache(profile);
+  checkProfile();
+});
+
+// Eliminare profilo
+deleteProfileBtn.addEventListener('click', async () => {
+  if (confirm('Sei sicuro di voler eliminare il profilo?')) {
+    await removeProfileFromCache();
+    checkProfile();
+  }
 });
 
 

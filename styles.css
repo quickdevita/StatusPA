@@ -120,9 +120,11 @@ body {
 #close-user-menu {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 28px;
   color: #333;
   cursor: pointer;
+  position: relative;  /* Aggiungi questa linea */
+  left: -5px;          /* Sposta il pulsante 5px a sinistra */
 }
 
 /* Sezione profilo */

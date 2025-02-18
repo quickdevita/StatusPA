@@ -76,7 +76,33 @@ function openModal(title, description, images, address, startDate, endDate, info
     modalImagesContainer.innerHTML = "<p>Nessuna immagine disponibile</p>";
   }
 
-  // Aggiungi la classe per aprire il modale
+  // Funzione per aprire il modale
+function openModal(title, description, images, address, startDate, endDate, info) {
+  // Aggiungi console.log per diagnosticare
+  console.log("Apertura modale con i seguenti dati:", title, description, images, address, startDate, endDate, info);
+
+  document.getElementById("modal-title").textContent = title;
+  document.getElementById("modal-info").textContent = info;
+  document.getElementById("modal-details").textContent = description;
+  document.getElementById("modal-address").textContent = address;
+  document.getElementById("modal-start-date").textContent = startDate;
+  document.getElementById("modal-end-date").textContent = endDate;
+
+  const modalImagesContainer = document.getElementById("modal-images");
+  modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
+
+  if (images.length > 0) {
+    images.forEach((imgSrc) => {
+      const img = document.createElement("img");
+      img.src = imgSrc;
+      img.alt = "Immagine del lavoro";
+      modalImagesContainer.appendChild(img);
+    });
+  } else {
+    modalImagesContainer.innerHTML = "<p>Nessuna immagine disponibile</p>";
+  }
+
+  // Aggiungi classe per aprire il modale
   document.getElementById("modal-container").classList.add("open");
   document.getElementById("modal").classList.add("open");
   document.body.classList.add("modal-open");
@@ -87,6 +113,11 @@ function closeModalFunc() {
   document.getElementById("modal-container").classList.remove("open");
   document.getElementById("modal").classList.remove("open");
   document.body.classList.remove("modal-open");
+}
+
+// Aggiungi il listener per il pulsante di chiusura
+document.getElementById("close-modal").addEventListener("click", closeModalFunc);
+
 }
 
 // Gestire il click sul pulsante di chiusura

@@ -100,6 +100,7 @@ body {
   border-radius: 8px 0 0 8px;
 }
 
+/* Quando il menu è aperto */
 .user-menu-container.open {
   transform: translateX(0);
 }
@@ -115,6 +116,7 @@ body {
 .user-menu-header {
   display: flex;
   justify-content: flex-end;
+  padding: 15px 20px;
 }
 
 #close-user-menu {
@@ -125,39 +127,40 @@ body {
   cursor: pointer;
 }
 
-/* Sezione profilo */
-.user-profile-section {
+/* Sezione profilo utente */
+.profile-info {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.user-profile-section img {
+.profile-info img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.profile-info {
-  margin-left: 10px;
+.profile-info .profile-details {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
-#profile-name-display {
+.profile-info .profile-details span {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   color: #333;
 }
 
-hr {
-  margin: 15px 0;
-  border: 0.5px solid #ddd;
+/* Nasconde la sezione di creazione del profilo dopo la registrazione */
+#create-profile-section.hidden {
+  display: none;
 }
 
-/* Pulsanti */
-button {
+/* Pulsante */
+#save-profile, #exit-profile {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -165,18 +168,15 @@ button {
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #388e3c;
-}
-
-#delete-profile {
+#exit-profile {
   background-color: #f44336;
 }
 
-#delete-profile:hover {
-  background-color: #d32f2f;
+#save-profile:hover, #exit-profile:hover {
+  background-color: #388e3c;
 }
 
 #user-version {
@@ -184,13 +184,9 @@ button:hover {
   color: #888;
   text-align: center;
   margin-top: 30px;
-  border-top: 1px solid #ddd;
   padding: 10px 0;
+  border-top: 1px solid #ddd;
 }
-
-
-
-
 
 
 /* Stile per il punto esclamativo */

@@ -260,7 +260,7 @@ button:hover {
     content: '';
     position: absolute;
     bottom: 100%; /* Punta sopra la nuvola */
-    left: 50%; /* Centrata rispetto alla nuvola */
+    left: 30%; /* Decentrata rispetto alla nuvola */
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;

@@ -210,7 +210,7 @@ const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu'); // Pulsante per tornare al menu principale
 
-const APP_VERSION = 'betav1.3';
+const APP_VERSION = 'beta0.1';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
 
 async function getProfileFromCache() {

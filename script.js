@@ -486,25 +486,32 @@ document.getElementById('voice-search').addEventListener('click', () => {
     alert("Il tuo browser non supporta la ricerca vocale.");
   }
 
-  // Aggiungere l'evento per aprire l'immagine a schermo intero
-document.getElementById("modal-images").addEventListener("click", function(e) {
-  if (e.target && e.target.nodeName === "IMG") {
-    const imgSrc = e.target.src; // Ottieni il link dell'immagine
-    openFullscreen(imgSrc); // Chiama la funzione per aprire l'immagine
-  }
-});
-
-// Funzione per aprire l'immagine a schermo intero
+  // Funzione per aprire l'immagine a schermo intero
 function openFullscreen(imgSrc) {
   const fullscreenModal = document.getElementById("fullscreen-modal");
   const fullscreenImg = document.getElementById("fullscreen-img");
-  fullscreenImg.src = imgSrc; // Imposta l'immagine nel visualizzatore
-  fullscreenModal.style.display = "flex"; // Mostra il modal a schermo intero
+
+  fullscreenImg.src = imgSrc;
+  fullscreenModal.style.display = "flex"; // Mostra il modal
 }
 
-// Chiudere il visualizzatore a schermo intero
+// Aggiungere il listener per le immagini nel modal
+document.getElementById("modal-images").addEventListener("click", function(event) {
+  if (event.target.tagName === "IMG") {
+    openFullscreen(event.target.src);
+  }
+});
+
+// Chiudere il visualizzatore a schermo intero cliccando sulla "X"
 document.getElementById("close-fullscreen").addEventListener("click", function() {
   document.getElementById("fullscreen-modal").style.display = "none";
+});
+
+// Chiudere anche cliccando fuori dall'immagine
+document.getElementById("fullscreen-modal").addEventListener("click", function(event) {
+  if (event.target !== document.getElementById("fullscreen-img")) {
+    document.getElementById("fullscreen-modal").style.display = "none";
+  }
 });
 
 });

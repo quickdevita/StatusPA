@@ -87,7 +87,7 @@ body {
   .map-toggle {
     position: fixed;
     top: 20px;
-    right: 130px; /* Posizione a sinistra del punto interrogativo */
+    right: 135px; /* Posizione a sinistra del punto interrogativo */
     bottom: auto; /* Per desktop non serve la posizione 'bottom' */
   }
 }
@@ -98,7 +98,6 @@ body {
     position: fixed;
     bottom: 80px; /* Posiziona sopra il punto interrogativo su mobile */
     right: 16px;
-    transform: translateX(-50%); /* Centrato orizzontalmente */
   }
 }
 

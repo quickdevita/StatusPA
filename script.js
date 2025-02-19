@@ -3,7 +3,7 @@ let esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Tiles &copy; Esri'
 });
 
-let mapboxLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA`, {
+let mapboxLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=TUO_MAPBOX_TOKEN`, {
   attribution: 'Mapbox'
 });
 
@@ -17,6 +17,18 @@ var map = L.map('map', {
   minZoom: 12,
   layers: [esriLayer] // Iniziamo con Esri
 }).setView([38.1157, 13.3615], 13);
+
+// Definizione dei limiti della mappa (Provincia di Palermo)
+var bounds = [
+  [37.950, 12.900], // Sud-Ovest
+  [38.300, 13.800]  // Nord-Est
+];
+
+// Imposta i limiti sulla mappa
+map.setMaxBounds(bounds);
+map.on('drag', function() {
+  map.panInsideBounds(bounds, { animate: true });
+});
 
 // Aggiunta manuale dei controlli di zoom SOLO su PC
 if (window.innerWidth > 768) {
@@ -62,6 +74,10 @@ function changeMapLayer() {
   currentLayerIndex = (currentLayerIndex + 1) % layers.length; // Cambia layer ciclicamente
   map.eachLayer(layer => map.removeLayer(layer)); // Rimuove il layer attuale
   map.addLayer(layers[currentLayerIndex]); // Aggiunge il nuovo layer
+
+  // Riapplichiamo i limiti della mappa
+  map.setMaxBounds(bounds);
+  map.panInsideBounds(bounds, { animate: true });
 
   // Riaggiungiamo i lavori pubblici dopo il cambio della mappa
   zonesData.forEach(zone => {

@@ -4,9 +4,6 @@ var map = L.map('map', {
   minZoom: 12,        // Impedisce di zoomare troppo fuori
 }).setView([38.1157, 13.3615], 13);
 
-// Variabile per memorizzare la mappa corrente
-let currentMap = 'osm'; // La mappa iniziale è OSM
-
 // Funzione per inizializzare la mappa
 function initMap(mapType) {
   if (map) {
@@ -40,25 +37,6 @@ function initMap(mapType) {
 
 // Inizializza la mappa al caricamento
 initMap(currentMap);
-
-// Funzione per cambiare mappa
-document.getElementById('mapToggleButton').addEventListener('click', function() {
-  // Cicla tra le diverse mappe
-  switch (currentMap) {
-    case 'osm':
-      currentMap = 'esri';
-      break;
-    case 'esri':
-      currentMap = 'mapbox';
-      break;
-    case 'mapbox':
-      currentMap = 'osm';
-      break;
-  }
-
-  // Ricarica la mappa con il nuovo tipo
-  initMap(currentMap);
-});
 
 // Aggiunta manuale dei controlli di zoom SOLO su PC
 if (window.innerWidth > 768) {
@@ -488,19 +466,61 @@ backToMainMenuBtn.addEventListener('click', () => {
 });
 
 
-// ==========================
-// 🔹 LIMITI DELLA MAPPA 🔹
-// ==========================
-
+// Definizione dei limiti della mappa
 var bounds = [
   [37.950, 12.900], // Coordinata sud-ovest (un po' sopra Terrasini)
   [38.300, 13.800]  // Coordinata nord-est (più a est, includendo tutta la provincia)
 ];
 
-// Limita la mappa alla provincia di Palermo
-map.setMaxBounds(bounds);
-map.on('drag', function() {
-  map.panInsideBounds(bounds, { animate: true });
+// Variabili per i layer delle mappe
+var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri'
+});
+var mapboxLayer = L.tileLayer('https://{s}.tile.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA');
+
+// Mappa iniziale
+var currentMap = 'osm'; // Imposta la mappa iniziale a OSM
+
+// Impostare la mappa iniziale
+changeMap(currentMap);
+
+// Funzione per cambiare mappa
+function changeMap(mapType) {
+  // Rimuovere il layer precedente
+  map.eachLayer(function(layer) {
+    map.removeLayer(layer);
+  });
+
+  // Aggiungere il layer della mappa selezionata
+  if (mapType === 'osm') {
+    osmLayer.addTo(map);
+  } else if (mapType === 'esri') {
+    esriLayer.addTo(map);
+  } else if (mapType === 'mapbox') {
+    mapboxLayer.addTo(map);
+  }
+
+  // Riaffermare i limiti della mappa
+  map.setMaxBounds(bounds);
+  map.on('drag', function() {
+    map.panInsideBounds(bounds, { animate: true });
+  });
+}
+
+// Gestire il clic sul pulsante per il cambio di mappa
+document.getElementById('mapToggleButton').addEventListener('click', function() {
+  // Ciclo tra le mappe (OSM -> Esri -> Mapbox -> OSM)
+  if (currentMap === 'osm') {
+    currentMap = 'esri';
+  } else if (currentMap === 'esri') {
+    currentMap = 'mapbox';
+  } else if (currentMap === 'mapbox') {
+    currentMap = 'osm';
+  }
+
+  // Cambia la mappa in base al tipo
+  changeMap(currentMap);
 });
 
 // =========================

@@ -435,13 +435,7 @@ saveProfileBtn.addEventListener('click', async () => {
 
 // Gestione profilo
 manageProfileBtn.addEventListener('click', () => {
-  document.getElementById("user-main-menu").style.display = "none"; // Nasconde il menu principale
-  manageProfileSection.style.display = 'block'; // Mostra la gestione profilo
-});
-
-backToMainMenuBtn.addEventListener('click', () => {
-  document.getElementById("user-main-menu").style.display = "block"; // Mostra il menu principale
-  manageProfileSection.style.display = 'none'; // Nasconde la gestione profilo
+  manageProfileSection.style.display = 'block';
 });
 
 // Cambiare immagine
@@ -499,6 +493,12 @@ deleteProfileBtn.addEventListener('click', async () => {
     userMenuContainer.classList.remove('open');
     createProfileBtn.style.display = 'block';
   }
+});
+
+// Aggiungi il pulsante per tornare al menu principale
+backToMainMenuBtn.addEventListener('click', () => {
+  manageProfileSection.style.display = 'none';
+  userMenuContainer.classList.add('open');
 });
 
 

@@ -1,56 +1,92 @@
-// Inizializzazione della mappa con vista su Palermo
+// Definizione dei layer delle mappe
+let esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri'
+});
+
+let mapboxLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA`, {
+  attribution: 'Mapbox'
+});
+
+let osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+});
+
+// Inizializzazione della mappa con Esri
 var map = L.map('map', {
   zoomControl: false, // Disabilita il controllo predefinito
-  minZoom: 12,        // Impedisce di zoomare troppo fuori
+  minZoom: 12,
+  layers: [esriLayer] // Iniziamo con Esri
 }).setView([38.1157, 13.3615], 13);
-
-// Aggiunta della mappa satellitare Esri
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy; Esri'
-}).addTo(map);
 
 // Aggiunta manuale dei controlli di zoom SOLO su PC
 if (window.innerWidth > 768) {
   L.control.zoom({
-    position: 'bottomleft' // Posiziona in basso a sinistra
+      position: 'bottomleft' // Posiziona in basso a sinistra
   }).addTo(map);
 }
 
 // Variabili globali
 let zonesData = []; // Array per memorizzare i dati delle zone
+let layers = [esriLayer, mapboxLayer, osmLayer];
+let currentLayerIndex = 0; // Indice del layer attivo
 
 // Caricamento dei dati dal file JSON
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    zonesData = data; // Salvo i dati per la ricerca
+      zonesData = data; // Salvo i dati per la ricerca
 
-    data.forEach(zone => {
-      var polygon = L.polygon(zone.coordinates, {
-        color: zone.color,
-        fillColor: zone.color,
-        fillOpacity: 0.4,
-        weight: 1
-      }).addTo(map);
+      data.forEach(zone => {
+          var polygon = L.polygon(zone.coordinates, {
+              color: zone.color,
+              fillColor: zone.color,
+              fillOpacity: 0.4,
+              weight: 1
+          }).addTo(map);
 
-      polygon.on('click', () => openModal(
-        zone.name, 
-        zone.description || "Descrizione non disponibile", 
-        Array.isArray(zone.images) ? zone.images : [], // Verifica che sia un array
-        zone.address || "Indirizzo non disponibile",
-        zone.startDate || "Data di inizio non disponibile",
-        zone.endDate || "Data di fine non disponibile",
-        zone.info || "Informazioni non disponibili" // Aggiunto campo info
-      ));
-    });
+          polygon.on('click', () => openModal(
+              zone.name, 
+              zone.description || "Descrizione non disponibile", 
+              Array.isArray(zone.images) ? zone.images : [], // Verifica che sia un array
+              zone.address || "Indirizzo non disponibile",
+              zone.startDate || "Data di inizio non disponibile",
+              zone.endDate || "Data di fine non disponibile",
+              zone.info || "Informazioni non disponibili"
+          ));
+      });
   })
   .catch(error => console.error("Errore nel caricamento dei dati:", error));
 
-  document.getElementById('mapToggleButton').addEventListener('click', function() {
-    // Codice per cambiare la mappa
-    // Ad esempio, alterna tra Esri e altre mappe (OSM, Google Maps, Mapbox, ecc.)
+// Funzione per cambiare la mappa
+function changeMapLayer() {
+  currentLayerIndex = (currentLayerIndex + 1) % layers.length; // Cambia layer ciclicamente
+  map.eachLayer(layer => map.removeLayer(layer)); // Rimuove il layer attuale
+  map.addLayer(layers[currentLayerIndex]); // Aggiunge il nuovo layer
+
+  // Riaggiungiamo i lavori pubblici dopo il cambio della mappa
+  zonesData.forEach(zone => {
+      var polygon = L.polygon(zone.coordinates, {
+          color: zone.color,
+          fillColor: zone.color,
+          fillOpacity: 0.4,
+          weight: 1
+      }).addTo(map);
+
+      polygon.on('click', () => openModal(
+          zone.name, 
+          zone.description || "Descrizione non disponibile", 
+          Array.isArray(zone.images) ? zone.images : [],
+          zone.address || "Indirizzo non disponibile",
+          zone.startDate || "Data di inizio non disponibile",
+          zone.endDate || "Data di fine non disponibile",
+          zone.info || "Informazioni non disponibili"
+      ));
   });
-  
+}
+
+// Collegamento del bottone per il cambio mappa
+document.getElementById('mapToggleButton').addEventListener('click', changeMapLayer);
+
 
 // ========================
 // 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹

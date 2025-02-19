@@ -3,10 +3,6 @@ let esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Tiles &copy; Esri'
 });
 
-let mapboxLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/quickdevitalia/cm7c26iiw007o01s8giwg5jdr/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA`, {
-  attribution: 'Mapbox'
-});
-
 let osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap'
 });
@@ -39,7 +35,7 @@ if (window.innerWidth > 768) {
 
 // Variabili globali
 let zonesData = []; // Array per memorizzare i dati delle zone
-let layers = [esriLayer, mapboxLayer, osmLayer];
+let layers = [esriLayer, osmLayer]; // Solo Esri e OSM
 let currentLayerIndex = 0; // Indice del layer attivo
 
 // Caricamento dei dati dal file JSON
@@ -102,7 +98,6 @@ function changeMapLayer() {
 
 // Collegamento del bottone per il cambio mappa
 document.getElementById('mapToggleButton').addEventListener('click', changeMapLayer);
-
 
 // ========================
 // 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹

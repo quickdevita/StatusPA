@@ -501,6 +501,18 @@ backToMainMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
 });
 
+// gestione utente isolata
+document.getElementById("manage-profile").addEventListener("click", function () {
+  document.getElementById("user-main-menu").style.display = "none"; // Nasconde il menu principale
+  document.getElementById("manage-profile-section").style.display = "block"; // Mostra la gestione profilo
+});
+
+document.getElementById("back-to-main-menu").addEventListener("click", function () {
+  document.getElementById("user-main-menu").style.display = "block"; // Mostra il menu principale
+  document.getElementById("manage-profile-section").style.display = "none"; // Nasconde la gestione profilo
+});
+
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

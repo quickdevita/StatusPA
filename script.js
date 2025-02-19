@@ -4,39 +4,10 @@ var map = L.map('map', {
   minZoom: 12,        // Impedisce di zoomare troppo fuori
 }).setView([38.1157, 13.3615], 13);
 
-// Funzione per inizializzare la mappa
-function initMap(mapType) {
-  if (map) {
-    map.remove(); // Rimuove la mappa corrente
-  }
-
-  const mapContainer = document.getElementById('map'); // Contenitore della mappa
-
-  // Inizializza una mappa vuota (utilizzando Leaflet in questo caso)
-  map = L.map(mapContainer).setView([51.505, -0.09], 13); // Impostiamo un punto di vista iniziale
-
-  // Configurazione per la mappa di base in base al tipo selezionato
-  let layer;
-  switch (mapType) {
-    case 'osm':
-      layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-      break;
-    case 'esri':
-      layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}');
-      break;
-    case 'mapbox':
-      // Impostare Mapbox (richiede accesso a Mapbox API Key)
-      layer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA');
-      break;
-    default:
-      layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'); // Default OSM
-  }
-
-  layer.addTo(map); // Aggiungi il layer alla mappa
-}
-
-// Inizializza la mappa al caricamento
-initMap(currentMap);
+// Aggiunta della mappa satellitare Esri
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri'
+}).addTo(map);
 
 // Aggiunta manuale dei controlli di zoom SOLO su PC
 if (window.innerWidth > 768) {
@@ -466,61 +437,19 @@ backToMainMenuBtn.addEventListener('click', () => {
 });
 
 
-// Definizione dei limiti della mappa
+// ==========================
+// 🔹 LIMITI DELLA MAPPA 🔹
+// ==========================
+
 var bounds = [
   [37.950, 12.900], // Coordinata sud-ovest (un po' sopra Terrasini)
   [38.300, 13.800]  // Coordinata nord-est (più a est, includendo tutta la provincia)
 ];
 
-// Variabili per i layer delle mappe
-var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-var esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy; Esri'
-});
-var mapboxLayer = L.tileLayer('https://{s}.tile.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA');
-
-// Mappa iniziale
-var currentMap = 'osm'; // Imposta la mappa iniziale a OSM
-
-// Impostare la mappa iniziale
-changeMap(currentMap);
-
-// Funzione per cambiare mappa
-function changeMap(mapType) {
-  // Rimuovere il layer precedente
-  map.eachLayer(function(layer) {
-    map.removeLayer(layer);
-  });
-
-  // Aggiungere il layer della mappa selezionata
-  if (mapType === 'osm') {
-    osmLayer.addTo(map);
-  } else if (mapType === 'esri') {
-    esriLayer.addTo(map);
-  } else if (mapType === 'mapbox') {
-    mapboxLayer.addTo(map);
-  }
-
-  // Riaffermare i limiti della mappa
-  map.setMaxBounds(bounds);
-  map.on('drag', function() {
-    map.panInsideBounds(bounds, { animate: true });
-  });
-}
-
-// Gestire il clic sul pulsante per il cambio di mappa
-document.getElementById('mapToggleButton').addEventListener('click', function() {
-  // Ciclo tra le mappe (OSM -> Esri -> Mapbox -> OSM)
-  if (currentMap === 'osm') {
-    currentMap = 'esri';
-  } else if (currentMap === 'esri') {
-    currentMap = 'mapbox';
-  } else if (currentMap === 'mapbox') {
-    currentMap = 'osm';
-  }
-
-  // Cambia la mappa in base al tipo
-  changeMap(currentMap);
+// Limita la mappa alla provincia di Palermo
+map.setMaxBounds(bounds);
+map.on('drag', function() {
+  map.panInsideBounds(bounds, { animate: true });
 });
 
 // =========================

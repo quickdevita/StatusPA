@@ -1,7 +1,8 @@
 // Versione del service worker
-const SW_VERSION = '0.0.72'; // Incrementa il numero della versione
+const SW_VERSION = '0.0.73'; // Incrementa il numero della versione
 const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
 const MAP_CACHE_NAME = `statuspa-map-cache-${SW_VERSION}`;
+const USER_PROFILE_CACHE_NAME = 'user-profile-cache'; // Cache separata per i dati utente
 const urlsToCache = [
   '/StatusPA/',
   '/StatusPA/index.html',
@@ -23,6 +24,14 @@ self.addEventListener('install', (event) => {
         return cache.addAll(urlsToCache)
           .catch((error) => console.error('Errore nel caching:', error));
       })
+  );
+
+  // Aggiungi la cache dell'utente durante l'installazione
+  event.waitUntil(
+    caches.open(USER_PROFILE_CACHE_NAME).then(cache => {
+      // Qui puoi aggiungere i file relativi all'utente, se necessario
+      // ad esempio, caricare una versione predefinita del profilo
+    })
   );
 });
 
@@ -51,6 +60,18 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Gestione della cache per i dati utente separatamente
+  if (requestUrl.includes('user-profile') || requestUrl.includes('/user-avatar')) { // Gestisce la cache del profilo e dell'immagine
+    event.respondWith(
+      caches.open(USER_PROFILE_CACHE_NAME).then(cache => {
+        return cache.match(event.request).then(response => {
+          return response || fetch(event.request);
+        });
+      })
+    );
+    return;
+  }
+
   // Cache per altri file
   event.respondWith(
     caches.match(event.request).then((response) => {
@@ -63,7 +84,7 @@ self.addEventListener('fetch', (event) => {
 
 // Attivazione e pulizia della cache vecchia
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME, MAP_CACHE_NAME];
+  const cacheWhitelist = [CACHE_NAME, MAP_CACHE_NAME, USER_PROFILE_CACHE_NAME]; // Aggiungi USER_PROFILE_CACHE_NAME
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(

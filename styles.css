@@ -245,6 +245,32 @@ button:hover {
   background-color: #388e3c;
 }
 
+/* Impostazioni e altre sezioni */
+
+.user-menu-section {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.user-menu-section button {
+  width: 100%;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-menu-section button:hover {
+  background-color: #ddd;
+}
 
 
 

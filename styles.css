@@ -247,10 +247,11 @@ button:hover {
 
 /* Pulsanti impostazioni e altro */
 #user-menu {
-  background-color: white; /* Colore di sfondo bianco per il menu */
-  border-radius: 8px; /* Bordi arrotondati per il contenitore del menu */
-  padding: 10px; /* Distanza interna */
-  width: 250px; /* Larghezza fissa per il menu */
+  background-color: #fff; /* Bianco per il menu */
+  border-radius: 10px; /* Angoli arrotondati per il menu */
+  padding: 15px;
+  width: 250px; /* Larghezza fissa */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
 }
 
 #user-menu ul {
@@ -260,31 +261,35 @@ button:hover {
 }
 
 #user-menu li {
-  margin: 5px 0; /* Distanza tra i bottoni */
+  margin: 12px 0; /* Distanza tra i pulsanti */
 }
 
 #user-menu a {
   text-decoration: none;
-  color: #202124; /* Colore del testo (grigio scuro) */
+  color: #333; /* Testo grigio scuro */
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 500; /* Font più leggero */
   padding: 12px 20px; /* Distanza interna del bottone */
   display: block;
-  border: 2px solid #ddd; /* Bordo separato per ogni bottone */
-  border-radius: 5px; /* Angoli arrotondati per ogni bottone */
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px; /* Angoli arrotondati per ogni bottone */
+  border: 1px solid transparent; /* Bordo trasparente per l'inizio */
+  background-color: #f5f5f5; /* Colore di sfondo grigio chiaro */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s; /* Transizione fluida */
 }
 
 #user-menu a:hover {
-  background-color: #e8f0fe; /* Colore di sfondo blu chiaro (hover) */
-  color: #1a73e8; /* Colore del testo blu */
-  border-color: #1a73e8; /* Colore del bordo blu al passaggio del mouse */
+  background-color: #1a73e8; /* Colore blu quando hover */
+  color: white; /* Testo bianco */
+  border: 1px solid #1a73e8; /* Bordo blu quando hover */
+  box-shadow: 0 2px 10px rgba(26, 115, 232, 0.2); /* Ombra blu al passaggio del mouse */
 }
 
 #user-menu a:focus {
   outline: none; /* Rimuove il contorno di focus */
-  background-color: #e8f0fe; /* Colore di sfondo blu chiaro quando selezionato */
-  border-color: #1a73e8; /* Colore del bordo blu quando selezionato */
+  background-color: #1a73e8; /* Colore blu per focus */
+  color: white; /* Testo bianco per focus */
+  border: 1px solid #1a73e8; /* Bordo blu per focus */
+  box-shadow: 0 2px 10px rgba(26, 115, 232, 0.3); /* Ombra blu per focus */
 }
 
 

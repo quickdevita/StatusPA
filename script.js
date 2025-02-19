@@ -4,10 +4,62 @@ var map = L.map('map', {
   minZoom: 12,        // Impedisce di zoomare troppo fuori
 }).setView([38.1157, 13.3615], 13);
 
-// Aggiunta della mappa satellitare Esri
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-  attribution: 'Tiles &copy; Esri'
-}).addTo(map);
+// Variabile per memorizzare la mappa corrente
+let currentMap = 'osm'; // La mappa iniziale è OSM
+let map; // Variabile per la mappa
+
+// Funzione per inizializzare la mappa
+function initMap(mapType) {
+  if (map) {
+    map.remove(); // Rimuove la mappa corrente
+  }
+
+  const mapContainer = document.getElementById('map'); // Contenitore della mappa
+
+  // Inizializza una mappa vuota (utilizzando Leaflet in questo caso)
+  map = L.map(mapContainer).setView([51.505, -0.09], 13); // Impostiamo un punto di vista iniziale
+
+  // Configurazione per la mappa di base in base al tipo selezionato
+  let layer;
+  switch (mapType) {
+    case 'osm':
+      layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+      break;
+    case 'esri':
+      layer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}');
+      break;
+    case 'mapbox':
+      // Impostare Mapbox (richiede accesso a Mapbox API Key)
+      layer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA');
+      break;
+    default:
+      layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'); // Default OSM
+  }
+
+  layer.addTo(map); // Aggiungi il layer alla mappa
+}
+
+// Inizializza la mappa al caricamento
+initMap(currentMap);
+
+// Funzione per cambiare mappa
+document.getElementById('mapToggleButton').addEventListener('click', function() {
+  // Cicla tra le diverse mappe
+  switch (currentMap) {
+    case 'osm':
+      currentMap = 'esri';
+      break;
+    case 'esri':
+      currentMap = 'mapbox';
+      break;
+    case 'mapbox':
+      currentMap = 'osm';
+      break;
+  }
+
+  // Ricarica la mappa con il nuovo tipo
+  initMap(currentMap);
+});
 
 // Aggiunta manuale dei controlli di zoom SOLO su PC
 if (window.innerWidth > 768) {

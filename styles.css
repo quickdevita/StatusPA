@@ -247,9 +247,18 @@ button:hover {
 
 /* Pulsanti impostazioni e altro */
 
+#user-menu {
+  background-color: white; /* Colore di sfondo bianco per il menu */
+  border-radius: 8px; /* Bordi arrotondati */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  padding: 15px; /* Distanza interna */
+  width: 250px; /* Larghezza fissa per il menu */
+}
+
 #user-menu ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 #user-menu li {
@@ -258,21 +267,24 @@ button:hover {
 
 #user-menu a {
   text-decoration: none;
-  color: #4A90E2; /* Colore del testo */
-  font-size: 16px; /* Dimensione del font */
-  font-weight: bold;
-  padding: 10px 15px; /* Distanza interna */
+  color: #202124; /* Colore del testo più scuro (tipico di Google) */
+  font-size: 16px;
+  font-weight: 500; /* Peso del font leggermente più basso */
+  padding: 10px 15px;
   display: block;
-  border-radius: 5px; /* Angoli arrotondati */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transizione per l'hover */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #user-menu a:hover {
-  background-color: #4A90E2; /* Colore di sfondo al passaggio del mouse */
-  color: white; /* Colore del testo al passaggio del mouse */
+  background-color: #f1f3f4; /* Colore di sfondo al passaggio del mouse (grigio chiaro) */
+  color: #1a73e8; /* Colore del testo al passaggio del mouse (blu tipico di Google) */
 }
 
-
+#user-menu a:focus {
+  outline: none; /* Rimuove il contorno di focus */
+  background-color: #e8f0fe; /* Colore di sfondo quando il bottone è selezionato */
+}
 
 
 /* Stile per il punto esclamativo */

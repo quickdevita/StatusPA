@@ -502,6 +502,19 @@ backToMainMenuBtn.addEventListener('click', () => {
 });
 
 
+// Impostazioni
+
+document.getElementById('settings-btn').addEventListener('click', () => {
+  document.getElementById('user-menu').style.display = 'none';
+  document.getElementById('settings-menu-section').style.display = 'block';
+});
+
+document.getElementById('back-to-user-menu').addEventListener('click', () => {
+  document.getElementById('settings-menu-section').style.display = 'none';
+  document.getElementById('user-menu').style.display = 'block';
+});
+
+
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹
 // ==========================

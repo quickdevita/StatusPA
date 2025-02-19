@@ -245,6 +245,33 @@ button:hover {
   background-color: #388e3c;
 }
 
+/* Pulsanti impostazioni e altro */
+
+#user-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#user-menu li {
+  margin: 10px 0;
+}
+
+#user-menu a {
+  text-decoration: none;
+  color: #4A90E2; /* Colore del testo */
+  font-size: 16px; /* Dimensione del font */
+  font-weight: bold;
+  padding: 10px 15px; /* Distanza interna */
+  display: block;
+  border-radius: 5px; /* Angoli arrotondati */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transizione per l'hover */
+}
+
+#user-menu a:hover {
+  background-color: #4A90E2; /* Colore di sfondo al passaggio del mouse */
+  color: white; /* Colore del testo al passaggio del mouse */
+}
+
 
 
 

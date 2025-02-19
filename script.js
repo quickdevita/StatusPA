@@ -435,7 +435,13 @@ saveProfileBtn.addEventListener('click', async () => {
 
 // Gestione profilo
 manageProfileBtn.addEventListener('click', () => {
-  manageProfileSection.style.display = 'block';
+  document.getElementById("user-main-menu").style.display = "none"; // Nasconde il menu principale
+  manageProfileSection.style.display = 'block'; // Mostra la gestione profilo
+});
+
+backToMainMenuBtn.addEventListener('click', () => {
+  document.getElementById("user-main-menu").style.display = "block"; // Mostra il menu principale
+  manageProfileSection.style.display = 'none'; // Nasconde la gestione profilo
 });
 
 // Cambiare immagine
@@ -494,24 +500,6 @@ deleteProfileBtn.addEventListener('click', async () => {
     createProfileBtn.style.display = 'block';
   }
 });
-
-// Aggiungi il pulsante per tornare al menu principale
-backToMainMenuBtn.addEventListener('click', () => {
-  manageProfileSection.style.display = 'none';
-  userMenuContainer.classList.add('open');
-});
-
-// gestione utente isolata
-document.getElementById("manage-profile").addEventListener("click", function () {
-  document.getElementById("user-main-menu").style.display = "none"; // Nasconde il menu principale
-  document.getElementById("manage-profile-section").style.display = "block"; // Mostra la gestione profilo
-});
-
-document.getElementById("back-to-main-menu").addEventListener("click", function () {
-  document.getElementById("user-main-menu").style.display = "block"; // Mostra il menu principale
-  document.getElementById("manage-profile-section").style.display = "none"; // Nasconde la gestione profilo
-});
-
 
 
 // ==========================

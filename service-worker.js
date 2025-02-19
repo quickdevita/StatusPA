@@ -1,6 +1,7 @@
 // Versione del service worker
-const SW_VERSION = '0.0.71';
+const SW_VERSION = '0.0.72'; // Incrementa il numero della versione
 const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
+const MAP_CACHE_NAME = `statuspa-map-cache-${SW_VERSION}`;
 const urlsToCache = [
   '/StatusPA/',
   '/StatusPA/index.html',
@@ -27,11 +28,30 @@ self.addEventListener('install', (event) => {
 
 // Intercettazione delle richieste di rete
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('favicon.ico')) {
+  const requestUrl = event.request.url;
+
+  // Evita di gestire il caching del favicon
+  if (requestUrl.includes('favicon.ico')) {
     event.respondWith(new Response(null, { status: 204 }));
     return;
   }
 
+  // Cache delle tile della mappa (Esri e OSM)
+  if (requestUrl.includes('tile.openstreetmap.org') || requestUrl.includes('arcgisonline.com')) {
+    event.respondWith(
+      caches.open(MAP_CACHE_NAME).then(cache => {
+        return fetch(event.request).then(response => {
+          cache.put(event.request, response.clone()); // Salva la tile nella cache
+          return response;
+        }).catch(() => {
+          return cache.match(event.request); // Se offline, carica la tile dalla cache
+        });
+      })
+    );
+    return;
+  }
+
+  // Cache per altri file
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
@@ -43,7 +63,7 @@ self.addEventListener('fetch', (event) => {
 
 // Attivazione e pulizia della cache vecchia
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+  const cacheWhitelist = [CACHE_NAME, MAP_CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(

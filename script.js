@@ -504,14 +504,21 @@ backToMainMenuBtn.addEventListener('click', () => {
 
 // Impostazioni
 
-document.getElementById('settings-btn').addEventListener('click', () => {
-  document.getElementById('user-menu').style.display = 'none';
-  document.getElementById('settings-menu-section').style.display = 'block';
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const settingsBtn = document.getElementById('settings-btn');
+  const settingsMenu = document.getElementById('settings-menu-section');
+  const userMenu = document.getElementById('user-menu');
+  const backToUserMenuBtn = document.getElementById('back-to-user-menu');
 
-document.getElementById('back-to-user-menu').addEventListener('click', () => {
-  document.getElementById('settings-menu-section').style.display = 'none';
-  document.getElementById('user-menu').style.display = 'block';
+  settingsBtn.addEventListener('click', () => {
+    userMenu.style.display = 'none'; // Nasconde il menu utente
+    settingsMenu.style.display = 'block'; // Mostra la scheda impostazioni
+  });
+
+  backToUserMenuBtn.addEventListener('click', () => {
+    settingsMenu.style.display = 'none'; // Nasconde la scheda impostazioni
+    userMenu.style.display = 'block'; // Riporta il menu utente visibile
+  });
 });
 
 

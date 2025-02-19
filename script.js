@@ -6,7 +6,6 @@ var map = L.map('map', {
 
 // Variabile per memorizzare la mappa corrente
 let currentMap = 'osm'; // La mappa iniziale è OSM
-let map; // Variabile per la mappa
 
 // Funzione per inizializzare la mappa
 function initMap(mapType) {

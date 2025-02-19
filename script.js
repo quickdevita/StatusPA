@@ -234,8 +234,8 @@ function aggiornaPosizionePopup() {
 
   if (isMobile) {
       // Su smartphone: popup alla SINISTRA del punto esclamativo, leggermente più in alto
-      popup.style.left = `${rect.left - popup.offsetWidth - 22}px`; // Sposta a sinistra
-      popup.style.top = `${rect.top - 115}px`; // Sposta più in alto
+      popup.style.left = `${rect.left - popup.offsetWidth - 21}px`; // Sposta a sinistra
+      popup.style.top = `${rect.top - 110}px`; // Sposta più in alto
       popup.classList.add("popup-left");
       popup.classList.remove("popup-down");
   } else {

@@ -245,40 +245,6 @@ button:hover {
   background-color: #388e3c;
 }
 
-/* Impostazioni */
-.menu-item {
-  cursor: pointer;
-  padding: 10px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  background: #f1f1f1;
-  border-radius: 5px;
-  margin: 5px 0;
-}
-
-.menu-item:hover {
-  background: #ddd;
-}
-
-.settings-section {
-  text-align: center;
-}
-
-#settings-menu-section {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-
 
 
 

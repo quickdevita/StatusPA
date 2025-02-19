@@ -502,26 +502,6 @@ backToMainMenuBtn.addEventListener('click', () => {
 });
 
 
-// Impostazioni
-
-document.addEventListener('DOMContentLoaded', () => {
-  const settingsBtn = document.getElementById('settings-btn');
-  const settingsMenu = document.getElementById('settings-menu-section');
-  const userMenu = document.getElementById('user-menu');
-  const backToUserMenuBtn = document.getElementById('back-to-user-menu');
-
-  settingsBtn.addEventListener('click', () => {
-    userMenu.style.display = 'none'; // Nasconde il menu utente
-    settingsMenu.style.display = 'block'; // Mostra la scheda impostazioni
-  });
-
-  backToUserMenuBtn.addEventListener('click', () => {
-    settingsMenu.style.display = 'none'; // Nasconde la scheda impostazioni
-    userMenu.style.display = 'block'; // Riporta il menu utente visibile
-  });
-});
-
-
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹
 // ==========================

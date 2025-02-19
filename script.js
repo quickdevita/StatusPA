@@ -303,7 +303,7 @@ const changeUsernameBtn = document.getElementById('change-username');
 const newUsernameInput = document.getElementById('new-username');
 const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
-const backToMainMenuBtn = document.getElementById('back-to-main-menu'); // Pulsante per tornare al menu principale
+const backToMainMenuBtn = document.getElementById('back-to-main-menu');
 
 const APP_VERSION = 'beta0.1';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
@@ -325,20 +325,34 @@ async function saveProfileToCache(profileData) {
 async function removeProfileFromCache() {
   const cache = await caches.open('user-profile-cache');
   await cache.delete('user-profile');
+  await cache.delete('/user-avatar');
 }
 
 async function checkProfile() {
   const profile = await getProfileFromCache();
-  
+
   if (profile) {
-    userAvatar.src = profile.image || 'img/default-avatar.jpg';
     profileNameDisplay.textContent = profile.name || 'Nome utente';
-    profileNameDisplay.style.display = 'block'; // Mostra il nome utente solo se c'è un profilo
+    profileNameDisplay.style.display = 'block';
     createProfileBtn.style.display = 'none';
     manageProfileBtn.style.display = 'block';
+
+    if (profile.image === '/user-avatar') {
+      const cache = await caches.open('user-profile-cache');
+      const response = await cache.match('/user-avatar');
+      if (response) {
+        const blob = await response.blob();
+        const objectURL = URL.createObjectURL(blob);
+        userAvatar.src = objectURL;
+      } else {
+        userAvatar.src = 'img/default-avatar.jpg';
+      }
+    } else {
+      userAvatar.src = profile.image || 'img/default-avatar.jpg';
+    }
   } else {
     userAvatar.src = 'img/default-avatar.jpg';
-    profileNameDisplay.style.display = 'none'; // Nasconde "Nome utente" se non c'è un profilo
+    profileNameDisplay.style.display = 'none';
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
   }
@@ -368,7 +382,7 @@ saveProfileBtn.addEventListener('click', async () => {
 
   const profileData = { name, image: 'img/default-avatar.jpg' };
   await saveProfileToCache(profileData);
-  createProfileSection.style.display = 'none'; // Nasconde il form dopo la registrazione
+  createProfileSection.style.display = 'none';
   checkProfile();
 });
 
@@ -383,10 +397,18 @@ changeAvatarBtn.addEventListener('click', () => profileImgInput.click());
 profileImgInput.addEventListener('change', async (event) => {
   const file = event.target.files[0];
   if (file) {
+    const cache = await caches.open('user-profile-cache');
+    const blob = new Blob([await file.arrayBuffer()], { type: file.type });
+    const response = new Response(blob, { headers: { 'Content-Type': file.type } });
+
+    await cache.put('/user-avatar', response);
+
     const profile = await getProfileFromCache();
-    profile.image = URL.createObjectURL(file);
+    profile.image = '/user-avatar';
     await saveProfileToCache(profile);
-    checkProfile();
+
+    const objectURL = URL.createObjectURL(blob);
+    userAvatar.src = objectURL;
   }
 });
 
@@ -408,11 +430,9 @@ saveUsernameBtn.addEventListener('click', async () => {
   profile.name = newName;
   await saveProfileToCache(profile);
 
-  // Nascondi la barra e il pulsante dopo aver salvato
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
 
-  // Aggiorna il nome visualizzato nel menu utente
   checkProfile();
 });
 
@@ -422,18 +442,16 @@ deleteProfileBtn.addEventListener('click', async () => {
     await removeProfileFromCache();
     checkProfile();
 
-    // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
     manageProfileSection.style.display = 'none';
-    userMenuContainer.classList.remove('open'); // Rimuove la sezione del menu
-    createProfileBtn.style.display = 'block';  // Mostra il pulsante per creare il profilo
+    userMenuContainer.classList.remove('open');
+    createProfileBtn.style.display = 'block';
   }
 });
 
 // Aggiungi il pulsante per tornare al menu principale
 backToMainMenuBtn.addEventListener('click', () => {
-  // Nascondi la sezione "Gestisci profilo" e mostra il menu principale
   manageProfileSection.style.display = 'none';
-  userMenuContainer.classList.add('open'); // Ri-apri il menu utente principale
+  userMenuContainer.classList.add('open');
 });
 
 

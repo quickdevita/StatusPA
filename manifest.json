@@ -3,7 +3,7 @@
   "short_name": "StatusPA",
   "start_url": "/StatusPA/index.html", 
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {

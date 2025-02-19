@@ -3,7 +3,7 @@ let esriLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
   attribution: 'Tiles &copy; Esri'
 });
 
-let mapboxLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=TUO_MAPBOX_TOKEN`, {
+let mapboxLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicXVpY2tkZXZpdGFsaWEiLCJhIjoiY203YjFueGx3MDh2bDJsc2R4azIwMG5zcSJ9.2g3VeRZg7Jn53zbFPwr3RA`, {
   attribution: 'Mapbox'
 });
 

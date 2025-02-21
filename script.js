@@ -207,6 +207,23 @@ function openFullscreenImage(imgSrc) {
   });
 }
 
+// Funzione per chiudere il modale
+function closeModalFunc() {
+  document.getElementById("modal-container").classList.remove("open");
+  document.getElementById("modal").classList.remove("open");
+  document.body.classList.remove("modal-open");
+}
+
+// Chiudere il modale con il pulsante di chiusura
+document.getElementById("close-modal").addEventListener("click", closeModalFunc);
+
+// Chiudere cliccando fuori dal modale
+document.getElementById("modal-container").addEventListener("click", function (event) {
+  if (event.target === document.getElementById("modal-container")) {
+    closeModalFunc();
+  }
+});
+
 // ========================
 // 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
 // ========================

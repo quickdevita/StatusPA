@@ -587,7 +587,7 @@ backToMainMenuBtn.addEventListener('click', () => {
 });
 
 // Impostazioni
-document.getElementById('settingsButton').addEventListener('click', function() {
+document.getElementById('settings-button').addEventListener('click', function() {
   openSettings();
 });
 

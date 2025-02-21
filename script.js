@@ -587,21 +587,40 @@ backToMainMenuBtn.addEventListener('click', () => {
 });
 
 // Impostazioni
-document.getElementById('settings-button').addEventListener('click', function() {
+document.getElementById('settingsButton').addEventListener('click', function() {
   openSettings();
 });
 
+// Funzione per aprire il pannello delle impostazioni
 function openSettings() {
-  // Funzione per aprire il pannello delle impostazioni, ad esempio una finestra modale
   const settingsModal = document.getElementById('settingsModal');
-  settingsModal.style.display = 'block'; // Mostra il pannello delle impostazioni
+  settingsModal.style.display = 'block';
 }
 
+// Funzione per chiudere la modale delle impostazioni
 function closeSettings() {
   const settingsModal = document.getElementById('settingsModal');
-  settingsModal.style.display = 'none'; // Nascondi il pannello delle impostazioni
+  settingsModal.style.display = 'none';
 }
 
+// Funzione per eliminare i dati e la cache
+document.getElementById('clearDataButton').addEventListener('click', function() {
+  if (confirm("Sei sicuro di voler eliminare tutti i dati e la cache dell'app?")) {
+    // Pulizia cache e localStorage
+    if ('caches' in window) {
+      caches.keys().then(function(names) {
+        for (let name of names) {
+          caches.delete(name);
+        }
+      });
+    }
+    localStorage.clear(); // Elimina tutti i dati dal localStorage
+    sessionStorage.clear(); // Elimina tutti i dati dalla sessionStorage
+
+    alert("Dati e cache dell'app eliminati!");
+    closeSettings(); // Chiude la modale dopo l'eliminazione
+  }
+});
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

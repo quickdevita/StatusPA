@@ -483,9 +483,17 @@ async function checkProfile() {
 }
 
 // Aprire e chiudere il menu
-document.getElementById('user-icon').addEventListener('click', () => {
+document.getElementById('user-icon').addEventListener('click', (event) => {
   userMenuContainer.classList.add('open');
   checkProfile();
+  event.stopPropagation(); // Impedisce che il click si propaghi al document
+});
+
+// Chiudere il menu quando si clicca fuori
+document.addEventListener('click', (event) => {
+  if (!userMenuContainer.contains(event.target) && userMenuContainer.classList.contains('open')) {
+    userMenuContainer.classList.remove('open');
+  }
 });
 
 closeUserMenuBtn.addEventListener('click', () => {

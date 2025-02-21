@@ -586,6 +586,23 @@ backToMainMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
 });
 
+//impostazioni
+document.getElementById('settingsButton').addEventListener('click', function() {
+  openSettings();
+});
+
+function openSettings() {
+  // Funzione per aprire il pannello delle impostazioni, ad esempio una finestra modale
+  const settingsModal = document.getElementById('settingsModal');
+  settingsModal.style.display = 'block'; // Mostra il pannello delle impostazioni
+}
+
+function closeSettings() {
+  const settingsModal = document.getElementById('settingsModal');
+  settingsModal.style.display = 'none'; // Nascondi il pannello delle impostazioni
+}
+
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

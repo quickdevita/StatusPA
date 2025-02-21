@@ -132,22 +132,12 @@ function openModal(title, description, images, address, startDate, endDate, info
   document.body.classList.add("modal-open");
 }
 
-// Funzione per chiudere il modale
-function closeModalFunc() {
+// Funzione per chiudere il modale dei lavori
+function closeModal() {
   document.getElementById("modal-container").classList.remove("open");
   document.getElementById("modal").classList.remove("open");
   document.body.classList.remove("modal-open");
 }
-
-// Chiudere il modale con il pulsante di chiusura
-document.getElementById("close-modal").addEventListener("click", closeModalFunc);
-
-// Chiudere cliccando fuori dal modale
-document.getElementById("modal-container").addEventListener("click", function (event) {
-  if (event.target === document.getElementById("modal-container")) {
-    closeModalFunc();
-  }
-});
 
 // ========================
 // 🔹 GESTIONE DELL'IMMAGINE A SCHERMO INTERO 🔹
@@ -160,6 +150,41 @@ function openFullscreenImage(imgSrc) {
   img.src = imgSrc;
   img.alt = "Immagine ingrandita";
   img.classList.add("fullscreen-image");
+  img.style.transform = "scale(1)";
+  img.style.transition = "transform 0.2s ease";
+
+  let scale = 1;
+
+  // Gestione zoom con la rotellina del mouse
+  fullscreenContainer.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    scale += event.deltaY * -0.01;
+    scale = Math.min(Math.max(1, scale), 3); // Limita lo zoom tra 1x e 3x
+    img.style.transform = `scale(${scale})`;
+  });
+
+  // Gestione pinch-to-zoom su touch screen
+  let touchStartDistance = 0;
+  fullscreenContainer.addEventListener("touchstart", (event) => {
+    if (event.touches.length === 2) {
+      touchStartDistance = getDistance(event.touches[0], event.touches[1]);
+    }
+  });
+
+  fullscreenContainer.addEventListener("touchmove", (event) => {
+    if (event.touches.length === 2) {
+      event.preventDefault();
+      const newDistance = getDistance(event.touches[0], event.touches[1]);
+      scale *= newDistance / touchStartDistance;
+      scale = Math.min(Math.max(1, scale), 3);
+      img.style.transform = `scale(${scale})`;
+      touchStartDistance = newDistance;
+    }
+  });
+
+  function getDistance(touch1, touch2) {
+    return Math.hypot(touch2.pageX - touch1.pageX, touch2.pageY - touch1.pageY);
+  }
 
   // Crea il pulsante di chiusura (X)
   const closeButton = document.createElement("button");

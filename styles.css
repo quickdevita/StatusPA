@@ -286,6 +286,38 @@ button:hover {
 }
 
 
+#favorites-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.preferito {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.miniatura {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+button.rimuovi-preferito {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#favorite-button {
+  cursor: pointer;
+}
+
+#favorite-button.favorito {
+  color: gold; /* Colore della stella quando il lavoro è nei preferiti */
+}
 
 
 

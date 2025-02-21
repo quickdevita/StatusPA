@@ -586,8 +586,8 @@ backToMainMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
 });
 
-//impostazioni
-document.getElementById('settingsButton').addEventListener('click', function() {
+// Impostazioni
+document.getElementById('settings-button').addEventListener('click', function() {
   openSettings();
 });
 
@@ -601,7 +601,6 @@ function closeSettings() {
   const settingsModal = document.getElementById('settingsModal');
   settingsModal.style.display = 'none'; // Nascondi il pannello delle impostazioni
 }
-
 
 
 // ==========================

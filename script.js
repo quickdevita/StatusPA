@@ -119,6 +119,8 @@ function openModal(title, description, images, address, startDate, endDate, info
       const img = document.createElement("img");
       img.src = imgSrc;
       img.alt = "Immagine del lavoro";
+      img.classList.add("modal-thumbnail"); // Aggiunge classe per lo stile
+      img.addEventListener("click", () => openFullscreenImage(imgSrc)); // Aggiunge evento click
       modalImagesContainer.appendChild(img);
     });
   } else {
@@ -130,22 +132,38 @@ function openModal(title, description, images, address, startDate, endDate, info
   document.body.classList.add("modal-open");
 }
 
-// Funzione per chiudere il modale
-function closeModalFunc() {
-  document.getElementById("modal-container").classList.remove("open");
-  document.getElementById("modal").classList.remove("open");
-  document.body.classList.remove("modal-open");
+// ========================
+// 🔹 GESTIONE DELL'IMMAGINE A SCHERMO INTERO 🔹
+// ========================
+function openFullscreenImage(imgSrc) {
+  const fullscreenContainer = document.createElement("div");
+  fullscreenContainer.classList.add("fullscreen-container");
+
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  img.alt = "Immagine ingrandita";
+  img.classList.add("fullscreen-image");
+
+  // Crea il pulsante di chiusura (X)
+  const closeButton = document.createElement("button");
+  closeButton.innerHTML = "&times;"; // Simbolo X
+  closeButton.classList.add("close-fullscreen");
+  closeButton.addEventListener("click", () => {
+    fullscreenContainer.remove();
+  });
+
+  // Aggiunge immagine e pulsante al contenitore
+  fullscreenContainer.appendChild(img);
+  fullscreenContainer.appendChild(closeButton);
+  document.body.appendChild(fullscreenContainer);
+
+  // Chiudi l'immagine a schermo intero con un click sullo sfondo
+  fullscreenContainer.addEventListener("click", (event) => {
+    if (event.target === fullscreenContainer) {
+      fullscreenContainer.remove();
+    }
+  });
 }
-
-// Chiudere il modale con il pulsante di chiusura
-document.getElementById("close-modal").addEventListener("click", closeModalFunc);
-
-// Chiudere cliccando fuori dal modale
-document.getElementById("modal-container").addEventListener("click", function (event) {
-  if (event.target === document.getElementById("modal-container")) {
-    closeModalFunc();
-  }
-});
 
 // ========================
 // 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹

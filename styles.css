@@ -285,33 +285,8 @@ button:hover {
   background: rgba(255, 0, 0, 0.7);
 }
 
-#user-menu {
-  display: flex;
-  flex-direction: column;
-}
-
-#settings-button {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#settings-button:hover {
-  background-color: #45a049;
-}
 
 
-/* Aggiungi eventualmente regole per il modal delle impostazioni */
-.modal-settings .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
 
 
 /* Stile per il punto esclamativo */

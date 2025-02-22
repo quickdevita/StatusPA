@@ -621,25 +621,6 @@ backToMainMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
 });
 
-//Impostazioni nel menu utente
-document.getElementById('settings-button').addEventListener('click', function() {
-  openSettingsModal();
-});
-
-function openSettingsModal() {
-// Aggiungi qui il codice per aprire il modal o la sezione delle impostazioni
-  alert('Sezione impostazioni aperta!');
-}
-
-function openSettingsModal() {
-  document.getElementById('settings-modal').style.display = 'block';
-}
-
-function closeSettingsModal() {
-  document.getElementById('settings-modal').style.display = 'none';
-}
-
-
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

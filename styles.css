@@ -305,6 +305,14 @@ button:hover {
 }
 
 
+/* Aggiungi eventualmente regole per il modal delle impostazioni */
+.modal-settings .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+
 
 /* Stile per il punto esclamativo */
 .exclamation-mark {

@@ -503,9 +503,10 @@ button:hover {
 /* Contenuti delle sezioni */
 .modal-content {
   padding: 10px;
-  max-height: 80vh; /* Aggiungi un'altezza massima */
-  overflow-y: scroll; /* Abilita lo scroll verticale */
-  padding-right: 5px;
+  max-height: 80vh; /* Imposta un'altezza massima */
+  overflow-y: auto; /* Permette lo scroll verticale del contenuto */
+  -webkit-overflow-scrolling: touch; /* Ottimizzazione per i dispositivi mobili */
+  padding-right: 10px; /* Distanza tra il contenuto e la barra di scorrimento */
 }
 
 /* Personalizzazione della barra di scorrimento */

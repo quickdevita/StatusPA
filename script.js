@@ -145,7 +145,7 @@ function closeModal() {
 // ========================
 // 🔹 GESTIONE DELL'IMMAGINE A SCHERMO INTERO 🔹
 // ========================
-function openFullscreenImage(imgSrc) {
+function openFullscreenImage(imgSrc, imageSource) {
   const fullscreenContainer = document.createElement("div");
   fullscreenContainer.classList.add("fullscreen-container");
 
@@ -200,6 +200,14 @@ function openFullscreenImage(imgSrc) {
   // Aggiunge immagine e pulsante al contenitore
   fullscreenContainer.appendChild(img);
   fullscreenContainer.appendChild(closeButton);
+  document.body.appendChild(fullscreenContainer);
+
+  // Crea un elemento per la fonte
+  const sourceElement = document.createElement("div");
+  sourceElement.className = "image-source";
+  sourceElement.innerText = imageSource;  // Imposta la fonte
+  fullscreenContainer.appendChild(sourceElement);
+
   document.body.appendChild(fullscreenContainer);
 
   // Chiudi l'immagine a schermo intero con un click sullo sfondo

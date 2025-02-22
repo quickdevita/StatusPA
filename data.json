@@ -14,7 +14,8 @@
       [38.12333006979995, 13.35422336610128]
     ],
     "color": "yellow",
-    "info": "Nuova fermata metro",
+    "stato": "Lavori (in corso) quasi ultimati",
+    "importo": "14.000.000",
     "description": "Lavori quasi completi per nuova fermata Metropolitana.",
     "address": "Piazza Castelnuovo, Palermo",
     "startDate": "2023-06-01",

@@ -103,13 +103,15 @@ document.getElementById('mapToggleButton').addEventListener('click', changeMapLa
 // 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹
 // ========================
 // Funzione per aprire il modale
-function openModal(title, description, images, address, startDate, endDate, info) {
+function openModal(title, description, images, address, startDate, endDate, importo, stato) {
   document.getElementById("modal-title").textContent = title;
-  document.getElementById("modal-info").textContent = info; // Mostra info
-  document.getElementById("modal-details").textContent = description; // Mostra la descrizione
+  document.getElementById("modal-details").textContent = description; 
   document.getElementById("modal-address").textContent = address;
   document.getElementById("modal-start-date").textContent = startDate;
   document.getElementById("modal-end-date").textContent = endDate;
+  document.getElementById("modal-importo").textContent = importo;
+  document.getElementById("modal-stato").textContent = stato;
+
 
   const modalImagesContainer = document.getElementById("modal-images");
   modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti

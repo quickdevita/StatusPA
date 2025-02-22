@@ -266,6 +266,14 @@ button:hover {
   border-radius: 10px;
 }
 
+.image-source {
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-style: italic;
+}
+
 /* Pulsante di chiusura (X) */
 .close-fullscreen {
   position: absolute;

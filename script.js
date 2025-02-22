@@ -208,8 +208,6 @@ function openFullscreenImage(imgSrc, imageSource) {
   sourceElement.innerText = imageSource;  // Imposta la fonte
   fullscreenContainer.appendChild(sourceElement);
 
-  document.body.appendChild(fullscreenContainer);
-
   // Chiudi l'immagine a schermo intero con un click sullo sfondo
   fullscreenContainer.addEventListener("click", (event) => {
     if (event.target === fullscreenContainer) {

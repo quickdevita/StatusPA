@@ -92,8 +92,7 @@ function changeMapLayer() {
           zone.address || "Indirizzo non disponibile",
           zone.startDate || "Data di inizio non disponibile",
           zone.endDate || "Data di fine non disponibile",
-          zone.importo || "Importo non disponibile",  // ✅ Cambiato da "info" a "importo"
-          zone.stato || "Stato non disponibile"       // ✅ Aggiunto "stato"
+          zone.info || "Informazioni non disponibili"
       ));
   });
 }

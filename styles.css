@@ -115,7 +115,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 9998;
+  z-index: 999;
 }
 
 #user-icon img {
@@ -304,7 +304,7 @@ button:hover {
   justify-content: center;
   cursor: pointer;
   font-weight: bold; /* Aumenta lo spessore del punto esclamativo */
-  z-index: 11000; /* Lo mantiene sopra altri elementi */
+  z-index: 999; /* Lo mantiene sopra altri elementi */
 }
 
 @media (max-width: 768px) {
@@ -313,7 +313,7 @@ button:hover {
     position: fixed;
     bottom: 80px !important; /* In basso */
     right: 16px !important; /* A destra */
-    z-index: 9999;
+    z-index: 999;
   }
 }
 
@@ -323,7 +323,7 @@ button:hover {
     position: fixed;
     top: 18px !important; /* In alto per allinearsi all'icona */
     right: 80px !important; /* A sinistra rispetto all'icona utente */
-    z-index: 9999;
+    z-index: 999;
   }
 }
 
@@ -372,7 +372,7 @@ button:hover {
   display: none;
   justify-content: center;
   align-items: flex-end;
-  z-index: 12001;
+  z-index: 8000;
   transition: background 0.3s ease-out;
 }
 
@@ -391,7 +391,7 @@ button:hover {
 
 /* Maniglia per trascinare il modale */
 .modal-handle {
-  width: 40px;
+  width: 100px;
   height: 5px;
   background: #ccc;
   border-radius: 5px;
@@ -497,13 +497,14 @@ button:hover {
   left: 50%;
   width: 50%;
   height: 2px;
-  background: #007bff;
   transform: translateX(-50%);
 }
 
 /* Contenuti delle sezioni */
 .modal-content {
   padding: 10px;
+  max-height: 70vh; /* Aggiungi un'altezza massima */
+  overflow-y: auto; /* Abilita lo scroll verticale */
 }
 
 .tab-content {
@@ -637,4 +638,3 @@ body.modal-open {
 
 
 }
-

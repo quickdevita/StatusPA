@@ -224,6 +224,38 @@ document.getElementById("modal-container").addEventListener("click", function (e
   }
 });
 
+// Seleziona tutti i tab
+// Seleziona tutti i tab
+const tabs = document.querySelectorAll('.tab-button');
+
+// Aggiungi l'evento di click ai tab
+tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+        const sectionToShow = this.getAttribute('data-tab');
+
+        // Rimuovi la classe "active" da tutti i tab e dalle sezioni
+        document.querySelectorAll('.tab-button').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Aggiungi la classe "active" al tab selezionato e alla sezione corrispondente
+        this.classList.add('active');
+        document.getElementById(sectionToShow).classList.add('active');
+
+        // Mostra le informazioni extra solo se il tab selezionato è "Info dettagliate"
+        const modalExtra = document.querySelector('.modal-extra');
+        if (sectionToShow === "info") {
+            modalExtra.style.display = "block";
+        } else {
+            modalExtra.style.display = "none";
+        }
+    });
+});
+
 // ========================
 // 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
 // ========================
@@ -643,4 +675,3 @@ document.getElementById('voice-search').addEventListener('click', () => {
   }
  
 });
-

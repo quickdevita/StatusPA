@@ -266,15 +266,6 @@ button:hover {
   border-radius: 10px;
 }
 
-.image-source {
-  margin-top: 20px;
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-  font-style: italic;
-  word-wrap: break-word; /* Per prevenire che la fonte vada fuori dallo schermo */
-}
-
 /* Pulsante di chiusura (X) */
 .close-fullscreen {
   position: absolute;

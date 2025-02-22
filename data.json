@@ -21,20 +21,16 @@
     "startDate": "2023-06-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://citynews-palermotoday.stgy.ovh/~media/horizontal-hi/55227462904273/anello-ferroviario-stazione-politeama.jpg",
-        "source": "Citynews-PalermoToday"
-      },
-      {
-        "url": "https://www.balarm.it/files/2025/01/15/db5f2221d786e3df7db8bdafdb1a88eeb5bffee3jpg",
-        "source": "Balarm"
-      }
+      "https://citynews-palermotoday.stgy.ovh/~media/horizontal-hi/55227462904273/anello-ferroviario-stazione-politeama.jpg",
+      "https://www.balarm.it/files/2025/01/15/db5f2221d786e3df7db8bdafdb1a88eeb5bffee3jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuova metro a Palermo: ecco lo stato dei lavori",
         "url": "https://esempio.com/articolo1"
       },
       {
+        "title": "Intervista all'assessore sui tempi di completamento",
         "url": "https://esempio.com/articolo2"
       }
     ]
@@ -57,17 +53,12 @@
     "startDate": "2024-01-15",
     "endDate": "2025-06-30",
     "images": [
-      {
-        "url": "https://esempio.com/piscina1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/piscina2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/piscina1.jpg",
+      "https://esempio.com/piscina2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Piscina comunale: lavori in corso",
         "url": "https://esempio.com/articolo3"
       }
     ]
@@ -94,13 +85,11 @@
     "startDate": "2018-05-10",
     "endDate": "Da definire",
     "images": [
-      {
-        "url": "https://esempio.com/collettore1.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/collettore1.jpg"
     ],
     "related_articles": [
       {
+        "title": "Foro Italico: i lavori fermi da anni",
         "url": "https://esempio.com/articolo4"
       }
     ]
@@ -128,17 +117,12 @@
     "startDate": "2022-09-10",
     "endDate": "2025-08-15",
     "images": [
-      {
-        "url": "https://esempio.com/porto1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/porto2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/porto1.jpg",
+      "https://esempio.com/porto2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Il nuovo progetto del porto di Palermo",
         "url": "https://esempio.com/articolo5"
       }
     ]
@@ -180,17 +164,12 @@
     "startDate": "2023-04-20",
     "endDate": "2026-12-01",
     "images": [
-      {
-        "url": "https://esempio.com/rimed1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/rimed2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/rimed1.jpg",
+      "https://esempio.com/rimed2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuovo centro RIMED: investimento per la ricerca",
         "url": "https://esempio.com/articolo6"
       }
     ]
@@ -214,17 +193,12 @@
     "startDate": "2023-03-01",
     "endDate": "2025-10-30",
     "images": [
-      {
-        "url": "https://esempio.com/palasport1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/palasport2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/palasport1.jpg",
+      "https://esempio.com/palasport2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Palasport Fondo Patti: al via i lavori",
         "url": "https://esempio.com/articolo7"
       }
     ]
@@ -255,17 +229,12 @@
     "startDate": "2024-02-01",
     "endDate": "2026-07-15",
     "images": [
-      {
-        "url": "https://esempio.com/baseball1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/baseball2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/baseball1.jpg",
+      "https://esempio.com/baseball2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Lo stadio Diamante: un futuro rinnovato",
         "url": "https://esempio.com/articolo8"
       }
     ]
@@ -301,17 +270,12 @@
     "startDate": "2023-05-10",
     "endDate": "2025-09-30",
     "images": [
-      {
-        "url": "https://esempio.com/sperone1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/sperone2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/sperone1.jpg",
+      "https://esempio.com/sperone2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Parco dello Sperone: un nuovo polmone verde per la città",
         "url": "https://esempio.com/articolo9"
       }
     ]
@@ -352,17 +316,12 @@
     "startDate": "2023-07-15",
     "endDate": "2026-01-20",
     "images": [
-      {
-        "url": "https://esempio.com/portobandita1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/portobandita2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/portobandita1.jpg",
+      "https://esempio.com/portobandita2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Porto della Bandita: un progetto di rilancio",
         "url": "https://esempio.com/articolo10"
       }
     ]
@@ -385,17 +344,12 @@
     "startDate": "2024-03-15",
     "endDate": "2027-06-30",
     "images": [
-      {
-        "url": "https://esempio.com/ponte1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/ponte2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/ponte1.jpg",
+      "https://esempio.com/ponte2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Ponte Corleone: i lavori di ampliamento",
         "url": "https://esempio.com/articolo11"
       }
     ]
@@ -422,17 +376,12 @@
     "startDate": "2023-10-01",
     "endDate": "2026-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/stazione1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/stazione2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/stazione1.jpg",
+      "https://esempio.com/stazione2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuova stazione De Gasperi: lavori in corso",
         "url": "https://esempio.com/articolo12"
       }
     ]
@@ -461,17 +410,12 @@
     "startDate": "2024-05-01",
     "endDate": "2026-09-15",
     "images": [
-      {
-        "url": "https://esempio.com/piscina_olimpica1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/piscina_olimpica2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/piscina_olimpica1.jpg",
+      "https://esempio.com/piscina_olimpica2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Piscina olimpica: interventi in corso",
         "url": "https://esempio.com/articolo13"
       }
     ]
@@ -544,17 +488,12 @@
     "startDate": "2023-09-01",
     "endDate": "2026-04-30",
     "images": [
-      {
-        "url": "https://esempio.com/parco1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/parco2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/parco1.jpg",
+      "https://esempio.com/parco2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Parco Cassarà: i lavori di riqualificazione",
         "url": "https://esempio.com/articolo14"
       }
     ]
@@ -584,17 +523,12 @@
     "startDate": "2024-07-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/amianto1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/amianto2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/amianto1.jpg",
+      "https://esempio.com/amianto2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Bonifica amianto: interventi previsti",
         "url": "https://esempio.com/articolo15"
       }
     ]
@@ -623,17 +557,12 @@
     "startDate": "2024-03-01",
     "endDate": "2026-06-30",
     "images": [
-      {
-        "url": "https://esempio.com/portofermata1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/portofermata2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/portofermata1.jpg",
+      "https://esempio.com/portofermata2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuova fermata Porto: i lavori al via",
         "url": "https://esempio.com/articolo16"
       }
     ]
@@ -680,17 +609,12 @@
     "startDate": "2024-06-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/giardinoinglese1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/giardinoinglese2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/giardinoinglese1.jpg",
+      "https://esempio.com/giardinoinglese2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Giardino Inglese: ecco i lavori di riqualificazione",
         "url": "https://esempio.com/articolo17"
       }
     ]
@@ -731,17 +655,12 @@
     "startDate": "2024-02-01",
     "endDate": "2026-08-31",
     "images": [
-      {
-        "url": "https://esempio.com/giachery1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/giachery2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/giachery1.jpg",
+      "https://esempio.com/giachery2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuova Stazione Giachery: ecco il progetto",
         "url": "https://esempio.com/articolo18"
       }
     ]
@@ -780,17 +699,12 @@
     "startDate": "2024-09-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/benedettini1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/benedettini2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/benedettini1.jpg",
+      "https://esempio.com/benedettini2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Via dei Benedettini: nuovo look in arrivo",
         "url": "https://esempio.com/articolo19"
       }
     ]
@@ -819,17 +733,12 @@
     "startDate": "2024-05-01",
     "endDate": "2025-10-31",
     "images": [
-      {
-        "url": "https://esempio.com/skatepark1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/skatepark2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/skatepark1.jpg",
+      "https://esempio.com/skatepark2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuovo SkatePark: il progetto in dettaglio",
         "url": "https://esempio.com/articolo20"
       }
     ]
@@ -885,17 +794,12 @@
     "startDate": "2024-04-15",
     "endDate": "2026-07-30",
     "images": [
-      {
-        "url": "https://esempio.com/lungomare1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/lungomare2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/lungomare1.jpg",
+      "https://esempio.com/lungomare2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Lungomare Peppino Impastato: lavori di riqualificazione",
         "url": "https://esempio.com/articolo21"
       }
     ]
@@ -924,17 +828,12 @@
     "startDate": "2025-01-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/scogliera1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/scogliera2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/scogliera1.jpg",
+      "https://esempio.com/scogliera2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Lavori di messa in sicurezza della scogliera di Cinisi",
         "url": "https://esempio.com/articolo4"
       }
     ]
@@ -975,17 +874,12 @@
     "startDate": "2025-03-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/piazza1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/piazza2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/piazza1.jpg",
+      "https://esempio.com/piazza2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Lavori in Piazza di Mondelo",
         "url": "https://esempio.com/articolo5"
       }
     ]
@@ -1022,17 +916,12 @@
     "startDate": "2025-04-01",
     "endDate": "2027-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/ismett1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/ismett2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/ismett1.jpg",
+      "https://esempio.com/ismett2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Progetto ISMETT 2: Nuovo ospedale in arrivo",
         "url": "https://esempio.com/articolo6"
       }
     ]
@@ -1055,17 +944,12 @@
     "startDate": "2025-05-01",
     "endDate": "2025-11-30",
     "images": [
-      {
-        "url": "https://esempio.com/notarbartolo1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/notarbartolo2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/notarbartolo1.jpg",
+      "https://esempio.com/notarbartolo2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Lavori di ristrutturazione alla Stazione Notarbartolo",
         "url": "https://esempio.com/articolo7"
       }
     ]
@@ -1101,17 +985,12 @@
     "startDate": "2025-07-01",
     "endDate": "2025-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/terrasini1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/terrasini2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/terrasini1.jpg",
+      "https://esempio.com/terrasini2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Completamento sottopasso Terrasini",
         "url": "https://esempio.com/articolo8"
       }
     ]
@@ -1137,17 +1016,12 @@
     "startDate": "2025-08-01",
     "endDate": "2025-11-30",
     "images": [
-      {
-        "url": "https://esempio.com/villabate1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/villabate2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/villabate1.jpg",
+      "https://esempio.com/villabate2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Riqualificazione Piazza di Villabate",
         "url": "https://esempio.com/articolo9"
       }
     ]
@@ -1194,17 +1068,12 @@
     "startDate": "2025-07-01",
     "endDate": "2026-05-31",
     "images": [
-      {
-        "url": "https://esempio.com/fermataturrisi1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/fermataturrisi2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/fermataturrisi1.jpg",
+      "https://esempio.com/fermataturrisi2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuova fermata Turrisi-Colonna: il progetto",
         "url": "https://esempio.com/articolo10"
       }
     ]
@@ -1236,17 +1105,12 @@
     "startDate": "2025-01-01",
     "endDate": "2026-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/lumsa1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/lumsa2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/lumsa1.jpg",
+      "https://esempio.com/lumsa2.jpg"
     ],
     "related_articles": [
       {
+        "title": "La storia della LUMSA a Palermo",
         "url": "https://esempio.com/articolo11"
       }
     ]
@@ -1286,17 +1150,12 @@
     "startDate": "2025-05-01",
     "endDate": "2026-12-31",
     "images": [
-      {
-        "url": "https://esempio.com/fermata1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/fermata2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/fermata1.jpg",
+      "https://esempio.com/fermata2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Nuove fermate a Palermo",
         "url": "https://esempio.com/articolo12"
       }
     ]
@@ -1341,812 +1200,722 @@
     "startDate": "2025-06-01",
     "endDate": "2026-08-31",
     "images": [
-      {
-        "url": "https://esempio.com/vicolo1.jpg",
-        "source": "Esponente"
-      },
-      {
-        "url": "https://esempio.com/vicolo2.jpg",
-        "source": "Esponente"
-      }
+      "https://esempio.com/vicolo1.jpg",
+      "https://esempio.com/vicolo2.jpg"
     ],
     "related_articles": [
       {
+        "title": "Ristrutturazione del Vicolo Bernava",
         "url": "https://esempio.com/articolo13"
       }
     ]
   },
-    {
-      "id": "lavoro_032",
-      "name": "Stazione Centrale Palermo",
-      "coordinates": [
-        [38.10989895943922, 13.366650687441933],
-        [38.109489913582195, 13.366961534678836],
-        [38.109751365837525, 13.36752963480157],
-        [38.11016884411106, 13.367229506435137],
-        [38.10989895943922, 13.366650687441933]
-      ],
-      "color": "orange",
-      "stato": "non disponibile",
-      "importo": "non disponibile",
-      "description": "Intervento per la ristrutturazione e miglioramento delle strutture della Stazione Centrale di Palermo.",
-      "address": "Stazione Centrale, Palermo",
-      "startDate": "2025-06-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/stazione1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/stazione2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo14"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_033",
-      "name": "Entrata Stazione Centrale Palermo",
-      "coordinates": [
-        [38.10922900205669, 13.367984317736],
-        [38.10767010400888, 13.36917356192694],
-        [38.10740972742835, 13.36940645154719],
-        [38.10753895309455, 13.36962347101705],
-        [38.10773372626218, 13.36942822991594],
-        [38.10766689405423, 13.3693111741492],
-        [38.10851897256046, 13.36865217476544],
-        [38.10926459194716, 13.36806417367706],
-        [38.10922900205669, 13.367984317736]
-      ],
-      "color": "green",
-      "stato": "non disponibile",
-      "importo": "non disponibile",
-      "description": "Ristrutturazione dell'entrata principale della Stazione Centrale di Palermo.",
-      "address": "Entrata Stazione Centrale, Palermo",
-      "startDate": "2025-07-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/entrata1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/entrata2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo15"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_034",
-      "name": "Nuova Fermata Libertà",
-      "coordinates": [
-        [38.14344771255549, 13.34168077847063],
-        [38.14338322439399, 13.34172146148648],
-        [38.1434549652978, 13.34188854277121],
-        [38.14354593565412, 13.34214415327729],
-        [38.14358193857428, 13.34212512732272],
-        [38.14344771255549, 13.34168077847063]
-      ],
-      "color": "green",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Costruzione della nuova fermata nella zona della Libertà a Palermo.",
-      "address": "Fermata Libertà, Palermo",
-      "startDate": "2025-08-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/fermata1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/fermata2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo16"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_035",
-      "name": "Rotonda Piazza Durante",
-      "coordinates": [
-        [38.10414473176067, 13.362923494922569],
-        [38.104034980245046, 13.362840346443363],
-        [38.103883016336084, 13.362875215160585],
-        [38.103815476719234, 13.363057605373399],
-        [38.10390412245292, 13.36326681767676],
-        [38.10404553328229, 13.363269499885263],
-        [38.10415950599034, 13.36310052071721],
-        [38.10415950599034, 13.363025418865817],
-        [38.10414473176067, 13.362923494922569]
-      ],
-      "color": "yellow",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Ristrutturazione della rotonda in Piazza Durante, Palermo.",
-      "address": "Piazza Durante, Palermo",
-      "startDate": "2025-09-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/rotonda1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/rotonda2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo17"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_036",
-      "name": "Nuovo Parcheggio di interscambio",
-      "coordinates": [
-        [38.087720981764875, 13.40596506628134],
-        [38.08765084846269, 13.406169488422307],
-        [38.0874156951335, 13.40640536012279],
-        [38.0874363226483, 13.4064630176496],
-        [38.08721767068957, 13.40699241857854],
-        [38.08709390514073, 13.407217807093332],
-        [38.086755611570396, 13.406971452204743],
-        [38.0867102306066, 13.406940002645229],
-        [38.08657408754519, 13.407804865547917],
-        [38.08645857537442, 13.408716905264981],
-        [38.08639669198314, 13.4098281230562],
-        [38.08661122084834, 13.409948679703177],
-        [38.08740744747723, 13.407238775939362],
-        [38.087774717290586, 13.405996196857302],
-        [38.087720981764875, 13.40596506628134]
-      ],
-      "color": "yellow",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Costruzione di un nuovo parcheggio di interscambio in zona Palermo.",
-      "address": "Parcheggio Interscambio, Palermo",
-      "startDate": "2025-09-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/parcheggio1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/parcheggio2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo18"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_037",
-      "name": "Svincolo Brancaccio Stralcio 1",
-      "coordinates": [
-        [38.08603499133153, 13.41201029274751],
-        [38.086179386543364, 13.411915944067772],
-        [38.08628665137351, 13.411915944067772],
-        [38.08631553033979, 13.411648622806553],
-        [38.08620413998008, 13.411632898026227],
-        [38.08633203260024, 13.410757551936655],
-        [38.08634028372953, 13.410322499688561],
-        [38.086405885865105, 13.40967470930434],
-        [38.08644301590107, 13.408888470301122],
-        [38.08652965257957, 13.408039332178731],
-        [38.086715532477115, 13.406927892557434],
-        [38.08683104759447, 13.406241243828532],
-        [38.08692593487541, 13.40596868097495],
-        [38.087189968400025, 13.405769500427425],
-        [38.08750375350394, 13.405742983023913],
-        [38.0873717374275, 13.405611943190024],
-        [38.087194340448434, 13.405638151157234],
-        [38.086983938823494, 13.405748224617383],
-        [38.08680654090344, 13.405989337911336],
-        [38.08669515129185, 13.405758707804239],
-        [38.08671165346746, 13.405470420169308],
-        [38.08690142821624, 13.405276481216276],
-        [38.086814790915696, 13.404552143939384],
-        [38.08690142638943, 13.40317360287699],
-        [38.08695505829451, 13.403734453365473],
-        [38.08707057303337, 13.404714631322747],
-        [38.087293350941906, 13.405317414557715],
-        [38.08737998661269, 13.405364588898692],
-        [38.08742536716073, 13.405259757030933],
-        [38.0871984641378, 13.40482994637631],
-        [38.08709532616743, 13.404179988800394],
-        [38.08697981146855, 13.403257468370981],
-        [38.08697568594013, 13.40243977980819],
-        [38.08719433786635, 13.399981468785484],
-        [38.08729747235293, 13.398723485905919],
-        [38.087252091725446, 13.398576721292756],
-        [38.08727684479808, 13.397879589376998],
-        [38.0872438406991, 13.397874347783528],
-        [38.08702106192703, 13.400537079501163],
-        [38.086707483320254, 13.404274481317827],
-        [38.086381564626976, 13.408248098777221],
-        [38.08603499133153, 13.41201029274751]
-      ],
-      "color": "yellow",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Realizzazione dello svincolo stradale Brancaccio Stralcio 1 a Palermo.",
-      "address": "Svincolo Brancaccio, Palermo",
-      "startDate": "2025-10-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/svincolo1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/svincolo2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo19"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_038",
-      "name": "Svincolo Brancaccio Stralcio 2",
-      "coordinates": [
-        [38.08684485685484, 13.398954814277857],
-        [38.08670416331259, 13.39897847294634],
-        [38.08672899160405, 13.399201915928188],
-        [38.08669588721335, 13.399611999518925],
-        [38.08659036686723, 13.400700298277656],
-        [38.08645144666568, 13.402010162224968],
-        [38.086376764910625, 13.4028346951699],
-        [38.08640573137964, 13.4028346951699],
-        [38.086337580296686, 13.403428279519488],
-        [38.0862610259598, 13.404471889681645],
-        [38.0862734399924, 13.404826770255056],
-        [38.08617826423483, 13.405857236712706],
-        [38.086153435755506, 13.406038619839535],
-        [38.08612860726862, 13.406340925050529],
-        [38.08608717809378, 13.406685166407982],
-        [38.08604372819573, 13.406982214136974],
-        [38.08596506315891, 13.407867740585402],
-        [38.08575195101457, 13.410213560836667],
-        [38.08560090839515, 13.412047450058452],
-        [38.08556767305694, 13.413444183760106],
-        [38.0855675016023, 13.414321188138445],
-        [38.085573708773126, 13.414912654855954],
-        [38.08561715849723, 13.41490493829312],
-        [38.08561922755226, 13.415651500726256],
-        [38.085625697698845, 13.416215726343154],
-        [38.08559259280855, 13.416255157457726],
-        [38.08561121422005, 13.41862656225993],
-        [38.08560500705329, 13.419057675777537],
-        [38.085654442077924, 13.423666919497606],
-        [38.08570616841962, 13.423538111189828],
-        [38.08570605135216, 13.421839795093064],
-        [38.0855964479492, 13.419402479389447],
-        [38.085693693541685, 13.418650659568868],
-        [38.08568990013367, 13.418136857184493],
-        [38.08569403821298, 13.417163346660232],
-        [38.08568349473492, 13.416003979649503],
-        [38.08567108041319, 13.414589717011182],
-        [38.085670974989625, 13.412662450833523],
-        [38.0856564917774, 13.411013925207385],
-        [38.08584063737956, 13.410322566333775],
-        [38.08598385497268, 13.408692560058768],
-        [38.086221793664066, 13.405958663800789],
-        [38.08635007269942, 13.404567958958154],
-        [38.08684485685484, 13.398954814277857]
-      ],
-      "color": "yellow",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Realizzazione dello svincolo stradale Brancaccio Stralcio 2 a Palermo.",
-      "address": "Svincolo Brancaccio, Palermo",
-      "startDate": "2025-10-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/svincolo2_1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/svincolo2_2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo20"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_039",
-      "name": "Termovalorizzatore Bellolampo",
-      "coordinates": [
-        [38.15006998473467, 13.280399171382527],
-        [38.14861850496598, 13.281405927345048],
-        [38.14743090912697, 13.282496579635819],
-        [38.14736493101316, 13.284971521375695],
-        [38.1480247094633, 13.28698503329852],
-        [38.15053181327497, 13.28836932242146],
-        [38.150168948337864, 13.284803728390727],
-        [38.15006998473467, 13.280399171382527]
-      ],
-      "color": "orange",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Costruzione del termovalorizzatore a Bellolampo, Palermo.",
-      "address": "Termovalorizzatore Bellolampo, Palermo",
-      "startDate": "2025-09-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/termovalorizzatore1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/termovalorizzatore2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo21"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_040",
-      "name": "Passerella pedonale",
-      "coordinates": [
-        [38.12755513161662, 13.363934659084975],
-        [38.12683980793773, 13.362333844902821],
-        [38.12669823262857, 13.3624948735482],
-        [38.12735394754003, 13.364048326364184],
-        [38.12755513161662, 13.363934659084975]
-      ],
-      "color": "yellow",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Costruzione della passerella pedonale a Palermo.",
-      "address": "Passerella pedonale, Palermo",
-      "startDate": "2025-11-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/passerella1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/passerella2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo22"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_041",
-      "name": "Ampliamento parcheggio P2 Aereoporto",
-      "coordinates": [
-        [38.18709966983732, 13.10325687344843],
-        [38.1868509011222, 13.103004745801144],
-        [38.18744119838482, 13.1047750037512],
-        [38.188086303494316, 13.106668643315771],
-        [38.18846555438364, 13.107824017614206],
-        [38.18852458301683, 13.10752897462308],
-        [38.1884824197121, 13.107282211393937],
-        [38.18830111722531, 13.106788684934571],
-        [38.188199924943234, 13.10657410821301],
-        [38.18812824699131, 13.106279065221912],
-        [38.18810716522751, 13.106177141279858],
-        [38.187643364878454, 13.104798485845947],
-        [38.187508440586384, 13.104487349599395],
-        [38.187423557363616, 13.104233814424703],
-        [38.18739404260688, 13.104035330957544],
-        [38.187254901449876, 13.103649092859456],
-        [38.18709966983732, 13.10325687344843]
-      ],
-      "color": "orange",
-      "stato": "dopo",
-      "importo": "informazione non disponibile",
-      "description": "Ampliamento del parcheggio P2 all'Aeroporto di Palermo.",
-      "address": "Aeroporto di Palermo, parcheggio P2",
-      "startDate": "2025-10-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/parcheggio1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/parcheggio2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo23"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_042",
-      "name": "Via Pantelleria",
-      "coordinates": [
-        [38.11876643588414, 13.363266793988146],
-        [38.11871979612414, 13.36318775022525],
-        [38.11865760973089, 13.363156697318573],
-        [38.118502143516395, 13.363215980141035],
-        [38.11855544625581, 13.363320430827486],
-        [38.11862429557024, 13.36334583775104],
-        [38.11884638968931, 13.363611198954345],
-        [38.1189285643423, 13.363726941607126],
-        [38.11893522714806, 13.363780578445244],
-        [38.11885971531521, 13.363899144090226],
-        [38.11901295983563, 13.364060054606995],
-        [38.11905959940836, 13.364026178708116],
-        [38.118972983035434, 13.363887852123923],
-        [38.119024064498745, 13.363789047420624],
-        [38.118828622184765, 13.363486987327434],
-        [38.118777540584745, 13.363385359631906],
-        [38.11876643588414, 13.363266793988146]
-      ],
-      "color": "yellow",
-      "stato": "Ripavimentazione",
-      "importo": "informazione non disponibile",
-      "description": "Lavori di ripavimentazione su Via Pantelleria a Palermo.",
-      "address": "Via Pantelleria, Palermo",
-      "startDate": "2025-11-01",
-      "endDate": "2026-12-31",
-      "images": [
-        {
-          "url": "https://esempio.com/pantelleria1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/pantelleria2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo24"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_043",
-      "name": "Parco del Fiume Oreto (Costa Sud)",
-      "coordinates": [
-        [38.111804956391694, 13.37854129871917],
-        [38.11140202328983, 13.378129671461238],
-        [38.11088676667322, 13.377786647590682],
-        [38.11033470197921, 13.377864607560895],
-        [38.11050645588645, 13.378503879319823],
-        [38.110051025690524, 13.378770079382463],
-        [38.1093885399772, 13.379627639058555],
-        [38.10866470612518, 13.380485198734675],
-        [38.10789179087379, 13.381358350405122],
-        [38.106885761947865, 13.382714853892338],
-        [38.106689462005306, 13.38363478154514],
-        [38.10661584934468, 13.384242869315173],
-        [38.106861224485954, 13.38438319726211],
-        [38.10812795970759, 13.38485876361105],
-        [38.10845307474722, 13.384172715870676],
-        [38.108729114725946, 13.383595812088458],
-        [38.10905422714117, 13.38316703225047],
-        [38.109348667325264, 13.383034500300681],
-        [38.10975352064119, 13.382714864421644],
-        [38.11021624557978, 13.381839005473779],
-        [38.110522949200316, 13.381020425782793],
-        [38.11060269193072, 13.381036017776381],
-        [38.11108114648462, 13.380872301838679],
-        [38.11212392119208, 13.379718494274329],
-        [38.112234331760106, 13.379546982339377],
-        [38.11201964439141, 13.3795080023543],
-        [38.111804956391694, 13.378938894569274],
-        [38.11187856377697, 13.378884322589784],
-        [38.111804956391694, 13.37854129871917]
-      ],
-      "color": "orange",
-      "stato": "Parco Oreto (Costa Sud)",
-      "importo": "informazione non disponibile",
-      "description": "Area di intervento per il miglioramento e la valorizzazione del Parco Oreto, con lavori di abbellimento e sistemazione degli spazi verdi.",
-      "address": "Parco Oreto, Costa Sud, Palermo",
-      "startDate": "2025-10-15",
-      "endDate": "2026-05-30",
-      "images": [
-        {
-          "url": "https://esempio.com/oreto1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/oreto2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo25"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_044",
-      "name": "Parco Libero Grassi",
-      "coordinates": [
-        [38.097945492306565, 13.423036387187153],
-        [38.098032495100284, 13.422218272683438],
-        [38.09688404988461, 13.421963993851591],
-        [38.09682314698321, 13.423124831997598],
-        [38.09690145070462, 13.424761061004943],
-        [38.096953653139025, 13.425966121557252],
-        [38.09671004145957, 13.42723751571802],
-        [38.09651863171308, 13.428674743900274],
-        [38.096214115174575, 13.430001416067796],
-        [38.09592560334178, 13.430998183441517],
-        [38.0948902335316, 13.433651527776561],
-        [38.09574289208825, 13.434093751833217],
-        [38.096726047258784, 13.431882631552469],
-        [38.09830080807052, 13.42994790130794],
-        [38.098876095468995, 13.429183692998151],
-        [38.099206701323055, 13.427901243235823],
-        [38.098849994943066, 13.426287125431628],
-        [38.09822357397496, 13.424373606460733],
-        [38.097945492306565, 13.423036387187153]
-      ],
-      "color": "orange",
-      "stato": "Parco Libero Grassi",
-      "importo": "informazione non disponibile",
-      "description": "Spazio verde pubblico che offre aree di svago e relax per la cittadinanza. Il parco è oggetto di interventi di miglioramento e valorizzazione.",
-      "address": "Parco Libero Grassi, Palermo",
-      "startDate": "2025-11-01",
-      "endDate": "2026-06-30",
-      "images": [
-        {
-          "url": "https://esempio.com/grassi1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/grassi2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo26"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_045",
-      "name": "Parco Villa Turrisi",
-      "coordinates": [
-        [38.127149259550265, 13.323003462801722],
-        [38.12860951050894, 13.32256762958076],
-        [38.12952373971808, 13.322147938331256],
-        [38.12985387523008, 13.32164753722543],
-        [38.12944755438798, 13.320646735013838],
-        [38.13005703480226, 13.32090500655238],
-        [38.12996815255926, 13.319371519292929],
-        [38.1299842312379, 13.319145525639385],
-        [38.13129205875492, 13.319032531841998],
-        [38.1314952143249, 13.315223026650017],
-        [38.13060640453239, 13.31528759453488],
-        [38.13053022033233, 13.314496637948423],
-        [38.13032706207642, 13.314189940496334],
-        [38.13027627242397, 13.313899385015702],
-        [38.12984455895264, 13.313996236842598],
-        [38.129857256444325, 13.314415928092927],
-        [38.12974297894152, 13.314367502179493],
-        [38.12969218888264, 13.31565885987095],
-        [38.12938744778839, 13.315691143813808],
-        [38.129374750215646, 13.31491632919878],
-        [38.12801609712048, 13.315013181025648],
-        [38.12804149273711, 13.314496637948423],
-        [38.12686058720661, 13.314528921890428],
-        [38.12665742144483, 13.314900193296921],
-        [38.125819345533955, 13.314496644017936],
-        [38.124866974865796, 13.316385254642938],
-        [38.12500665667437, 13.316498248441263],
-        [38.124879673222665, 13.316885655748763],
-        [38.12573045813036, 13.316853371805934],
-        [38.12574315633768, 13.317579760508323],
-        [38.126720911651915, 13.317579760508323],
-        [38.12694947594153, 13.317547476565466],
-        [38.127149259550265, 13.323003462801722]
-      ],
-      "color": "orange",
-      "stato": "Parco Villa Turrisi",
-      "importo": "informazione non disponibile",
-      "description": "Un parco pubblico con ampie aree verdi, destinato a migliorare la qualità della vita della comunità locale. Oggetto di interventi di restauro e valorizzazione.",
-      "address": "Parco Villa Turrisi, Palermo",
-      "startDate": "2025-09-01",
-      "endDate": "2026-03-31",
-      "images": [
-        {
-          "url": "https://esempio.com/turrisi1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/turrisi2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo27"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_046",
-      "name": "Impianto di depurazione Fondo Verde",
-      "coordinates": [
-        [38.18911411858545, 13.313342743668699],
-        [38.19033689914201, 13.313337804734516],
-        [38.19036019000143, 13.310616452053722],
-        [38.190061290078546, 13.310567062713062],
-        [38.189704161290365, 13.310947360637897],
-        [38.18934703075027, 13.31140668150735],
-        [38.189110236709695, 13.311964781059203],
-        [38.18911411858545, 13.313342743668699]
-      ],
-      "color": "yellow",
-      "stato": "Impianto di depurazione Fondo Verde",
-      "importo": "informazione non disponibile",
-      "description": "Il progetto prevede la costruzione e la gestione di un impianto di depurazione delle acque reflue nella zona di Fondo Verde per migliorare la qualità ambientale e supportare la sostenibilità del territorio.",
-      "address": "Fondo Verde, Palermo",
-      "startDate": "2025-10-01",
-      "endDate": "2026-05-31",
-      "images": [
-        {
-          "url": "https://esempio.com/fondoverde1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/fondoverde2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo28"
-        }
-      ]
-    },
-    {
-      "id": "lavoro_047",
-      "name": "Lungomare della Bandita",
-      "coordinates": [
-        [38.09961356206662, 13.405085518465626],
-        [38.09875952092844, 13.404615237739051],
-        [38.09867411626564, 13.405646237793036],
-        [38.09870258449817, 13.405953729036668],
-        [38.0984890724869, 13.406930465929037],
-        [38.09840366750805, 13.407237957173578],
-        [38.0980335781131, 13.407147518571833],
-        [38.097976641116446, 13.407653974738594],
-        [38.098417901678346, 13.40759971157786],
-        [38.09827555985254, 13.40890202743438],
-        [38.098076280831265, 13.410566097696176],
-        [38.09793393834002, 13.412302518838146],
-        [38.097763126984916, 13.41233869427927],
-        [38.097663486843885, 13.413333518892216],
-        [38.09779159557232, 13.413333518892216],
-        [38.09751887794732, 13.415998175162912],
-        [38.09737653437037, 13.417770771746035],
-        [38.09710608081053, 13.419579543769316],
-        [38.09692103306202, 13.420918035066904],
-        [38.096935275088924, 13.421965805887538],
-        [38.096935275088924, 13.423720314750085],
-        [38.09804555433897, 13.423521349826956],
-        [38.09784627468969, 13.422219033970407],
-        [38.0980597885783, 13.420446437387284],
-        [38.0982590676453, 13.41970484085823],
-        [38.097832040408775, 13.418890893447895],
-        [38.0979174460557, 13.417715191632311],
-        [38.09781780612431, 13.417371524947612],
-        [38.09784627458788, 13.416919331941557],
-        [38.097988617157796, 13.416105384531221],
-        [38.098145190844804, 13.413772078196445],
-        [38.09845834295987, 13.410914218399455],
-        [38.09891383141914, 13.40805638010724],
-        [38.09917004460564, 13.406754064250777],
-        [38.09936932051082, 13.405795415078927],
-        [38.09961356206662, 13.405085518465626]
-      ],
-      "color": "orange",
-      "stato": "Lungomare della Bandita",
-      "importo": "informazione non disponibile",
-      "description": "Il progetto riguarda la riqualificazione e l'ampliamento del lungomare della Bandita per migliorare l'accessibilità e l'area pedonale, favorendo il turismo e la valorizzazione del territorio.",
-      "address": "Lungomare della Bandita, Palermo",
-      "startDate": "2025-11-01",
-      "endDate": "2026-09-30",
-      "images": [
-        {
-          "url": "https://esempio.com/lungomarebandita1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/lungomarebandita2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo29"
+  {
+    "id": "lavoro_032",
+    "name": "Stazione Centrale Palermo",
+    "coordinates": [
+      [38.10989895943922, 13.366650687441933],
+      [38.109489913582195, 13.366961534678836],
+      [38.109751365837525, 13.36752963480157],
+      [38.11016884411106, 13.367229506435137],
+      [38.10989895943922, 13.366650687441933]
+    ],
+    "color": "orange",
+    "stato": "non disponibile",
+    "importo": "non disponibile",
+    "description": "Intervento per la ristrutturazione e miglioramento delle strutture della Stazione Centrale di Palermo.",
+    "address": "Stazione Centrale, Palermo",
+    "startDate": "2025-06-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/stazione1.jpg",
+      "https://esempio.com/stazione2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Ristrutturazione della Stazione Centrale di Palermo",
+        "url": "https://esempio.com/articolo14"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_033",
+    "name": "Entrata Stazione Centrale Palermo",
+    "coordinates": [
+      [38.10922900205669, 13.367984317736],
+      [38.10767010400888, 13.36917356192694],
+      [38.10740972742835, 13.36940645154719],
+      [38.10753895309455, 13.36962347101705],
+      [38.10773372626218, 13.36942822991594],
+      [38.10766689405423, 13.3693111741492],
+      [38.10851897256046, 13.36865217476544],
+      [38.10926459194716, 13.36806417367706],
+      [38.10922900205669, 13.367984317736]
+    ],
+    "color": "green",
+    "stato": "non disponibile",
+    "importo": "non disponibile",
+    "description": "Ristrutturazione dell'entrata principale della Stazione Centrale di Palermo.",
+    "address": "Entrata Stazione Centrale, Palermo",
+    "startDate": "2025-07-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/entrata1.jpg",
+      "https://esempio.com/entrata2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Progetti di rinnovamento per la Stazione Centrale",
+        "url": "https://esempio.com/articolo15"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_034",
+    "name": "Nuova Fermata Libertà",
+    "coordinates": [
+      [38.14344771255549, 13.34168077847063],
+      [38.14338322439399, 13.34172146148648],
+      [38.1434549652978, 13.34188854277121],
+      [38.14354593565412, 13.34214415327729],
+      [38.14358193857428, 13.34212512732272],
+      [38.14344771255549, 13.34168077847063]
+    ],
+    "color": "green",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Costruzione della nuova fermata nella zona della Libertà a Palermo.",
+    "address": "Fermata Libertà, Palermo",
+    "startDate": "2025-08-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/fermata1.jpg",
+      "https://esempio.com/fermata2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Nuove fermate per la linea 1 del tram di Palermo",
+        "url": "https://esempio.com/articolo16"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_035",
+    "name": "Rotonda Piazza Durante",
+    "coordinates": [
+      [38.10414473176067, 13.362923494922569],
+      [38.104034980245046, 13.362840346443363],
+      [38.103883016336084, 13.362875215160585],
+      [38.103815476719234, 13.363057605373399],
+      [38.10390412245292, 13.36326681767676],
+      [38.10404553328229, 13.363269499885263],
+      [38.10415950599034, 13.36310052071721],
+      [38.10415950599034, 13.363025418865817],
+      [38.10414473176067, 13.362923494922569]
+    ],
+    "color": "yellow",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Ristrutturazione della rotonda in Piazza Durante, Palermo.",
+    "address": "Piazza Durante, Palermo",
+    "startDate": "2025-09-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/rotonda1.jpg",
+      "https://esempio.com/rotonda2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Nuovi interventi urbanistici in Piazza Durante",
+        "url": "https://esempio.com/articolo17"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_036",
+    "name": "Nuovo Parcheggio di interscambio",
+    "coordinates": [
+      [38.087720981764875, 13.40596506628134],
+      [38.08765084846269, 13.406169488422307],
+      [38.0874156951335, 13.40640536012279],
+      [38.0874363226483, 13.4064630176496],
+      [38.08721767068957, 13.40699241857854],
+      [38.08709390514073, 13.407217807093332],
+      [38.086755611570396, 13.406971452204743],
+      [38.0867102306066, 13.406940002645229],
+      [38.08657408754519, 13.407804865547917],
+      [38.08645857537442, 13.408716905264981],
+      [38.08639669198314, 13.4098281230562],
+      [38.08661122084834, 13.409948679703177],
+      [38.08740744747723, 13.407238775939362],
+      [38.087774717290586, 13.405996196857302],
+      [38.087720981764875, 13.40596506628134]
+    ],
+    "color": "yellow",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Costruzione di un nuovo parcheggio di interscambio in zona Palermo.",
+    "address": "Parcheggio Interscambio, Palermo",
+    "startDate": "2025-09-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/parcheggio1.jpg",
+      "https://esempio.com/parcheggio2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Progetti di parcheggi interscambio a Palermo",
+        "url": "https://esempio.com/articolo18"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_037",
+    "name": "Svincolo Brancaccio Stralcio 1",
+    "coordinates": [
+      [38.08603499133153, 13.41201029274751],
+      [38.086179386543364, 13.411915944067772],
+      [38.08628665137351, 13.411915944067772],
+      [38.08631553033979, 13.411648622806553],
+      [38.08620413998008, 13.411632898026227],
+      [38.08633203260024, 13.410757551936655],
+      [38.08634028372953, 13.410322499688561],
+      [38.086405885865105, 13.40967470930434],
+      [38.08644301590107, 13.408888470301122],
+      [38.08652965257957, 13.408039332178731],
+      [38.086715532477115, 13.406927892557434],
+      [38.08683104759447, 13.406241243828532],
+      [38.08692593487541, 13.40596868097495],
+      [38.087189968400025, 13.405769500427425],
+      [38.08750375350394, 13.405742983023913],
+      [38.0873717374275, 13.405611943190024],
+      [38.087194340448434, 13.405638151157234],
+      [38.086983938823494, 13.405748224617383],
+      [38.08680654090344, 13.405989337911336],
+      [38.08669515129185, 13.405758707804239],
+      [38.08671165346746, 13.405470420169308],
+      [38.08690142821624, 13.405276481216276],
+      [38.086814790915696, 13.404552143939384],
+      [38.08690142638943, 13.40317360287699],
+      [38.08695505829451, 13.403734453365473],
+      [38.08707057303337, 13.404714631322747],
+      [38.087293350941906, 13.405317414557715],
+      [38.08737998661269, 13.405364588898692],
+      [38.08742536716073, 13.405259757030933],
+      [38.0871984641378, 13.40482994637631],
+      [38.08709532616743, 13.404179988800394],
+      [38.08697981146855, 13.403257468370981],
+      [38.08697568594013, 13.40243977980819],
+      [38.08719433786635, 13.399981468785484],
+      [38.08729747235293, 13.398723485905919],
+      [38.087252091725446, 13.398576721292756],
+      [38.08727684479808, 13.397879589376998],
+      [38.0872438406991, 13.397874347783528],
+      [38.08702106192703, 13.400537079501163],
+      [38.086707483320254, 13.404274481317827],
+      [38.086381564626976, 13.408248098777221],
+      [38.08603499133153, 13.41201029274751]
+    ],
+    "color": "yellow",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Realizzazione dello svincolo stradale Brancaccio Stralcio 1 a Palermo.",
+    "address": "Svincolo Brancaccio, Palermo",
+    "startDate": "2025-10-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/svincolo1.jpg",
+      "https://esempio.com/svincolo2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Lavori di viabilità a Brancaccio",
+        "url": "https://esempio.com/articolo19"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_038",
+    "name": "Svincolo Brancaccio Stralcio 2",
+    "coordinates": [
+      [38.08684485685484, 13.398954814277857],
+      [38.08670416331259, 13.39897847294634],
+      [38.08672899160405, 13.399201915928188],
+      [38.08669588721335, 13.399611999518925],
+      [38.08659036686723, 13.400700298277656],
+      [38.08645144666568, 13.402010162224968],
+      [38.086376764910625, 13.4028346951699],
+      [38.08640573137964, 13.4028346951699],
+      [38.086337580296686, 13.403428279519488],
+      [38.0862610259598, 13.404471889681645],
+      [38.0862734399924, 13.404826770255056],
+      [38.08617826423483, 13.405857236712706],
+      [38.086153435755506, 13.406038619839535],
+      [38.08612860726862, 13.406340925050529],
+      [38.08608717809378, 13.406685166407982],
+      [38.08604372819573, 13.406982214136974],
+      [38.08596506315891, 13.407867740585402],
+      [38.08575195101457, 13.410213560836667],
+      [38.08560090839515, 13.412047450058452],
+      [38.08556767305694, 13.413444183760106],
+      [38.0855675016023, 13.414321188138445],
+      [38.085573708773126, 13.414912654855954],
+      [38.08561715849723, 13.41490493829312],
+      [38.08561922755226, 13.415651500726256],
+      [38.085625697698845, 13.416215726343154],
+      [38.08559259280855, 13.416255157457726],
+      [38.08561121422005, 13.41862656225993],
+      [38.08560500705329, 13.419057675777537],
+      [38.085654442077924, 13.423666919497606],
+      [38.08570616841962, 13.423538111189828],
+      [38.08570605135216, 13.421839795093064],
+      [38.0855964479492, 13.419402479389447],
+      [38.085693693541685, 13.418650659568868],
+      [38.08568990013367, 13.418136857184493],
+      [38.08569403821298, 13.417163346660232],
+      [38.08568349473492, 13.416003979649503],
+      [38.08567108041319, 13.414589717011182],
+      [38.085670974989625, 13.412662450833523],
+      [38.0856564917774, 13.411013925207385],
+      [38.08584063737956, 13.410322566333775],
+      [38.08598385497268, 13.408692560058768],
+      [38.086221793664066, 13.405958663800789],
+      [38.08635007269942, 13.404567958958154],
+      [38.08684485685484, 13.398954814277857]
+    ],
+    "color": "yellow",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Realizzazione dello svincolo stradale Brancaccio Stralcio 2 a Palermo.",
+    "address": "Svincolo Brancaccio, Palermo",
+    "startDate": "2025-10-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/svincolo2_1.jpg",
+      "https://esempio.com/svincolo2_2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Sviluppo della viabilità a Brancaccio: Stralcio 2",
+        "url": "https://esempio.com/articolo20"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_039",
+    "name": "Termovalorizzatore Bellolampo",
+    "coordinates": [
+      [38.15006998473467, 13.280399171382527],
+      [38.14861850496598, 13.281405927345048],
+      [38.14743090912697, 13.282496579635819],
+      [38.14736493101316, 13.284971521375695],
+      [38.1480247094633, 13.28698503329852],
+      [38.15053181327497, 13.28836932242146],
+      [38.150168948337864, 13.284803728390727],
+      [38.15006998473467, 13.280399171382527]
+    ],
+    "color": "orange",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Costruzione del termovalorizzatore a Bellolampo, Palermo.",
+    "address": "Termovalorizzatore Bellolampo, Palermo",
+    "startDate": "2025-09-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/termovalorizzatore1.jpg",
+      "https://esempio.com/termovalorizzatore2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "La nuova centrale a biomasse di Bellolampo",
+        "url": "https://esempio.com/articolo21"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_040",
+    "name": "Passerella pedonale",
+    "coordinates": [
+      [38.12755513161662, 13.363934659084975],
+      [38.12683980793773, 13.362333844902821],
+      [38.12669823262857, 13.3624948735482],
+      [38.12735394754003, 13.364048326364184],
+      [38.12755513161662, 13.363934659084975]
+    ],
+    "color": "yellow",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Costruzione della passerella pedonale a Palermo.",
+    "address": "Passerella pedonale, Palermo",
+    "startDate": "2025-11-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/passerella1.jpg",
+      "https://esempio.com/passerella2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Nuove passerelle pedonali in città",
+        "url": "https://esempio.com/articolo22"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_041",
+    "name": "Ampliamento parcheggio P2 Aereoporto",
+    "coordinates": [
+      [38.18709966983732, 13.10325687344843],
+      [38.1868509011222, 13.103004745801144],
+      [38.18744119838482, 13.1047750037512],
+      [38.188086303494316, 13.106668643315771],
+      [38.18846555438364, 13.107824017614206],
+      [38.18852458301683, 13.10752897462308],
+      [38.1884824197121, 13.107282211393937],
+      [38.18830111722531, 13.106788684934571],
+      [38.188199924943234, 13.10657410821301],
+      [38.18812824699131, 13.106279065221912],
+      [38.18810716522751, 13.106177141279858],
+      [38.187643364878454, 13.104798485845947],
+      [38.187508440586384, 13.104487349599395],
+      [38.187423557363616, 13.104233814424703],
+      [38.18739404260688, 13.104035330957544],
+      [38.187254901449876, 13.103649092859456],
+      [38.18709966983732, 13.10325687344843]
+    ],
+    "color": "orange",
+    "stato": "dopo",
+    "importo": "informazione non disponibile",
+    "description": "Ampliamento del parcheggio P2 all'Aeroporto di Palermo.",
+    "address": "Aeroporto di Palermo, parcheggio P2",
+    "startDate": "2025-10-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/parcheggio1.jpg",
+      "https://esempio.com/parcheggio2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Espansione dei parcheggi all'Aeroporto di Palermo",
+        "url": "https://esempio.com/articolo23"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_042",
+    "name": "Via Pantelleria",
+    "coordinates": [
+      [38.11876643588414, 13.363266793988146],
+      [38.11871979612414, 13.36318775022525],
+      [38.11865760973089, 13.363156697318573],
+      [38.118502143516395, 13.363215980141035],
+      [38.11855544625581, 13.363320430827486],
+      [38.11862429557024, 13.36334583775104],
+      [38.11884638968931, 13.363611198954345],
+      [38.1189285643423, 13.363726941607126],
+      [38.11893522714806, 13.363780578445244],
+      [38.11885971531521, 13.363899144090226],
+      [38.11901295983563, 13.364060054606995],
+      [38.11905959940836, 13.364026178708116],
+      [38.118972983035434, 13.363887852123923],
+      [38.119024064498745, 13.363789047420624],
+      [38.118828622184765, 13.363486987327434],
+      [38.118777540584745, 13.363385359631906],
+      [38.11876643588414, 13.363266793988146]
+    ],
+    "color": "yellow",
+    "stato": "Ripavimentazione",
+    "importo": "informazione non disponibile",
+    "description": "Lavori di ripavimentazione su Via Pantelleria a Palermo.",
+    "address": "Via Pantelleria, Palermo",
+    "startDate": "2025-11-01",
+    "endDate": "2026-12-31",
+    "images": [
+      "https://esempio.com/pantelleria1.jpg",
+      "https://esempio.com/pantelleria2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Lavori di ripavimentazione in Via Pantelleria",
+        "url": "https://esempio.com/articolo24"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_043",
+    "name": "Parco del Fiume Oreto (Costa Sud)",
+    "coordinates": [
+      [38.111804956391694, 13.37854129871917],
+      [38.11140202328983, 13.378129671461238],
+      [38.11088676667322, 13.377786647590682],
+      [38.11033470197921, 13.377864607560895],
+      [38.11050645588645, 13.378503879319823],
+      [38.110051025690524, 13.378770079382463],
+      [38.1093885399772, 13.379627639058555],
+      [38.10866470612518, 13.380485198734675],
+      [38.10789179087379, 13.381358350405122],
+      [38.106885761947865, 13.382714853892338],
+      [38.106689462005306, 13.38363478154514],
+      [38.10661584934468, 13.384242869315173],
+      [38.106861224485954, 13.38438319726211],
+      [38.10812795970759, 13.38485876361105],
+      [38.10845307474722, 13.384172715870676],
+      [38.108729114725946, 13.383595812088458],
+      [38.10905422714117, 13.38316703225047],
+      [38.109348667325264, 13.383034500300681],
+      [38.10975352064119, 13.382714864421644],
+      [38.11021624557978, 13.381839005473779],
+      [38.110522949200316, 13.381020425782793],
+      [38.11060269193072, 13.381036017776381],
+      [38.11108114648462, 13.380872301838679],
+      [38.11212392119208, 13.379718494274329],
+      [38.112234331760106, 13.379546982339377],
+      [38.11201964439141, 13.3795080023543],
+      [38.111804956391694, 13.378938894569274],
+      [38.11187856377697, 13.378884322589784],
+      [38.111804956391694, 13.37854129871917]
+    ],
+    "color": "orange",
+    "stato": "Parco Oreto (Costa Sud)",
+    "importo": "informazione non disponibile",
+    "description": "Area di intervento per il miglioramento e la valorizzazione del Parco Oreto, con lavori di abbellimento e sistemazione degli spazi verdi.",
+    "address": "Parco Oreto, Costa Sud, Palermo",
+    "startDate": "2025-10-15",
+    "endDate": "2026-05-30",
+    "images": [
+      "https://esempio.com/oreto1.jpg",
+      "https://esempio.com/oreto2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Progetto di riqualificazione del Parco Oreto",
+        "url": "https://esempio.com/articolo25"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_044",
+    "name": "Parco Libero Grassi",
+    "coordinates": [
+      [38.097945492306565, 13.423036387187153],
+      [38.098032495100284, 13.422218272683438],
+      [38.09688404988461, 13.421963993851591],
+      [38.09682314698321, 13.423124831997598],
+      [38.09690145070462, 13.424761061004943],
+      [38.096953653139025, 13.425966121557252],
+      [38.09671004145957, 13.42723751571802],
+      [38.09651863171308, 13.428674743900274],
+      [38.096214115174575, 13.430001416067796],
+      [38.09592560334178, 13.430998183441517],
+      [38.0948902335316, 13.433651527776561],
+      [38.09574289208825, 13.434093751833217],
+      [38.096726047258784, 13.431882631552469],
+      [38.09830080807052, 13.42994790130794],
+      [38.098876095468995, 13.429183692998151],
+      [38.099206701323055, 13.427901243235823],
+      [38.098849994943066, 13.426287125431628],
+      [38.09822357397496, 13.424373606460733],
+      [38.097945492306565, 13.423036387187153]
+    ],
+    "color": "orange",
+    "stato": "Parco Libero Grassi",
+    "importo": "informazione non disponibile",
+    "description": "Spazio verde pubblico che offre aree di svago e relax per la cittadinanza. Il parco è oggetto di interventi di miglioramento e valorizzazione.",
+    "address": "Parco Libero Grassi, Palermo",
+    "startDate": "2025-11-01",
+    "endDate": "2026-06-30",
+    "images": [
+      "https://esempio.com/grassi1.jpg",
+      "https://esempio.com/grassi2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Il parco che cambia: il progetto di riqualificazione del Parco Libero Grassi",
+        "url": "https://esempio.com/articolo26"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_045",
+    "name": "Parco Villa Turrisi",
+    "coordinates": [
+      [38.127149259550265, 13.323003462801722],
+      [38.12860951050894, 13.32256762958076],
+      [38.12952373971808, 13.322147938331256],
+      [38.12985387523008, 13.32164753722543],
+      [38.12944755438798, 13.320646735013838],
+      [38.13005703480226, 13.32090500655238],
+      [38.12996815255926, 13.319371519292929],
+      [38.1299842312379, 13.319145525639385],
+      [38.13129205875492, 13.319032531841998],
+      [38.1314952143249, 13.315223026650017],
+      [38.13060640453239, 13.31528759453488],
+      [38.13053022033233, 13.314496637948423],
+      [38.13032706207642, 13.314189940496334],
+      [38.13027627242397, 13.313899385015702],
+      [38.12984455895264, 13.313996236842598],
+      [38.129857256444325, 13.314415928092927],
+      [38.12974297894152, 13.314367502179493],
+      [38.12969218888264, 13.31565885987095],
+      [38.12938744778839, 13.315691143813808],
+      [38.129374750215646, 13.31491632919878],
+      [38.12801609712048, 13.315013181025648],
+      [38.12804149273711, 13.314496637948423],
+      [38.12686058720661, 13.314528921890428],
+      [38.12665742144483, 13.314900193296921],
+      [38.125819345533955, 13.314496644017936],
+      [38.124866974865796, 13.316385254642938],
+      [38.12500665667437, 13.316498248441263],
+      [38.124879673222665, 13.316885655748763],
+      [38.12573045813036, 13.316853371805934],
+      [38.12574315633768, 13.317579760508323],
+      [38.126720911651915, 13.317579760508323],
+      [38.12694947594153, 13.317547476565466],
+      [38.127149259550265, 13.323003462801722]
+    ],
+    "color": "orange",
+    "stato": "Parco Villa Turrisi",
+    "importo": "informazione non disponibile",
+    "description": "Un parco pubblico con ampie aree verdi, destinato a migliorare la qualità della vita della comunità locale. Oggetto di interventi di restauro e valorizzazione.",
+    "address": "Parco Villa Turrisi, Palermo",
+    "startDate": "2025-09-01",
+    "endDate": "2026-03-31",
+    "images": [
+      "https://esempio.com/turrisi1.jpg",
+      "https://esempio.com/turrisi2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Il restauro del Parco Villa Turrisi: un nuovo spazio per la città",
+        "url": "https://esempio.com/articolo27"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_046",
+    "name": "Impianto di depurazione Fondo Verde",
+    "coordinates": [
+      [38.18911411858545, 13.313342743668699],
+      [38.19033689914201, 13.313337804734516],
+      [38.19036019000143, 13.310616452053722],
+      [38.190061290078546, 13.310567062713062],
+      [38.189704161290365, 13.310947360637897],
+      [38.18934703075027, 13.31140668150735],
+      [38.189110236709695, 13.311964781059203],
+      [38.18911411858545, 13.313342743668699]
+    ],
+    "color": "yellow",
+    "stato": "Impianto di depurazione Fondo Verde",
+    "importo": "informazione non disponibile",
+    "description": "Il progetto prevede la costruzione e la gestione di un impianto di depurazione delle acque reflue nella zona di Fondo Verde per migliorare la qualità ambientale e supportare la sostenibilità del territorio.",
+    "address": "Fondo Verde, Palermo",
+    "startDate": "2025-10-01",
+    "endDate": "2026-05-31",
+    "images": [
+      "https://esempio.com/fondoverde1.jpg",
+      "https://esempio.com/fondoverde2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Il futuro del depuratore di Fondo Verde: un passo verso la sostenibilità",
+        "url": "https://esempio.com/articolo28"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_047",
+    "name": "Lungomare della Bandita",
+    "coordinates": [
+      [38.09961356206662, 13.405085518465626],
+      [38.09875952092844, 13.404615237739051],
+      [38.09867411626564, 13.405646237793036],
+      [38.09870258449817, 13.405953729036668],
+      [38.0984890724869, 13.406930465929037],
+      [38.09840366750805, 13.407237957173578],
+      [38.0980335781131, 13.407147518571833],
+      [38.097976641116446, 13.407653974738594],
+      [38.098417901678346, 13.40759971157786],
+      [38.09827555985254, 13.40890202743438],
+      [38.098076280831265, 13.410566097696176],
+      [38.09793393834002, 13.412302518838146],
+      [38.097763126984916, 13.41233869427927],
+      [38.097663486843885, 13.413333518892216],
+      [38.09779159557232, 13.413333518892216],
+      [38.09751887794732, 13.415998175162912],
+      [38.09737653437037, 13.417770771746035],
+      [38.09710608081053, 13.419579543769316],
+      [38.09692103306202, 13.420918035066904],
+      [38.096935275088924, 13.421965805887538],
+      [38.096935275088924, 13.423720314750085],
+      [38.09804555433897, 13.423521349826956],
+      [38.09784627468969, 13.422219033970407],
+      [38.0980597885783, 13.420446437387284],
+      [38.0982590676453, 13.41970484085823],
+      [38.097832040408775, 13.418890893447895],
+      [38.0979174460557, 13.417715191632311],
+      [38.09781780612431, 13.417371524947612],
+      [38.09784627458788, 13.416919331941557],
+      [38.097988617157796, 13.416105384531221],
+      [38.098145190844804, 13.413772078196445],
+      [38.09845834295987, 13.410914218399455],
+      [38.09891383141914, 13.40805638010724],
+      [38.09917004460564, 13.406754064250777],
+      [38.09936932051082, 13.405795415078927],
+      [38.09961356206662, 13.405085518465626]
+    ],
+    "color": "orange",
+    "stato": "Lungomare della Bandita",
+    "importo": "informazione non disponibile",
+    "description": "Il progetto riguarda la riqualificazione e l'ampliamento del lungomare della Bandita per migliorare l'accessibilità e l'area pedonale, favorendo il turismo e la valorizzazione del territorio.",
+    "address": "Lungomare della Bandita, Palermo",
+    "startDate": "2025-11-01",
+    "endDate": "2026-09-30",
+    "images": [
+      "https://esempio.com/lungomarebandita1.jpg",
+      "https://esempio.com/lungomarebandita2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Rinnovato il lungomare della Bandita: il progetto",
+        "url": "https://esempio.com/articolo29"
+      }
+    ]
+  },
+  {
+    "id": "lavoro_048",
+    "name": "Nuova fermata Viale Lazio",
+    "coordinates": [
+      [38.14123884091877, 13.33513122233849],
+      [38.14136430483504, 13.33549366537611],
+      [38.14162519833039, 13.33528320175128],
+      [38.14148160243634, 13.33506077155746],
+      [38.14195603708112, 13.33459361976091],
+      [38.1421350213047, 13.33442634878928],
+      [38.14245039631826, 13.33411447243687],
+      [38.14279220002803, 13.33374389373219],
+      [38.14272676566844, 13.33365868097534],
+      [38.14236070263335, 13.33399459415481],
+      [38.14234707959118, 13.3340733870717],
+      [38.14202894605324, 13.33436869740707],
+      [38.14152279218582, 13.33486828042842],
+      [38.14123884091877, 13.33513122233849]
+    ],
+    "color": "yellow",
+    "stato": "Nuova fermata della metropolitana in costruzione.",
+    "importo": "informazione non disponibile",
+    "description": "Progetto di realizzazione della fermata Viale Lazio per migliorare la mobilità cittadina.",
+    "address": "Viale Lazio, Palermo",
+    "startDate": "2024-08-01",
+    "endDate": "2027-01-31",
+    "images": [
+      "https://esempio.com/vialelazio1.jpg",
+      "https://esempio.com/vialelazio2.jpg"
+    ],
+    "related_articles": [
+      {
+        "title": "Nuova fermata Viale Lazio: lavori in corso",
+        "url": "https://esempio.com/articolo22"
+      }
+          ]
         }
       ]
-    },
-    {
-      "id": "lavoro_048",
-      "name": "Nuova fermata Viale Lazio",
-      "coordinates": [
-        [38.14123884091877, 13.33513122233849],
-        [38.14136430483504, 13.33549366537611],
-        [38.14162519833039, 13.33528320175128],
-        [38.14148160243634, 13.33506077155746],
-        [38.14195603708112, 13.33459361976091],
-        [38.1421350213047, 13.33442634878928],
-        [38.14245039631826, 13.33411447243687],
-        [38.14279220002803, 13.33374389373219],
-        [38.14272676566844, 13.33365868097534],
-        [38.14236070263335, 13.33399459415481],
-        [38.14234707959118, 13.3340733870717],
-        [38.14202894605324, 13.33436869740707],
-        [38.14152279218582, 13.33486828042842],
-        [38.14123884091877, 13.33513122233849]
-      ],
-      "color": "yellow",
-      "stato": "Nuova fermata della metropolitana in costruzione.",
-      "importo": "informazione non disponibile",
-      "description": "Progetto di realizzazione della fermata Viale Lazio per migliorare la mobilità cittadina.",
-      "address": "Viale Lazio, Palermo",
-      "startDate": "2024-08-01",
-      "endDate": "2027-01-31",
-      "images": [
-        {
-          "url": "https://esempio.com/vialelazio1.jpg",
-          "source": "Esponente"
-        },
-        {
-          "url": "https://esempio.com/vialelazio2.jpg",
-          "source": "Esponente"
-        }
-      ],
-      "related_articles": [
-        {
-          "url": "https://esempio.com/articolo22"
-        }
-      ]
-    }
-  ]
- 
+          

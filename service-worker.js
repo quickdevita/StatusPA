@@ -1,5 +1,5 @@
 // Versione del service worker
-const SW_VERSION = '0.0.79'; // Incrementa il numero della versione
+const SW_VERSION = '0.0.78'; // Incrementa il numero della versione
 const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
 const MAP_CACHE_NAME = `statuspa-map-cache-${SW_VERSION}`;
 const USER_PROFILE_CACHE_NAME = 'user-profile-cache'; // Cache separata per i dati utente

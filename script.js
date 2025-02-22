@@ -200,13 +200,15 @@ function openFullscreenImage(imgSrc, imageSource) {
   // Aggiunge immagine e pulsante al contenitore
   fullscreenContainer.appendChild(img);
   fullscreenContainer.appendChild(closeButton);
-  document.body.appendChild(fullscreenContainer);
 
   // Crea un elemento per la fonte
   const sourceElement = document.createElement("div");
   sourceElement.className = "image-source";
   sourceElement.innerText = imageSource;  // Imposta la fonte
   fullscreenContainer.appendChild(sourceElement);
+
+  // Ora aggiungi il contenitore al DOM
+document.body.appendChild(fullscreenContainer);
 
   // Chiudi l'immagine a schermo intero con un click sullo sfondo
   fullscreenContainer.addEventListener("click", (event) => {

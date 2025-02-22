@@ -21,17 +21,18 @@
     "startDate": "2023-06-01",
     "endDate": "2025-12-31",
     "images": [
-      "https://citynews-palermotoday.stgy.ovh/~media/horizontal-hi/55227462904273/anello-ferroviario-stazione-politeama.jpg",
-      "https://www.balarm.it/files/2025/01/15/db5f2221d786e3df7db8bdafdb1a88eeb5bffee3jpg"
+      {
+        "url": "https://citynews-palermotoday.stgy.ovh/~media/horizontal-hi/55227462904273/anello-ferroviario-stazione-politeama.jpg",
+        "source": "City News Palermo Today"
+      },
+      {
+        "url": "https://www.balarm.it/files/2025/01/15/db5f2221d786e3df7db8bdafdb1a88eeb5bffee3jpg",
+        "source": "Balarm"
+      }
     ],
     "related_articles": [
       {
-        "title": "Nuova metro a Palermo: ecco lo stato dei lavori",
         "url": "https://esempio.com/articolo1"
-      },
-      {
-        "title": "Intervista all'assessore sui tempi di completamento",
-        "url": "https://esempio.com/articolo2"
       }
     ]
   },
@@ -58,7 +59,7 @@
     ],
     "related_articles": [
       {
-        "title": "Piscina comunale: lavori in corso",
+        "source": "Piscina comunale: lavori in corso",
         "url": "https://esempio.com/articolo3"
       }
     ]
@@ -89,7 +90,7 @@
     ],
     "related_articles": [
       {
-        "title": "Foro Italico: i lavori fermi da anni",
+        "source": "Foro Italico: i lavori fermi da anni",
         "url": "https://esempio.com/articolo4"
       }
     ]
@@ -122,7 +123,7 @@
     ],
     "related_articles": [
       {
-        "title": "Il nuovo progetto del porto di Palermo",
+        "source": "Il nuovo progetto del porto di Palermo",
         "url": "https://esempio.com/articolo5"
       }
     ]
@@ -169,7 +170,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuovo centro RIMED: investimento per la ricerca",
+        "source": "Nuovo centro RIMED: investimento per la ricerca",
         "url": "https://esempio.com/articolo6"
       }
     ]
@@ -198,7 +199,7 @@
     ],
     "related_articles": [
       {
-        "title": "Palasport Fondo Patti: al via i lavori",
+        "source": "Palasport Fondo Patti: al via i lavori",
         "url": "https://esempio.com/articolo7"
       }
     ]
@@ -234,7 +235,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lo stadio Diamante: un futuro rinnovato",
+        "source": "Lo stadio Diamante: un futuro rinnovato",
         "url": "https://esempio.com/articolo8"
       }
     ]
@@ -275,7 +276,7 @@
     ],
     "related_articles": [
       {
-        "title": "Parco dello Sperone: un nuovo polmone verde per la città",
+        "source": "Parco dello Sperone: un nuovo polmone verde per la città",
         "url": "https://esempio.com/articolo9"
       }
     ]
@@ -321,7 +322,7 @@
     ],
     "related_articles": [
       {
-        "title": "Porto della Bandita: un progetto di rilancio",
+        "source": "Porto della Bandita: un progetto di rilancio",
         "url": "https://esempio.com/articolo10"
       }
     ]
@@ -349,7 +350,7 @@
     ],
     "related_articles": [
       {
-        "title": "Ponte Corleone: i lavori di ampliamento",
+        "source": "Ponte Corleone: i lavori di ampliamento",
         "url": "https://esempio.com/articolo11"
       }
     ]
@@ -381,7 +382,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuova stazione De Gasperi: lavori in corso",
+        "source": "Nuova stazione De Gasperi: lavori in corso",
         "url": "https://esempio.com/articolo12"
       }
     ]
@@ -415,7 +416,7 @@
     ],
     "related_articles": [
       {
-        "title": "Piscina olimpica: interventi in corso",
+        "source": "Piscina olimpica: interventi in corso",
         "url": "https://esempio.com/articolo13"
       }
     ]
@@ -493,7 +494,7 @@
     ],
     "related_articles": [
       {
-        "title": "Parco Cassarà: i lavori di riqualificazione",
+        "source": "Parco Cassarà: i lavori di riqualificazione",
         "url": "https://esempio.com/articolo14"
       }
     ]
@@ -528,7 +529,7 @@
     ],
     "related_articles": [
       {
-        "title": "Bonifica amianto: interventi previsti",
+        "source": "Bonifica amianto: interventi previsti",
         "url": "https://esempio.com/articolo15"
       }
     ]
@@ -562,7 +563,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuova fermata Porto: i lavori al via",
+        "source": "Nuova fermata Porto: i lavori al via",
         "url": "https://esempio.com/articolo16"
       }
     ]
@@ -614,7 +615,7 @@
     ],
     "related_articles": [
       {
-        "title": "Giardino Inglese: ecco i lavori di riqualificazione",
+        "source": "Giardino Inglese: ecco i lavori di riqualificazione",
         "url": "https://esempio.com/articolo17"
       }
     ]
@@ -660,7 +661,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuova Stazione Giachery: ecco il progetto",
+        "source": "Nuova Stazione Giachery: ecco il progetto",
         "url": "https://esempio.com/articolo18"
       }
     ]
@@ -704,7 +705,7 @@
     ],
     "related_articles": [
       {
-        "title": "Via dei Benedettini: nuovo look in arrivo",
+        "source": "Via dei Benedettini: nuovo look in arrivo",
         "url": "https://esempio.com/articolo19"
       }
     ]
@@ -738,7 +739,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuovo SkatePark: il progetto in dettaglio",
+        "source": "Nuovo SkatePark: il progetto in dettaglio",
         "url": "https://esempio.com/articolo20"
       }
     ]
@@ -799,7 +800,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lungomare Peppino Impastato: lavori di riqualificazione",
+        "source": "Lungomare Peppino Impastato: lavori di riqualificazione",
         "url": "https://esempio.com/articolo21"
       }
     ]
@@ -833,7 +834,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lavori di messa in sicurezza della scogliera di Cinisi",
+        "source": "Lavori di messa in sicurezza della scogliera di Cinisi",
         "url": "https://esempio.com/articolo4"
       }
     ]
@@ -879,7 +880,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lavori in Piazza di Mondelo",
+        "source": "Lavori in Piazza di Mondelo",
         "url": "https://esempio.com/articolo5"
       }
     ]
@@ -921,7 +922,7 @@
     ],
     "related_articles": [
       {
-        "title": "Progetto ISMETT 2: Nuovo ospedale in arrivo",
+        "source": "Progetto ISMETT 2: Nuovo ospedale in arrivo",
         "url": "https://esempio.com/articolo6"
       }
     ]
@@ -949,7 +950,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lavori di ristrutturazione alla Stazione Notarbartolo",
+        "source": "Lavori di ristrutturazione alla Stazione Notarbartolo",
         "url": "https://esempio.com/articolo7"
       }
     ]
@@ -990,7 +991,7 @@
     ],
     "related_articles": [
       {
-        "title": "Completamento sottopasso Terrasini",
+        "source": "Completamento sottopasso Terrasini",
         "url": "https://esempio.com/articolo8"
       }
     ]
@@ -1021,7 +1022,7 @@
     ],
     "related_articles": [
       {
-        "title": "Riqualificazione Piazza di Villabate",
+        "source": "Riqualificazione Piazza di Villabate",
         "url": "https://esempio.com/articolo9"
       }
     ]
@@ -1073,7 +1074,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuova fermata Turrisi-Colonna: il progetto",
+        "source": "Nuova fermata Turrisi-Colonna: il progetto",
         "url": "https://esempio.com/articolo10"
       }
     ]
@@ -1110,7 +1111,7 @@
     ],
     "related_articles": [
       {
-        "title": "La storia della LUMSA a Palermo",
+        "source": "La storia della LUMSA a Palermo",
         "url": "https://esempio.com/articolo11"
       }
     ]
@@ -1155,7 +1156,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuove fermate a Palermo",
+        "source": "Nuove fermate a Palermo",
         "url": "https://esempio.com/articolo12"
       }
     ]
@@ -1205,7 +1206,7 @@
     ],
     "related_articles": [
       {
-        "title": "Ristrutturazione del Vicolo Bernava",
+        "source": "Ristrutturazione del Vicolo Bernava",
         "url": "https://esempio.com/articolo13"
       }
     ]
@@ -1233,7 +1234,7 @@
     ],
     "related_articles": [
       {
-        "title": "Ristrutturazione della Stazione Centrale di Palermo",
+        "source": "Ristrutturazione della Stazione Centrale di Palermo",
         "url": "https://esempio.com/articolo14"
       }
     ]
@@ -1265,7 +1266,7 @@
     ],
     "related_articles": [
       {
-        "title": "Progetti di rinnovamento per la Stazione Centrale",
+        "source": "Progetti di rinnovamento per la Stazione Centrale",
         "url": "https://esempio.com/articolo15"
       }
     ]
@@ -1294,7 +1295,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuove fermate per la linea 1 del tram di Palermo",
+        "source": "Nuove fermate per la linea 1 del tram di Palermo",
         "url": "https://esempio.com/articolo16"
       }
     ]
@@ -1326,7 +1327,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuovi interventi urbanistici in Piazza Durante",
+        "source": "Nuovi interventi urbanistici in Piazza Durante",
         "url": "https://esempio.com/articolo17"
       }
     ]
@@ -1364,7 +1365,7 @@
     ],
     "related_articles": [
       {
-        "title": "Progetti di parcheggi interscambio a Palermo",
+        "source": "Progetti di parcheggi interscambio a Palermo",
         "url": "https://esempio.com/articolo18"
       }
     ]
@@ -1429,7 +1430,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lavori di viabilità a Brancaccio",
+        "source": "Lavori di viabilità a Brancaccio",
         "url": "https://esempio.com/articolo19"
       }
     ]
@@ -1496,7 +1497,7 @@
     ],
     "related_articles": [
       {
-        "title": "Sviluppo della viabilità a Brancaccio: Stralcio 2",
+        "source": "Sviluppo della viabilità a Brancaccio: Stralcio 2",
         "url": "https://esempio.com/articolo20"
       }
     ]
@@ -1527,7 +1528,7 @@
     ],
     "related_articles": [
       {
-        "title": "La nuova centrale a biomasse di Bellolampo",
+        "source": "La nuova centrale a biomasse di Bellolampo",
         "url": "https://esempio.com/articolo21"
       }
     ]
@@ -1555,7 +1556,7 @@
     ],
     "related_articles": [
       {
-        "title": "Nuove passerelle pedonali in città",
+        "source": "Nuove passerelle pedonali in città",
         "url": "https://esempio.com/articolo22"
       }
     ]
@@ -1595,7 +1596,7 @@
     ],
     "related_articles": [
       {
-        "title": "Espansione dei parcheggi all'Aeroporto di Palermo",
+        "source": "Espansione dei parcheggi all'Aeroporto di Palermo",
         "url": "https://esempio.com/articolo23"
       }
     ]
@@ -1635,7 +1636,7 @@
     ],
     "related_articles": [
       {
-        "title": "Lavori di ripavimentazione in Via Pantelleria",
+        "source": "Lavori di ripavimentazione in Via Pantelleria",
         "url": "https://esempio.com/articolo24"
       }
     ]
@@ -1687,7 +1688,7 @@
     ],
     "related_articles": [
       {
-        "title": "Progetto di riqualificazione del Parco Oreto",
+        "source": "Progetto di riqualificazione del Parco Oreto",
         "url": "https://esempio.com/articolo25"
       }
     ]
@@ -1729,7 +1730,7 @@
     ],
     "related_articles": [
       {
-        "title": "Il parco che cambia: il progetto di riqualificazione del Parco Libero Grassi",
+        "source": "Il parco che cambia: il progetto di riqualificazione del Parco Libero Grassi",
         "url": "https://esempio.com/articolo26"
       }
     ]
@@ -1785,7 +1786,7 @@
     ],
     "related_articles": [
       {
-        "title": "Il restauro del Parco Villa Turrisi: un nuovo spazio per la città",
+        "source": "Il restauro del Parco Villa Turrisi: un nuovo spazio per la città",
         "url": "https://esempio.com/articolo27"
       }
     ]
@@ -1816,7 +1817,7 @@
     ],
     "related_articles": [
       {
-        "title": "Il futuro del depuratore di Fondo Verde: un passo verso la sostenibilità",
+        "source": "Il futuro del depuratore di Fondo Verde: un passo verso la sostenibilità",
         "url": "https://esempio.com/articolo28"
       }
     ]
@@ -1875,7 +1876,7 @@
     ],
     "related_articles": [
       {
-        "title": "Rinnovato il lungomare della Bandita: il progetto",
+        "source": "Rinnovato il lungomare della Bandita: il progetto",
         "url": "https://esempio.com/articolo29"
       }
     ]
@@ -1912,10 +1913,9 @@
     ],
     "related_articles": [
       {
-        "title": "Nuova fermata Viale Lazio: lavori in corso",
+        "source": "Nuova fermata Viale Lazio: lavori in corso",
         "url": "https://esempio.com/articolo22"
       }
-          ]
-        }
-      ]
-          
+    ]
+  }
+]

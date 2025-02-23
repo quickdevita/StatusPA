@@ -324,10 +324,14 @@ button:hover {
 }
 
 #new-username {
-  display: block;
   margin: 5px;
+  margin-left: 60px;
 }
 
+#save-username {
+  width: 200px;
+  margin-left: 50px;
+}
 
 /* Stile per il punto esclamativo */
 .exclamation-mark {

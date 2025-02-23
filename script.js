@@ -522,10 +522,6 @@ async function checkProfile() {
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
   }
-
-  // Assicurati che i pulsanti "Impostazioni" e "Aggiornamenti App" siano sempre visibili
-  settingsBtn.style.display = 'block';
-  updatesButton.style.display = 'block';
 }
 
 // ==========================
@@ -584,8 +580,7 @@ saveProfileBtn.addEventListener('click', async () => {
 // ==========================
 manageProfileBtn.addEventListener('click', () => {
   showSectionOnly(manageProfileSection);
-  // Nascondi i pulsanti "Impostazioni" e "Aggiornamenti App" quando nella sezione di gestione profilo
-  settingsBtn.style.display = 'none';
+  settingsBtn.style.display = 'none';  // Nascondi pulsanti Impostazioni e Aggiornamenti App quando in gestione profilo
   updatesButton.style.display = 'none';
 });
 
@@ -614,9 +609,6 @@ profileImgInput.addEventListener('change', async (event) => {
 changeUsernameBtn.addEventListener('click', () => {
   newUsernameInput.style.display = 'block';
   saveUsernameBtn.style.display = 'block';
-  // Nascondi i pulsanti "Impostazioni" e "Aggiornamenti App" prima di fare modifiche
-  settingsBtn.style.display = 'none';
-  updatesButton.style.display = 'none';
 });
 
 saveUsernameBtn.addEventListener('click', async () => {
@@ -632,12 +624,7 @@ saveUsernameBtn.addEventListener('click', async () => {
 
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
-
   checkProfile();
-  
-  // Dopo aver cambiato il nome, ripristina la visibilità dei pulsanti
-  settingsBtn.style.display = 'block';
-  updatesButton.style.display = 'block';
 });
 
 // Eliminare profilo
@@ -665,7 +652,6 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
-  // Mostra sempre i pulsanti "Impostazioni" e "Aggiornamenti App" quando si torna al menu principale
   settingsBtn.style.display = 'block';
   updatesButton.style.display = 'block';
   createProfileSection.style.display = 'none';

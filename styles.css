@@ -359,6 +359,10 @@ button:hover {
   background-color: #0056b3;
 }
 
+#create-profile:hover {
+  background-color: #0056b3;
+}
+
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;
@@ -508,9 +512,6 @@ button:hover {
   border-radius: 5px; /* Bordo arrotondato */
   margin: 4px auto 0 auto; /* Centra orizzontalmente */
 }
-
-
-
 
 /* Intestazione del modale */
 .modal-header {

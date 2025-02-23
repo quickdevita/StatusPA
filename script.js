@@ -281,6 +281,9 @@ modalHandle.addEventListener("mousedown", (e) => {
   startY = e.clientY;
   startHeight = modal.offsetHeight;
   modalHandle.style.cursor = "grabbing";
+
+  // Rimuove la classe minimizzata se si inizia a trascinare
+  modal.classList.remove("minimized");
 });
 
 // Funzione per il trascinamento
@@ -304,8 +307,6 @@ document.addEventListener("mouseup", () => {
 
     if (modal.offsetHeight < THRESHOLD) {
       minimizeModal();
-    } else {
-      expandModal();
     }
   }
 });
@@ -316,17 +317,12 @@ function minimizeModal() {
   modal.style.height = MINIMIZED_HEIGHT + "px";
 }
 
-// Funzione per espandere il modale
-function expandModal() {
-  modal.classList.remove("minimized");
-  modal.style.height = MAX_HEIGHT + "px";
-}
-
 // 🔹 GESTIONE TOUCH (PER DISPOSITIVI MOBILI)
 modalHandle.addEventListener("touchstart", (e) => {
   isDragging = true;
   startY = e.touches[0].clientY;
   startHeight = modal.offsetHeight;
+  modal.classList.remove("minimized");
 });
 
 document.addEventListener("touchmove", (e) => {
@@ -346,11 +342,10 @@ document.addEventListener("touchend", () => {
 
     if (modal.offsetHeight < THRESHOLD) {
       minimizeModal();
-    } else {
-      expandModal();
     }
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");

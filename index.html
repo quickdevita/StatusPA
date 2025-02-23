@@ -47,59 +47,58 @@
     &#33; <!-- Punto esclamativo -->
   </div>
 
- <!-- Menu modale utente -->
+  
+<!-- Menu modale utente -->
 <div id="user-menu-container" class="user-menu-container">
   <div id="user-menu" class="user-menu">
     <div class="user-menu-header">
       <button id="close-user-menu">&times;</button>
     </div>
     
-    <!-- Sezione profilo -->
-    <div class="user-profile-section">
-      <img id="user-avatar" src="img/default-avatar.jpg" alt="Immagine utente">
-      <div class="profile-info">
-        <span id="profile-name-display" style="display:none;">Nome utente</span>
-        <button id="create-profile">Crea profilo 🎟️</button>
-        <button id="manage-profile" style="display:none;">Gestisci profilo 🎟️</button>
-      </div>
-    </div>
-
-    <hr>
-
-    <!-- Contenitore per i pulsanti "Impostazioni" e "Aggiornamenti App" -->
-    <div id="settings-btn-container" style="display:none;">
-      <!-- Sezione Aggiornamenti App -->
-      <div class="user-menu-section">
-        <button id="updates-button">📲 Aggiornamenti App</button>
-      </div>
-
-      <!-- Pulsante Impostazioni -->
-      <div class="user-settings-section">
-        <button id="settings-button">⚙️ Impostazioni</button>
-      </div>
-    </div>
-
-    <!-- Scheda creazione profilo -->
-    <div id="create-profile-section" style="display:none;">
-      <input type="text" id="profile-name" placeholder="Inserisci nome utente qui">
-      <button id="save-profile">Crea profilo</button>
-    </div>
-
-    <!-- Scheda gestione profilo -->
-    <div id="manage-profile-section" style="display:none;">
-      <button id="back-to-main-menu" class="back-to-main-menu">Torna al menu principale 🏠</button>
-      <h3>Gestisci Profilo</h3>
-      <button id="change-avatar">Cambia immagine 🖼️</button>
-      <input type="file" id="profile-img-input" style="display:none;">
-      <button id="change-username">Cambia nome utente 🏷️</button>
-      <input type="text" id="new-username" placeholder="Inserisci nuovo nome utente qui" style="display:none;">
-      <button id="save-username" style="display:none;">Salva nome utente ✅</button>
-      <button id="delete-profile">Esci ed elimina profilo ❌🗑️</button>
-    </div>
-
-    <p id="user-version"></p>
+<!-- Sezione profilo -->
+<div class="user-profile-section">
+  <img id="user-avatar" src="img/default-avatar.jpg" alt="Immagine utente">
+  <div class="profile-info">
+    <span id="profile-name-display" style="display:none;">Nome utente</span>
+    <button id="create-profile">Crea profilo 🎟️</button>
+    <button id="manage-profile" style="display:none;">Gestisci profilo 🎟️</button>
   </div>
 </div>
+
+<hr>
+
+<!-- Sezione Aggiornamenti App -->
+<div class="user-menu-section">
+  <button id="updates-button">📲 Aggiornamenti App</button>
+</div>
+
+<!-- Pulsante Impostazioni -->
+<div class="user-settings-section">
+  <button id="settings-button">⚙️ Impostazioni</button>
+</div>
+
+<!-- Scheda creazione profilo -->
+<div id="create-profile-section" style="display:none;">
+  <input type="text" id="profile-name" placeholder="Inserisci nome utente qui">
+  <button id="save-profile">Crea profilo</button>
+</div>
+
+<!-- Scheda gestione profilo -->
+<div id="manage-profile-section" style="display:none;">
+<button id="back-to-main-menu" class="back-to-main-menu">Torna al menu principale 🏠</button>
+  <h3>Gestisci Profilo</h3>
+  <button id="change-avatar">Cambia immagine 🖼️</button>
+  <input type="file" id="profile-img-input" style="display:none;">
+  <button id="change-username">Cambia nome utente 🏷️</button>
+  <input type="text" id="new-username" placeholder="Inserisci nuovo nome utente qui" style="display:none;">
+  <button id="save-username" style="display:none;">Salva nome utente ✅</button>
+  <button id="delete-profile">Esci ed elimina profilo ❌🗑️</button>
+</div>
+
+<p id="user-version"></p>
+  </div>
+</div>
+
 
  <!-- Menu Modale per i dettagli dei lavori pubblici -->
   <div id="modal-container" class="modal-container">

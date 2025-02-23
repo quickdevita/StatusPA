@@ -480,6 +480,11 @@ button:hover {
 /* Quando il modale è minimizzato */
 .modal.minimized {
   height: 50px; /* Altezza minima */
+  overflox: hidden;
+}
+
+.modal.minimized .modal-handle {
+  background-color: #ccc;  /* Puoi cambiare lo stile del manico quando minimizzato */
 }
 
 

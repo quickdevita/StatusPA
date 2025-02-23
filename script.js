@@ -559,6 +559,7 @@ closeUserMenuBtn.addEventListener('click', () => {
 // ==========================
 createProfileBtn.addEventListener('click', () => {
   showSectionOnly(createProfileSection);
+  settingsBtnContainer.style.display = 'none'; // Nascondi il contenitore dei pulsanti
 });
 
 saveProfileBtn.addEventListener('click', async () => {
@@ -579,8 +580,7 @@ saveProfileBtn.addEventListener('click', async () => {
 // ⚙️ GESTIONE PROFILO
 // ==========================
 manageProfileBtn.addEventListener('click', () => {
-  // Nascondi il contenitore dei pulsanti "Impostazioni" e "Aggiornamenti App" quando si apre la gestione del profilo
-  settingsBtnContainer.style.display = 'none';
+  settingsBtnContainer.style.display = 'none'; // Nascondi il contenitore dei pulsanti quando si gestisce il profilo
   showSectionOnly(manageProfileSection);
 });
 

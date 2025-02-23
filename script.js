@@ -502,6 +502,8 @@ async function checkProfile() {
     profileNameDisplay.style.display = 'block';
     createProfileBtn.style.display = 'none';
     manageProfileBtn.style.display = 'block';
+    settingsBtn.style.display = 'block';  // Assicurati che "Impostazioni" sia visibile
+    updatesButton.style.display = 'block';  // Assicurati che "Aggiornamenti App" sia visibile
 
     if (profile.image === '/user-avatar') {
       const cache = await caches.open('user-profile-cache');
@@ -521,6 +523,8 @@ async function checkProfile() {
     profileNameDisplay.style.display = 'none';
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
+    settingsBtn.style.display = 'block';  // Assicurati che "Impostazioni" sia visibile
+    updatesButton.style.display = 'block';  // Assicurati che "Aggiornamenti App" sia visibile
   }
 }
 
@@ -629,10 +633,12 @@ saveUsernameBtn.addEventListener('click', async () => {
 deleteProfileBtn.addEventListener('click', async () => {
   if (confirm('Sei sicuro di voler eliminare il profilo?')) {
     await removeProfileFromCache();
-    checkProfile();
+    checkProfile();  // Controlla nuovamente lo stato del profilo
     manageProfileSection.style.display = 'none';
     userMenuContainer.classList.remove('open');
     createProfileBtn.style.display = 'block';
+    settingsBtn.style.display = 'block';  // Mostra di nuovo il pulsante "Impostazioni"
+    updatesButton.style.display = 'block';  // Mostra di nuovo il pulsante "Aggiornamenti App"
   }
 });
 
@@ -655,6 +661,7 @@ backToMainMenuBtn.addEventListener('click', async () => {
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

@@ -463,11 +463,16 @@ const newUsernameInput = document.getElementById('new-username');
 const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
-const settingsBtn = document.getElementById('settings-button'); // Pulsante Impostazioni
+const settingsBtn = document.getElementById('settings-button'); // Pulsante impostazioni
+
+const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn]; // Pulsanti principali
 
 const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
 
+// ==========================
+// 📌 FUNZIONI CACHE PROFILO
+// ==========================
 async function getProfileFromCache() {
   const cache = await caches.open('user-profile-cache');
   const response = await cache.match('user-profile');
@@ -488,6 +493,9 @@ async function removeProfileFromCache() {
   await cache.delete('/user-avatar');
 }
 
+// ==========================
+// 🔄 AGGIORNAMENTO MENU UTENTE
+// ==========================
 async function checkProfile() {
   const profile = await getProfileFromCache();
 
@@ -518,13 +526,26 @@ async function checkProfile() {
   }
 }
 
-// Aprire e chiudere il menu
+// ==========================
+// 📌 GESTIONE DEL MENU
+// ==========================
+
+// Funzione per mostrare solo la sezione richiesta
+function showSectionOnly(sectionToShow) {
+  allMainButtons.forEach(button => button.style.display = 'none');
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
+  sectionToShow.style.display = 'block';
+}
+
+// Aprire il menu utente
 document.getElementById('user-icon').addEventListener('click', (event) => {
   userMenuContainer.classList.add('open');
   checkProfile();
-  event.stopPropagation(); // Impedisce che il click si propaghi al document
+  event.stopPropagation();
 });
 
+// Chiudere il menu utente
 document.addEventListener('click', (event) => {
   if (!userMenuContainer.contains(event.target) && userMenuContainer.classList.contains('open')) {
     userMenuContainer.classList.remove('open');
@@ -536,48 +557,34 @@ closeUserMenuBtn.addEventListener('click', () => {
 });
 
 // ==========================
-// 🔹 GESTIONE SEZIONI MENU 🔹
+// 🆕 CREAZIONE PROFILO
 // ==========================
-const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn];
-
-function showSectionOnly(sectionToShow) {
-  allMainButtons.forEach(button => button.style.display = 'none');
-  createProfileSection.style.display = 'none';
-  manageProfileSection.style.display = 'none';
-  sectionToShow.style.display = 'block';
-}
-
 createProfileBtn.addEventListener('click', () => {
   showSectionOnly(createProfileSection);
 });
 
+saveProfileBtn.addEventListener('click', async () => {
+  const name = profileNameInput.value.trim();
+  if (name.length < 4) {
+    alert('Il nome utente deve avere almeno 4 caratteri.');
+    return;
+  }
+
+  const profileData = { name, image: 'img/default-avatar.jpg' };
+  await saveProfileToCache(profileData);
+
+  createProfileSection.style.display = 'none';
+  checkProfile();
+});
+
+// ==========================
+// ⚙️ GESTIONE PROFILO
+// ==========================
 manageProfileBtn.addEventListener('click', () => {
   showSectionOnly(manageProfileSection);
 });
 
-// Quando l'utente torna al menu principale
-backToMainMenuBtn.addEventListener('click', async () => {
-  // Nasconde le sezioni specifiche
-  createProfileSection.style.display = 'none';
-  manageProfileSection.style.display = 'none';
-
-  // Controlla se l'utente è registrato
-  const profile = await getProfileFromCache();
-  if (profile) {
-    createProfileBtn.style.display = 'none';
-    manageProfileBtn.style.display = 'block';
-  } else {
-    createProfileBtn.style.display = 'block';
-    manageProfileBtn.style.display = 'none';
-  }
-
-  // Rendi nuovamente visibili tutti gli altri pulsanti principali
-  settingsBtn.style.display = 'block';
-});
-
-// ==========================
-// 🔹 FUNZIONI GESTIONE PROFILO 🔹
-// ==========================
+// Cambiare immagine
 changeAvatarBtn.addEventListener('click', () => profileImgInput.click());
 
 profileImgInput.addEventListener('change', async (event) => {
@@ -598,6 +605,7 @@ profileImgInput.addEventListener('change', async (event) => {
   }
 });
 
+// Cambiare nome utente
 changeUsernameBtn.addEventListener('click', () => {
   newUsernameInput.style.display = 'block';
   saveUsernameBtn.style.display = 'block';
@@ -616,19 +624,37 @@ saveUsernameBtn.addEventListener('click', async () => {
 
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
-
   checkProfile();
 });
 
+// Eliminare profilo
 deleteProfileBtn.addEventListener('click', async () => {
   if (confirm('Sei sicuro di voler eliminare il profilo?')) {
     await removeProfileFromCache();
     checkProfile();
-
     manageProfileSection.style.display = 'none';
     userMenuContainer.classList.remove('open');
     createProfileBtn.style.display = 'block';
   }
+});
+
+// ==========================
+// 🔙 TORNA AL MENU PRINCIPALE
+// ==========================
+backToMainMenuBtn.addEventListener('click', async () => {
+  const profile = await getProfileFromCache();
+
+  if (profile) {
+    createProfileBtn.style.display = 'none';
+    manageProfileBtn.style.display = 'block';
+  } else {
+    createProfileBtn.style.display = 'block';
+    manageProfileBtn.style.display = 'none';
+  }
+
+  settingsBtn.style.display = 'block';
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
 });
 
 // ==========================

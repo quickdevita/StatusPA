@@ -320,7 +320,7 @@ document.addEventListener("touchmove", (e) => {
     const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
-    if (newHeight > 250 && newHeight < 700) {
+    if (newHeight > 150 && newHeight < 700) {
       modal.style.height = newHeight + "px";
     }
   }

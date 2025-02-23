@@ -214,6 +214,8 @@ button:hover {
 
 #delete-profile {
   background-color: #f44336;
+  margin-top: 10px;
+  width: 100px;
 }
 
 #delete-profile:hover {

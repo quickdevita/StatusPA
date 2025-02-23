@@ -260,15 +260,20 @@ tabs.forEach(tab => {
 });
 
 // ========================
-// 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
+// 🔹 RIDIMENSIONAMENTO E MINIMIZZAZIONE MODALE (STILE GOOGLE MAPS) 🔹
 // ========================
-// Variabili globali per il trascinamento
 let isDragging = false;
 let startY = 0;
 let startHeight = 0;
 
 const modal = document.getElementById("modal");
 const modalHandle = document.querySelector(".modal-handle");
+
+// Altezza massima e minima
+const screenHeight = window.innerHeight;
+const MINIMIZED_HEIGHT = 100; // Altezza quando minimizzato
+const MAX_HEIGHT = screenHeight * 0.8; // 80% dello schermo
+const THRESHOLD = screenHeight * 0.4; // Se scende oltre il 40%, minimizza
 
 // Funzione per iniziare il trascinamento
 modalHandle.addEventListener("mousedown", (e) => {
@@ -281,46 +286,55 @@ modalHandle.addEventListener("mousedown", (e) => {
 // Funzione per il trascinamento
 document.addEventListener("mousemove", (e) => {
   if (isDragging) {
-    const offset = startY - e.clientY; // Invertiamo l'offset
-    const newHeight = startHeight + offset;
+    const offset = e.clientY - startY;
+    const newHeight = startHeight - offset;
 
     // Imposta un'altezza minima e massima per il modale
-    if (newHeight > 150 && newHeight < 700) {
+    if (newHeight > MINIMIZED_HEIGHT && newHeight < MAX_HEIGHT) {
       modal.style.height = newHeight + "px";
     }
   }
 });
 
-// Funzione per fermare il trascinamento
+// Rilascia il mouse e controlla se deve minimizzarsi
 document.addEventListener("mouseup", () => {
   if (isDragging) {
     isDragging = false;
     modalHandle.style.cursor = "grab";
 
-    // Se l'altezza è sotto un certo limite, minimizza il menu
-    if (modal.offsetHeight < 300) {
-      modal.classList.add("minimized");
+    if (modal.offsetHeight < THRESHOLD) {
+      minimizeModal();
     } else {
-      modal.classList.remove("minimized");
+      expandModal();
     }
   }
 });
 
-// Gestione touch per dispositivi mobili
+// Funzione per minimizzare il modale
+function minimizeModal() {
+  modal.classList.add("minimized");
+  modal.style.height = MINIMIZED_HEIGHT + "px";
+}
+
+// Funzione per espandere il modale
+function expandModal() {
+  modal.classList.remove("minimized");
+  modal.style.height = MAX_HEIGHT + "px";
+}
+
+// 🔹 GESTIONE TOUCH (PER DISPOSITIVI MOBILI)
 modalHandle.addEventListener("touchstart", (e) => {
   isDragging = true;
   startY = e.touches[0].clientY;
   startHeight = modal.offsetHeight;
-  modalHandle.style.cursor = "grabbing";
 });
 
 document.addEventListener("touchmove", (e) => {
   if (isDragging) {
-    const offset = startY - e.touches[0].clientY; // Invertiamo l'offset anche per il touch
-    const newHeight = startHeight + offset;
+    const offset = e.touches[0].clientY - startY;
+    const newHeight = startHeight - offset;
 
-    // Imposta un'altezza minima e massima per il modale
-    if (newHeight > 300 && newHeight < 700) {
+    if (newHeight > MINIMIZED_HEIGHT && newHeight < MAX_HEIGHT) {
       modal.style.height = newHeight + "px";
     }
   }
@@ -329,25 +343,14 @@ document.addEventListener("touchmove", (e) => {
 document.addEventListener("touchend", () => {
   if (isDragging) {
     isDragging = false;
-    modalHandle.style.cursor = "grab";
 
-    // Se l'altezza è sotto un certo limite, minimizza il menu
-    if (modal.offsetHeight < 300) {
-      modal.classList.add("minimized");
+    if (modal.offsetHeight < THRESHOLD) {
+      minimizeModal();
     } else {
-      modal.classList.remove("minimized");
+      expandModal();
     }
   }
 });
-
-// Aggiunto il controllo per prevenire il movimento non desiderato dopo il rilascio del mouse
-document.addEventListener("mouseleave", () => {
-  if (isDragging) {
-    isDragging = false;
-    modalHandle.style.cursor = "grab";
-  }
-});
-
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");

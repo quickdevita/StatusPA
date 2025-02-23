@@ -311,6 +311,9 @@ document.addEventListener("mouseup", () => {
   }
 });
 
+
+const modalContainer = document.querySelector(".modal-container");
+
 // Prevenire la chiusura accidentale
 modalContainer.addEventListener("click", (e) => {
   if (isDragging) {

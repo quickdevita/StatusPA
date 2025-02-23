@@ -479,7 +479,7 @@ button:hover {
 
 /* Quando il modale è minimizzato */
 .modal.minimized {
-  min-height: 40vh; /* Altezza minima */
+  height: 100px; /* Altezza minima */
   overflow: hidden;
 }
 

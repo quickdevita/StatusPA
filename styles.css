@@ -475,7 +475,6 @@ button:hover {
 .modal {
   height: 400px; /* Puoi modificare se vuoi un'altezza iniziale diversa */
   overflow: hidden;
-  transition: height 0.3s ease-in-out; /* Aggiunta animazione fluida */
 }
 
 /* Quando il modale è minimizzato */

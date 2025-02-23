@@ -285,7 +285,7 @@ document.addEventListener("mousemove", (e) => {
     const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
-    if (newHeight > 50 && newHeight < 600) {
+    if (newHeight > 150 && newHeight < 700) {
       modal.style.height = newHeight + "px";
     }
   }
@@ -298,7 +298,7 @@ document.addEventListener("mouseup", () => {
     modalHandle.style.cursor = "grab";
 
     // Se l'altezza è sotto un certo limite, minimizza il menu
-    if (modal.offsetHeight < 100) {
+    if (modal.offsetHeight < 300) {
       modal.classList.add("minimized");
     } else {
       modal.classList.remove("minimized");
@@ -320,7 +320,7 @@ document.addEventListener("touchmove", (e) => {
     const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
-    if (newHeight > 150 && newHeight < 700) {
+    if (newHeight > 300 && newHeight < 700) {
       modal.style.height = newHeight + "px";
     }
   }
@@ -332,7 +332,7 @@ document.addEventListener("touchend", () => {
     modalHandle.style.cursor = "grab";
 
     // Se l'altezza è sotto un certo limite, minimizza il menu
-    if (modal.offsetHeight < 250) {
+    if (modal.offsetHeight < 300) {
       modal.classList.add("minimized");
     } else {
       modal.classList.remove("minimized");

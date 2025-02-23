@@ -343,6 +343,14 @@ button:hover {
   width: 150px;
 }
 
+#change-avatar:hover {
+  background-color: #007bff;
+}
+
+#change-username:hover {
+  background-color: #007bff;
+}
+
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;

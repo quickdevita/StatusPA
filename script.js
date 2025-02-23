@@ -581,7 +581,8 @@ saveProfileBtn.addEventListener('click', async () => {
   await saveProfileToCache(profileData);
 
   createProfileSection.style.display = 'none';
-  checkProfile();
+  await checkProfile();
+  toggleMainButtons(true); // Mostra subito i pulsanti principali
 });
 
 // ==========================

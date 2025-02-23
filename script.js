@@ -464,8 +464,8 @@ const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
 const settingsBtn = document.getElementById('settings-button'); // Pulsante impostazioni
-
-const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn]; // Pulsanti principali
+const updatesButton = document.getElementById('updates-button'); //Pulsante Aggiornamenti App
+const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn, updatesButton]; // Pulsanti principali
 
 const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
@@ -653,6 +653,7 @@ backToMainMenuBtn.addEventListener('click', async () => {
   }
 
   settingsBtn.style.display = 'block';
+  updatesButton.style.display = 'block';
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });

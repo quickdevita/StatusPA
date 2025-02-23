@@ -631,6 +631,12 @@ saveUsernameBtn.addEventListener('click', async () => {
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
   checkProfile();
+
+  // Nascondi i tasti Impostazioni e Aggiornamenti App solo se sei nella gestione profilo
+  if (manageProfileSection.style.display === 'block') {
+    settingsBtn.style.display = 'none';
+    updatesButton.style.display = 'none';
+  }
 });
 
 // Eliminare profilo

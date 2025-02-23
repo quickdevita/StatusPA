@@ -516,21 +516,16 @@ async function checkProfile() {
     } else {
       userAvatar.src = profile.image || 'img/default-avatar.jpg';
     }
-
-    // ✅ Ripristina i pulsanti "Impostazioni" e "Aggiornamenti App"
-    settingsBtn.style.display = 'block';
-    updatesButton.style.display = 'block';
-
   } else {
     userAvatar.src = 'img/default-avatar.jpg';
     profileNameDisplay.style.display = 'none';
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
-
-    // ✅ Assicura che i pulsanti vengano nascosti quando non c'è un profilo
-    settingsBtn.style.display = 'none';
-    updatesButton.style.display = 'none';
   }
+
+  // Assicurati che i pulsanti "Impostazioni" e "Aggiornamenti App" siano sempre visibili
+  settingsBtn.style.display = 'block';
+  updatesButton.style.display = 'block';
 }
 
 // ==========================
@@ -659,6 +654,7 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
+  // Assicurati che i pulsanti "Impostazioni" e "Aggiornamenti App" siano sempre visibili
   settingsBtn.style.display = 'block';
   updatesButton.style.display = 'block';
   createProfileSection.style.display = 'none';

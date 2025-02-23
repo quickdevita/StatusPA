@@ -311,6 +311,15 @@ document.addEventListener("mouseup", () => {
   }
 });
 
+// Prevenire la chiusura accidentale
+modalContainer.addEventListener("click", (e) => {
+  if (isDragging) {
+    e.stopPropagation(); // Evita la chiusura quando si sta trascinando
+  } else {
+    modalContainer.style.display = "none"; // Chiude il modale solo se non si sta trascinando
+  }
+});
+
 // Funzione per minimizzare il modale
 function minimizeModal() {
   modal.classList.add("minimized");

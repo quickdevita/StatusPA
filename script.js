@@ -527,13 +527,17 @@ async function checkProfile() {
 // ==========================
 // 📌 GESTIONE DEL MENU
 // ==========================
-
-// Funzione per mostrare solo la sezione richiesta
 function showSectionOnly(sectionToShow) {
   allMainButtons.forEach(button => button.style.display = 'none');
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
   sectionToShow.style.display = 'block';
+}
+
+// Funzione per mostrare/nascondere i pulsanti principali
+function toggleMainButtons(shouldShow) {
+  settingsBtn.style.display = shouldShow ? 'block' : 'none';
+  updatesButton.style.display = shouldShow ? 'block' : 'none';
 }
 
 // Aprire il menu utente
@@ -580,6 +584,9 @@ saveProfileBtn.addEventListener('click', async () => {
 // ==========================
 manageProfileBtn.addEventListener('click', () => {
   showSectionOnly(manageProfileSection);
+
+  // Nascondi i pulsanti principali quando la gestione del profilo è aperta
+  toggleMainButtons(false);
 });
 
 // Cambiare immagine
@@ -650,8 +657,8 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
-  settingsBtn.style.display = 'block';
-  updatesButton.style.display = 'block';
+  // Ripristina la visibilità dei pulsanti principali
+  toggleMainButtons(true);
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });

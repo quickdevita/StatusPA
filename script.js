@@ -462,23 +462,11 @@ const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
 const settingsBtn = document.getElementById('settings-button'); // Pulsante impostazioni
-const updatesButton = document.getElementById('updates-button'); // Pulsante Aggiornamenti App
-const principalMenuButtons = document.getElementById('principal-menu-buttons'); // Contenitore principale tasti
-
+const updatesButton = document.getElementById('updates-button'); //Pulsante Aggiornamenti App
 const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn, updatesButton]; // Pulsanti principali
 
 const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
-
-// Funzione per nascondere i tasti Impostazioni e Aggiornamenti App
-function hidePrincipalMenuButtons() {
-  principalMenuButtons.style.display = 'none';
-}
-
-// Funzione per mostrare i tasti Impostazioni e Aggiornamenti App
-function showPrincipalMenuButtons() {
-  principalMenuButtons.style.display = 'block';
-}
 
 // ==========================
 // 📌 FUNZIONI CACHE PROFILO
@@ -515,8 +503,6 @@ async function checkProfile() {
     createProfileBtn.style.display = 'none';
     manageProfileBtn.style.display = 'block';
 
-    showPrincipalMenuButtons(); // Mostra i tasti quando c'è un profilo
-
     if (profile.image === '/user-avatar') {
       const cache = await caches.open('user-profile-cache');
       const response = await cache.match('/user-avatar');
@@ -535,16 +521,44 @@ async function checkProfile() {
     profileNameDisplay.style.display = 'none';
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
-    showPrincipalMenuButtons(); // Mostra i tasti anche quando non c'è un profilo
   }
 }
+
+// ==========================
+// 📌 GESTIONE DEL MENU
+// ==========================
+
+// Funzione per mostrare solo la sezione richiesta
+function showSectionOnly(sectionToShow) {
+  allMainButtons.forEach(button => button.style.display = 'none');
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
+  sectionToShow.style.display = 'block';
+}
+
+// Aprire il menu utente
+document.getElementById('user-icon').addEventListener('click', (event) => {
+  userMenuContainer.classList.add('open');
+  checkProfile();
+  event.stopPropagation();
+});
+
+// Chiudere il menu utente
+document.addEventListener('click', (event) => {
+  if (!userMenuContainer.contains(event.target) && userMenuContainer.classList.contains('open')) {
+    userMenuContainer.classList.remove('open');
+  }
+});
+
+closeUserMenuBtn.addEventListener('click', () => {
+  userMenuContainer.classList.remove('open');
+});
 
 // ==========================
 // 🆕 CREAZIONE PROFILO
 // ==========================
 createProfileBtn.addEventListener('click', () => {
   showSectionOnly(createProfileSection);
-  hidePrincipalMenuButtons();  // Nascondi i tasti durante la creazione del profilo
 });
 
 saveProfileBtn.addEventListener('click', async () => {
@@ -566,7 +580,6 @@ saveProfileBtn.addEventListener('click', async () => {
 // ==========================
 manageProfileBtn.addEventListener('click', () => {
   showSectionOnly(manageProfileSection);
-  hidePrincipalMenuButtons(); // Nascondi i tasti quando siamo nella gestione del profilo
 });
 
 // Cambiare immagine
@@ -610,8 +623,6 @@ saveUsernameBtn.addEventListener('click', async () => {
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
   checkProfile();
-
-  showPrincipalMenuButtons(); // Ripristina i tasti dopo il salvataggio
 });
 
 // Eliminare profilo
@@ -639,11 +650,11 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
-  showPrincipalMenuButtons(); // Mostra i tasti quando torni al menu principale
+  settingsBtn.style.display = 'block';
+  updatesButton.style.display = 'block';
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });
-
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

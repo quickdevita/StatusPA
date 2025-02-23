@@ -463,6 +463,7 @@ const newUsernameInput = document.getElementById('new-username');
 const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
+const settingsBtn = document.getElementById('settings-button'); // Pulsante Impostazioni
 
 const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
@@ -524,7 +525,6 @@ document.getElementById('user-icon').addEventListener('click', (event) => {
   event.stopPropagation(); // Impedisce che il click si propaghi al document
 });
 
-// Chiudere il menu quando si clicca fuori
 document.addEventListener('click', (event) => {
   if (!userMenuContainer.contains(event.target) && userMenuContainer.classList.contains('open')) {
     userMenuContainer.classList.remove('open');
@@ -535,30 +535,49 @@ closeUserMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.remove('open');
 });
 
-// Creazione profilo
+// ==========================
+// 🔹 GESTIONE SEZIONI MENU 🔹
+// ==========================
+const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn];
+
+function showSectionOnly(sectionToShow) {
+  allMainButtons.forEach(button => button.style.display = 'none');
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
+  sectionToShow.style.display = 'block';
+}
+
 createProfileBtn.addEventListener('click', () => {
-  createProfileSection.style.display = 'block';
+  showSectionOnly(createProfileSection);
 });
 
-saveProfileBtn.addEventListener('click', async () => {
-  const name = profileNameInput.value.trim();
-  if (name.length < 4) {
-    alert('Il nome utente deve avere almeno 4 caratteri.');
-    return;
+manageProfileBtn.addEventListener('click', () => {
+  showSectionOnly(manageProfileSection);
+});
+
+// Quando l'utente torna al menu principale
+backToMainMenuBtn.addEventListener('click', async () => {
+  // Nasconde le sezioni specifiche
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
+
+  // Controlla se l'utente è registrato
+  const profile = await getProfileFromCache();
+  if (profile) {
+    createProfileBtn.style.display = 'none';
+    manageProfileBtn.style.display = 'block';
+  } else {
+    createProfileBtn.style.display = 'block';
+    manageProfileBtn.style.display = 'none';
   }
 
-  const profileData = { name, image: 'img/default-avatar.jpg' };
-  await saveProfileToCache(profileData);
-  createProfileSection.style.display = 'none';
-  checkProfile();
+  // Rendi nuovamente visibili tutti gli altri pulsanti principali
+  settingsBtn.style.display = 'block';
 });
 
-// Gestione profilo
-manageProfileBtn.addEventListener('click', () => {
-  manageProfileSection.style.display = 'block';
-});
-
-// Cambiare immagine
+// ==========================
+// 🔹 FUNZIONI GESTIONE PROFILO 🔹
+// ==========================
 changeAvatarBtn.addEventListener('click', () => profileImgInput.click());
 
 profileImgInput.addEventListener('change', async (event) => {
@@ -579,13 +598,11 @@ profileImgInput.addEventListener('change', async (event) => {
   }
 });
 
-// Cambiare nome utente
 changeUsernameBtn.addEventListener('click', () => {
   newUsernameInput.style.display = 'block';
   saveUsernameBtn.style.display = 'block';
 });
 
-// Salva nome utente
 saveUsernameBtn.addEventListener('click', async () => {
   const newName = newUsernameInput.value.trim();
   if (newName.length < 4) {
@@ -603,7 +620,6 @@ saveUsernameBtn.addEventListener('click', async () => {
   checkProfile();
 });
 
-// Eliminare profilo (Esci)
 deleteProfileBtn.addEventListener('click', async () => {
   if (confirm('Sei sicuro di voler eliminare il profilo?')) {
     await removeProfileFromCache();
@@ -614,49 +630,6 @@ deleteProfileBtn.addEventListener('click', async () => {
     createProfileBtn.style.display = 'block';
   }
 });
-
-// Aggiungi il pulsante per tornare al menu principale
-backToMainMenuBtn.addEventListener('click', () => {
-  manageProfileSection.style.display = 'none';
-  userMenuContainer.classList.add('open');
-});
-
-// Seleziona tutti i pulsanti che devono essere nascosti quando si apre una sezione specifica
-const settingsBtn = document.getElementById('settings-button'); // Supponiamo sia l'ID del pulsante impostazioni
-const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn]; // Aggiungi qui altri pulsanti in futuro
-
-function showSectionOnly(sectionToShow) {
-  // Nasconde tutti i pulsanti principali
-  allMainButtons.forEach(button => button.style.display = 'none');
-
-  // Nasconde tutte le sezioni
-  createProfileSection.style.display = 'none';
-  manageProfileSection.style.display = 'none';
-
-  // Mostra solo la sezione richiesta
-  sectionToShow.style.display = 'block';
-}
-
-// Quando l'utente clicca su "Crea profilo"
-createProfileBtn.addEventListener('click', () => {
-  showSectionOnly(createProfileSection);
-});
-
-// Quando l'utente clicca su "Gestisci profilo"
-manageProfileBtn.addEventListener('click', () => {
-  showSectionOnly(manageProfileSection);
-});
-
-// Quando l'utente torna al menu principale
-backToMainMenuBtn.addEventListener('click', () => {
-  // Mostra di nuovo tutti i pulsanti principali
-  allMainButtons.forEach(button => button.style.display = 'block');
-
-  // Nasconde le sezioni specifiche
-  createProfileSection.style.display = 'none';
-  manageProfileSection.style.display = 'none';
-});
-
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

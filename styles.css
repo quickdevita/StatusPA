@@ -412,7 +412,7 @@ button:hover {
   height: 8px; /* Altezza della parte visibile */
   background: #ccc; /* Colore della maniglia */
   border-radius: 5px; /* Bordo arrotondato */
- margin-top: 3px; /* Distanza di 3px dal bordo superiore del modale */
+ margin-top: 4px; /* Distanza di 3px dal bordo superiore del modale */
   margin-left: auto; /* Centra orizzontalmente */
   margin-right: auto; /* Centra orizzontalmente */
 }

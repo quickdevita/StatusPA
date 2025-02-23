@@ -536,8 +536,13 @@ function showSectionOnly(sectionToShow) {
 
 // Funzione per mostrare/nascondere i pulsanti principali
 function toggleMainButtons(shouldShow) {
-  settingsBtn.style.display = shouldShow ? 'block' : 'none';
-  updatesButton.style.display = shouldShow ? 'block' : 'none';
+  if (shouldShow) {
+    settingsBtn.style.display = 'block';
+    updatesButton.style.display = 'block';
+  } else {
+    settingsBtn.style.display = 'none';
+    updatesButton.style.display = 'none';
+  }
 }
 
 // Aprire il menu utente
@@ -640,6 +645,9 @@ deleteProfileBtn.addEventListener('click', async () => {
     manageProfileSection.style.display = 'none';
     userMenuContainer.classList.remove('open');
     createProfileBtn.style.display = 'block';
+
+    // Ripristina la visibilità dei pulsanti principali quando il profilo viene eliminato
+    toggleMainButtons(true);
   }
 });
 

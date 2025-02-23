@@ -471,16 +471,29 @@ button:hover {
   margin-right: auto; /* Centra orizzontalmente */
 }
 
-/* Modale */
+/* Altezza iniziale del modale */
 .modal {
-  height: 350px; /* Altezza iniziale */
+  height: 400px; /* Puoi modificare se vuoi un'altezza iniziale diversa */
   overflow: hidden;
+  transition: height 0.3s ease-in-out; /* Aggiunta animazione fluida */
 }
 
 /* Quando il modale è minimizzato */
 .modal.minimized {
-  height: 50px; /* Altezza minima */
+  height: 40vh; /* 40% dell'altezza dello schermo */
+  overflow: hidden;
 }
+
+.modal.minimized .modal-handle::before {
+  content: '';
+  display: block;
+  width: 40px; /* Larghezza visibile della maniglia */
+  height: 7px; /* Altezza della parte visibile */
+  background: #ccc; /* Colore della maniglia */
+  border-radius: 5px; /* Bordo arrotondato */
+  margin: 4px auto 0 auto; /* Centra orizzontalmente */
+}
+
 
 
 /* Intestazione del modale */

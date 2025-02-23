@@ -313,6 +313,7 @@ button:hover {
   cursor: pointer;
   width: 90%;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 #updates-button:hover {

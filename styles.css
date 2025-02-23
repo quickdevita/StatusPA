@@ -347,7 +347,7 @@ button:hover {
 
 #popup {
     position: absolute;
-    background-color: white;
+    background-color: #ffd700;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: none;
@@ -362,7 +362,7 @@ button:hover {
     left: 45%; /* Decentrata rispetto alla nuvola */
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent white transparent;
+    border-color: transparent transparent #ffd700 transparent;
 }
 
 /* Punta del pop-up SU MOBILE (freccia verso il basso, ma a destra) */
@@ -374,7 +374,7 @@ button:hover {
         left: 100%; /* Punta a destra rispetto al pop-up */
         border-width: 11px;
         border-style: solid;
-        border-color: transparent transparent transparent white; /* Punta alla destra (invertita) */
+        border-color: transparent transparent transparent #ffd700; /* Punta alla destra (invertita) */
     }
 }
 

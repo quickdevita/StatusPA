@@ -462,7 +462,7 @@ const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
 const settingsBtn = document.getElementById('settings-button'); // Pulsante impostazioni
-const updatesButton = document.getElementById('updates-button'); // Pulsante Aggiornamenti App
+const updatesButton = document.getElementById('updates-button'); //Pulsante Aggiornamenti App
 const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn, updatesButton]; // Pulsanti principali
 
 const APP_VERSION = 'beta0.4';
@@ -650,13 +650,11 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
-  // Ripristina la visibilità dei pulsanti principali
   settingsBtn.style.display = 'block';
   updatesButton.style.display = 'block';
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });
-
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

@@ -199,7 +199,7 @@ hr {
 
 /* Pulsanti */
 button {
-  background-color: #4CAF50;
+  background-color: ##007bff;
   color: black;
   border: none;
   padding: 8px 16px;
@@ -209,7 +209,7 @@ button {
 }
 
 button:hover {
-  background-color: #388e3c;
+  background-color: ##007bff;
 }
 
 #delete-profile {
@@ -231,7 +231,7 @@ button:hover {
 
 /* Stile per il pulsante "Torna al menu principale" */
 .back-to-main-menu {
-  background-color: #4CAF50;
+  background-color: ##007bff;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -242,7 +242,7 @@ button:hover {
 }
 
 .back-to-main-menu:hover {
-  background-color: #388e3c;
+  background-color: ##007bff;
 }
 
 /* Contenitore a schermo intero */
@@ -287,7 +287,6 @@ button:hover {
 
 .user-settings-section {
   text-align: center;
-  margin-right: 25px;
 }
 
 #settings-button {
@@ -297,7 +296,7 @@ button:hover {
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
-  width: 80%;
+  width: 90%;
   border-radius: 5px;
 }
 

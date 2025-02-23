@@ -621,6 +621,41 @@ backToMainMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
 });
 
+// Funzione per mostrare solo una specifica sezione e nascondere tutto il resto
+function showOnlySection(sectionToShow) {
+  // Nasconde tutto il contenuto dentro il menu utente
+  Array.from(userMenuContainer.children).forEach(child => {
+    if (child !== sectionToShow) {
+      child.style.display = 'none';
+    }
+  });
+
+  // Mostra solo la sezione richiesta
+  sectionToShow.style.display = 'block';
+}
+
+// Quando l'utente clicca su "Crea profilo"
+createProfileBtn.addEventListener('click', () => {
+  showOnlySection(createProfileSection);
+});
+
+// Quando l'utente clicca su "Gestisci profilo"
+manageProfileBtn.addEventListener('click', () => {
+  showOnlySection(manageProfileSection);
+});
+
+// Quando l'utente torna al menu principale
+backToMainMenuBtn.addEventListener('click', () => {
+  // Mostra di nuovo tutto il menu
+  Array.from(userMenuContainer.children).forEach(child => {
+    child.style.display = 'block';
+  });
+
+  // Nasconde le sezioni di "Crea profilo" e "Gestisci profilo"
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
+});
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

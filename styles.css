@@ -323,6 +323,12 @@ button:hover {
   background-color: #0056b3;
 }
 
+#new-usurname {
+  display: block;
+  margin: 5px;
+}
+
+
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;

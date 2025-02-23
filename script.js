@@ -632,7 +632,7 @@ saveUsernameBtn.addEventListener('click', async () => {
   saveUsernameBtn.style.display = 'none';
   checkProfile();
 
-  // Nascondi i tasti Impostazioni e Aggiornamenti App solo se sei nella gestione profilo
+  // Nascondere "Impostazioni" e "Aggiornamenti App" solo quando sei nella sezione di gestione profilo
   if (manageProfileSection.style.display === 'block') {
     settingsBtn.style.display = 'none';
     updatesButton.style.display = 'none';

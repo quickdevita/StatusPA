@@ -344,11 +344,15 @@ button:hover {
 }
 
 #change-avatar:hover {
-  background-color: #007bff;
+  background-color: #0056b3;
 }
 
 #change-username:hover {
-  background-color: #007bff;
+  background-color: #0056b3;
+}
+
+#back-to-main-menu:hover {
+  background-color: #0056b3;
 }
 
 /* Stile per il punto esclamativo */

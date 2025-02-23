@@ -623,15 +623,17 @@ backToMainMenuBtn.addEventListener('click', () => {
 
 // Funzione per mostrare solo una specifica sezione e nascondere tutto il resto
 function showOnlySection(sectionToShow) {
-  // Nasconde tutto il contenuto dentro il menu utente
-  Array.from(userMenuContainer.children).forEach(child => {
-    if (child !== sectionToShow) {
-      child.style.display = 'none';
-    }
+  // Seleziona tutte le sezioni interne del menu utente (eccetto l'header e la struttura principale)
+  const sections = [createProfileSection, manageProfileSection];
+
+  // Nasconde tutte le sezioni tranne quella richiesta
+  sections.forEach(section => {
+    section.style.display = section === sectionToShow ? 'block' : 'none';
   });
 
-  // Mostra solo la sezione richiesta
-  sectionToShow.style.display = 'block';
+  // Nasconde i pulsanti principali "Crea profilo" e "Gestisci profilo" quando si entra in una sezione
+  createProfileBtn.style.display = 'none';
+  manageProfileBtn.style.display = 'none';
 }
 
 // Quando l'utente clicca su "Crea profilo"
@@ -646,15 +648,14 @@ manageProfileBtn.addEventListener('click', () => {
 
 // Quando l'utente torna al menu principale
 backToMainMenuBtn.addEventListener('click', () => {
-  // Mostra di nuovo tutto il menu
-  Array.from(userMenuContainer.children).forEach(child => {
-    child.style.display = 'block';
-  });
-
-  // Nasconde le sezioni di "Crea profilo" e "Gestisci profilo"
+  // Mostra di nuovo tutto il menu utente
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
+
+  createProfileBtn.style.display = 'block';
+  manageProfileBtn.style.display = 'block';
 });
+
 
 
 // ==========================

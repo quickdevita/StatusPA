@@ -484,9 +484,27 @@ button:hover {
 }
 
 .modal.minimized .modal-handle {
-  background-color: #ccc;  /* Puoi cambiare lo stile del manico quando minimizzato */
+   position: absolute; /* Posizione assoluta per estendere la maniglia */
+  top: 0; /* Posiziona la maniglia in alto */
+  left: 0; /* Allinea a sinistra */
+  width: 100%; /* Estende la maniglia su tutta la larghezza del modale */
+  height: 15px; /* Altezza della maniglia */
+  cursor: grab; /* Cursore per trascinare */
+  flex-shrink: 0; /* Impedisce il ridimensionamento */
+  background: transparent; /* Rendi invisibile l'area estesa
 }
 
+.modal.minimized .modal-handle::before {
+  content: '';
+  display: block;
+  width: 40px; /* Larghezza visibile della maniglia */
+  height: 7px; /* Altezza della parte visibile */
+  background: #ccc; /* Colore della maniglia */
+  border-radius: 5px; /* Bordo arrotondato */
+  margin-top: 4px; /* Distanza di 3px dal bordo superiore del modale */
+  margin-left: auto; /* Centra orizzontalmente */
+  margin-right: auto; /* Centra orizzontalmente */
+}
 
 /* Intestazione del modale */
 .modal-header {

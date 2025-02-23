@@ -461,7 +461,9 @@ const newUsernameInput = document.getElementById('new-username');
 const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
-const settingsBtnContainer = document.getElementById('settings-btn-container'); // Contenitore dei pulsanti "Impostazioni" e "Aggiornamenti App"
+const settingsBtn = document.getElementById('settings-button'); // Pulsante impostazioni
+const updatesButton = document.getElementById('updates-button'); //Pulsante Aggiornamenti App
+const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn, updatesButton]; // Pulsanti principali
 
 const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
@@ -514,23 +516,19 @@ async function checkProfile() {
     } else {
       userAvatar.src = profile.image || 'img/default-avatar.jpg';
     }
-
-    // Mostra il contenitore dei pulsanti "Impostazioni" e "Aggiornamenti App"
-    settingsBtnContainer.style.display = 'block';
   } else {
     userAvatar.src = 'img/default-avatar.jpg';
     profileNameDisplay.style.display = 'none';
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
-
-    // Nascondi il contenitore dei pulsanti "Impostazioni" e "Aggiornamenti App"
-    settingsBtnContainer.style.display = 'block';
   }
 }
 
 // ==========================
 // 📌 GESTIONE DEL MENU
 // ==========================
+
+// Funzione per mostrare solo la sezione richiesta
 function showSectionOnly(sectionToShow) {
   allMainButtons.forEach(button => button.style.display = 'none');
   createProfileSection.style.display = 'none';
@@ -538,12 +536,14 @@ function showSectionOnly(sectionToShow) {
   sectionToShow.style.display = 'block';
 }
 
+// Aprire il menu utente
 document.getElementById('user-icon').addEventListener('click', (event) => {
   userMenuContainer.classList.add('open');
   checkProfile();
   event.stopPropagation();
 });
 
+// Chiudere il menu utente
 document.addEventListener('click', (event) => {
   if (!userMenuContainer.contains(event.target) && userMenuContainer.classList.contains('open')) {
     userMenuContainer.classList.remove('open');
@@ -559,7 +559,6 @@ closeUserMenuBtn.addEventListener('click', () => {
 // ==========================
 createProfileBtn.addEventListener('click', () => {
   showSectionOnly(createProfileSection);
-  settingsBtnContainer.style.display = 'none'; // Nascondi il contenitore dei pulsanti
 });
 
 saveProfileBtn.addEventListener('click', async () => {
@@ -580,10 +579,10 @@ saveProfileBtn.addEventListener('click', async () => {
 // ⚙️ GESTIONE PROFILO
 // ==========================
 manageProfileBtn.addEventListener('click', () => {
-  settingsBtnContainer.style.display = 'none'; // Nascondi il contenitore dei pulsanti quando si gestisce il profilo
   showSectionOnly(manageProfileSection);
 });
 
+// Cambiare immagine
 changeAvatarBtn.addEventListener('click', () => profileImgInput.click());
 
 profileImgInput.addEventListener('change', async (event) => {
@@ -604,6 +603,7 @@ profileImgInput.addEventListener('change', async (event) => {
   }
 });
 
+// Cambiare nome utente
 changeUsernameBtn.addEventListener('click', () => {
   newUsernameInput.style.display = 'block';
   saveUsernameBtn.style.display = 'block';
@@ -625,6 +625,7 @@ saveUsernameBtn.addEventListener('click', async () => {
   checkProfile();
 });
 
+// Eliminare profilo
 deleteProfileBtn.addEventListener('click', async () => {
   if (confirm('Sei sicuro di voler eliminare il profilo?')) {
     await removeProfileFromCache();
@@ -632,7 +633,6 @@ deleteProfileBtn.addEventListener('click', async () => {
     manageProfileSection.style.display = 'none';
     userMenuContainer.classList.remove('open');
     createProfileBtn.style.display = 'block';
-    settingsBtnContainer.style.display = 'block';  // Mostra di nuovo il contenitore dei pulsanti
   }
 });
 
@@ -650,12 +650,11 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
-  // Mostra il contenitore dei pulsanti
-  settingsBtnContainer.style.display = 'block';
+  settingsBtn.style.display = 'block';
+  updatesButton.style.display = 'block';
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });
-
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

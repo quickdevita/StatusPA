@@ -502,6 +502,8 @@ async function checkProfile() {
     profileNameDisplay.style.display = 'block';
     createProfileBtn.style.display = 'none';
     manageProfileBtn.style.display = 'block';
+    settingsBtn.style.display = 'block'; // Assicurati che i tasti siano sempre visibili
+    updatesButton.style.display = 'block'; // Assicurati che i tasti siano sempre visibili
 
     if (profile.image === '/user-avatar') {
       const cache = await caches.open('user-profile-cache');
@@ -521,6 +523,8 @@ async function checkProfile() {
     profileNameDisplay.style.display = 'none';
     createProfileBtn.style.display = 'block';
     manageProfileBtn.style.display = 'none';
+    settingsBtn.style.display = 'block'; // Sempre visibile quando non c'è profilo
+    updatesButton.style.display = 'block'; // Sempre visibile quando non c'è profilo
   }
 }
 
@@ -559,6 +563,8 @@ closeUserMenuBtn.addEventListener('click', () => {
 // ==========================
 createProfileBtn.addEventListener('click', () => {
   showSectionOnly(createProfileSection);
+  settingsBtn.style.display = 'none';  // Nascondi i tasti Impostazioni e Aggiornamenti App
+  updatesButton.style.display = 'none';
 });
 
 saveProfileBtn.addEventListener('click', async () => {
@@ -580,7 +586,7 @@ saveProfileBtn.addEventListener('click', async () => {
 // ==========================
 manageProfileBtn.addEventListener('click', () => {
   showSectionOnly(manageProfileSection);
-  settingsBtn.style.display = 'none';  // Nascondi pulsanti Impostazioni e Aggiornamenti App quando in gestione profilo
+  settingsBtn.style.display = 'none';  // Nascondi i tasti Impostazioni e Aggiornamenti App quando in gestione profilo
   updatesButton.style.display = 'none';
 });
 
@@ -652,8 +658,8 @@ backToMainMenuBtn.addEventListener('click', async () => {
     manageProfileBtn.style.display = 'none';
   }
 
-  settingsBtn.style.display = 'block';
-  updatesButton.style.display = 'block';
+  settingsBtn.style.display = 'block'; // Mostra sempre il tasto Impostazioni
+  updatesButton.style.display = 'block'; // Mostra sempre il tasto Aggiornamenti App
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });

@@ -472,13 +472,11 @@ document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`
 
 // Funzione per nascondere i tasti Impostazioni e Aggiornamenti App
 function hidePrincipalMenuButtons() {
-  console.log('Nascondo i tasti principali');
   principalMenuButtons.style.display = 'none';
 }
 
 // Funzione per mostrare i tasti Impostazioni e Aggiornamenti App
 function showPrincipalMenuButtons() {
-  console.log('Mostro i tasti principali');
   principalMenuButtons.style.display = 'block';
 }
 
@@ -613,7 +611,6 @@ saveUsernameBtn.addEventListener('click', async () => {
   saveUsernameBtn.style.display = 'none';
   checkProfile();
 
-  hidePrincipalMenuButtons(); // Nascondi i tasti quando si salva il nome utente
   showPrincipalMenuButtons(); // Ripristina i tasti dopo il salvataggio
 });
 
@@ -646,6 +643,7 @@ backToMainMenuBtn.addEventListener('click', async () => {
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

@@ -614,6 +614,9 @@ profileImgInput.addEventListener('change', async (event) => {
 changeUsernameBtn.addEventListener('click', () => {
   newUsernameInput.style.display = 'block';
   saveUsernameBtn.style.display = 'block';
+  // Nascondi i pulsanti "Impostazioni" e "Aggiornamenti App" prima di fare modifiche
+  settingsBtn.style.display = 'none';
+  updatesButton.style.display = 'none';
 });
 
 saveUsernameBtn.addEventListener('click', async () => {
@@ -629,7 +632,9 @@ saveUsernameBtn.addEventListener('click', async () => {
 
   newUsernameInput.style.display = 'none';
   saveUsernameBtn.style.display = 'none';
+
   checkProfile();
+  
   // Dopo aver cambiato il nome, ripristina la visibilità dei pulsanti
   settingsBtn.style.display = 'block';
   updatesButton.style.display = 'block';
@@ -666,6 +671,7 @@ backToMainMenuBtn.addEventListener('click', async () => {
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
 });
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

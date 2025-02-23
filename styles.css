@@ -236,6 +236,8 @@ button:hover {
 .back-to-main-menu {
   background-color: #007bff;
   color: white;
+  width: 200px;
+  margin-left: 50px;
   border: none;
   padding: 8px 16px;
   cursor: pointer;

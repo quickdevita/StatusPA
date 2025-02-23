@@ -320,7 +320,7 @@ document.addEventListener("touchmove", (e) => {
     const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
-    if (newHeight > 100 && newHeight < 700) {
+    if (newHeight > 200 && newHeight < 700) {
       modal.style.height = newHeight + "px";
     }
   }
@@ -332,7 +332,7 @@ document.addEventListener("touchend", () => {
     modalHandle.style.cursor = "grab";
 
     // Se l'altezza è sotto un certo limite, minimizza il menu
-    if (modal.offsetHeight < 100) {
+    if (modal.offsetHeight < 200) {
       modal.classList.add("minimized");
     } else {
       modal.classList.remove("minimized");

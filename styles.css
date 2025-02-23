@@ -304,8 +304,20 @@ button:hover {
   background-color: #0056b3;
 }
 
+#updates-button {
+ background-color: #007bff; /* Blu per differenziarlo */
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 90%;
+  border-radius: 5px;
+}
 
-
+#updates-button:hover {
+  background-color: #0056b3;
+}
 
 /* Stile per il punto esclamativo */
 .exclamation-mark {

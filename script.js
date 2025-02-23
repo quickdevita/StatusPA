@@ -260,8 +260,9 @@ tabs.forEach(tab => {
 });
 
 // ========================
-// 🔹 RIDIMENSIONAMENTO E MINIMIZZAZIONE MODALE (STILE GOOGLE MAPS) 🔹
+// 🔹 RIDIMENSIONAMENTO E CHIUSURA MODALE 🔹
 // ========================
+// Variabili globali per il trascinamento
 let isDragging = false;
 let startY = 0;
 let startHeight = 0;
@@ -269,80 +270,57 @@ let startHeight = 0;
 const modal = document.getElementById("modal");
 const modalHandle = document.querySelector(".modal-handle");
 
-// Altezza massima e minima
-const screenHeight = window.innerHeight;
-const MINIMIZED_HEIGHT = 100; // Altezza quando minimizzato
-const MAX_HEIGHT = screenHeight * 0.8; // 80% dello schermo
-const THRESHOLD = screenHeight * 0.4; // Se scende oltre il 40%, minimizza
-
 // Funzione per iniziare il trascinamento
 modalHandle.addEventListener("mousedown", (e) => {
   isDragging = true;
   startY = e.clientY;
   startHeight = modal.offsetHeight;
   modalHandle.style.cursor = "grabbing";
-
-  // Rimuove la classe minimizzata se si inizia a trascinare
-  modal.classList.remove("minimized");
 });
 
 // Funzione per il trascinamento
 document.addEventListener("mousemove", (e) => {
   if (isDragging) {
-    const offset = e.clientY - startY;
-    const newHeight = startHeight - offset;
+    const offset = startY - e.clientY; // Invertiamo l'offset
+    const newHeight = startHeight + offset;
 
     // Imposta un'altezza minima e massima per il modale
-    if (newHeight > MINIMIZED_HEIGHT && newHeight < MAX_HEIGHT) {
+    if (newHeight > 50 && newHeight < 600) {
       modal.style.height = newHeight + "px";
     }
   }
 });
 
-// Rilascia il mouse e controlla se deve minimizzarsi
+// Funzione per fermare il trascinamento
 document.addEventListener("mouseup", () => {
   if (isDragging) {
     isDragging = false;
     modalHandle.style.cursor = "grab";
 
-    if (modal.offsetHeight < THRESHOLD) {
-      minimizeModal();
+    // Se l'altezza è sotto un certo limite, minimizza il menu
+    if (modal.offsetHeight < 100) {
+      modal.classList.add("minimized");
+    } else {
+      modal.classList.remove("minimized");
     }
   }
 });
 
-
-const modalContainer = document.querySelector(".modal-container");
-
-// Prevenire la chiusura accidentale
-modalContainer.addEventListener("click", (e) => {
-  if (isDragging) {
-    e.stopPropagation(); // Evita la chiusura quando si sta trascinando
-  } else {
-    modalContainer.style.display = "none"; // Chiude il modale solo se non si sta trascinando
-  }
-});
-
-// Funzione per minimizzare il modale
-function minimizeModal() {
-  modal.classList.add("minimized");
-  modal.style.height = MINIMIZED_HEIGHT + "px";
-}
-
-// 🔹 GESTIONE TOUCH (PER DISPOSITIVI MOBILI)
+// Gestione touch per dispositivi mobili
 modalHandle.addEventListener("touchstart", (e) => {
   isDragging = true;
   startY = e.touches[0].clientY;
   startHeight = modal.offsetHeight;
-  modal.classList.remove("minimized");
+  modalHandle.style.cursor = "grabbing";
 });
 
 document.addEventListener("touchmove", (e) => {
   if (isDragging) {
-    const offset = e.touches[0].clientY - startY;
-    const newHeight = startHeight - offset;
+    const offset = startY - e.touches[0].clientY; // Invertiamo l'offset anche per il touch
+    const newHeight = startHeight + offset;
 
-    if (newHeight > MINIMIZED_HEIGHT && newHeight < MAX_HEIGHT) {
+    // Imposta un'altezza minima e massima per il modale
+    if (newHeight > 50 && newHeight < 600) {
       modal.style.height = newHeight + "px";
     }
   }
@@ -351,10 +329,22 @@ document.addEventListener("touchmove", (e) => {
 document.addEventListener("touchend", () => {
   if (isDragging) {
     isDragging = false;
+    modalHandle.style.cursor = "grab";
 
-    if (modal.offsetHeight < THRESHOLD) {
-      minimizeModal();
+    // Se l'altezza è sotto un certo limite, minimizza il menu
+    if (modal.offsetHeight < 100) {
+      modal.classList.add("minimized");
+    } else {
+      modal.classList.remove("minimized");
     }
+  }
+});
+
+// Aggiunto il controllo per prevenire il movimento non desiderato dopo il rilascio del mouse
+document.addEventListener("mouseleave", () => {
+  if (isDragging) {
+    isDragging = false;
+    modalHandle.style.cursor = "grab";
   }
 });
 

@@ -473,27 +473,15 @@ button:hover {
 
 /* Modale */
 .modal {
-  height: 400px; /* Altezza iniziale */
+  height: 350px; /* Altezza iniziale */
   overflow: hidden;
 }
 
 /* Quando il modale è minimizzato */
 .modal.minimized {
-  height: 100px; /* Altezza minima */
-  overflow: hidden;
+  height: 50px; /* Altezza minima */
 }
 
-.modal.minimized .modal-handle::before {
-  content: '';
-  display: block;
-  width: 40px; /* Larghezza visibile della maniglia */
-  height: 7px; /* Altezza della parte visibile */
-  background: #ccc; /* Colore della maniglia */
-  border-radius: 5px; /* Bordo arrotondato */
-  margin-top: 4px; /* Distanza di 3px dal bordo superiore del modale */
-  margin-left: auto; /* Centra orizzontalmente */
-  margin-right: auto; /* Centra orizzontalmente */
-}
 
 /* Intestazione del modale */
 .modal-header {
@@ -580,10 +568,6 @@ button:hover {
   width: 50%;
   height: 2px;
   transform: translateX(-50%);
-}
-
-.tab-button-active:hover {
-  background-color: gray;
 }
 
 /* Contenuti delle sezioni */

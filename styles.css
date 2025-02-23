@@ -398,7 +398,7 @@ button:hover {
   top: 0; /* Posiziona la maniglia in alto */
   left: 0; /* Allinea a sinistra */
   width: 100%; /* Estende la maniglia su tutta la larghezza del modale */
-  height: 10px; /* Altezza della maniglia */
+  height: 15px; /* Altezza della maniglia */
   cursor: grab; /* Cursore per trascinare */
   flex-shrink: 0; /* Impedisce il ridimensionamento */
   background: transparent; /* Rendi invisibile l'area estesa */
@@ -434,7 +434,6 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
   border-bottom: 1px solid #ddd;
   position: sticky;
   top: 0;

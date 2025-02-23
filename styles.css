@@ -582,6 +582,10 @@ button:hover {
   transform: translateX(-50%);
 }
 
+.tab-button-active:hover {
+  background-color: gray;
+}
+
 /* Contenuti delle sezioni */
 .modal-content {
   padding: 10px;

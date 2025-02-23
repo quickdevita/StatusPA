@@ -475,11 +475,12 @@ button:hover {
 .modal {
   height: 400px; /* Altezza iniziale */
   overflow: hidden;
+  transition: height 0.3s ease-in-out; /* Aggiunta animazione fluida */
 }
 
 /* Quando il modale è minimizzato */
 .modal.minimized {
-  height: 150px; /* Altezza minima */
+  height: 40vh; /* Altezza minima */
   overflow: hidden;
 }
 

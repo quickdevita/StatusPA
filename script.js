@@ -621,41 +621,41 @@ backToMainMenuBtn.addEventListener('click', () => {
   userMenuContainer.classList.add('open');
 });
 
-// Funzione per mostrare solo una specifica sezione e nascondere tutto il resto
-function showOnlySection(sectionToShow) {
-  // Seleziona tutte le sezioni interne del menu utente (eccetto l'header e la struttura principale)
-  const sections = [createProfileSection, manageProfileSection];
+// Seleziona tutti i pulsanti che devono essere nascosti quando si apre una sezione specifica
+const settingsBtn = document.getElementById('settings-button'); // Supponiamo sia l'ID del pulsante impostazioni
+const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn]; // Aggiungi qui altri pulsanti in futuro
 
-  // Nasconde tutte le sezioni tranne quella richiesta
-  sections.forEach(section => {
-    section.style.display = section === sectionToShow ? 'block' : 'none';
-  });
+function showSectionOnly(sectionToShow) {
+  // Nasconde tutti i pulsanti principali
+  allMainButtons.forEach(button => button.style.display = 'none');
 
-  // Nasconde i pulsanti principali "Crea profilo" e "Gestisci profilo" quando si entra in una sezione
-  createProfileBtn.style.display = 'none';
-  manageProfileBtn.style.display = 'none';
+  // Nasconde tutte le sezioni
+  createProfileSection.style.display = 'none';
+  manageProfileSection.style.display = 'none';
+
+  // Mostra solo la sezione richiesta
+  sectionToShow.style.display = 'block';
 }
 
 // Quando l'utente clicca su "Crea profilo"
 createProfileBtn.addEventListener('click', () => {
-  showOnlySection(createProfileSection);
+  showSectionOnly(createProfileSection);
 });
 
 // Quando l'utente clicca su "Gestisci profilo"
 manageProfileBtn.addEventListener('click', () => {
-  showOnlySection(manageProfileSection);
+  showSectionOnly(manageProfileSection);
 });
 
 // Quando l'utente torna al menu principale
 backToMainMenuBtn.addEventListener('click', () => {
-  // Mostra di nuovo tutto il menu utente
+  // Mostra di nuovo tutti i pulsanti principali
+  allMainButtons.forEach(button => button.style.display = 'block');
+
+  // Nasconde le sezioni specifiche
   createProfileSection.style.display = 'none';
   manageProfileSection.style.display = 'none';
-
-  createProfileBtn.style.display = 'block';
-  manageProfileBtn.style.display = 'block';
 });
-
 
 
 // ==========================

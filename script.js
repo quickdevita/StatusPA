@@ -464,7 +464,7 @@ const saveUsernameBtn = document.getElementById('save-username');
 const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
 
-const APP_VERSION = 'beta0.3';
+const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
 
 async function getProfileFromCache() {

@@ -475,12 +475,8 @@ button:hover {
   cursor: pointer;
 }
 
-.favorite-btn {
-  color: gray;
-}
-
-.favorite-btn.active {
-  color: red;
+.material-icons {
+  color: black;
 }
 
 /* 📷 Galleria immagini scorrevole */
@@ -520,6 +516,7 @@ button:hover {
   cursor: pointer;
   text-align: center;
   position: relative;
+  color: black;
 }
 
 .tab-button.active {

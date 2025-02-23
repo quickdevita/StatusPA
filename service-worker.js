@@ -1,5 +1,5 @@
 // Versione del service worker
-const SW_VERSION = '0.0.78'; // Incrementa il numero della versione
+const SW_VERSION = '0.0.80'; // Incrementa il numero della versione
 const CACHE_NAME = `statuspa-cache-${SW_VERSION}`;
 const MAP_CACHE_NAME = `statuspa-map-cache-${SW_VERSION}`;
 const USER_PROFILE_CACHE_NAME = 'user-profile-cache'; // Cache separata per i dati utente
@@ -18,6 +18,7 @@ const urlsToCache = [
 
 // Installazione del Service Worker e caching dei file
 self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Forza l'installazione del nuovo worker subito
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -30,7 +31,6 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(USER_PROFILE_CACHE_NAME).then(cache => {
       // Qui puoi aggiungere i file relativi all'utente, se necessario
-      // ad esempio, caricare una versione predefinita del profilo
     })
   );
 });
@@ -39,13 +39,11 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
   const requestUrl = event.request.url;
 
-  // Evita di gestire il caching del favicon
   if (requestUrl.includes('favicon.ico')) {
     event.respondWith(new Response(null, { status: 204 }));
     return;
   }
 
-  // Cache delle tile della mappa (Esri e OSM)
   if (requestUrl.includes('tile.openstreetmap.org') || requestUrl.includes('arcgisonline.com')) {
     event.respondWith(
       caches.open(MAP_CACHE_NAME).then(cache => {
@@ -60,8 +58,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Gestione della cache per i dati utente separatamente
-  if (requestUrl.includes('user-profile') || requestUrl.includes('/user-avatar')) { // Gestisce la cache del profilo e dell'immagine
+  if (requestUrl.includes('user-profile') || requestUrl.includes('/user-avatar')) {
     event.respondWith(
       caches.open(USER_PROFILE_CACHE_NAME).then(cache => {
         return cache.match(event.request).then(response => {
@@ -72,7 +69,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache per altri file
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
@@ -84,7 +80,7 @@ self.addEventListener('fetch', (event) => {
 
 // Attivazione e pulizia della cache vecchia
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME, MAP_CACHE_NAME, USER_PROFILE_CACHE_NAME]; // Aggiungi USER_PROFILE_CACHE_NAME
+  const cacheWhitelist = [CACHE_NAME, MAP_CACHE_NAME, USER_PROFILE_CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(

@@ -1,4 +1,4 @@
-/* Rimuove qualsiasi margine e padding dal body e html */
+ /* Rimuove qualsiasi margine e padding dal body e html */
 html, body {
   margin: 0;
   padding: 0;
@@ -378,6 +378,7 @@ button:hover {
 
 .modal {
   position: relative;
+  display: flex;
   width: 100%;
   background: white;
   border-radius: 20px 20px 0 0;
@@ -387,16 +388,33 @@ button:hover {
   transition: transform 0.3s ease-out;
   max-height: 80vh;
   overflow-y: auto;
+  overflow: hidden;
+  flex-direction: column;
+}
+ 
+/* Maniglia per trascinare il modale */
+.modal-handle { 
+  position: absolute; /* Posizione assoluta per estendere la maniglia */
+  top: 0; /* Posiziona la maniglia in alto */
+  left: 0; /* Allinea a sinistra */
+  width: 100%; /* Estende la maniglia su tutta la larghezza del modale */
+  height: 10px; /* Altezza della maniglia */
+  cursor: grab; /* Cursore per trascinare */
+  flex-shrink: 0; /* Impedisce il ridimensionamento */
+  background: transparent; /* Rendi invisibile l'area estesa */
 }
 
-/* Maniglia per trascinare il modale */
-.modal-handle {
-  width: 100px;
-  height: 5px;
-  background: #ccc;
-  border-radius: 5px;
-  margin: 10px auto;
-  cursor: grab;
+/* Parte visibile della maniglia */
+.modal-handle::before {
+  content: '';
+  display: block;
+  width: 40px; /* Larghezza visibile della maniglia */
+  height: 8px; /* Altezza della parte visibile */
+  background: #ccc; /* Colore della maniglia */
+  border-radius: 5px; /* Bordo arrotondato */
+ margin-top: 3px; /* Distanza di 3px dal bordo superiore del modale */
+  margin-left: auto; /* Centra orizzontalmente */
+  margin-right: auto; /* Centra orizzontalmente */
 }
 
 /* Modale */
@@ -418,6 +436,8 @@ button:hover {
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
 }
 
 .modal-header h2 {
@@ -503,8 +523,9 @@ button:hover {
 /* Contenuti delle sezioni */
 .modal-content {
   padding: 10px;
-  max-height: 70vh; /* Aggiungi un'altezza massima */
+  max-height: 80vh; /* Aggiungi un'altezza massima */
   overflow-y: auto; /* Abilita lo scroll verticale */
+  flex-grow: 1; /* Riempie lo spazio disponibile */
 }
 
 .tab-content {

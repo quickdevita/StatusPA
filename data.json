@@ -15,8 +15,8 @@
     ],
     "color": "yellow",
     "stato": "Lavori (in corso) quasi ultimati",
-    "importo": "14.000.000",
-    "description": "Lavori quasi completi per nuova fermata Metropolitana.",
+    "importo": "14.000.000€",
+    "description": "Come detto dal presidente di RFI Dario Lo Bosco in occasione dell'apertura della fermata Libertà, la fermata Politeama dovrebbe aprire nel settembre 2025. Al momento è stata completata la parte infrastrutturale della fermata Politeama, ma bisogna concludere le rifiniture e l’installazione dell’impiantistica elettronica», si sta completando anche la riqualificazione delle aree in superficie. ",
     "address": "Piazza Castelnuovo, Palermo",
     "startDate": "2023-06-01",
     "endDate": "2025-12-31",
@@ -37,7 +37,7 @@
   },
   {
     "id": "lavoro_002",
-    "name": "Piscina Comunale al coperto",
+    "name": "Piscina Comunale coperta",
     "coordinates": [
       [38.14993785544158, 13.342458018935645],
       [38.14925899008563, 13.342851280194765],
@@ -46,12 +46,12 @@
       [38.14993785544158, 13.342458018935645]
     ],
     "color": "yellow",
-    "stato": "non disponibile",
-    "importo": "non disponibile",
-    "description": "Interventi di ristrutturazione e adeguamento della piscina comunale coperta.",
-    "address": "Via del Nuoto, Palermo",
-    "startDate": "2024-01-15",
-    "endDate": "2025-06-30",
+    "stato": "Lavori in corso",
+    "importo": "4.600.000€",
+    "description": "Diversi gli interventi previsti, come dichiara lo stesso assessore ai Lavori Pubblici, Salvatore Orlando: «Le operazioni di recupero permetteranno il consolidamento strutturale della piscina, il rifacimento dell’impianto di filtrazione, la realizzazione di un nuovo impianto di ventilazione al servizio della palestra e della piscina, l’adeguamento dell’impianto idrico sanitario e opere accessorie, il rifacimento dell’impianto di illuminazione e l’adeguamento alla normativa Coni dell’impianto sportivo».",
+    "address": "Via del Fante, Palermo",
+    "startDate": "2024-08-20",
+    "endDate": "2025-06-16",
     "images": [
       "https://esempio.com/piscina1.jpg",
       "https://esempio.com/piscina2.jpg"
@@ -78,12 +78,12 @@
       [38.11947009256534, 13.371997961649896]
     ],
     "color": "red",
-    "stato": "non disponibile",
-    "importo": "non disponibile",
-    "description": "Progetto bloccato per problemi burocratici.",
+    "stato": "Lavori fermi (appaltati 2025)",
+    "importo": "4.300.000€",
+    "description": "Progetto rifinanziato e appaltato nel 2025 dopo anni di cantiere fermo.Prevista la posa di tubature nell’area dell’Autorità Portuale e il completamento degli interventi sulla mega vasca per la raccolta dei liquami che poi dovranno essere indirizzati verso il depuratore di Acqua dei Corsari, attraverso una una pompa di sollevamento.Infine si prevede di riqualificare l'area per riaprirla al pubblico  ",
     "address": "Foro Italico, Palermo",
-    "startDate": "2018-05-10",
-    "endDate": "Da definire",
+    "startDate": "2025-03-10",
+    "endDate": "2026-03-10",
     "images": [
       "https://esempio.com/collettore1.jpg"
     ],
@@ -111,11 +111,11 @@
     ],
     "color": "yellow",
     "stato": "non disponibile",
-    "importo": "non disponibile",
+    "importo": "26.000.000€",
     "description": "Progetto di riqualificazione dell'interfaccia tra il porto e la città per migliorare l'accessibilità e i servizi.",
     "address": "Zona Porto, Palermo",
-    "startDate": "2022-09-10",
-    "endDate": "2025-08-15",
+    "startDate": "2023-06-08",
+    "endDate": "2025-12-12",
     "images": [
       "https://esempio.com/porto1.jpg",
       "https://esempio.com/porto2.jpg"
@@ -129,7 +129,7 @@
   },
   {
     "id": "lavoro_005",
-    "name": "Centro RIMED",
+    "name": "CBRB RIMED",
     "coordinates": [
       [38.14932064798379, 13.16522076243613],
       [38.14947933997883, 13.16525826113969],
@@ -157,11 +157,11 @@
       [38.14932064798379, 13.16522076243613]
     ],
     "color": "yellow",
-    "stato": "non disponibile",
-    "importo": "non disponibile",
-    "description": "Realizzazione di un moderno centro di ricerca dedicato alle biotecnologie e alla biomedicina.",
-    "address": "Zona Industriale, Palermo",
-    "startDate": "2023-04-20",
+    "stato": "Lavori in corso quasi ultimati",
+    "importo": "200.000.000€",
+    "description": " Il Centro per le Biotecnologie e la Ricerca Biomedica (CBRB), un edificio di 25.000 mq, sorgerà a Carini, a pochi chilometri dall’aeroporto di Palermo. Il CBRB consentirà alla Sicilia di assumere una posizione di primo piano nello sviluppo di farmaci, vaccini e dispositivi medici di nuova generazione, attraendo a Palermo i maggiori ricercatori e trattenendo nel nostro Paese i migliori medici e scienziati italiani. Al CBRB troveranno impiego principal investigators (fino a 50, leader dei vari team di ricerca), ricercatori, tecnici, fellow, borsisti, amministratori, assistenti, addetti alla gestione degli animali, personale di servizio, ingegneri IT etc., per un totale di circa 600 posti di lavoro.",
+    "address": "Via Ponticelli, Carini",
+    "startDate": "2020-04-20",
     "endDate": "2026-12-01",
     "images": [
       "https://esempio.com/rimed1.jpg",
@@ -186,12 +186,12 @@
       [38.19181918726451, 13.31619927153902]
     ],
     "color": "yellow",
-    "stato": "non disponibile",
-    "importo": "non disponibile",
+    "stato": "Lavori in corso",
+    "importo": "8.000.000",
     "description": "Lavori di riqualificazione e miglioramento della struttura sportiva.",
-    "address": "Fondo Patti, Palermo",
-    "startDate": "2023-03-01",
-    "endDate": "2025-10-30",
+    "address": "Via Castelforte, Palermo",
+    "startDate": "2025-02-03",
+    "endDate": "2026-06-30",
     "images": [
       "https://esempio.com/palasport1.jpg",
       "https://esempio.com/palasport2.jpg"
@@ -222,12 +222,12 @@
       [38.19205522482954, 13.31537372920122]
     ],
     "color": "yellow",
-    "stato": "non disponibile",
-    "importo": "non disponibile",
-    "description": "Interventi per migliorare e modernizzare lo stadio da baseball della città.",
-    "address": "Zona Diamante, Palermo",
-    "startDate": "2024-02-01",
-    "endDate": "2026-07-15",
+    "stato": "Lavori in corso",
+    "importo": "4.700.000€",
+    "description": "Il primo lotto, affidato alla Fenix consorzio stabile scarl, prevede la rifunzionalizzazione del campo da baseball, il recupero strutturale, impiantistico ed edile del corpo spogliatoi, il ripristino della viabilità di accesso e degli impianti esterni, per l’importo di 2,7 milioni ed una durata dei lavori pari a 270 giorni. Il secondo lotto, affidato alla Itaca società cooperativa, prevede il recupero strutturale, edilizio ed impiantistico del locale biglietteria, il recupero degli spazi esterni e del parcheggio per l’importo di 2 milioni ed una durata dei lavori di 270 giorni.",
+    "address": "Viale dell'Olimpo, Palermo",
+    "startDate": "2024-09-16",
+    "endDate": "2025-06-16",
     "images": [
       "https://esempio.com/baseball1.jpg",
       "https://esempio.com/baseball2.jpg"
@@ -262,13 +262,13 @@
       [38.10306188456055, 13.39437377747221],
       [38.10202594222982, 13.39713574677402]
     ],
-    "color": "yellow",
-    "stato": "non disponibile",
-    "importo": "non disponibile",
-    "description": "Progetto di riqualificazione del parco con nuove aree verdi e strutture ricreative.",
-    "address": "Via dello Sperone, Palermo",
-    "startDate": "2023-05-10",
-    "endDate": "2025-09-30",
+    "color": "orange",
+    "stato": "Gara d'appalto in corso",
+    "importo": "13.700.000€",
+    "description": "Il progetto si inserisce nel contesto di una più ampia operazione di rigenerazione urbana, puntando alla riqualificazione di un’area attualmente non accessibile e segnata dall’abbandono.Tra le principali opere previste, il bando include: Demolizione di fabbricati abbandonati: Per eliminare le strutture obsolete e pericolose presenti nell’area.Sistemazione a verde del suolo: Creazione di aree verdi per migliorare l’ambiente e offrire spazi di relax ai cittadini.Realizzazione di attrezzature sportive e skate park: Spazi dedicati allo sport, destinati sia ai giovani che agli adulti, con l’obiettivo di promuovere uno stile di vita sano.Percorsi pedonali e ciclabili panoramici: Itinerari per passeggiate e ciclismo, che permetteranno ai residenti di godere della bellezza del panorama costiero.Costruzione di un parcheggio: Per migliorare la viabilità e facilitare l’accesso al parco.",
+    "address": "Via Messina Marine-Palumbo, Palermo",
+    "startDate": "???",
+    "endDate": "???",
     "images": [
       "https://esempio.com/sperone1.jpg",
       "https://esempio.com/sperone2.jpg"

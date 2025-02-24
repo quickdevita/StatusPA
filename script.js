@@ -324,10 +324,14 @@ document.addEventListener("touchend", () => {
 // Gestione della minimizzazione del modale
 document.getElementById("modal-container").addEventListener("click", (e) => {
   if (modal.classList.contains("minimized") && e.target !== modal) {
-    modal.style.height = MINIMIZED_HEIGHT + "px"; // Rende minimizzato il modale se cliccato fuori
+    // Quando il modale è minimizzato e si clicca fuori, il modale si minimizza
+    modal.style.height = MINIMIZED_HEIGHT + "px"; 
+  } else if (!modal.classList.contains("minimized") && e.target === document.getElementById("modal-container")) {
+    // Quando il modale non è minimizzato, si minimizza se clicchi fuori
+    modal.classList.add("minimized");
+    modal.style.height = MINIMIZED_HEIGHT + "px";
   }
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");

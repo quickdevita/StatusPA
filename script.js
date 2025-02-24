@@ -271,9 +271,17 @@ const modalHandle = document.querySelector(".modal-handle");
 
 // Altezza massima e minima
 const screenHeight = window.innerHeight;
-const MINIMIZED_HEIGHT = 100; // Altezza quando minimizzato
-const MAX_HEIGHT = screenHeight * 0.8; // 80% dello schermo
-const THRESHOLD = screenHeight * 0.4; // Se scende oltre il 40%, minimizza
+const MINIMIZED_HEIGHT = 100; // Altezza minimizzata
+const MEDIUM_HEIGHT = screenHeight * 0.5; // 50% dello schermo
+const MAX_HEIGHT = screenHeight * (window.innerWidth < 768 ? 0.9 : 0.8); // 90% mobile, 80% PC
+
+// Funzione per trovare il breakpoint più vicino
+function getClosestHeight(currentHeight) {
+  const breakpoints = [MINIMIZED_HEIGHT, MEDIUM_HEIGHT, MAX_HEIGHT];
+  return breakpoints.reduce((prev, curr) => 
+    Math.abs(curr - currentHeight) < Math.abs(prev - currentHeight) ? curr : prev
+  );
+}
 
 // Funzione per iniziare il trascinamento
 modalHandle.addEventListener("mousedown", (e) => {
@@ -281,8 +289,6 @@ modalHandle.addEventListener("mousedown", (e) => {
   startY = e.clientY;
   startHeight = modal.offsetHeight;
   modalHandle.style.cursor = "grabbing";
-
-  // Rimuove la classe minimizzata se si inizia a trascinare
   modal.classList.remove("minimized");
 });
 
@@ -292,30 +298,23 @@ document.addEventListener("mousemove", (e) => {
     const offset = e.clientY - startY;
     const newHeight = startHeight - offset;
 
-    // Imposta un'altezza minima e massima per il modale
     if (newHeight > MINIMIZED_HEIGHT && newHeight < MAX_HEIGHT) {
       modal.style.height = newHeight + "px";
     }
   }
 });
 
-// Rilascia il mouse e controlla se deve minimizzarsi
+// Rilascia il mouse e adatta il modale
 document.addEventListener("mouseup", () => {
   if (isDragging) {
     isDragging = false;
     modalHandle.style.cursor = "grab";
 
-    if (modal.offsetHeight < THRESHOLD) {
-      minimizeModal();
-    }
+    // Trova l'altezza più vicina e adatta il modale
+    const closestHeight = getClosestHeight(modal.offsetHeight);
+    modal.style.height = closestHeight + "px";
   }
 });
-
-// Funzione per minimizzare il modale
-function minimizeModal() {
-  modal.classList.add("minimized");
-  modal.style.height = MINIMIZED_HEIGHT + "px";
-}
 
 // 🔹 GESTIONE TOUCH (PER DISPOSITIVI MOBILI)
 modalHandle.addEventListener("touchstart", (e) => {
@@ -340,9 +339,9 @@ document.addEventListener("touchend", () => {
   if (isDragging) {
     isDragging = false;
 
-    if (modal.offsetHeight < THRESHOLD) {
-      minimizeModal();
-    }
+    // Trova l'altezza più vicina e adatta il modale
+    const closestHeight = getClosestHeight(modal.offsetHeight);
+    modal.style.height = closestHeight + "px";
   }
 });
 

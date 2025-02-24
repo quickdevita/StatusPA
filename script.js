@@ -689,6 +689,9 @@ document.getElementById('updates-button').addEventListener('click', function() {
 
 // Funzione per aprire una scheda
 function openCard(cardId) {
+  // Mostra il filtro di sfondo e disabilita lo scorrimento
+  document.body.classList.add('modal-open');
+  
   // Nasconde tutte le altre schede
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
@@ -702,8 +705,12 @@ function openCard(cardId) {
 
 // Funzione per chiudere una scheda
 function closeCard(cardId) {
+  // Nasconde la scheda
   const card = document.getElementById(cardId);
   card.style.display = 'none';
+
+  // Rimuove il filtro di sfondo e riabilita lo scorrimento
+  document.body.classList.remove('modal-open');
 }
 
 

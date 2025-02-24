@@ -212,12 +212,6 @@ function closeModalFunc() {
 
 document.getElementById("close-modal").addEventListener("click", closeModalFunc);
 
-document.getElementById("modal-container").addEventListener("click", function (event) {
-  if (event.target === document.getElementById("modal-container") && !modal.classList.contains("minimized")) {
-    closeModalFunc();
-  }
-});
-
 // Seleziona tutti i tab
 const tabs = document.querySelectorAll('.tab-button');
 
@@ -235,13 +229,6 @@ tabs.forEach(tab => {
 
     this.classList.add('active');
     document.getElementById(sectionToShow).classList.add('active');
-
-    const modalExtra = document.querySelector('.modal-extra');
-    if (sectionToShow === "info") {
-      modalExtra.style.display = "block";
-    } else {
-      modalExtra.style.display = "none";
-    }
   });
 });
 
@@ -323,17 +310,18 @@ document.addEventListener("touchend", () => {
 
 // Gestione della minimizzazione del modale
 document.getElementById("modal-container").addEventListener("click", (e) => {
-  if (modal.classList.contains("minimized") && e.target !== modal) {
-    // Se il modale è minimizzato e si clicca fuori, non si chiude, ma resta minimizzato
-    modal.style.height = MINIMIZED_HEIGHT + "px"; 
-  } else if (!modal.classList.contains("minimized") && e.target === document.getElementById("modal-container")) {
-    // Se il modale non è minimizzato, minimizzalo
-    modal.classList.add("minimized");
+  if (!modal.classList.contains("minimized")) {
+    if (e.target === document.getElementById("modal-container")) {
+      modal.classList.add("minimized");
+      modal.style.height = MINIMIZED_HEIGHT + "px";
+    }
+  } else {
+    // Se è minimizzato e clicchi fuori, minimizza invece di chiudere
     modal.style.height = MINIMIZED_HEIGHT + "px";
   }
 });
 
-// Rimuove lo sfondo opaco quando il modale è minimizzato
+// Aggiunto controllo per rimuovere sfondo opaco quando il modale è minimizzato
 modal.addEventListener("transitionend", () => {
   if (modal.classList.contains("minimized")) {
     document.getElementById("modal-container").classList.remove("open");

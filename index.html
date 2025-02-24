@@ -146,9 +146,16 @@
     </div>
 
     <!-- Sezione Commenti -->
-    <div id="comments" class="tab-content">
-        <p>Qui verranno aggiunti i commenti.</p>
+<div id="comments" class="tab-content">
+    <p>Qui verranno aggiunti i commenti.</p>
+
+    <!-- Sezione commenti -->
+    <div id="comment-section">
+        <textarea id="comment-input" placeholder="Lascia un commento"></textarea>
+        <button id="submit-comment">Invia commento</button>
+        <div id="comments-list"></div>
     </div>
+</div>
 
     <!-- Sezione Foto -->
     <div id="photos" class="tab-content">
@@ -178,5 +185,29 @@
 
     document.getElementById('user-version').textContent = 'Versione Beta0.4';
   </script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD8FP20zFno0X-w1O7JA1DU7MBZj3ViHk0",
+    authDomain: "statuspa-81c8f.firebaseapp.com",
+    projectId: "statuspa-81c8f",
+    storageBucket: "statuspa-81c8f.firebasestorage.app",
+    messagingSenderId: "1034302233720",
+    appId: "1:1034302233720:web:4659152fd64e9b47b3218d",
+    measurementId: "G-4Y6L5QXE6J"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>

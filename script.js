@@ -344,6 +344,63 @@ document.addEventListener("touchend", () => {
   }
 });
 
+// Funzione per inviare un commento a Firebase
+document.getElementById('submit-comment').addEventListener('click', function() {
+  const comment = document.getElementById('comment-input').value;
+  const workId = 'ID_DEL_LAVORO'; // L'ID del lavoro da commentare
+
+  if (comment.trim()) {
+    // Recupera l'ID dell'utente dalla cache (localStorage)
+    const userProfile = JSON.parse(localStorage.getItem('userProfile'));
+    const userId = userProfile ? userProfile.id : null;
+
+    if (userId) {
+      // Aggiungi il commento a Firebase
+      db.collection('comments').add({
+        workId: workId,
+        comment: comment,
+        userId: userId, // Usa l'ID dell'utente dalla cache
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      }).then(() => {
+        document.getElementById('comment-input').value = ''; // Reset del campo di input
+        loadComments(workId); // Ricarica i commenti dopo aver inviato uno nuovo
+      }).catch((error) => {
+        console.error("Errore nell'invio del commento:", error);
+      });
+    } else {
+      alert('Devi essere loggato per commentare.');
+    }
+  } else {
+    alert('Il commento non può essere vuoto!');
+  }
+});
+
+// Funzione per caricare i commenti dal Firestore
+function loadComments(workId) {
+  db.collection('comments')
+    .where('workId', '==', workId)
+    .orderBy('timestamp', 'desc')
+    .get()
+    .then((snapshot) => {
+      const commentsList = document.getElementById('comments-list');
+      commentsList.innerHTML = ''; // Pulisce i commenti precedenti
+
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+        const commentElement = document.createElement('div');
+        commentElement.classList.add('comment');
+        commentElement.innerHTML = `<strong>${data.userId}</strong>: ${data.comment}`;
+        commentsList.appendChild(commentElement);
+      });
+    }).catch((error) => {
+      console.error("Errore nel recupero dei commenti:", error);
+    });
+}
+
+// Carica i commenti quando il lavoro viene visualizzato
+const workId = 'ID_DEL_LAVORO'; // Ottieni l'ID del lavoro
+loadComments(workId);
+
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");
@@ -584,6 +641,8 @@ saveProfileBtn.addEventListener('click', async () => {
   const userId = crypto.randomUUID(); // Genera un ID univoco
   const profileData = { id: userId, name, image: 'img/default-avatar.jpg' };
   await saveProfileToCache(profileData);
+  // Salva il profilo nel localStorage
+  localStorage.setItem('userProfile', JSON.stringify(profileData));
 
   createProfileSection.style.display = 'none';
   await checkProfile();

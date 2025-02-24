@@ -273,7 +273,7 @@ const modalHandle = document.querySelector(".modal-handle");
 const screenHeight = window.innerHeight;
 const MINIMIZED_HEIGHT = 100; // Altezza minimizzata
 const MEDIUM_HEIGHT = screenHeight * 0.5; // 50% dello schermo
-const MAX_HEIGHT = screenHeight * (window.innerWidth < 768 ? 0.9 : 0.8); // 90% mobile, 80% PC
+const MAX_HEIGHT = screenHeight * 0.9; // 90% dello schermo per tutti i dispositivi
 
 // Funzione per trovare il breakpoint più vicino
 function getClosestHeight(currentHeight) {
@@ -344,7 +344,6 @@ document.addEventListener("touchend", () => {
     modal.style.height = closestHeight + "px";
   }
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
   var exclamationButton = document.getElementById("exclamation-mark");

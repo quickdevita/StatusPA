@@ -713,6 +713,46 @@ function closeCard(cardId) {
   document.body.classList.remove('modal-open');
 }
 
+// Funzione per il tasto "Aggiornamenti App"
+document.getElementById('updates-button').addEventListener('click', function() {
+  openCard('updates-card');
+  loadChangelog(); // Carica i changelog
+});
+
+// Funzione per caricare i changelog dinamicamente
+function loadChangelog() {
+  // Ottieni il contenitore per i changelog
+  const changelogContainer = document.getElementById('changelog-container');
+
+  // Pulisci il contenitore prima di caricare i nuovi dati
+  changelogContainer.innerHTML = '';
+
+  // Carica i changelog dal file JSON
+  fetch('changelog.json') // Assicurati che il file sia nel percorso corretto
+      .then(response => response.json())
+      .then(data => {
+          const updates = data.updates;
+          updates.forEach(update => {
+              // Crea un nuovo elemento per ogni changelog
+              const changelogItem = document.createElement('div');
+              changelogItem.classList.add('changelog-item');
+
+              // Aggiungi il contenuto del changelog
+              changelogItem.innerHTML = `
+                  <h3>Versione ${update.version} - ${update.date}</h3>
+                  <p>${update.description}</p>
+              `;
+              
+              // Aggiungi l'elemento al contenitore
+              changelogContainer.appendChild(changelogItem);
+          });
+      })
+      .catch(error => {
+          console.error('Errore nel caricamento dei changelog:', error);
+          changelogContainer.innerHTML = '<p>Impossibile caricare gli aggiornamenti.</p>';
+      });
+}
+
 
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹

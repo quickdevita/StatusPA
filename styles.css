@@ -389,15 +389,6 @@ button:hover {
     overflow-y: auto; /* Aggiunge uno scroll verticale se il contenuto è troppo alto */
 }
 
-#updates-card {
-background-color: rgba(0, 0, 0, 0.5); /* Colore scuro dietro la modale */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Blocca lo scorrimento della pagina */
-}
 
 /* Stile per il punto esclamativo */
 .exclamation-mark {

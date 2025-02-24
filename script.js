@@ -677,6 +677,36 @@ backToMainMenuBtn.addEventListener('click', async () => {
   manageProfileSection.style.display = 'none';
 });
 
+// Funzione per il tasto "Impostazioni"
+document.getElementById('settings-button').addEventListener('click', function() {
+  openCard('settings-card');
+});
+
+// Funzione per il tasto "Aggiornamenti App"
+document.getElementById('updates-button').addEventListener('click', function() {
+  openCard('updates-card');
+});
+
+// Funzione per aprire una scheda
+function openCard(cardId) {
+  // Nasconde tutte le altre schede
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+      card.style.display = 'none';
+  });
+
+  // Mostra la scheda selezionata
+  const card = document.getElementById(cardId);
+  card.style.display = 'block';
+}
+
+// Funzione per chiudere una scheda
+function closeCard(cardId) {
+  const card = document.getElementById(cardId);
+  card.style.display = 'none';
+}
+
+
 // ==========================
 // 🔹 LIMITI DELLA MAPPA 🔹
 // ==========================

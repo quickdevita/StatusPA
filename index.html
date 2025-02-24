@@ -77,6 +77,26 @@
   <button id="settings-button">⚙️ Impostazioni</button>
 </div>
 
+<!-- Scheda Aggiornamenti App -->
+<div id="updates-card" class="card" style="display: none;">
+  <h2>Aggiornamenti App</h2>
+  <p>
+    Versione 1.0: Inizializzazione dell'app.<br>
+    Versione 1.1: Aggiunta della funzione di ricerca zone.<br>
+    Versione 1.2: Ottimizzazione della mappa.<br>
+  </p>
+  <button onclick="closeCard('updates-card')">Chiudi</button>
+</div>
+
+<!-- Scheda Impostazioni -->
+<div id="settings-card" class="card" style="display: none;">
+  <h2>Impostazioni</h2>
+  <p>Qui andranno le impostazioni future dell'app.</p>
+  <!-- Puoi aggiungere qui le impostazioni che desideri in futuro -->
+  <button onclick="closeCard('settings-card')">Chiudi</button>
+</div>
+
+
 <!-- Scheda creazione profilo -->
 <div id="create-profile-section" style="display:none;">
   <input type="text" id="profile-name" placeholder="Inserisci nome utente qui">

@@ -372,16 +372,19 @@ button:hover {
 }
 
 .card {
-    width: 80%;
+    width: 60%; /* Più grande, puoi aumentarlo a seconda delle tue necessità */
+    max-width: 800px; /* Limite massimo per non essere troppo grande su schermi molto grandi */
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombra più grande per dare un effetto più prominente */
     border-radius: 10px;
-}
-
-button {
-    margin-top: 20px;
+    position: fixed; /* Importante per posizionarla fuori dal flusso normale della pagina */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra orizzontalmente */
+    transform: translate(-50%, -50%); /* Centra perfettamente la scheda */
+    z-index: 9999; /* Assicurati che la scheda sia sopra gli altri contenuti */
+    transition: all 0.3s ease-in-out; /* Aggiunge un effetto di transizione dolce */
 }
 
 /* Stile per il punto esclamativo */

@@ -103,14 +103,16 @@ document.getElementById('mapToggleButton').addEventListener('click', changeMapLa
 // ========================
 // 🔹 GESTIONE DEL MODALE DEI LAVORI 🔹
 // ========================
+// Funzione per aprire il modale
 function openModal(title, description, images, address, startDate, endDate, importo, stato) {
   document.getElementById("modal-title").textContent = title;
-  document.getElementById("modal-details").textContent = description;
+  document.getElementById("modal-details").textContent = description; 
   document.getElementById("modal-address").textContent = address;
   document.getElementById("modal-start-date").textContent = startDate;
   document.getElementById("modal-end-date").textContent = endDate;
   document.getElementById("modal-importo").textContent = importo;
   document.getElementById("modal-stato").textContent = stato;
+
 
   const modalImagesContainer = document.getElementById("modal-images");
   modalImagesContainer.innerHTML = ""; // Pulisce le immagini precedenti
@@ -156,6 +158,7 @@ function openFullscreenImage(imgSrc) {
 
   let scale = 1;
 
+  // Gestione zoom con la rotellina del mouse
   fullscreenContainer.addEventListener("wheel", (event) => {
     event.preventDefault();
     scale += event.deltaY * -0.01;
@@ -163,6 +166,7 @@ function openFullscreenImage(imgSrc) {
     img.style.transform = `scale(${scale})`;
   });
 
+  // Gestione pinch-to-zoom su touch screen
   let touchStartDistance = 0;
   fullscreenContainer.addEventListener("touchstart", (event) => {
     if (event.touches.length === 2) {
@@ -185,6 +189,7 @@ function openFullscreenImage(imgSrc) {
     return Math.hypot(touch2.pageX - touch1.pageX, touch2.pageY - touch1.pageY);
   }
 
+  // Crea il pulsante di chiusura (X)
   const closeButton = document.createElement("button");
   closeButton.innerHTML = "&times;"; // Simbolo X
   closeButton.classList.add("close-fullscreen");
@@ -192,10 +197,12 @@ function openFullscreenImage(imgSrc) {
     fullscreenContainer.remove();
   });
 
+  // Aggiunge immagine e pulsante al contenitore
   fullscreenContainer.appendChild(img);
   fullscreenContainer.appendChild(closeButton);
   document.body.appendChild(fullscreenContainer);
 
+  // Chiudi l'immagine a schermo intero con un click sullo sfondo
   fullscreenContainer.addEventListener("click", (event) => {
     if (event.target === fullscreenContainer) {
       fullscreenContainer.remove();
@@ -210,26 +217,46 @@ function closeModalFunc() {
   document.body.classList.remove("modal-open");
 }
 
+// Chiudere il modale con il pulsante di chiusura
 document.getElementById("close-modal").addEventListener("click", closeModalFunc);
 
+// Chiudere cliccando fuori dal modale
+document.getElementById("modal-container").addEventListener("click", function (event) {
+  if (event.target === document.getElementById("modal-container")) {
+    closeModalFunc();
+  }
+});
+
+// Seleziona tutti i tab
 // Seleziona tutti i tab
 const tabs = document.querySelectorAll('.tab-button');
 
+// Aggiungi l'evento di click ai tab
 tabs.forEach(tab => {
-  tab.addEventListener('click', function() {
-    const sectionToShow = this.getAttribute('data-tab');
+    tab.addEventListener('click', function() {
+        const sectionToShow = this.getAttribute('data-tab');
 
-    document.querySelectorAll('.tab-button').forEach(tab => {
-      tab.classList.remove('active');
+        // Rimuovi la classe "active" da tutti i tab e dalle sezioni
+        document.querySelectorAll('.tab-button').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Aggiungi la classe "active" al tab selezionato e alla sezione corrispondente
+        this.classList.add('active');
+        document.getElementById(sectionToShow).classList.add('active');
+
+        // Mostra le informazioni extra solo se il tab selezionato è "Info dettagliate"
+        const modalExtra = document.querySelector('.modal-extra');
+        if (sectionToShow === "info") {
+            modalExtra.style.display = "block";
+        } else {
+            modalExtra.style.display = "none";
+        }
     });
-
-    document.querySelectorAll('.tab-content').forEach(content => {
-      content.classList.remove('active');
-    });
-
-    this.classList.add('active');
-    document.getElementById(sectionToShow).classList.add('active');
-  });
 });
 
 // ========================
@@ -242,18 +269,21 @@ let startHeight = 0;
 const modal = document.getElementById("modal");
 const modalHandle = document.querySelector(".modal-handle");
 
+// Altezza massima e minima
 const screenHeight = window.innerHeight;
-const MINIMIZED_HEIGHT = 100;
-const MEDIUM_HEIGHT = screenHeight * 0.5;
-const MAX_HEIGHT = screenHeight * (window.innerWidth < 768 ? 0.9 : 0.85);
+const MINIMIZED_HEIGHT = 100; // Altezza minimizzata
+const MEDIUM_HEIGHT = screenHeight * 0.5; // 50% dello schermo
+const MAX_HEIGHT = screenHeight * (window.innerWidth < 768 ? 0.9 : 0.85); // 90% mobile, 85% PC
 
+// Funzione per trovare il breakpoint più vicino
 function getClosestHeight(currentHeight) {
   const breakpoints = [MINIMIZED_HEIGHT, MEDIUM_HEIGHT, MAX_HEIGHT];
-  return breakpoints.reduce((prev, curr) =>
+  return breakpoints.reduce((prev, curr) => 
     Math.abs(curr - currentHeight) < Math.abs(prev - currentHeight) ? curr : prev
   );
 }
 
+// Funzione per iniziare il trascinamento
 modalHandle.addEventListener("mousedown", (e) => {
   isDragging = true;
   startY = e.clientY;
@@ -262,6 +292,7 @@ modalHandle.addEventListener("mousedown", (e) => {
   modal.classList.remove("minimized");
 });
 
+// Funzione per il trascinamento
 document.addEventListener("mousemove", (e) => {
   if (isDragging) {
     const offset = e.clientY - startY;
@@ -273,15 +304,19 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
+// Rilascia il mouse e adatta il modale
 document.addEventListener("mouseup", () => {
   if (isDragging) {
     isDragging = false;
     modalHandle.style.cursor = "grab";
+
+    // Trova l'altezza più vicina e adatta il modale
     const closestHeight = getClosestHeight(modal.offsetHeight);
     modal.style.height = closestHeight + "px";
   }
 });
 
+// 🔹 GESTIONE TOUCH (PER DISPOSITIVI MOBILI)
 modalHandle.addEventListener("touchstart", (e) => {
   isDragging = true;
   startY = e.touches[0].clientY;
@@ -303,38 +338,12 @@ document.addEventListener("touchmove", (e) => {
 document.addEventListener("touchend", () => {
   if (isDragging) {
     isDragging = false;
+
+    // Trova l'altezza più vicina e adatta il modale
     const closestHeight = getClosestHeight(modal.offsetHeight);
     modal.style.height = closestHeight + "px";
   }
 });
-
-// Gestione della minimizzazione del modale
-document.getElementById("modal-container").addEventListener("click", (e) => {
-  if (!modal.classList.contains("minimized") && e.target === document.getElementById("modal-container")) {
-    modal.classList.add("minimized");
-    modal.style.height = MINIMIZED_HEIGHT + "px";
-    document.getElementById("modal-container").classList.remove("open");
-  }
-});
-
-// Aggiunta controllo per rimuovere l'overlay quando minimizzato
-modal.addEventListener("transitionend", () => {
-  if (modal.classList.contains("minimized")) {
-    document.getElementById("modal-container").classList.remove("open");
-    // Rimuove il blocco dalla mappa, quando il menu è minimizzato
-    document.body.classList.remove("modal-open");
-  }
-});
-
-// Funzione per forzare la mappa ad essere interattiva quando il menu è minimizzato
-function enableMapInteraction() {
-  if (modal.classList.contains("minimized")) {
-    document.body.classList.remove("modal-open");
-  }
-}
-
-// Assicurati che la mappa possa essere interagita quando il menu è minimizzato
-enableMapInteraction();
 
 
 document.addEventListener("DOMContentLoaded", function() {

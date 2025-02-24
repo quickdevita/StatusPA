@@ -371,6 +371,10 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* Importiamo il font Minecraftia */
+@import url('https://fonts.googleapis.com/css2?family=Minecraftia&display=swap');
+
+/* Stile per la scheda (card) in stile Minecraft */
 .card {
     display: none; /* Inizialmente nascosta */
     position: fixed; /* Posizione fissa sopra il contenuto */
@@ -380,15 +384,18 @@ button:hover {
     width: 80%; /* Larghezza della scheda */
     max-width: 600px; /* Limite massimo di larghezza */
     min-height: 300px; /* Altezza minima della scheda */
-    background-color: white;
-    border: 5px solid #007bff;
+    background-color: #1a1a1a; /* Colore scuro come sfondo (grigio scuro) */
+    background-image: url('https://minecraft.net/assets/images/favicon.png'); /* Aggiungi un'icona di Minecraft come texture, o usa una tua immagine di texture */
+    background-size: cover; /* Ridimensiona l'immagine per coprire tutta la scheda */
+    background-position: center; /* Centra l'immagine */
     padding: 20px;
     border-radius: 10px; /* Angoli arrotondati */
-    box-shadow:0 4px 155px #000000; /* Ombra per effetto di separazione */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Ombra intensa per un effetto tridimensionale */
     z-index: 9999; /* Assicurati che sia sopra altri contenuti */
-    overflow-y: auto; /* Aggiunge uno scroll verticale se il contenuto è troppo alto */
+    overflow-y: auto; /* Aggiungi uno scroll verticale se il contenuto è troppo alto */
+    font-family: 'Minecraftia', sans-serif; /* Font pixelato simile a quello di Minecraft */
+    color: #f4f4f4; /* Testo di colore chiaro per contrastare lo sfondo scuro */
 }
-
 
 /* Stile per il punto esclamativo */
 .exclamation-mark {

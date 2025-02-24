@@ -170,6 +170,7 @@ body {
   display: flex;
   align-items: center;
   padding: 10px;
+  border-bottom: 0.5px solid #ddd;
 }
 
 .user-profile-section img {

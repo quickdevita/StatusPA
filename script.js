@@ -314,6 +314,7 @@ document.getElementById("modal-container").addEventListener("click", (e) => {
     if (e.target === document.getElementById("modal-container")) {
       modal.classList.add("minimized");
       modal.style.height = MINIMIZED_HEIGHT + "px";
+      document.getElementById("modal-container").classList.remove("open");
     }
   } else {
     // Se è minimizzato e clicchi fuori, minimizza invece di chiudere
@@ -325,6 +326,8 @@ document.getElementById("modal-container").addEventListener("click", (e) => {
 modal.addEventListener("transitionend", () => {
   if (modal.classList.contains("minimized")) {
     document.getElementById("modal-container").classList.remove("open");
+    // Rimuove il blocco dalla mappa, quando il menu è minimizzato
+    document.body.classList.remove("modal-open");
   }
 });
 

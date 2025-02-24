@@ -228,7 +228,6 @@ document.getElementById("modal-container").addEventListener("click", function (e
 });
 
 // Seleziona tutti i tab
-// Seleziona tutti i tab
 const tabs = document.querySelectorAll('.tab-button');
 
 // Aggiungi l'evento di click ai tab
@@ -496,6 +495,12 @@ async function removeProfileFromCache() {
 async function checkProfile() {
   const profile = await getProfileFromCache();
 
+if (profile && !profile.id) {
+  profile.id = crypto.randomUUID(); // Se manca l'ID, lo assegniamo
+  await saveProfileToCache(profile);
+}
+
+
   if (profile) {
     profileNameDisplay.textContent = profile.name || 'Nome utente';
     profileNameDisplay.style.display = 'block';
@@ -576,7 +581,8 @@ saveProfileBtn.addEventListener('click', async () => {
     return;
   }
 
-  const profileData = { name, image: 'img/default-avatar.jpg' };
+  const userId = crypto.randomUUID(); // Genera un ID univoco
+  const profileData = { id: userId, name, image: 'img/default-avatar.jpg' };
   await saveProfileToCache(profileData);
 
   createProfileSection.style.display = 'none';

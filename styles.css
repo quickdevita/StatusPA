@@ -388,7 +388,7 @@ button:hover {
     overflow-y: auto; /* Aggiunge uno scroll verticale se il contenuto è troppo alto */
 }
 
-.updates-card {
+#updates-card {
 background-color: rgba(0, 0, 0, 0.5); /* Colore scuro dietro la modale */
     position: fixed;
     top: 0;

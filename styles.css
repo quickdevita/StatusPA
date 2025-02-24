@@ -538,7 +538,6 @@ button:hover {
 /* Pulsanti in alto a destra */
 .modal-header .modal-buttons {
   display: flex;
-  gap: 10px;
 }
 
 .modal-header button {

@@ -372,21 +372,20 @@ button:hover {
 }
 
 .card {
-    width: 80%; /* La larghezza è più contenuta per evitare che la scheda sia troppo grande */
-    max-width: 600px; /* Limite massimo per la larghezza della scheda */
-    min-height: 600px; /* Altezza minima per dare spazio al contenuto */
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 30px #007bffc2; /* Ombra per l'effetto modale */
-    border-radius: 10px;
-    position: fixed; /* Posizionamento fisso sopra il contenuto della pagina */
+    display: none; /* Inizialmente nascosta */
+    position: fixed; /* Posizione fissa sopra il contenuto */
     top: 50%; /* Centra verticalmente */
-    left: -280%; /* Centra orizzontalmente */
-    transform: translate(-50%, -50%); /* Centra esattamente la scheda */
-    z-index: 9999; /* Assicura che la scheda sia sopra gli altri contenuti */
-    border: 8px solid #0056b3;
-    transition: all 0.3s ease-in-out; /* Aggiunge un effetto di transizione dolce */
-    overflow-y: auto; /* Abilita lo scroll verticale se il contenuto è troppo alto */
+    left: 50%; /* Centra orizzontalmente */
+    transform: translate(-50%, -50%); /* Allineamento preciso al centro */
+    width: 80%; /* Larghezza della scheda */
+    max-width: 600px; /* Limite massimo di larghezza */
+    min-height: 300px; /* Altezza minima della scheda */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; /* Angoli arrotondati */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombra per effetto di separazione */
+    z-index: 9999; /* Assicurati che sia sopra altri contenuti */
+    overflow-y: auto; /* Aggiunge uno scroll verticale se il contenuto è troppo alto */
 }
 
 /* Stile per il punto esclamativo */

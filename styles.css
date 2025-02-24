@@ -335,6 +335,10 @@ button:hover {
   margin-left: 50px;
 }
 
+#save-username:hover {
+  background-color: #0056b3;
+}
+
 #change-avatar {
   width: 150px;
 }

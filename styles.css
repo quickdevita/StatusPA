@@ -381,7 +381,7 @@ button:hover {
     max-width: 600px; /* Limite massimo di larghezza */
     min-height: 300px; /* Altezza minima della scheda */
     background-color: white;
-    border: 5px solid #031153b5;
+    border: 5px solid #007bff;
     padding: 20px;
     border-radius: 10px; /* Angoli arrotondati */
     box-shadow:0 4px 155px #000000; /* Ombra per effetto di separazione */

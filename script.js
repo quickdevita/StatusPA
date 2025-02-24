@@ -310,19 +310,14 @@ document.addEventListener("touchend", () => {
 
 // Gestione della minimizzazione del modale
 document.getElementById("modal-container").addEventListener("click", (e) => {
-  if (!modal.classList.contains("minimized")) {
-    if (e.target === document.getElementById("modal-container")) {
-      modal.classList.add("minimized");
-      modal.style.height = MINIMIZED_HEIGHT + "px";
-      document.getElementById("modal-container").classList.remove("open");
-    }
-  } else {
-    // Se è minimizzato e clicchi fuori, minimizza invece di chiudere
+  if (!modal.classList.contains("minimized") && e.target === document.getElementById("modal-container")) {
+    modal.classList.add("minimized");
     modal.style.height = MINIMIZED_HEIGHT + "px";
+    document.getElementById("modal-container").classList.remove("open");
   }
 });
 
-// Aggiunto controllo per rimuovere sfondo opaco quando il modale è minimizzato
+// Aggiunta controllo per rimuovere l'overlay quando minimizzato
 modal.addEventListener("transitionend", () => {
   if (modal.classList.contains("minimized")) {
     document.getElementById("modal-container").classList.remove("open");
@@ -330,6 +325,16 @@ modal.addEventListener("transitionend", () => {
     document.body.classList.remove("modal-open");
   }
 });
+
+// Funzione per forzare la mappa ad essere interattiva quando il menu è minimizzato
+function enableMapInteraction() {
+  if (modal.classList.contains("minimized")) {
+    document.body.classList.remove("modal-open");
+  }
+}
+
+// Assicurati che la mappa possa essere interagita quando il menu è minimizzato
+enableMapInteraction();
 
 
 document.addEventListener("DOMContentLoaded", function() {

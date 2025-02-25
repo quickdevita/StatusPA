@@ -261,7 +261,7 @@ button:hover {
 }
 
 @media (max-width 768px) {
-  #back-to-main-menu {
+  .back-to-main-menu {
    margin-left: 20px;
    }
 }

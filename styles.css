@@ -373,7 +373,7 @@ button:hover {
   width: 150px;
 }
 
-@media (max-width 768px) {
+@media (max-width: 768px) {
   #change-username {
    margin-left: 20px;
    }

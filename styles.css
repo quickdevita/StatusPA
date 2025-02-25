@@ -181,8 +181,8 @@ body {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 6px solid #714505;
-  background-color: #8f5a18;
+  border-bottom: 6px solid #188f8e66;
+  background-color: #188f8e66;
 }
 
 .user-profile-section img {
@@ -217,6 +217,7 @@ button {
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 5px;
+  border: 1px solid #000000
   font-size: 14px;
 }
 

@@ -462,8 +462,8 @@ button:hover {
 }
 
 h3 {
-  margin: 5px;
-  margin-left: 100px;
+  margin: 10px;
+  margin-left: 110px;
 }
 
 @media (max-width: 768px) {

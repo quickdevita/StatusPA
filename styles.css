@@ -367,6 +367,12 @@ button:hover {
   width: 150px;
 }
 
+@media (max-width 768px) {
+  #change-username {
+   margin-left: 20px;
+   }
+}
+
 #change-avatar:hover {
   background-color: #0056b3;
 }

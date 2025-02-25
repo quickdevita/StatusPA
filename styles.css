@@ -257,6 +257,7 @@ button:hover {
   border-radius: 5px;
   font-size: 14px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .back-to-main-menu:hover {
@@ -345,7 +346,7 @@ button:hover {
 
 #new-username {
   margin: 5px;
-  margin-left: 60px;
+  margin-left: 87px;
 }
 
 #save-username {
@@ -359,6 +360,7 @@ button:hover {
 
 #change-avatar {
   width: 150px;
+  margin-left: 23;
 }
 
 #change-username {

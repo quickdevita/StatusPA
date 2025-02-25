@@ -227,7 +227,7 @@ button:hover {
 
 #delete-profile {
   background-color: #d15a51;
-  margin-left: 50px;
+  margin-left: 74px;
   margin-top: 10px;
   width: 200px;
 }
@@ -351,7 +351,7 @@ button:hover {
 
 #save-username {
   width: 200px;
-  margin-left: 50px;
+  margin-left: 74px;
 }
 
 #save-username:hover {
@@ -360,7 +360,7 @@ button:hover {
 
 #change-avatar {
   width: 150px;
-  margin-left: 23;
+  margin-left: 23px;
 }
 
 #change-username {

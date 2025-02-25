@@ -270,8 +270,8 @@ button:hover {
 
 @media (max-width: 768px) {
   .back-to-main-menu {
-    margin-left: 55px;
-    width: 200px;
+   margin-left: 55px;
+   width: 200px;
    }
 }
 
@@ -397,28 +397,6 @@ button:hover {
    margin-left: 35px;
    width: 115px;
    height: 60px;
-   }
-}
-
-/* Stile per il pulsante "Torna al menu principale" */
-.back-to-main-menu {
-  background-color: #007bff;
-  color: white;
-  width: 230px;
-  margin-left: 60px;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
-  margin-bottom: 5px;
-  margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  .back-to-main-menu {
-   margin-left: 58px;
-   width: 200px;
    }
 }
 

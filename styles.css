@@ -207,7 +207,6 @@ button {
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 5px;
-  border: 1px solid #000
   font-size: 14px;
 }
 
@@ -240,13 +239,12 @@ button:hover {
   background-color: #007bff;
   color: white;
   width: 230px;
-  margin-left: 55px;
+  margin-left: 35px;
   border: none;
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
-  border: 1px solid #000
   margin-bottom: 10px;
 }
 

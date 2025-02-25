@@ -367,7 +367,7 @@ button:hover {
 @media (max-width: 768px) {
   #new-username {
    margin: 7px;
-   margin-left: 70px;
+   margin-left: 72px;
    }
 }
 
@@ -394,8 +394,8 @@ button:hover {
 
 @media (max-width: 768px) {
   #change-avatar {
-   margin-left: 45px;
-   width: 110px;
+   margin-left: 35px;
+   width: 115px;
    height: 60px;
    }
 }
@@ -428,7 +428,7 @@ button:hover {
 
 @media (max-width: 768px) {
   #change-username {
-   width: 110px;
+   width: 120px;
    height: 60px;
    }
 }

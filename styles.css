@@ -395,6 +395,11 @@ button:hover {
   margin-top: 5px;
 }
 
+#h3 {
+  margin: 0px;
+  margin-left: 110px;
+}
+
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;

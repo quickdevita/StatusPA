@@ -140,6 +140,13 @@ body {
   flex-direction: column;
 }
 
+/* Su smartphone (max 768px di larghezza), imposta 300px */
+@media (max-width: 768px) {
+  .user-menu-container {
+    width: 300px;
+  }
+}
+
 .user-menu-container.open {
   transform: translateX(0);
 }

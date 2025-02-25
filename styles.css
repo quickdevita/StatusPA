@@ -466,6 +466,15 @@ h3 {
   margin-left: 100px;
 }
 
+@media (max-width: 768px) {
+  h3 {
+   margin: 7px;
+   margin-left: 100px;
+   }
+}
+
+
+
 /* Stile per il punto esclamativo */
 .exclamation-mark {
   position: fixed;

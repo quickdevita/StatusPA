@@ -262,7 +262,8 @@ button:hover {
 
 @media (max-width: 768px) {
   .back-to-main-menu {
-   margin-left: 20px;
+    margin-left: 55px;
+    width: 200px;
    }
 }
 
@@ -365,13 +366,15 @@ button:hover {
 }
 
 #change-avatar {
-  width: 150px;
-  margin-left: 23px;
+ width: 150px;
+ margin-left: 23px;
 }
 
 @media (max-width: 768px) {
   #change-avatar {
-   margin-left: 20px;
+   margin-left: 45px;
+   width: 110px;
+   height: 60px;
    }
 }
 
@@ -402,7 +405,8 @@ button:hover {
 
 @media (max-width: 768px) {
   #change-username {
-   margin-left: 20px;
+   width: 110px;
+   height: 60px;
    }
 }
 

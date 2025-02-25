@@ -232,6 +232,14 @@ button:hover {
   width: 200px;
 }
 
+@media (max-width: 768px) {
+  #delete-profile {
+   margin-left: 60px;
+   width: 200px;
+   margin-top: 8px;
+   }
+}
+
 #delete-profile:hover {
   background-color: #d32f2f;
 }
@@ -356,9 +364,23 @@ button:hover {
   margin-left: 87px;
 }
 
+@media (max-width: 768px) {
+  #new-username {
+   margin: 7px;
+   margin-left: 70px;
+   }
+}
+
 #save-username {
   width: 200px;
   margin-left: 74px;
+}
+
+@media (max-width: 768px) {
+  #save-username {
+   margin-left: 60px;
+   width: 200px;
+   }
 }
 
 #save-username:hover {
@@ -395,7 +417,8 @@ button:hover {
 
 @media (max-width: 768px) {
   .back-to-main-menu {
-   margin-left: 20px;
+   margin-left: 58px;
+   width: 200px;
    }
 }
 
@@ -438,9 +461,9 @@ button:hover {
   margin-top: 5px;
 }
 
-#h3 {
-  margin: 0px;
-  margin-left: 110px;
+h3 {
+  margin: 5px;
+  margin-left: 100px;
 }
 
 /* Stile per il punto esclamativo */

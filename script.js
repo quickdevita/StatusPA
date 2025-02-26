@@ -627,6 +627,12 @@ profileImgInput.addEventListener('change', async (event) => {
 
     const objectURL = URL.createObjectURL(blob);
     userAvatar.src = objectURL;
+
+    // **Aggiornare anche l'icona utente esterna**
+    const iconaUtenteEsterna = document.getElementById("icona-utente");
+    if (iconaUtenteEsterna) {
+      iconaUtenteEsterna.style.backgroundImage = `url('${objectURL}')`;
+    }
   }
 });
 

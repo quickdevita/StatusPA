@@ -666,42 +666,46 @@ deleteProfileBtn.addEventListener('click', async () => {
   }
 });
 
-// UFO
-const userMenu = document.getElementById("user-menu");
-const ufo = document.getElementById("ufo");
 
-function toggleMenu() {
-  if (userMenu.classList.contains("open")) {
-    // Se il menu è aperto, chiudilo ed esegui l'animazione di uscita
-    ufo.classList.add("exit"); // Avvia l'animazione di uscita
-    setTimeout(() => {
-      ufo.style.display = "none"; // Nasconde la navicella dopo l'animazione
-      ufo.classList.remove("exit"); // Rimuove la classe per il prossimo ingresso
-    }, 1000); // Deve essere uguale alla durata dell'animazione CSS (1s)
-  } else {
-    // Se il menu si apre, mostra la navicella normalmente
-    ufo.style.display = "block";
+document.addEventListener("DOMContentLoaded", async () => {
+  // UFO
+  const userMenu = document.getElementById("user-menu");
+  const userAvatar = document.getElementById("user-avatar");
+  const ufo = document.getElementById("ufo");
+  const avatarImg = document.getElementById("avatar-img");
+
+  function toggleMenu() {
+    if (userMenu.classList.contains("open")) {
+      // Se il menu è aperto, chiudilo ed esegui l'animazione di uscita
+      ufo.classList.add("exit"); // Avvia l'animazione di uscita
+      setTimeout(() => {
+        ufo.style.display = "none"; // Nasconde la navicella dopo l'animazione
+        ufo.classList.remove("exit"); // Rimuove la classe per il prossimo ingresso
+      }, 1000); // Deve essere uguale alla durata dell'animazione CSS (1s)
+    } else {
+      // Se il menu si apre, mostra la navicella normalmente
+      ufo.style.display = "block";
+    }
+    userMenu.classList.toggle("open");
   }
-  userMenu.classList.toggle("open");
-}
 
-document.getElementById("user-avatar").addEventListener("click", toggleMenu);
+  userAvatar.addEventListener("click", toggleMenu);
 
-// Funzione per recuperare l'avatar dalla cache
-async function loadAvatarFromCache() {
-  const cache = await caches.open('user-profile-cache');
-  const response = await cache.match('/user-avatar');
-  
-  if (response) {
-    const blob = await response.blob();
-    const objectURL = URL.createObjectURL(blob);
-    document.getElementById('avatar-img').src = objectURL;
+  // Funzione per recuperare l'avatar dalla cache
+  async function loadAvatarFromCache() {
+    const cache = await caches.open('user-profile-cache');
+    const response = await cache.match('/user-avatar');
+    
+    if (response) {
+      const blob = await response.blob();
+      const objectURL = URL.createObjectURL(blob);
+      avatarImg.src = objectURL;
+    }
   }
-}
 
-// Chiamata alla funzione per caricare l'avatar salvato
-loadAvatarFromCache();
-
+  // Chiamata alla funzione per caricare l'avatar salvato
+  await loadAvatarFromCache();
+});
 
 
 // ==========================

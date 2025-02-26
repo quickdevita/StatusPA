@@ -687,6 +687,22 @@ function toggleMenu() {
 
 document.getElementById("user-avatar").addEventListener("click", toggleMenu);
 
+// Funzione per recuperare l'avatar dalla cache
+async function loadAvatarFromCache() {
+  const cache = await caches.open('user-profile-cache');
+  const response = await cache.match('/user-avatar');
+  
+  if (response) {
+    const blob = await response.blob();
+    const objectURL = URL.createObjectURL(blob);
+    document.getElementById('avatar-img').src = objectURL;
+  }
+}
+
+// Chiamata alla funzione per caricare l'avatar salvato
+loadAvatarFromCache();
+
+
 
 // ==========================
 // 🔙 TORNA AL MENU PRINCIPALE

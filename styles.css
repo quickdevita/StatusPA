@@ -482,7 +482,7 @@ h3 {
   left: 50%;
   width: 50px;
   height: 50px;
-  background: url('ufo.png') no-repeat center/contain;
+  background: url("img/ufo.png") no-repeat center/contain;
   transform-origin: center;
   transition: opacity 0.5s ease-in-out;
 }

@@ -461,7 +461,10 @@ const deleteProfileBtn = document.getElementById('delete-profile');
 const backToMainMenuBtn = document.getElementById('back-to-main-menu');
 const settingsBtn = document.getElementById('settings-button'); // Pulsante impostazioni
 const updatesButton = document.getElementById('updates-button'); //Pulsante Aggiornamenti App
-const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn, updatesButton]; // Pulsanti principali
+const newsButton = document.getElementById('news-button');
+const manifestoButton = document.getElementById('manifesto-button');
+const reportButton = document.getElementById('report-button');
+const allMainButtons = [createProfileBtn, manageProfileBtn, settingsBtn, updatesButton, reportButton, newsButton, manifestoButton ]; // Pulsanti principali
 
 const APP_VERSION = 'beta0.4';
 document.getElementById('user-version').textContent = `Versione: ${APP_VERSION}`;
@@ -543,9 +546,15 @@ function toggleMainButtons(shouldShow) {
   if (shouldShow) {
     settingsBtn.style.display = 'block';
     updatesButton.style.display = 'block';
+    manifestoButton.style.display = 'block';
+    reportButton.style.display = 'block';
+    newsButton.style.display = 'block';
   } else {
     settingsBtn.style.display = 'none';
     updatesButton.style.display = 'none';
+    manifestoButton.style.display = 'none';
+    reportButton.style.display = 'none';
+    newsButton.style.display = 'none';
   }
 }
 

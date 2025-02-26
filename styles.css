@@ -459,39 +459,6 @@ h3 {
    }
 }
 
-// UFO 
-
-@keyframes rotateUFO {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes hoverUFO {
-  0%, 100% { top: -40px; }
-  50% { top: -50px; }
-}
-
-@keyframes exitUFO {
-  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-  100% { transform: translate(200px, -200px) rotate(720deg); opacity: 0; }
-}
-
-.ufo {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  background: url("img/ufo.png") no-repeat center/contain;
-  transform-origin: center;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.ufo.exit {
-  animation: exitUFO 1s forwards;
-}
-
-
 
 
 /* Stile per il punto esclamativo */

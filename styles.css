@@ -181,8 +181,8 @@ body {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 6px solid #188f8e66;
-  background-color: #188f8e38;
+  border-bottom: 4px solid 6px solid #ff8c003b;
+  background-color: #ff8c0061;
 }
 
 .user-profile-section img {
@@ -211,7 +211,7 @@ hr {
 
 /* Pulsanti */
 button {
-  background-color: #007bff;
+  background-color: #ff8c00;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -254,7 +254,7 @@ button:hover {
 
 /* Stile per il pulsante "Torna al menu principale" */
 .back-to-main-menu {
-  background-color: #007bff;
+  background-color: #ff8c00;
   color: white;
   width: 230px;
   margin-left: 60px;

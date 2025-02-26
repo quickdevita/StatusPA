@@ -640,6 +640,13 @@ profileImgInput.addEventListener("change", async (event) => {
   }
 });
 
+// Funzione per ripristinare l'icona utente esterna all'immagine di default
+function ripristinaIconaDefault() {
+  if (iconaUtenteEsterna) {
+    iconaUtenteEsterna.src = "img/user-icon.png"; // Ripristina l'icona di default
+  }
+}
+
 // Recuperare l'immagine salvata all'avvio
 document.addEventListener("DOMContentLoaded", async () => {
   const profile = await getProfileFromCache();
@@ -655,6 +662,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         iconaUtenteEsterna.src = objectURL;
       }
     }
+  } else {
+    // Se non c'è un profilo, ripristina l'icona di default
+    ripristinaIconaDefault();
   }
 });
 
@@ -691,8 +701,15 @@ deleteProfileBtn.addEventListener('click', async () => {
 
     // Ripristina la visibilità dei pulsanti principali quando il profilo viene eliminato
     toggleMainButtons(true);
+
+    // **Ripristina l'icona utente esterna all'immagine di default**
+    const iconaUtenteEsterna = document.querySelector("#user-icon img");
+    if (iconaUtenteEsterna) {
+      iconaUtenteEsterna.src = 'img/user-icon.png'; // Ripristina l'icona di default
+    }
   }
 });
+
 
 // ==========================
 // 🔙 TORNA AL MENU PRINCIPALE

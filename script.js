@@ -626,12 +626,31 @@ profileImgInput.addEventListener('change', async (event) => {
     await saveProfileToCache(profile);
 
     const objectURL = URL.createObjectURL(blob);
-    userAvatar.src = objectURL;
+    userAvatar.src = objectURL; // Aggiorna l'avatar nel menu
 
-    // **Aggiornare anche l'icona utente esterna**
+    // **Aggiorna anche l'icona esterna**
     const iconaUtenteEsterna = document.getElementById("icona-utente");
     if (iconaUtenteEsterna) {
-      iconaUtenteEsterna.style.backgroundImage = `url('${objectURL}')`;
+      iconaUtenteEsterna.src = objectURL; // Cambia direttamente il src
+    }
+  }
+});
+
+// Al caricamento della pagina, recuperare l'immagine salvata e applicarla
+document.addEventListener("DOMContentLoaded", async () => {
+  const profile = await getProfileFromCache();
+  if (profile && profile.image) {
+    const response = await caches.match('/user-avatar');
+    if (response) {
+      const blob = await response.blob();
+      const objectURL = URL.createObjectURL(blob);
+      
+      // Aggiorna sia l'avatar interno che l'icona esterna
+      userAvatar.src = objectURL;
+      const iconaUtenteEsterna = document.getElementById("icona-utente");
+      if (iconaUtenteEsterna) {
+        iconaUtenteEsterna.src = objectURL;
+      }
     }
   }
 });

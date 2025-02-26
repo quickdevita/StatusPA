@@ -609,45 +609,48 @@ manageProfileBtn.addEventListener('click', () => {
   toggleMainButtons(false);
 });
 
-// Cambiare immagine
-changeAvatarBtn.addEventListener('click', () => profileImgInput.click());
+// Seleziona l'icona utente esterna (l'img dentro #user-icon)
+const iconaUtenteEsterna = document.querySelector("#user-icon img");
 
-profileImgInput.addEventListener('change', async (event) => {
+// Cambiare immagine
+changeAvatarBtn.addEventListener("click", () => profileImgInput.click());
+
+profileImgInput.addEventListener("change", async (event) => {
   const file = event.target.files[0];
   if (file) {
-    const cache = await caches.open('user-profile-cache');
+    const cache = await caches.open("user-profile-cache");
     const blob = new Blob([await file.arrayBuffer()], { type: file.type });
-    const response = new Response(blob, { headers: { 'Content-Type': file.type } });
+    const response = new Response(blob, { headers: { "Content-Type": file.type } });
 
-    await cache.put('/user-avatar', response);
+    await cache.put("/user-avatar", response);
 
     const profile = await getProfileFromCache();
-    profile.image = '/user-avatar';
+    profile.image = "/user-avatar";
     await saveProfileToCache(profile);
 
     const objectURL = URL.createObjectURL(blob);
-    userAvatar.src = objectURL; // Aggiorna l'avatar nel menu
 
-    // **Aggiorna anche l'icona esterna**
-    const iconaUtenteEsterna = document.getElementById("icona-utente");
+    // Aggiorna l'avatar nel menu
+    userAvatar.src = objectURL;
+
+    // **Aggiorna anche l'icona utente esterna**
     if (iconaUtenteEsterna) {
-      iconaUtenteEsterna.src = objectURL; // Cambia direttamente il src
+      iconaUtenteEsterna.src = objectURL;
     }
   }
 });
 
-// Al caricamento della pagina, recuperare l'immagine salvata e applicarla
+// Recuperare l'immagine salvata all'avvio
 document.addEventListener("DOMContentLoaded", async () => {
   const profile = await getProfileFromCache();
   if (profile && profile.image) {
-    const response = await caches.match('/user-avatar');
+    const response = await caches.match("/user-avatar");
     if (response) {
       const blob = await response.blob();
       const objectURL = URL.createObjectURL(blob);
-      
-      // Aggiorna sia l'avatar interno che l'icona esterna
+
+      // **Aggiorna sia l'avatar interno che l'icona esterna**
       userAvatar.src = objectURL;
-      const iconaUtenteEsterna = document.getElementById("icona-utente");
       if (iconaUtenteEsterna) {
         iconaUtenteEsterna.src = objectURL;
       }

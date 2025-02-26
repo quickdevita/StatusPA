@@ -459,6 +459,30 @@ h3 {
    }
 }
 
+#profile-name {
+   margin-left: 85px;
+   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #profile-name {
+   margin-left: 65px;
+   margin-top: 10px;
+   }
+}
+
+#save-profile {
+   margin-left: 120px;
+   margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  #save-profile {
+   margin-top: 5px;
+   margin-left: 100px;
+   }
+}
+
 
 
 /* Stile per il punto esclamativo */

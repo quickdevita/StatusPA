@@ -325,7 +325,10 @@ button:hover {
 
 /* Stile pulsanti con icona */
 #settings-button,
-#updates-button {
+#updates-button,
+#news-button,
+#manifesto-button,
+#report-button {
   all: unset;
   display: flex; /* Allinea icona e testo */
   align-items: center; /* Centra verticalmente */
@@ -340,19 +343,25 @@ button:hover {
 }
 
 /* Ultimo elemento senza bordo */
-#updates-button {
+#settings-button {
   border-bottom: none;
 }
 
 /* Hover effetto OSM */
 #settings-button:hover,
-#updates-button:hover {
+#updates-button:hover,
+#news-button:hover,
+#manifesto-button:hover,
+#report-button:hover {
   background-color: #f2f2f2; /* Grigio chiaro al passaggio del mouse */
 }
 
 /* Stile delle icone */
 #settings-button i,
-#updates-button i {
+#updates-button i,
+#news-button i,
+#manifesto-button i,
+#report-button i {
   font-size: 18px;
   color: #666; /* Colore icona leggermente più chiaro */
   width: 24px; /* Larghezza fissa per allineare bene il testo */

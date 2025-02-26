@@ -108,7 +108,7 @@ body {
   right: 10px; /* Posizionato a destra */
   width: 55px; /* Dimensione dell'icona */
   height: 55px; /* Dimensione dell'icona */
-  background-color: white;
+  background-color: #ff8c00;
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -119,8 +119,8 @@ body {
 }
 
 #user-icon img {
-  width: 70%;
-  height: 70%;
+  width: 94%;
+  height: 94%;
   border-radius: 50%;
 }
 

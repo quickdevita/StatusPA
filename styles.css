@@ -461,17 +461,6 @@ h3 {
 
 // UFO 
 
-.ufo {
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  background: url('ufo.png') no-repeat center/contain;
-  transform-origin: center;
-  animation: rotateUFO 3s linear infinite, hoverUFO 2s ease-in-out infinite;
-}
-
 @keyframes rotateUFO {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -482,12 +471,24 @@ h3 {
   50% { top: -50px; }
 }
 
-.ufo {
-  display: none; /* Nascondi la navicella di default */
+@keyframes exitUFO {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate(200px, -200px) rotate(720deg); opacity: 0; }
 }
 
-#user-menu.open .ufo {
-  display: block; /* Mostrala quando il menu si apre */
+.ufo {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: url('ufo.png') no-repeat center/contain;
+  transform-origin: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.ufo.exit {
+  animation: exitUFO 1s forwards;
 }
 
 

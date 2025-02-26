@@ -666,6 +666,28 @@ deleteProfileBtn.addEventListener('click', async () => {
   }
 });
 
+// UFO
+const userMenu = document.getElementById("user-menu");
+const ufo = document.getElementById("ufo");
+
+function toggleMenu() {
+  if (userMenu.classList.contains("open")) {
+    // Se il menu è aperto, chiudilo ed esegui l'animazione di uscita
+    ufo.classList.add("exit"); // Avvia l'animazione di uscita
+    setTimeout(() => {
+      ufo.style.display = "none"; // Nasconde la navicella dopo l'animazione
+      ufo.classList.remove("exit"); // Rimuove la classe per il prossimo ingresso
+    }, 1000); // Deve essere uguale alla durata dell'animazione CSS (1s)
+  } else {
+    // Se il menu si apre, mostra la navicella normalmente
+    ufo.style.display = "block";
+  }
+  userMenu.classList.toggle("open");
+}
+
+document.getElementById("user-avatar").addEventListener("click", toggleMenu);
+
+
 // ==========================
 // 🔙 TORNA AL MENU PRINCIPALE
 // ==========================

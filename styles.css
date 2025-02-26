@@ -222,7 +222,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #915409;
 }
 
 #delete-profile {
@@ -276,7 +276,7 @@ button:hover {
 }
 
 .back-to-main-menu:hover {
-  background-color: #007bff;
+  background-color: #915409;
 }
 
 /* Contenitore a schermo intero */
@@ -392,7 +392,7 @@ button:hover {
 }
 
 #save-username:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #change-avatar {
@@ -420,27 +420,27 @@ button:hover {
 }
 
 #change-avatar:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #change-username:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #back-to-main-menu:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #manage-profile:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #save-profile:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #create-profile:hover {
-  background-color: #0056b3;
+  background-color: #915409;
 }
 
 #manage-profile {
